@@ -1,2 +1,2 @@
 # docs
-Z-Blog/Z-BlogPHP Documentation
+Z-BlogPHP Documentation
