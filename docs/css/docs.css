@@ -1,92 +1,92 @@
 
 body {
-    background-color: #eef1f4;
+  background-color: #eef1f4;
 }
 
 nav.app-nav ul li a img {
-    vertical-align: top;
-    margin-right: 5px;
-    width: 20px;
+  vertical-align: top;
+  margin-right: 5px;
+  width: 20px;
 }
 
 aside.sidebar {
-    background-image: linear-gradient(#2c3e50,#51606f);
-    background-attachment: fixed;
-    width: 280px;
+  background-image: linear-gradient(#2c3e50,#51606f);
+  background-attachment: fixed;
+  width: 280px;
 }
 
 .content {
-    background-color: #eef1f4;
-    left: 280px;
+  background-color: #eef1f4;
+  left: 280px;
 }
 
 .search {
-    padding-top: 10px!important;
-    border-bottom: 1px solid #333333!important;
+  padding-top: 10px!important;
+  border-bottom: 1px solid #333333!important;
 }
 
 .search input {
-    background-color: #eef1f4;
-    border-radius: 9999px;
-    padding-left: 20px!important;
+  background-color: #eef1f4;
+  border-radius: 9999px;
+  padding-left: 20px!important;
 }
 
 a.app-name-link {
-    color: #ffffff!important;
+  color: #ffffff!important;
 }
 
 .sidebar ul li a {
-    color: #fafafa;
-    opacity: .93;
+  color: #fafafa;
+  opacity: .93;
 }
 
 button.sidebar-toggle {
-    width: 260px;
+  width: 260px;
 }
 
 .results-panel {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .sidebar-toggle {
-    background-color: transparent!important;
+  background-color: transparent!important;
 }
 
 .sidebar-toggle span {
-    background-color: #fafafa;
+  background-color: #fafafa;
 }
 
 body.close .sidebar-toggle span {
-    background-color: #405061;
+  background-color: #405061;
 }
 
 .search .clear-button svg circle {
-    fill: #eef1f4;
+  fill: #eef1f4;
 }
 
 .search .clear-button svg path {
-    stroke: #2f4153;
+  stroke: #2f4153;
 }
 
 .sidebar ul, .sidebar ul li {
-    color: #a4aab2;
-    font-weight: bold;
+  color: #a4aab2;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 768px) {
-    .app-nav {
-        display: none;
-    }
+  .app-nav {
+    display: none;
+  }
 
-    .sidebar {
-        background-color: #3e4e5f;
-    }
+  .sidebar {
+    background-color: #3e4e5f;
+  }
 
-    .sidebar-toggle span {
-        background-color: #405061;
-    }
-    
-    body.close .sidebar-toggle span {
-        background-color: #fafafa;
-    }
+  .sidebar-toggle span {
+    background-color: #405061;
+  }
+
+  body.close .sidebar-toggle span {
+    background-color: #fafafa;
+  }
 }
