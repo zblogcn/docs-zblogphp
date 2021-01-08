@@ -1,4 +1,8 @@
 
+body {
+    background-color: #eef1f4;
+}
+
 nav.app-nav ul li a img {
     vertical-align: top;
     margin-right: 5px;
@@ -33,6 +37,7 @@ a.app-name-link {
 
 .sidebar ul li a {
     color: #fafafa;
+    opacity: .93;
 }
 
 button.sidebar-toggle {
@@ -44,14 +49,14 @@ button.sidebar-toggle {
 }
 
 .sidebar-toggle {
-    background-color: transparent;
+    background-color: transparent!important;
 }
 
 .sidebar-toggle span {
     background-color: #fafafa;
 }
 
-body.sticky.close .sidebar-toggle span {
+body.close .sidebar-toggle span {
     background-color: #405061;
 }
 
@@ -66,4 +71,22 @@ body.sticky.close .sidebar-toggle span {
 .sidebar ul, .sidebar ul li {
     color: #a4aab2;
     font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .app-nav {
+        display: none;
+    }
+
+    .sidebar {
+        background-color: #3e4e5f;
+    }
+
+    .sidebar-toggle span {
+        background-color: #405061;
+    }
+    
+    body.close .sidebar-toggle span {
+        background-color: #fafafa;
+    }
 }
