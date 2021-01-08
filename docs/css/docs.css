@@ -65,4 +65,5 @@ body.sticky.close .sidebar-toggle span {
 
 .sidebar ul, .sidebar ul li {
     color: #a4aab2;
+    font-weight: bold;
 }
