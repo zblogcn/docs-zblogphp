@@ -1,92 +1,35 @@
 
-body {
-  background-color: #eef1f4;
-}
-
 nav.app-nav ul li a img {
   vertical-align: top;
   margin-right: 5px;
   width: 20px;
 }
 
-aside.sidebar {
-  background-image: linear-gradient(#2c3e50,#51606f);
-  background-attachment: fixed;
-  width: 280px;
+.markdown-section blockquote {
+  margin: 20px 0!important;
+  background-color: #f5f8fc;
+  padding: 1rem;
+  color: #8796a8;
+  border-left: none;
 }
 
-.content {
-  background-color: #eef1f4;
-  left: 280px;
+.markdown-section blockquote p {
+  margin: 0.5em 0;
+  font-weight: 400;
 }
 
-.search {
-  padding-top: 10px!important;
-  border-bottom: 1px solid #333333!important;
+.markdown-section a {
+  color: #1775cc;
+  font-weight: 400;
+  text-decoration: none;
 }
 
-.search input {
-  background-color: #eef1f4;
-  border-radius: 9999px;
-  padding-left: 20px!important;
-}
-
-a.app-name-link {
-  color: #ffffff!important;
-}
-
-.sidebar ul li a {
-  color: #fafafa;
-  opacity: .93;
-}
-
-button.sidebar-toggle {
-  width: 260px;
-}
-
-.results-panel {
-  color: #ffffff;
-}
-
-.sidebar-toggle {
-  background-color: transparent!important;
-}
-
-.sidebar-toggle span {
-  background-color: #fafafa;
-}
-
-body.close .sidebar-toggle span {
-  background-color: #405061;
-}
-
-.search .clear-button svg circle {
-  fill: #eef1f4;
-}
-
-.search .clear-button svg path {
-  stroke: #2f4153;
-}
-
-.sidebar ul, .sidebar ul li {
-  color: #a4aab2;
-  font-weight: bold;
+.markdown-section a:hover, .markdown-section a:focus {
+  color: #0081f9;
 }
 
 @media screen and (max-width: 768px) {
   .app-nav {
     display: none;
-  }
-
-  .sidebar {
-    background-color: #3e4e5f;
-  }
-
-  .sidebar-toggle span {
-    background-color: #405061;
-  }
-
-  body.close .sidebar-toggle span {
-    background-color: #fafafa;
   }
 }
