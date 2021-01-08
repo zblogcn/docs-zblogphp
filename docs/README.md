@@ -1,7 +1,6 @@
-# Z-BlogPHP Documentation
+# Z-BlogPHP
 
-This is the Git repo for Z-BlogPHP documentation. You can find the online version at [https://php.docs.zblogcn.com](https://php.docs.zblogcn.com).
+Z-BlogPHP 基于 PHP 平台，支持 MySQL(含 MariaDB)、SQLite 和 PostgreSQL 数据库。期待它能成为您建站、写博的第一选择。
 
-## Contributing
+> 我们一直在努力把 Z-BlogPHP 打造成极具可玩性的、乐高积木式的网站程序！
 
-You can contribute to us via `Pull Request`.
