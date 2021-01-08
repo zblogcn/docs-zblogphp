@@ -62,3 +62,7 @@ body.sticky.close .sidebar-toggle span {
 .search .clear-button svg path {
     stroke: #2f4153;
 }
+
+.sidebar ul, .sidebar ul li {
+    color: #a4aab2;
+}
