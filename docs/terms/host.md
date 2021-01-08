@@ -1,0 +1,1 @@
+> host：用于浏览器访问的网址路径，比如`https://www.zblogcn.com/`；

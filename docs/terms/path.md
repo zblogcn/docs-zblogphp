@@ -1,0 +1,1 @@
+> path：当前博客程序所放置的路径，比如`/home/wwwroot/www.zblogcn.com`；
