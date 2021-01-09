@@ -8,7 +8,7 @@ Z-Blog 应用中心：[https://app.zblogcn.com/](https://app.zblogcn.com/ "Z-Blo
 
 ---
 
-对于zba后缀的文件，可以在[后台管理]，`主题管理`或`插件管理`中上传使用；
+对于zba后缀的文件，可以在「后台管理」，`主题管理` 或 `插件管理` 中上传使用；
 
 > 需要 `应用中心客户端` 插件开启才能上传应用，插件ID `AppCentre`；
 >
