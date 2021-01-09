@@ -1,7 +1,5 @@
 # 下载安装
 
-更新时间： {docsify-updated}
-
 ## 环境要求
 
 PHP：`PHP 5.2 - 8.0`
