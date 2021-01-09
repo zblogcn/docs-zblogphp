@@ -12,6 +12,6 @@
   - [发布应用](dev-app-publish)
   - [常见问题](dev-app-faq)
 - API
-  - [API开发](dev-api-start)
-  - [API列表](dev-api-list)
+  - [基本设计](dev-api-design)
+  - [通用模板](dev-api-common-template)
   - [常见问题](dev-api-faq)
