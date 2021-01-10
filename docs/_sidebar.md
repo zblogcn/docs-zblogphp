@@ -15,3 +15,5 @@
   - [基本设计](dev-api-design)
   - [通用模板](dev-api-common-template)
   - [常见问题](dev-api-faq)
+- 参与协作
+  - [文档规范](guide-docs)

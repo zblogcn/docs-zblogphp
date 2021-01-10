@@ -12,4 +12,4 @@ Z-BlogPHP 基于 PHP 平台，支持 MySQL(含 MariaDB)、SQLite 和 PostgreSQL 
 
 `zblogcn/zblogphp`：https://github.com/zblogcn/zblogphp
 
-`zblogcn/docs-zblogphp`: https://github.com/zblogcn/docs-zblogphp 「[线上地址](https://docs.zblogcn.com/php/#/ "Z-BlogPHP 官方文档")」
+`zblogcn/docs-zblogphp`: https://github.com/zblogcn/docs-zblogphp 「[线上地址](https://docs.zblogcn.com/php/#/ "Z-BlogPHP 官方文档")」 「[文档规范](guide-docs "docs-zblogphp 文档规范")」
