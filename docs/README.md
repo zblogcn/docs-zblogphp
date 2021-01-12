@@ -16,6 +16,6 @@ Z-BlogPHP 基于 PHP 平台，支持 MySQL(含 MariaDB)、SQLite 和 PostgreSQL 
 
 ### Wiki文档
 
-在我们的docs文档项目还没有完善的时候，我们会提供之前的Wiki地址供大家访问
+在我们的docs文档项目还没有完善的时候，我们会提供之前的Wiki地址供大家访问。
 
 `Z-Blog Wiki`：https://wiki.zblogcn.com/
