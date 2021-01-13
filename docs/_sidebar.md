@@ -2,6 +2,7 @@
   - [下载安装](start-install)
   - [配置管理](start-option)
   - [插件和主题](start-apps)
+  - [文件结构](start-structures)
   - [常见问题](start-faq)
 - 应用开发
   - [开始](dev-app-start)
