@@ -75,5 +75,5 @@ docsify serve docs
 
 **注：快捷键： `ctrl + space` 。**
 
-<!-- 拆分至 include/guide-snippets.md -->
-[guide-snippets](include/guide-snippets.md ':include')
+<!-- 拆分至 include/guide-snippets.json -->
+[guide-snippets](include/guide-snippets.json ':include')

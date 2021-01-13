@@ -1,4 +1,3 @@
-```json
 {
   "include": {
     "prefix": ["include", "inc_include"],
@@ -67,4 +66,3 @@
     "description": "docsify"
   }
 }
-```
