@@ -18,3 +18,4 @@
   - [常见问题](dev-api-faq)
 - 参与协作
   - [文档规范](guide-docs)
+- [版本历史](feat-history)
