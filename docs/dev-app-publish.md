@@ -14,9 +14,9 @@
 
 ## 应用验证
 
-[`Z5加密`](https://z5encrypt.com/)是由Z-Blog应用中心推出的PHP加密方案，也是Z-Blog应用中心唯一支持的加密方案。为确保用户权益，只有Z5加密后的加密文件被允许上架到应用中心，非使用Z5加密的应用代码必须以明文形式提交到应用中心上架。
+[`Z5加密`](https://z5encrypt.com/) 是由Z-Blog应用中心推出的PHP加密方案，也是 「Z-Blog 应用中心」 唯一支持的加密方案。为确保用户权益，只有Z5加密后的加密文件被允许上架到应用中心，非使用Z5加密的应用代码必须以明文形式提交到应用中心上架。
 
-`Z5加密`相关介绍内容详见：https://z5encrypt.com/docs/
+`Z5加密` 相关介绍内容详见：https://z5encrypt.com/docs/
 
 使用说明见：https://z5encrypt.com/docs/usage/
 
