@@ -74,17 +74,13 @@ POST 表示“新增”、“修改”和“删除”操作，对应数据库中
 | 系统模块                   | system   |
 | 设置模块                   | setting  |
 
-#### URL 通用格式：
+#### URL 通用格式
 
-```
-http[s]://<域名>/api.php?mod=<模块名>[&act=<行为名>][&其他...]
-```
+> `http[s]://<域名>/api.php?mod=<模块名>[&act=<行为名>][&其他...]`
 
 伪静态的情况：
 
-```
-http[s]://<域名>/api?mod=<模块名>[&act=<行为名>][&其他...]
-```
+> `http[s]://<域名>/api?mod=<模块名>[&act=<行为名>][&其他...]`
 
 由于是单一入口，因此不同的模块不能用路径表示，需要用 URL 参数表示。参数排序不分先后。
 
@@ -168,15 +164,11 @@ POST `https://example.com/api.php?mod=user&act=update`
 
 要使用发出经过身份验证的请求，需要设置如下 `authorization` 头：
 
-```
-Authorization: Bearer {yourtokenhere}
-```
+> `Authorization: Bearer {yourtokenhere}`
 
 当然，也可以在请求参数中附加，如：
 
-```
-http://example.com/api.php?mod=setting&act=get&token={yourtokenhere}
-```
+> `http://example.com/api.php?mod=setting&act=get&token={yourtokenhere}`
 
 ## 公共消息响应头
 
