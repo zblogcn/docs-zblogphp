@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "no-empty-list": 1,
+    "no-empty-code": 1,
+    "no-empty-code-lang": 1,
+    "no-empty-inlinecode": 1,
+    "no-empty-blockquote": 1,
+    "no-space-in-link": 1,
+    "no-space-in-inlinecode": 1,
+    "no-special-characters": 1,
+    "no-fullwidth-number": 1,
+    "no-trailing-punctuation": 1,
+    "no-multiple-space-blockquote": 1,
+    "space-round-number": 1,
+    "space-round-alphabet": 1
+  }
+}
