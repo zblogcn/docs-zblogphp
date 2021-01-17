@@ -12,7 +12,7 @@
 
 docsify 文档：[https://docsify.js.org/#/zh-cn/](https://docsify.js.org/#/zh-cn/ "docsify")
 
-**注：这是一个 `npm` 项目，需要提前安装好 `Node.js` **
+**注：这是一个 `npm` 项目，需要提前安装好 `Node.js` 。**
 
 基本的命令备忘：
 
@@ -37,7 +37,7 @@ docsify serve docs
 
 ### 嵌套调用重复内容
 
-将需要重复使用的内容单独写进一个「\*.md文件」文件，然后可以用如下语法引用：
+将需要重复使用的内容单独写进一个「\*.md 文件」文件，然后可以用如下语法引用：
 
 ```md
 [host](terms/host.md ':include')
@@ -58,7 +58,7 @@ docsify serve docs
 
 独立成段使用时效果如上，同段落有其他内容时则作为指向链接，[类似这样](terms/repo-docs.md ':include')
 
-**重要：不要指定 `Prettier` 作为「\*.md文件」的格式化插件， 嵌套语法的单引号会变成双引号。**
+**重要：不要指定 `Prettier` 作为「\*.md 文件」的格式化插件， 嵌套语法的单引号会变成双引号。**
 
 ## 文法约定
 
