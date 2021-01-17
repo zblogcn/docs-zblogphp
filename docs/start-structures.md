@@ -1,6 +1,6 @@
 # 文件结构
 
-```
+```plain
 Z-BlogPHP
 │  index.php 首页
 │  search.php 搜索

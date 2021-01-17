@@ -1,17 +1,17 @@
 {
   "rules": {
-    "no-empty-list": 1,
-    "no-empty-code": 1,
-    "no-empty-code-lang": 1,
-    "no-empty-inlinecode": 1,
-    "no-empty-blockquote": 1,
-    "no-space-in-link": 1,
-    "no-space-in-inlinecode": 1,
-    "no-special-characters": 1,
-    "no-fullwidth-number": 1,
-    "no-trailing-punctuation": 1,
-    "no-multiple-space-blockquote": 1,
-    "space-round-number": 1,
-    "space-round-alphabet": 1
+    "no-empty-list": 2,
+    "no-empty-code": 2,
+    "no-empty-code-lang": 2,
+    "no-empty-inlinecode": 2,
+    "no-empty-blockquote": 2,
+    "no-space-in-link": 2,
+    "no-space-in-inlinecode": 2,
+    "no-special-characters": 2,
+    "no-fullwidth-number": 2,
+    "no-trailing-punctuation": 2,
+    "no-multiple-space-blockquote": 2,
+    "space-round-number": 2,
+    "space-round-alphabet": 2
   }
 }

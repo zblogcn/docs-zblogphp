@@ -10,9 +10,9 @@
   | filter_plugin_admin_pagemng_submenu	| 页面管理子菜单  |
   | filter_plugin_edit_begin	| 文章页面编辑页开始接口  |
   | filter_plugin_edit_end	| 文章页面编辑页结束接口  |
-  | filter_plugin_edit_response	| 文章页面编辑1号输出接口  |
-  | filter_plugin_edit_response2	| 文章页面编辑2号输出接口  |
-  | filter_plugin_edit_response3	| 文章页面编辑3号输出接口  |
+  | filter_plugin_edit_response	| 文章页面编辑 1 号输出接口  |
+  | filter_plugin_edit_response2	| 文章页面编辑 2 号输出接口  |
+  | filter_plugin_edit_response3	| 文章页面编辑 3 号输出接口  |
 
 - **「接管系统」方法类**：这一类接口一般用于接管按钮点击后发生的事情
 
@@ -24,7 +24,7 @@
   | Filter_Plugin_PostPage_Core	| article | 	页面编辑的核心接口  |
   | Filter_Plugin_PostPage_Succeed		| article | 	页面编辑成功的接口  |
   | Filter_Plugin_DelPage_Succeed	| article | 	页面删除成功的接口  |
-  | Filter_Plugin_Post_Call	| post,method,args | Post类的魔术方法接口  |
+  | Filter_Plugin_Post_Call	| post,method,args | Post 类的魔术方法接口  |
 - **「前台页面」输出类**：在网页内容输出到浏览器前进行变更或追加，包括额外引入样式、脚本。
 - **「数据写入」处理类**：在文章、评论等数据提交的过程中，具体又分为：
   - **Core**：在数据提交前介入，可用于过滤提交的数据内容。

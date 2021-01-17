@@ -2,4 +2,4 @@
 - [应用中心](https://app.zblogcn.com/ "Z-Blog 应用中心 - Z-Blog & Z-BlogPHP 应用大本营，提供免费与收费的 Z-Blog & Z-BlogPHP 主题、模板和插件的下载")
 - [菠萝阁](https://blog.zblogcn.com/)
 - [Z-Bloger](https://bbs.zblogcn.com/)
-- [![github](svg/github.svg) Z-BlogPHP](https://github.com/zblogcn/zblogphp "zblogcn/zblogphp: Z-BlogPHP博客程序")
+- [![github](svg/github.svg)Z-BlogPHP](https://github.com/zblogcn/zblogphp "zblogcn/zblogphp: Z-BlogPHP博客程序")

@@ -1,0 +1,23 @@
+name: Run lint-md
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-md:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+    - name: Install lint-md-cli
+      run: npm i lint-md-cli
+    - name: Get file changes
+      uses: trilom/file-changes-action@v1.2.4
+      with:
+        githubToken: ${{ secrets.GH_BOT_TOKEN }}
+        output: '" "'
+    - name: lint-md check
+      run: ./node_modules/.bin/lint-md ./docs/**/*.md --config mdlint.json
