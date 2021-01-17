@@ -69,6 +69,12 @@ docsify serve docs
 | **注：内容**           | 整段内容强调，                                                     |          |
 | **重要：内容**         | 整段内容强调，重要程度比上边高                                     |          |
 
+## 格式规范检查
+
+本文档使用 lint-md 检查格式规范，配置文件位于 `/mdlint.json`。您可以安装 VSCode 插件 `mdlint` （可以在插件市场搜索到）实时检查，或者通过 [lint-md/cli](https://github.com/lint-md/cli "lint-md/cli") 进行检查和修复。
+
+您通过 `Pull request` 或者直接提交到本仓库后，会运行 `GitHub Action` 来自动检查格式规范。
+
 ## 代码片段（VSCode）
 
 **注：中文文本后的英文字符无法触发代码片段，需要前边空一格且关掉中文输入法。**
@@ -77,10 +83,3 @@ docsify serve docs
 
 <!-- 拆分至 include/guide-snippets.json -->
 [guide-snippets](include/guide-snippets.json ':include')
-
-
-## 格式规范检查
-
-本文档使用 lint-md 检查格式规范，配置文件位于 `/mdlint.json`。您可以安装 VSCode 插件 `mdlint` （可以在插件市场搜索到）实时检查，或者通过 [lint-md/cli](https://github.com/lint-md/cli "lint-md/cli") 进行检查和修复。
-
-您通过 `Pull request` 或者直接提交到本仓库后，会运行 `GitHub Action` 来自动检查格式规范。
