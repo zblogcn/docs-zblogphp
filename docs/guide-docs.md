@@ -33,6 +33,8 @@ docsify serve docs
 
 **注：虽然不推荐，但是也可以不安装 `docsify` ，仅使用适合的 「代码编辑器」 或 「Markdown 编辑器」 对文件进行编辑后提交。**
 
+**注：对于 VSCode 编辑器，可以使用快捷键 `ctrl + shift + b` 自动执行 `docsify serve docs` 命令。**
+
 ## docsify 使用技巧
 
 ### 嵌套调用重复内容
