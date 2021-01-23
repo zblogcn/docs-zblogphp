@@ -9,6 +9,24 @@
 | Filter_Plugin_Admin_TopMenu  | array $topmenus  |                              |
 | Filter_Plugin_Admin_LeftMenu | array $leftmenus |                              |
 
+<details>
+<summary>接口示例（点击展开）</summary>
+
+```php
+function ActivePlugin_curApp() {
+  Add_Filter_Plugin('Filter_Plugin_Admin_Header','curApp_Admin_Header');
+}
+
+function curApp_Admin_Header()
+{
+  global $zbp;
+  echo '<script src="' . $zbp->host . 'zb_users/plugin/curApp/script/plugin.js"></script>';
+  echo '<style type="text/css">#divMain2 {margin-bottom: 6rem;}</style>';
+}
+```
+
+</details>
+
 ### 特定页 SubMenu
 
 | 接口                                    | 参数 | 说明 |
@@ -61,8 +79,8 @@
 
 ## 「管理页面」流程监听
 
-| 接口                       | 参数 | 说明 |
-| -------------------------- | ---- | ---- |
-| Filter_Plugin_Admin_Begin  |
-| Filter_Plugin_Admin_End |
+| 接口                      | 参数 | 说明 |
+| ------------------------- | ---- | ---- |
+| Filter_Plugin_Admin_Begin |
+| Filter_Plugin_Admin_End   |
 
