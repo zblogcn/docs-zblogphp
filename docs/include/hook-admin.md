@@ -64,5 +64,5 @@
 | 接口                       | 参数 | 说明 |
 | -------------------------- | ---- | ---- |
 | Filter_Plugin_Admin_Begin  |
-| Filter_Plugin_Admin_Footer |
+| Filter_Plugin_Admin_End |
 
