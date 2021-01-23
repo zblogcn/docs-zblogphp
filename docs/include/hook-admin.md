@@ -2,12 +2,12 @@
 
 ### 后台全局输出
 
-| 接口                         | 参数             | 说明                         |
-| ---------------------------- | ---------------- | ---------------------------- |
-| Filter_Plugin_Admin_Header   |                  | 用于向后台「header」输出内容 |
-| Filter_Plugin_Admin_Footer   |                  | 用于向后台「footer」输出内容 |
-| Filter_Plugin_Admin_TopMenu  | array $topmenus  |                              |
-| Filter_Plugin_Admin_LeftMenu | array $leftmenus |                              |
+| 接口                         | 参数             | 说明                           |
+| ---------------------------- | ---------------- | ------------------------------ |
+| Filter_Plugin_Admin_Header   |                  | 用于向后台「header」输出内容   |
+| Filter_Plugin_Admin_Footer   |                  | 用于向后台「footer」输出内容   |
+| Filter_Plugin_Admin_TopMenu  | `arr $topmenus`  | 用于向后台「顶部菜单」添加项目 |
+| Filter_Plugin_Admin_LeftMenu | `arr $leftmenus` | 用于向后台「侧栏菜单」添加项目 |
 
 <details>
 <summary>接口示例（点击展开）</summary>
@@ -15,14 +15,21 @@
 ```php
 function ActivePlugin_curApp() {
   Add_Filter_Plugin('Filter_Plugin_Admin_Header','curApp_Admin_Header');
+  Add_Filter_Plugin('Filter_Plugin_Admin_TopMenu','curApp_Admin_TopMenu');
 }
-
 function curApp_Admin_Header()
 {
   global $zbp;
   echo '<script src="' . $zbp->host . 'zb_users/plugin/curApp/script/plugin.js"></script>';
   echo '<style type="text/css">#divMain2 {margin-bottom: 6rem;}</style>';
 }
+function curApp_Admin_TopMenu(&$topmenus)
+{
+  global $zbp;
+  $topmenus[] = MakeTopMenu("root", "curApp管理", $zbp->host . "zb_users/plugin/curApp/main.php", "", "");
+}
+// Filter_Plugin_Admin_Footer 和 Filter_Plugin_Admin_LeftMenu 同理；
+// 对应有 MakeLeftMenu() 函数可用
 ```
 
 </details>
