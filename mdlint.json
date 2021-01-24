@@ -12,6 +12,13 @@
     "no-trailing-punctuation": 2,
     "no-multiple-space-blockquote": 2,
     "space-round-number": 2,
-    "space-round-alphabet": 2
+    "space-round-alphabet": 2,
+    "no-long-code": [
+      2,
+      {
+        "length": 137,
+        "exclude": []
+      }
+    ]
   }
 }
