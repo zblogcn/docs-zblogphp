@@ -20,11 +20,9 @@
 ZBP API 的整体思想是：服务端根据客户端发送的请求，针对 **模块** 进行相应的 **行为** 操作， 并将执行结果返回给客户端。本质上跟原有的网页版差别不大，就是同一套业务逻辑下的不同输出形式，网页版返回的是 HTML，API 返回的是 JSON。
 
 
-
 ## 统一入口
 
 规定接口入口为：`http[s]://<域名>/zb_system/api.php`
-
 
 
 ## 请求方法
@@ -38,34 +36,75 @@ POST 表示“新增”、“修改”和“删除”操作，对应数据库中
 为保证对大量参数的支持，对于“获取/查询”类型的接口，同时支持 GET 和 POST 两种请求方式；对于“增删改”类型的接口，只支持 POST 请求方式。
 
 
-
 ## 公共请求消息头
 
-| 消息头（Header） | 是否必需 | 示例值                          | 说明                                                         |
-| ---------------- | -------- | ------------------------------- | ------------------------------------------------------------ |
+| 消息头（Header） | 是否必需 | 示例值                          | 说明                                                                 |
+| ---------------- | -------- | ------------------------------- | -------------------------------------------------------------------- |
 | Content-Type     | 可选     | application/json; charset=utf-8 | 客户端接受的消息格式。<br />不管怎样，服务端始终返回 JSON 格式内容。 |
-| Accept-Encoding  | 可选     | gzip, deflate, br               | 客户端接受的压缩算法                                         |
-| User-Agent       | 可选     | Mozilla/5.0                     | -                                                            |
-| Referer          | 可选     | `https://example.com/`          | 来源地址                                                     |
-| Accept-Language  | 可选     | zh-cn                           | 客户端接受的语言代码                                         |
+| Accept-Encoding  | 可选     | gzip, deflate, br               | 客户端接受的压缩算法                                                 |
+| User-Agent       | 可选     | Mozilla/5.0                     | -                                                                    |
+| Referer          | 可选     | `https://example.com/`          | 来源地址                                                             |
+| Accept-Language  | 可选     | zh-cn                           | 客户端接受的语言代码                                                 |
 
 
+## 权限认证
 
-## URI 命名
+### 获取鉴权
 
-#### 规定
+POST `https://example.com/api.php?mod=member&act=login`
+
+HTTP Body:
+
+```json
+{
+  "username": "zblog_usr",
+  "password": "zblog_pwd"
+}
+```
+
+Response Body:
+
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": {
+    "user": {
+      "ID": "1",
+      "Level": "1",
+      "Name": "zblog_usr"
+    },
+    "token": "6K+t6K="
+  },
+  "error": null
+}
+```
+
+### 使用
+
+对于后续需要身份验证的请求，接受两种方式传递「鉴权 Token」：
+
+1. 设置如下 `authorization` 头：`Authorization: Bearer {YourToken}`
+
+2. 附加在 URL 中：`http://example.com/api.php?mod=setting&act=get&token={YourToken}`
+
+
+## 构造请求
+
+### 规定
 
 - URI 对大小写不敏感（不区分大小写）。
 
 - POST 的 HTTP Body 中，JSON 内容的属性名一律使用小写。
 
-#### 模块命名
+
+### 模块命名
 
 | 模块                       | 命名     |
-| ------------------------- | -------- |
+| -------------------------- | -------- |
 | 用户模块                   | member   |
-| 文章模块（包括页面）         | post     |
-| 应用模块（包括插件和主题）    | app      |
+| 文章模块（包括页面）       | post     |
+| 应用模块（包括插件和主题） | app      |
 | 侧栏模块                   | sidebar  |
 | 附件模块                   | upload   |
 | 评论模块                   | comment  |
@@ -74,7 +113,8 @@ POST 表示“新增”、“修改”和“删除”操作，对应数据库中
 | 系统模块                   | system   |
 | 设置模块                   | setting  |
 
-#### URL 通用格式
+
+### URL 通用格式
 
 > `http[s]://<域名>/api.php?mod=<模块名>[&act=<行为名>][&其他...]`
 
@@ -84,15 +124,16 @@ POST 表示“新增”、“修改”和“删除”操作，对应数据库中
 
 由于是单一入口，因此不同的模块不能用路径表示，需要用 URL 参数表示。参数排序不分先后。
 
-主要参数有两个：模块名和行为名。
+
+### URL 参数
 
 **模块名**
 
-模块名就是功能模块的英文名。
+- 模块名就是功能模块的英文名。
 
 **行为名**
 
-行为名代表操作，比如 `act=post` 表示新增资源，`act=update` 表示修改/更新资源，`act=delete` 表示删除资源。
+- 行为名代表操作，比如 `act=post` 表示新增资源，`act=update` 表示修改/更新资源，`act=delete` 表示删除资源。
 
 - 行为名缺省机制
 
@@ -110,31 +151,10 @@ POST 表示“新增”、“修改”和“删除”操作，对应数据库中
 
 **其他参数**
 
-表示一些附加内容，比如约束条件、授权信息的  Token 这些，或者其他第三方开发者自定义的内容。
+- 表示一些附加内容，比如约束条件、授权信息的  Token 这些，或者其他第三方开发者自定义的内容。
 
-#### GET 示例
 
-例如，请求获取 ID 为 123 的用户的信息。
-
-GET `https://example.com/api.php?mod=user&id=123`
-
-#### POST 示例
-
-例如，请求修改用户信息。
-
-规定：模块名和行为名用 URL 参数传递，其他信息以 HTTP Body 传递：
-
-POST `https://example.com/api.php?mod=user&act=update`
-
-```json
-{
-  "ID": 123,
-  "Name": "Chris",
-  "Email": "123@example.com"
-}
-```
-
-## 约束与过滤
+### 约束与过滤
 
 约束过滤器（Filter）一般用于列表类的资源，比如文章列表这种。
 
@@ -142,14 +162,14 @@ POST `https://example.com/api.php?mod=user&act=update`
 
 多个约束条件默认使用“AND”（与）逻辑。
 
-| 参数          | 类型   | 示例值       | 说明                            |
-| ------------ | ------ | ----------- | ------------------------------ |
-| limit        | int    | 10          | 指定返回记录的数量                |
-| offset       | int    | 10          | 指定返回记录的开始位置             |
-| page         | int    | 2           | 指定第几页                       |
-| perpage      | int    | 100         | 每页的记录数                     |
-| sortby       | string | name        | 指定返回结果按照哪个属性排序，大小写敏感，必须与数据表列名一致    |
-| order        | string | asc 或 desc | 排序顺序，asc：升序，desc：降序    |
+| 参数    | 类型   | 示例值      | 说明                                                           |
+| ------- | ------ | ----------- | -------------------------------------------------------------- |
+| limit   | int    | 10          | 指定返回记录的数量                                             |
+| offset  | int    | 10          | 指定返回记录的开始位置                                         |
+| page    | int    | 2           | 指定第几页                                                     |
+| perpage | int    | 100         | 每页的记录数                                                   |
+| sortby  | string | name        | 指定返回结果按照哪个属性排序，大小写敏感，必须与数据表列名一致 |
+| order   | string | asc 或 desc | 排序顺序，asc：升序，desc：降序                                |
 
 概览：
 
@@ -159,31 +179,20 @@ POST `https://example.com/api.php?mod=user&act=update`
 - sortby=name&order=asc：指定返回结果按照哪个属性排序，以及排序顺序
 
 
-
-## 权限认证
-
-要使用发出经过身份验证的请求，需要设置如下 `authorization` 头：
-
-> `Authorization: Bearer {yourtokenhere}`
-
-当然，也可以在请求参数中附加，如：
-
-> `http://example.com/api.php?mod=setting&act=get&token={yourtokenhere}`
-
 ## 公共消息响应头
 
 | 消息头（Header） | 说明 | 示例值                          | 说明                                             |
-| ---------------- | ---- | ------------------------------- | -------------------------------------------- |
+| ---------------- | ---- | ------------------------------- | ------------------------------------------------ |
 | Content-Type     | 必需 | application/json; charset=utf-8 | 目前默认只支持返回 JSON 格式                     |
-| Content-Encoding | 可选 | gzip                            | 内容压缩方式，根据客户端选择，默认启用 gzip 压缩     |
-| Date             | 可选 | Sun, 23 Feb 2020 07:03:41 GMT   | 服务端响应时间，有些时候可以用来测试延迟             |
+| Content-Encoding | 可选 | gzip                            | 内容压缩方式，根据客户端选择，默认启用 gzip 压缩 |
+| Date             | 可选 | Sun, 23 Feb 2020 07:03:41 GMT   | 服务端响应时间，有些时候可以用来测试延迟         |
 
 
 ## 通用返回格式
 
 服务端响应的 Body 内容为 JSON 字符串，统一为如下格式：
 
-| 参数名   | 类型    | 说明     |
+| 参数名  | 类型   | 说明     |
 | ------- | ------ | -------- |
 | message | string | 响应描述 |
 | data    | object | 主要数据 |
@@ -223,8 +232,6 @@ POST `https://example.com/api.php?mod=user&act=update`
   "error": null
 }
 ```
-
-
 
 ## 具体接口
 
