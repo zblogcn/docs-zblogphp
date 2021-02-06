@@ -168,7 +168,7 @@ Response Body:
 | offset  | int    | 10          | 指定返回记录的开始位置                                         |
 | page    | int    | 2           | 指定第几页                                                     |
 | perpage | int    | 100         | 每页的记录数                                                   |
-| sortby  | string | name        | 指定返回结果按照哪个属性排序，大小写敏感，必须与数据表列名一致 |
+| sortby  | string | name        | 指定返回结果按照哪个属性排序，大小写敏感，如 ID, PostTime...              |
 | order   | string | asc 或 desc | 排序顺序，asc：升序，desc：降序                                |
 
 概览：
