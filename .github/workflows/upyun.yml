@@ -23,13 +23,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@main
 
-      - name: install upx
+      - name: Install upx CLI
         run: |
           wget http://collection.b0.upaiyun.com/softwares/upx/upx_0.3.4_linux_x86_64.tar.gz
           sudo tar -zxvf upx_0.3.4_linux_x86_64.tar.gz
           sudo cp upx /bin/
 
-      - name: login upyun
+      - name: Login UPYUN
         run: |
           sudo ./upx login php-docs ${{secrets.UPYUN_OPERATOR}} ${{secrets.UPYUN_PASSWORD}}
+
+        name: Sync files
           sudo ./upx sync $GITHUB_WORKSPACE/docs /
