@@ -30,8 +30,7 @@ jobs:
           sudo cp upx /bin/
 
       - name: Login UPYUN
-        run: |
-          sudo ./upx login php-docs ${{secrets.UPYUN_OPERATOR}} ${{secrets.UPYUN_PASSWORD}}
+        run: sudo ./upx login php-docs ${{secrets.UPYUN_OPERATOR}} ${{secrets.UPYUN_PASSWORD}}
 
-        name: Sync files
-          sudo ./upx sync $GITHUB_WORKSPACE/docs /
+      - name: Sync files
+        run: sudo ./upx sync $GITHUB_WORKSPACE/docs /
