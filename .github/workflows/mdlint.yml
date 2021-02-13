@@ -15,4 +15,4 @@ jobs:
     - name: Install lint-md-cli
       run: npm i lint-md-cli
     - name: lint-md check
-      run: ./node_modules/.bin/lint-md ./docs/**/*.md --config mdlint.json
+      run: ./node_modules/.bin/lint-md ./docs --config mdlint.json
