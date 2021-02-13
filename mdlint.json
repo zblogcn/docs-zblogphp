@@ -14,7 +14,7 @@
     "space-round-number": 2,
     "space-round-alphabet": 2,
     "no-long-code": [
-      2,
+      1,
       {
         "length": 137,
         "exclude": []
