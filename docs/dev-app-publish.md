@@ -77,30 +77,6 @@ Z-Blog官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广大
 1. 验证因需要连接服务器，会严重影响页面访问速度。因此，不允许在模板的浏览页等地方插入这部分代码。
 2. 即使验证不通过，也不允许对用户的数据进行任何意义上的破坏。
 
-**老版本V1验证**
-
-从应用中心客户端(PHP版本，2.3版及以上)和应用中心客户端(ASP版本，3.2版及以上)，客户端内置一个验证函数，用于验证收费应用是否被使用者购买。
-
-PHP版本推荐代码
-推荐在插件或 主题的安装函数，设置提交页面放置这个验证函数，禁止放在浏览页面里，因为会频繁连接服务器。 参数区分大小写的。
-
-```php
-function InstallPlugin_插件ID(){
-  if(!AppCentre_Check_App_IsBuy("插件ID",false)){
-    // 检测到 app 未购买，可判定为 账号未登录 或 非法破解应用。
-    // 第2个参数为ture设为false，系统不抛出错误
-    // 请使用V2，此处仅作为历史记录
-  }
-}
-```
-
-```asp
-function InstallPlugin_插件ID(){
-  If Not AppCentre_Check_App_IsBuy("插件ID")
-      '检测app未购买时处理，处理权交由开发者决定，建议可做激活终止并跳转至应用购买链接等操作。
-  End If
-}
-```
 ## 应用验证回调
 
 ### 验证服务端
@@ -121,20 +97,20 @@ RSA公钥和HMAC-SHA256密钥见示例代码。
 		"verified": true, /* 是否验证成功 */
 		"cracking": false, /* 疑似破解 */
 		"user": {
-			"message": "面向用户的错误信息" 
+			"message": "面向用户的错误信息"
 		}
 	},
 	"appId": "应用ID",
-	"host": "网站", 
+	"host": "网站",
 	"user": {
 		"id": "应用中心ID",
-		"username": "用户账号" 
+		"username": "用户账号"
 	},
         "modified": "应用最后修改日期（时间戳）",
 	"license": {
-		"appId": "授权文件保存的应用ID", 
-		"userId": "授权文件保存的用户ID", 
-		"timestamp": "授权文件生成时间戳" 
+		"appId": "授权文件保存的应用ID",
+		"userId": "授权文件保存的用户ID",
+		"timestamp": "授权文件生成时间戳"
 	}
 }
 ```
@@ -169,19 +145,19 @@ lwIDAQAB
 		throw new Exception('Hash error!');
 	}
 }
- 
+
 $object = getVerifyData(file_get_contents('php://input'));
- 
+
 if ($object->error->verified) {
 	echo '验证通过';
 }
- 
+
 var_dump($object);
 ```
 
 ### 测试数据
 
-```bash 
+```bash
 PpBHLt70jUUpA1TdP38tm68bVWxRKDA69GqR04PA6on3lcGAwz2s8Dj4qMvCuMosI67b1JNFVELfMmxt1RfKQsSS2vLtIVdblDbmZCBptNd5IYNx2qFZFQQ5Hju3bhwR9VDW8fcy63bEOpWVYxAEhQXT3ztaLZn63gJhpDemA06Emxv6VJgxfe9uLTX31FCDfg6yd
 ```
 
