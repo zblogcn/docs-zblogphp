@@ -2,12 +2,10 @@
 
 name: Post to docs website
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -27,8 +25,8 @@ jobs:
 
       - name: install upx
         run: |
-          wget http://collection.b0.upaiyun.com/softwares/upx/upx_0.3.4_linux_x86_64.tar.gz      
-          sudo tar -zxvf upx_0.3.4_linux_x86_64.tar.gz  
+          wget http://collection.b0.upaiyun.com/softwares/upx/upx_0.3.4_linux_x86_64.tar.gz
+          sudo tar -zxvf upx_0.3.4_linux_x86_64.tar.gz
           sudo cp upx /bin/
 
       - name: login upyun
