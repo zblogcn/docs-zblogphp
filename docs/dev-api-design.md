@@ -51,7 +51,7 @@ POST 表示“新增”、“修改”和“删除”操作，对应数据库中
 
 ### 获取鉴权
 
-POST `https://example.com/api.php?mod=member&act=login`
+POST `https://example.com/zb_system/api.php?mod=member&act=login`
 
 HTTP Body:
 
@@ -86,7 +86,7 @@ Response Body:
 
 1. 设置如下 `authorization` 头：`Authorization: Bearer {YourToken}`；
 
-2. 附加在 URL 中：`http://example.com/api.php?mod=setting&act=get&token={YourToken}`；
+2. 附加在 URL 中：`https://example.com/zb_system/api.php?mod=setting&act=get&token={YourToken}`；
 
 **重要：对于第 1 种方法，可能需要额外对 web 空间进行设置，参见「[常见问题](dev-api-faq?id=apache-%e8%8e%b7%e5%8f%96%e4%b8%8d%e5%88%b0-authorization-%e5%a4%b4%e4%bf%a1%e6%81%af "常见问题")」；**
 
@@ -117,11 +117,11 @@ Response Body:
 
 ### URL 通用格式
 
-> `http[s]://<域名>/api.php?mod=<模块名>[&act=<行为名>][&其他...]`
+> `https://example.com/zb_system/api.php?mod=<模块名>[&act=<行为名>][&其他...]`
 
-伪静态的情况：
+<!-- 伪静态的情况：
 
-> `http[s]://<域名>/api?mod=<模块名>[&act=<行为名>][&其他...]`
+> `http[s]://<域名>/zb_system/api?mod=<模块名>[&act=<行为名>][&其他...]` -->
 
 由于是单一入口，因此不同的模块不能用路径表示，需要用 URL 参数表示。参数排序不分先后。
 
