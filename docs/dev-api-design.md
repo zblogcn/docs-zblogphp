@@ -62,6 +62,8 @@ HTTP Body:
 }
 ```
 
+**注：`password`建议使用 MD5 值；↑↑**
+
 Response Body:
 
 ```json
