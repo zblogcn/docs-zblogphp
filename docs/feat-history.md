@@ -6,11 +6,12 @@
 
 # 1.7
 
-- 1.7.0 Beta
+- 1.7.0 Beta [详细](https://blog.zblogcn.com/2021/02/08/117/ "1.7.0 Beta")
   - update. 「链式 SQL」增加更多方法；
   - feat. API；「[API 文档](dev-api-design "API文档")」
   - feat. 字体图标；
-  - feat. 内置缩略图；
+  - feat. 内置缩略图基类；
+  - feat. 新的 url 路由机制；
 
 # 1.6
 
