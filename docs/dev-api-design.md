@@ -84,7 +84,7 @@ Response Body:
 
 对于后续需要身份验证的请求，接受两种方式传递「鉴权 Token」：
 
-1. 设置如下 `authorization` 头：`Authorization: Bearer {YourToken}`；
+1. 设置如下 `authorization` 头：`Authorization: Bearer {YourToken}` ***（推荐）***
 
 2. 附加在 URL 中：`https://example.com/zb_system/api.php?mod=setting&act=get&token={YourToken}`；
 
