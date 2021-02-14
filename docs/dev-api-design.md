@@ -92,11 +92,11 @@ Response Body:
 
 ## 构造请求
 
-### 规定
+<!-- ### 规定
 
 - URI 对大小写不敏感（不区分大小写）。
 
-- POST 的 HTTP Body 中，JSON 内容的属性名一律使用小写。
+- POST 的 HTTP Body 中，JSON 内容的属性名一律使用小写。 -->
 
 
 ### 模块命名
@@ -136,7 +136,7 @@ Response Body:
 
 - 行为名代表操作，比如 `act=post` 表示新增资源，`act=update` 表示修改/更新资源，`act=delete` 表示删除资源。
 
-- 行为名缺省机制
+- 行为名缺省机制：
 
   在请求方法为 GET 的前提下，因为 GET 语义即为“获取”，故不指定行为名时，默认进行的操作即为 `act=get` 这一行为。
 
@@ -144,7 +144,7 @@ Response Body:
 
   POST 请求不支持行为名缺省机制，必须指定行为名。
 
-- 多语义行为名
+- 多语义行为名：
 
   多语义行为名可以表示针对更为具体的资源对象进行操作，多个语义的行为名词之间用英文下划线“_”分隔。
 
@@ -152,7 +152,7 @@ Response Body:
 
 **其他参数**
 
-- 表示一些附加内容，比如约束条件、授权信息的  Token 这些，或者其他第三方开发者自定义的内容。
+- 表示一些附加内容，比如约束条件、授权信息的 Token 这些，或者其他第三方开发者自定义的内容。
 
 
 ### 约束与过滤
@@ -163,19 +163,24 @@ Response Body:
 
 多个约束条件默认使用“AND”（与）逻辑。
 
-| 参数     | 类型   | 示例值      | 说明                                                           |
-| ------- | ------ | ----------- | -------------------------------------------------------------- |
-| page    | int    | 2           | 指定第几页                                                     |
-| perpage | int    | 100         | 每页的记录数                                                   |
-| sortby  | string | name        | 指定返回结果按照哪个属性排序，大小写敏感，如 ID, PostTime...              |
-| order   | string | asc 或 desc | 排序顺序，asc：升序，desc：降序                                |
+| 参数    | 类型   | 示例值      | 说明                                     |
+| ------- | ------ | ----------- | ---------------------------------------- |
+| perpage | int    | 50          | 每页返回数量，未鉴权请求受最大值限制     |
+| page    | int    | 2           | 指定第几页                               |
+| sortby  | string | name        | 排序依据，大小写敏感，具体见「排序依据表」 |
+| order   | string | asc 或 desc | 排序顺序，asc：升序，desc：降序          |
 
-概览：
+各种模块支持的排序依据：
 
-- limit=10：指定返回记录的数量
-- offset=10：指定返回记录的开始位置
-- page=2&perpage=100：指定第几页，以及每页的记录数
-- sortby=name&order=asc：指定返回结果按照哪个属性排序，以及排序顺序
+| mod      | sortby                                                                   |
+| -------- | ------------------------------------------------------------------------ |
+| category | ID, Order, Count, Group                                                  |
+| comment  | ID, PostTime                                                             |
+| member   | ID, CreateTime, PostTime, UpdateTime, Articles, Pages, Comments, Uploads |
+| post     | ID, CreateTime, PostTime, UpdateTime, CommNums, ViewNums                 |
+| tag      | ID, Order, Count                                                         |
+| upload   | ID, PostTime, DownNums                                                   |
+
 
 
 ## 公共消息响应头
