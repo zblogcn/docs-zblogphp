@@ -50,10 +50,10 @@
 <html lang="{$language}"><!-- {$language} 为「变量输出标签」 -->
 
 <head>
-  {template:header}
+  {template:header}<!-- 公共头部文件 -->
 </head>
 
-<body class="multi {$type}"><!-- 同为「变量输出标签」，对应上方 Template Type -->
+<body class="{$type}"><!-- 同为「变量输出标签」，对应上方 Template Type -->
   {template:hero}
   <!-- ↓YouCode↓ -->
   <!-- ↓YouCode↓ -->
@@ -63,11 +63,12 @@
   </div>
   <div id="divMiddle">
     <div id="divMain">列表索引或正文内容</div>
+    <!-- 「侧栏」调用 -->
     <div id="divSidebar">{template:sidebar}</div>
   </div>
   <!-- ↑YouCode↑ -->
   <!-- ↑YouCode↑ -->
-  {template:footer}
+  {template:footer}<!-- 公共尾部文件 -->
 </body>
 
 </html>
