@@ -9,9 +9,10 @@
 - 1.7.0 Beta [详细](https://blog.zblogcn.com/2021/02/08/117/ "1.7.0 Beta")
   - update. 「链式 SQL」增加更多方法；
   - feat. API；「[API 文档](dev-api-design "API文档")」
-  - feat. 字体图标；
-  - feat. 内置缩略图基类；
+  - feat. 字体图标；「[Z-Blog icons demo](https://static.zblogcn.com/image/icon/demo.html "Z-Blog icons demo")」
+  - feat. 内置缩略图基类；「[zblogcn/zblogphp/search?q=Thumb](https://github.com/zblogcn/zblogphp/search?q=Thumb "Search · Thumb")」
   - feat. 新的 url 路由机制；
+  - feat. 文章编辑器接口增加`barBtn`；「[zblogcn/zblogphp/search?q=barBtn](https://github.com/zblogcn/zblogphp/search?q=barBtn "Search · barBtn")」
 
 # 1.6
 
