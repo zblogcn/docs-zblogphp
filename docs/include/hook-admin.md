@@ -13,20 +13,20 @@
 <summary>接口示例（点击展开）</summary>
 
 ```php
-function ActivePlugin_curApp() {
-  Add_Filter_Plugin('Filter_Plugin_Admin_Header','curApp_Admin_Header');
-  Add_Filter_Plugin('Filter_Plugin_Admin_TopMenu','curApp_Admin_TopMenu');
+function ActivePlugin_demoAPP() {
+  Add_Filter_Plugin('Filter_Plugin_Admin_Header','demoAPP_Admin_Header');
+  Add_Filter_Plugin('Filter_Plugin_Admin_TopMenu','demoAPP_Admin_TopMenu');
 }
-function curApp_Admin_Header()
+function demoAPP_Admin_Header()
 {
   global $zbp;
-  echo '<script src="' . $zbp->host . 'zb_users/plugin/curApp/script/plugin.js"></script>';
+  echo '<script src="' . $zbp->host . 'zb_users/plugin/demoAPP/script/plugin.js"></script>';
   echo '<style type="text/css">#divMain2 {margin-bottom: 6rem;}</style>';
 }
-function curApp_Admin_TopMenu(&$topmenus)
+function demoAPP_Admin_TopMenu(&$topmenus)
 {
   global $zbp;
-  $topmenus[] = MakeTopMenu("root", "curApp管理", $zbp->host . "zb_users/plugin/curApp/main.php", "", "");
+  $topmenus[] = MakeTopMenu("root", "demoAPP管理", $zbp->host . "zb_users/plugin/demoAPP/main.php", "", "");
 }
 // Filter_Plugin_Admin_Footer 和 Filter_Plugin_Admin_LeftMenu 同理；
 // 对应有 MakeLeftMenu() 函数可用

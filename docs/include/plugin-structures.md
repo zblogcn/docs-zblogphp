@@ -3,7 +3,7 @@
 以下基于通过「[创建应用](dev-app-start?id=创建应用 "创建应用")」生成的初始文件：
 
 ```conf
-/path/zb_users/plugin/curPlugin
+/path/zb_users/plugin/demoPlugin
 │  logo.png       [必需]图标，128x128；
 │  plugin.xml     [必需]自述文件；
 │  main.php       [可选]应用内置管理页，在创建插件时填写才会生成；
@@ -24,7 +24,7 @@
 
 ## Hello Z-Blog
 
-1. 使用`curPlugin`为「应用 ID」创建一个应用，
+1. 使用`demoPlugin`为「应用 ID」创建一个应用，
    - 「应用名称」填写「`第一个插件`」；
    - 其他信息保持默认；
 2. **不需要额外创建文件**；
@@ -38,26 +38,26 @@
 // require __DIR__ . "function.php";
 // require __DIR__ . "class/db.php";
 # 注册插件
-RegisterPlugin("curPlugin", "ActivePlugin_curPlugin");
+RegisterPlugin("demoPlugin", "ActivePlugin_demoPlugin");
 // 注册接口函数
-function ActivePlugin_curPlugin()
+function ActivePlugin_demoPlugin()
 {
   // 向名为'Filter_Plugin_Index_Begin'的接口注册函数
-  Add_Filter_Plugin('Filter_Plugin_Index_Begin', 'curPlugin_HelloZBlog');
+  Add_Filter_Plugin('Filter_Plugin_Index_Begin', 'demoPlugin_HelloZBlog');
 }
 // 接口函数定义
-function curPlugin_HelloZBlog()
+function demoPlugin_HelloZBlog()
 {
   global $zbp;
   // 向前台页面的 <head></head> 内部插入内容
   $zbp->header .= "<script>alert(\"hello {$zbp->user->Name}\")</script>";
 }
 // 插件启用时调用
-function InstallPlugin_curPlugin()
+function InstallPlugin_demoPlugin()
 {
 }
 // 插件停用时调用
-function UninstallPlugin_curPlugin()
+function UninstallPlugin_demoPlugin()
 {
 }
 ```

@@ -3,7 +3,7 @@
 以下基于通过「[创建应用](dev-app-start?id=创建应用 "创建应用")」生成的初始文件：
 
 ```conf
-/path/zb_users/theme/curTheme
+/path/zb_users/theme/demoTheme
 │  screenshot.png [必需]缩略图 300*240像素, 横向；
 │  theme.xml      [必需]自述文件；
 │  main.php       [可选]应用内置管理页，在创建主题时填写才会生成；
