@@ -13,6 +13,7 @@
   - feat. 内置缩略图基类；「[zblogcn/zblogphp/search?q=Thumb](https://github.com/zblogcn/zblogphp/search?q=Thumb "Search · Thumb")」
   - feat. 新的 url 路由机制；
   - feat. 文章编辑器接口增加`barBtn`；「[zblogcn/zblogphp/search?q=barBtn](https://github.com/zblogcn/zblogphp/search?q=barBtn "Search · barBtn")」
+  - feat. 文章编辑器接口增加`ready`；「[zblogcn/zblogphp/search?q=ready](https://github.com/zblogcn/zblogphp/search?q=barBtn "Search · ready")」
 
 # 1.6
 
