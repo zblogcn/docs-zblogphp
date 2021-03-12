@@ -10,6 +10,7 @@
   - [插件开发](dev-app-plugin)
   - [接口列表](dev-interfaces)
   - [函数列表](dev-functions)
+  - [SQL 链式查询](dev-chainquery.md)
   - [发布应用](dev-app-publish)
   - [常见问题](dev-app-faq)
 - API
