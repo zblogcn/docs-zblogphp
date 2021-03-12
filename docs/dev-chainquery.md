@@ -95,13 +95,13 @@ $sql = $zbp->db->sql->get()->select("zbp_post")
                            ->sql;
 $articles = GetListType('Post', $sql);
 
-// where(array('=', 'log_ID', "1"))  = 可以换成<>,LIKE,>=,<= 等等
+// where(array('=', 'log_ID', "1")) = 可以换成<>,LIKE,>=,<= 等等
 ```
 
 SQL 语句输出：
 
 ```sql
-SELECT * FROM  zbp_post  WHERE  log_ID = '1'
+SELECT * FROM zbp_post WHERE log_ID = '1'
 ```
 
 **重要：如果非要在`where`中拼接字符串请一定用`addslashes`转义单引号：**
@@ -159,7 +159,7 @@ $sql = $zbp->db->sql->get()->select("zbp_post")
 SELECT * FROM zbp_post WHERE ((1 = 1) AND ( log_ID = '1' OR log_Title = '2' ) )
 ```
 
-缺省操作符：
+非缺省操作符：
 
 ```php
 // 缺省操作符为 = ，也可使用其他操作符
@@ -202,7 +202,7 @@ $sql = $zbp->db->sql->get()->select("zbp_post")
 ```
 
 ```sql
-SELECT * FROM  zbp_post  WHERE  ((1 = 1) AND (log_ID IN ( '1' ,  '2' ,  '3' ,  '4' ) ) )
+SELECT * FROM zbp_post WHERE ((1 = 1) AND (log_ID IN ( '1' , '2' , '3' , '4' ) ) )
 ```
 
 ```php
@@ -212,7 +212,7 @@ $sql = $zbp->db->sql->get()->select("zbp_post")
 ```
 
 ```sql
-SELECT * FROM  zbp_post  WHERE  (log_ID NOT IN (1, 2, 3))
+SELECT * FROM zbp_post WHERE (log_ID NOT IN (1, 2, 3))
 ```
 
 ### BETWEEN 操作符
@@ -224,7 +224,7 @@ $sql = $zbp->db->sql->get()->select("zbp_post")
 ```
 
 ```sql
-SELECT * FROM  zbp_post  WHERE  (log_ID BETWEEN '1' AND '3')
+SELECT * FROM zbp_post WHERE (log_ID BETWEEN '1' AND '3')
 ```
 
 ### EXISTS 和 NOT EXISTS 操作符
@@ -236,7 +236,7 @@ $sql = $zbp->db->sql->get()->select("zbp_post")
 ```
 
 ```sql
-SELECT * FROM  zbp_post  WHERE  EXISTS ( SELECT 1 )
+SELECT * FROM zbp_post WHERE EXISTS ( SELECT 1 )
 ```
 
 ### SQL 通配符
@@ -377,7 +377,7 @@ $sql = $zbp->db->sql->get()->selectany('log_ID')
 ```
 
 ```sql
-SELECT  log_ID  FROM zbp_post AS p LEFT JOIN zbp_postrelation AS pr ON p.log_ID = pr.pr_PostID WHERE 1 = 1
+SELECT log_ID FROM zbp_post AS p LEFT JOIN zbp_postrelation AS pr ON p.log_ID = pr.pr_PostID WHERE 1 = 1
 ```
 
 ```php
