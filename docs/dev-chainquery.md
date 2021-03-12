@@ -692,9 +692,9 @@ GetList(array('random'=>4,'cate'=>1)); // 获取分类1下的随机4篇文章
 
 ## SQL 事务处理
 
-BEGIN 开始一个事务\\
-ROLLBACK 事务回滚\\
-COMMIT 事务确认\\
+- BEGIN 开始一个事务
+- ROLLBACK 事务回滚
+- COMMIT 事务确认
 
 ```php
 // 开始一个事务
