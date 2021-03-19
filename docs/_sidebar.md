@@ -16,7 +16,7 @@
 - API
   - [基本设计](dev-api-design)
   - [接口文档](dev-api-mods)
-  - [通用模板](dev-api-common-template)
+  <!-- - [通用模板](dev-api-common-template) -->
   - [常见问题](dev-api-faq)
 - 参与协作
   - [文档规范](guide-docs)
