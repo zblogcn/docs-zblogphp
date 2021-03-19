@@ -1,1 +1,27 @@
 # 常见问题
+
+## 固定域名出错不能登入
+
+- 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
+- **增加**项目：
+  ```php
+  'ZC_PERMANENT_DOMAIN_WHOLE_DISABLE' => true,
+  ```
+- 保存后即可恢复使用；
+
+[path](terms/path.md ':include')
+
+「- -」「- -」「- -」「- -」「- -」
+
+## 明确需要指定域名使用
+
+- 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
+- 配置项：
+  ```php
+  'ZC_PERMANENT_DOMAIN_WHOLE_DISABLE' => false,
+  'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://www.newdomin.site/",
+  ```
+
+[path](terms/path.md ':include')
+
+「- -」「- -」「- -」「- -」「- -」
