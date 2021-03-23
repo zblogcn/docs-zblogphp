@@ -209,32 +209,67 @@ Response Body:
 
 属性名一律使用小写，如有需要，多个单词之间使用英文下划线”_“分隔，如”new_data“。
 
+## 响应内容示例及状态码
+
 示例一，没有权限：
+
+> 原因：未登录或登录用户权限不够；「[登录和鉴权](dev-api-design?id=权限认证 "登录和鉴权")」
 
 ```json
 {
   "code": 401,
   "message": "没有权限",
   "data": null,
-  "error": {
-    "code": 6,
-    "type": 0,
-    "message": "没有权限"
+  "error": null,
+  "runtime": {
+    "time": "94.76",
+    "query": 4,
+    "memory": 1684
+  }
+}
+```
+-----
+
+
+示例二，非法访问：
+
+> 原因：未正确设置鉴权 Token；「[登录和鉴权](dev-api-design?id=权限认证 "登录和鉴权")」
+
+```json
+{
+  "code": 419,
+  "message": "非法访问",
+  "data": null,
+  "error": null,
+  "runtime": {
+    "time": "94.29",
+    "query": 4,
+    "memory": 1657
   }
 }
 ```
 
-示例二，成功请求某个用户的信息：
+-----
+
+示例三，成功请求某个用户的信息：
 
 ```json
 {
   "code": 200,
-  "message" : "OK",
+  "message": "OK",
   "data": {
-    "id": 123,
-    "username": "Chris",
-    "email": "123@example.com"
+    "member": {
+      "id": 123,
+      "username": "Chris",
+      "email": "123@example.com"
+    }
   },
-  "error": null
+  "error": null,
+  "runtime": {
+    "time": "90.74",
+    "query": 5,
+    "memory": 1807
+  }
 }
 ```
+
