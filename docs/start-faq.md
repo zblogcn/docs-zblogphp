@@ -2,7 +2,7 @@
 
 ## 密码重置
 
-Z-BlogPHP密码找回工具：
+Z-BlogPHP 密码找回工具：
 
 [https://bbs.zblogcn.com/thread-83419.html](https://bbs.zblogcn.com/thread-83419.html "Z-BlogPHP密码找回工具-程序发布-ZBlogger技术交流中心")
 
