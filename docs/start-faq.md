@@ -1,5 +1,13 @@
 # 常见问题
 
+## 密码重置
+
+Z-BlogPHP密码找回工具：
+
+[https://bbs.zblogcn.com/thread-83419.html](https://bbs.zblogcn.com/thread-83419.html "Z-BlogPHP密码找回工具-程序发布-ZBlogger技术交流中心")
+
+「- -」「- -」「- -」「- -」「- -」
+
 ## 固定域名出错不能登入
 
 - 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
