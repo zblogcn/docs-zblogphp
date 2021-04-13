@@ -7,7 +7,7 @@
 - 以功能性为主要目的；
 - 按照既定规范组织文件和内容；
 - 以统一的方式「安装/删除」「启用/关闭」；
-- 可按照功能目的使用接口，也可以不用；「[接口列表](dev-interfaces "docs-zblogphp 接口列表")」
+- 可按照功能目的使用接口，也可以不用；「[接口列表](books/dev-interfaces "docs-zblogphp 接口列表")」
 - 「自述文件」为 `plugin.xml` ；
 - 插件放置目录为 `zb_users/plugin` ；
 

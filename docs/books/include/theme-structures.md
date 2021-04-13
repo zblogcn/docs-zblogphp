@@ -1,6 +1,6 @@
 ## 文件结构（主题）
 
-以下基于通过「[创建应用](dev-app-start?id=创建应用 "创建应用")」生成的初始文件：
+以下基于通过「[创建应用](books/dev-app-start?id=创建应用 "创建应用")」生成的初始文件：
 
 ```conf
 /path/zb_users/theme/demoTheme

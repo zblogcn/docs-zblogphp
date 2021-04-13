@@ -90,7 +90,7 @@ Response Body:
 
 2. 附加在 URL 中：`https://example.com/zb_system/api.php?mod=setting&act=get&token={YourToken}`；
 
-**重要：对于第 1 种方法，可能需要额外对 web 空间进行设置，参见「[常见问题](dev-api-faq?id=apache-%e8%8e%b7%e5%8f%96%e4%b8%8d%e5%88%b0-authorization-%e5%a4%b4%e4%bf%a1%e6%81%af "常见问题")」；**
+**重要：对于第 1 种方法，可能需要额外对 web 空间进行设置，参见「[常见问题](books/dev-api-faq?id=apache-%e8%8e%b7%e5%8f%96%e4%b8%8d%e5%88%b0-authorization-%e5%a4%b4%e4%bf%a1%e6%81%af "常见问题")」；**
 
 ## 构造请求
 
@@ -183,7 +183,7 @@ Response Body:
 | tag      | ID, Order, Count                                                         |
 | upload   | ID, PostTime, DownNums                                                   |
 
-不同「API 模块」专有的查询参数见：「[接口列表](dev-api-mods "接口列表")」；
+不同「API 模块」专有的查询参数见：「[接口列表](books/dev-api-mods "接口列表")」；
 
 ## 公共消息响应头
 
@@ -213,7 +213,7 @@ Response Body:
 
 示例一，没有权限：
 
-> 原因：未登录或登录用户权限不够；「[登录和鉴权](dev-api-design?id=权限认证 "登录和鉴权")」
+> 原因：未登录或登录用户权限不够；「[登录和鉴权](books/dev-api-design?id=权限认证 "登录和鉴权")」
 
 ```json
 {
@@ -233,7 +233,7 @@ Response Body:
 
 示例二，非法访问：
 
-> 原因：未正确设置鉴权 Token；「[登录和鉴权](dev-api-design?id=权限认证 "登录和鉴权")」
+> 原因：未正确设置鉴权 Token；「[登录和鉴权](books/dev-api-design?id=权限认证 "登录和鉴权")」
 
 ```json
 {
