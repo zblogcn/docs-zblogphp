@@ -6,7 +6,7 @@
 
 # 1.7
 
-- 1.7.0 Beta [详细](https://blog.zblogcn.com/2021/02/08/117/ "1.7.0 Beta")
+- 1.7.0 Tenet [详细](https://blog.zblogcn.com/2021/02/08/117/ "1.7.0 Tenet")
   - update. 「链式 SQL」增加更多方法；
   - feat. API；「[API 文档](books/dev-api-design "API文档")」
   - feat. 字体图标；「[Z-Blog icons demo](https://static.zblogcn.com/image/icon/demo.html "Z-Blog icons demo")」
@@ -16,7 +16,8 @@
   - feat. 文章编辑器接口增加`ready`；「[zblogcn/zblogphp/search?q=ready](https://github.com/zblogcn/zblogphp/search?q=barBtn "Search · ready")」
 
 # 1.6
-
+- 1.6.8
+  - fix. 修复了1.6.7升级1.7.0后再退回1.6.7时会出现严重的config表数据错误
 - 1.6.6 [详细](https://blog.zblogcn.com/2020/12/01/115/ "1.6.6")
   - fix. 针对 `PHP 7+` 的数据库连接改进；
   - feat. `PHP 8.0` 支持；
