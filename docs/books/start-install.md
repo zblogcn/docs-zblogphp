@@ -11,11 +11,15 @@ PHP：`PHP 5.2 - 8.0`
 
 下载入口页：[https://www.zblogcn.com/zblogphp/](https://www.zblogcn.com/zblogphp/ "Z-BlogPHP，小巧而强大的PHP博客程序与建站系统")
 
-- [1.6 正式版直链下载](https://www.zblogcn.com/program/zblogphp16/ "Z-BlogPHP 1.6 Valyria 正式版")
+- [Z-BlogPHP 1.7 Tenet](https://www.zblogcn.com/program/zblogphp17/ "Z-BlogPHP 1.7 Tenet 正式版") （直链下载）
 
 - [单文件在线安装程序](http://bbs.zblogcn.com/thread-84444-1-1.html "Z-BlogPHP在线安装程序")
 
 - [宝塔面板一键部署](https://blog.zblogcn.com/2017/08/11/95/ "菠萝阁-使用宝塔面板一键部署Z-BlogPHP")
+
+历史版本下载:
+
+- [Z-BlogPHP 1.6 Valyria](https://www.zblogcn.com/program/zblogphp16/ "Z-BlogPHP 1.6 Valyria 正式版")
 
 ## 安装
 
