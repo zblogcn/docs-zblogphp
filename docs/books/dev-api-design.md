@@ -58,9 +58,11 @@ HTTP Body:
 ```json
 {
   "username": "zblog_usr",
-  "password": "zblog_pwd"
+  "password": "zblog_pwd",
+  "savedate": 30
 }
 ```
+`"savedate": 30`：有钱期 30 天；
 
 **注：`password`建议使用 MD5 值；↑↑**
 
