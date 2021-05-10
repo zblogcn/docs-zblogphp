@@ -22,43 +22,4 @@
 └─other           [可选]其他任意自定义文件夹及内容
 ```
 
-## Hello Z-Blog
-
-1. 使用`demoPlugin`为「应用 ID」创建一个应用，
-   - 「应用名称」填写「`第一个插件`」；
-   - 其他信息保持默认；
-2. **不需要额外创建文件**；
-3. 使用下边代码「覆盖」「`include.php`」的内容；
-   - 可直接点击「`Copy to clipboard`」按钮复制；
-4. 「启用插件」后浏览任意「前台页面」即可查看效果；
-
-```php
-<?php
-// 如果有其他 PHP 文件可以在这里引入，或者在需要的地方「按需要引入」
-// require __DIR__ . "function.php";
-// require __DIR__ . "class/db.php";
-# 注册插件
-RegisterPlugin("demoPlugin", "ActivePlugin_demoPlugin");
-// 注册接口函数
-function ActivePlugin_demoPlugin()
-{
-  // 向名为'Filter_Plugin_Index_Begin'的接口注册函数
-  Add_Filter_Plugin('Filter_Plugin_Index_Begin', 'demoPlugin_HelloZBlog');
-}
-// 接口函数定义
-function demoPlugin_HelloZBlog()
-{
-  global $zbp;
-  // 向前台页面的 <head></head> 内部插入内容
-  $zbp->header .= "<script>alert(\"hello {$zbp->user->Name}\")</script>";
-}
-// 插件启用时调用
-function InstallPlugin_demoPlugin()
-{
-}
-// 插件停用时调用
-function UninstallPlugin_demoPlugin()
-{
-}
-```
-
+<!-- docs\books\include\plugin-structures.md -->
