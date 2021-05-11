@@ -20,3 +20,8 @@
 - 除版权标识及注释外，不要在模板内写死各种和你有强关联的东西；
 - 主题内「Z-Blog 版权标识」最速调用：`Powered By {$zblogphphtml}`；
 - `CSS`和`JavaScript`应尽可能采取外部引用而不是与写在`HTML`内，`style=""`属性同理；
+- 正则中使用`.*?`很不科学，请使用否定匹配，例如`[^>]*`或`[^"]*`；另外：
+  - `'/abc/i'`——`i`修饰符为忽略大小写；
+  - `'/中文/u'`——`u`修饰符用于匹配中文等；
+  - 参考「[\[开发者\]正则表达式相关专贴-开发者中心](https://bbs.zblogcn.com/thread-101713.html "\[开发者\]正则表达式相关专贴-开发者中心")」
+  - 参考「[PHP: 正则表达式模式中可用的模式修饰符 - php.net](https://www.php.net/manual/zh/reference.pcre.pattern.modifiers.php "PHP: 正则表达式模式中可用的模式修饰符 - php.net")」
