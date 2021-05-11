@@ -1,8 +1,12 @@
 # 函数列表
 
+Z-BlogPHP 封装了众多辅助函数，文件路径为：「[zb_system/function/c_system_common.php](https://github1s.com/zblogcn/zblogphp/blob/master/zb_system/function/c_system_common.php "zb_system/function/c_system_common.php - GitHub1s") 」←此链接可直接在线查看；
+
+本章节会介绍一些相对常用的，具体定义可在文件中搜索查看。
+
 ## GetList 函数
 
-通过 GetList 可以获取自定义的文章列表，如指定分类的最新文章、置顶文章等等
+通过 GetList 可以获取自定义的文章列表，如指定分类的最新文章、置顶文章等等；
 
 ```php
 $result = GetList(array('count'=>10)) //返回array(Post类型) 或是 空array()
@@ -33,7 +37,7 @@ array(
 
 ## GetPost 函数
 
-通过 GetPost 可以获取指定的文章或页面或是其它类型的 Post 表的数据
+通过 GetPost 可以获取指定的文章或页面或是其它类型的 Post 表的数据；
 
 ```php
 //返回id为10的Post对象实例，如果没有就返回一个空的Post对象实例
@@ -56,4 +60,16 @@ array(
   'where_custom' => array(array('=', 'log_Template', '')), //自定义 where
   'order_custom' => array('log_CommNums' => 'ASC'), //自定义 order
 )
+```
+
+## GetVars 函数
+
+- 可快速获取 `GET`/`POST` 等传值；
+- 不存在时将默认返回`null`，无需`isset($_GET['act'])`判断；
+- 可通过第三个可选参数决定默认返回值；
+- 其实第二个参数大小写不敏感，但是不知道为什么习惯上还是大写；
+
+```php
+$act = GetVars("act", "GET");
+$name = GetVars("name", "POST");
 ```
