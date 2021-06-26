@@ -23,7 +23,7 @@ PHP：`PHP 5.2 - 8.0`
 
 ## 安装
 
-- 将下载后的程序代码解压到你的网站根目录，如`/home/wwwroot/example.com/`，运行你的网站，会自动跳转到安装页面：`http:/example.com/zb_install/index.php`。
+- 将下载后的程序代码解压到你的网站根目录，如`/home/wwwroot/example.com/`，运行你的网站，会自动跳转到安装页面：`http://example.com/zb_install/index.php`。
 
 - 在安装页面输入您的数据库信息、博客名称、用户名、密码等信息后程序将会自动安装。
 
