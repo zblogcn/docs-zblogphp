@@ -150,7 +150,7 @@ $zbp->Config('插件ID')->HasKey('配置名'); //return bool
 ```php
 $zbp->DelConfig('插件ID');
 ```
-## CSRF 相关
+## CSRF 相关 「**重要**」
 
 对于需要用户点链接或提交表单触发，进而对数据或文件产生影响的，除必要的用户权限验证外，应另外加入 CSRF Token 验证；
 
