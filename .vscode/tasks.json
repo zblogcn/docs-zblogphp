@@ -6,12 +6,19 @@
     {
       "label": "docsify",
       "type": "shell",
-      "command": [
-        "docsify serve docs"
-      ],
+      "command": ["docsify serve docs"],
       "problemMatcher": [],
       "group": {
         "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "lint-md cli",
+      "type": "shell",
+      "command": "lint-md ./docs --config mdlint.json",
+      "group": {
+        "kind": "test",
         "isDefault": true
       }
     }
