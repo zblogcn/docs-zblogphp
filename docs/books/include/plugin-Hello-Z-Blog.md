@@ -107,7 +107,7 @@ if (!$zbp->CheckRights($action)) {$zbp->ShowError(6);die();}
 
 > 可以通过 `-host-/zb_system/cmd.php?act=misc&type=vrs`查看当前用户拥有的权限；
 >
-> 可针对用户等级灵活制定其权限；「[Z-Blog角色分配器 - Z-Blog 应用中心](https://app.zblogcn.com/?id=235 "Z-Blog角色分配器 - Z-Blog 应用中心")」
+> 可针对用户等级灵活制定其权限；「[Z-Blog 角色分配器 - Z-Blog 应用中心](https://app.zblogcn.com/?id=235 "Z-Blog角色分配器 - Z-Blog 应用中心")」
 >
 > 参考「[用户等级划定](books/start-faq?id=用户等级划定 "用户等级划定")」；
 
