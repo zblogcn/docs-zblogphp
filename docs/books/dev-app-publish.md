@@ -25,7 +25,7 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 > **Z-Blog 全新的应用中心，为众多开发者提供一个展示自己作品的平台。**
 
-**注：此贴文本复制于「[成为开发者 - 发布应用 - Z-BlogPHP 文档](https://docs.zblogcn.com/php/#/books/dev-app-publish?id=%e6%88%90%e4%b8%ba%e5%bc%80%e5%8f%91%e8%80%85 "成为开发者 - 发布应用 - Z-BlogPHP 文档")」，不要直接编辑**
+**注：此贴文本复制于「[成为开发者 - 发布应用 - Z-BlogPHP 文档](https://docs.zblogcn.com/php/#/books/dev-app-publish?id=%e6%88%90%e4%b8%ba%e5%bc%80%e5%8f%91%e8%80%85 "成为开发者 - 发布应用 - Z-BlogPHP 文档")」，不要直接编辑；**
 
 ### 前置要求
 
