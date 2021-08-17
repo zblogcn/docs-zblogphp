@@ -20,6 +20,73 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 **注：后续应用实行上传后审核发布。**
 
+<details>
+<summary>开发者申请流程（点击展开）</summary>
+
+> **Z-Blog 全新的应用中心，为众多开发者提供一个展示自己作品的平台。**
+
+**注：此贴文本复制于「[成为开发者 - 发布应用 - Z-BlogPHP 文档](https://docs.zblogcn.com/php/#/books/dev-app-publish?id=%e6%88%90%e4%b8%ba%e5%bc%80%e5%8f%91%e8%80%85 "成为开发者 - 发布应用 - Z-BlogPHP 文档")」，不要直接编辑**
+
+### 前置要求
+
+依据《中华人民共和国网络安全法》的要求，及为尽快通知到您，您必须：
+
+1. 绑定手机号，以完成实名认证要求：https://uc.zblogcn.com/user/security/phone
+2. 绑定微信号，以及时获取审核消息：https://uc.zblogcn.com/user/open/wechat_mp
+3. 「可选」开启“两步验证”，https://uc.zblogcn.com/user/security/tfa/google
+
+如果您需要销售收费应用，您必须向我们提供：
+
+1. 提交您的身份证号，完成实名认证：https://uc.zblogcn.com/user/identity
+2. 绑定您的支付宝，以获取收款：https://uc.zblogcn.com/user/open/alipay
+
+### 申请流程
+
+请在【[开发者中心-ZBlogger 技术交流中心](https://bbs.zblogcn.com/forum-125.html "开发者中心-ZBlogger 技术交流中心")】版块按以下要求发贴申请：
+
+1. 在「你自己的网站」内发布主题或插件，附截图、功能介绍等，该网站本身不能只是演示站；
+1. 「**在你的发布页面内**」以附件或网盘或「**Git 地址**」形式提供下载，可额外附带演示地址；「**不在要论坛发附件！！！**」
+1. 网站本身如为 Z-Blog，须保留带链接的 Powerd By 声明；其他程序须在首页添加指向`www.zblogcn.com`的友情链接；
+1. 如果发布的应用为主题，则主题内也应正确标识 Z-Blog 版权；「`Powered By {$zblogphphtml}`」
+1. 在论坛发申请贴，贴子内附上发布页的链接；「**不在要论坛发附件！！！**」
+1. 不得重复发申请贴；
+1. 如果你没看过「[站内发文规范（申请开发者也先看这里）-网站事务-ZBlogger 技术交流中心](https://bbs.zblogcn.com/thread-102989.html "站内发文规范（申请开发者也先看这里）-网站事务-ZBlogger 技术交流中心")」也请先看一遍；
+1. 加 QQ 群，积极询问进度；
+1. 准开发者需要有很多的耐心(不停的修改)，可能还需要较强的心理素质(否则有可能会被喷走)；
+
+注：「应用发布」版块是独立于开发者申请的，可以发，也可以传附件，但是不能用于申请开发者；
+
+### 发贴格式示意
+
+标题格式：
+
+> `申请开发者「appID」「plugin | theme」`
+
+↑ 方引号比较好看，当然`[]`或`【】`也可以；
+
+正文示例：
+
+> 应用名称：XXXX
+>
+> 发布地址：https://blog.zblogcn.com/?id=1022
+>
+> 应用简介：功能描述什么的，尽量简短，更详细的放在你的发布页内；
+>
+> \<!-- 不需要配图，不然回贴给意见会很麻烦 --\>
+
+### 审议 QQ 群
+
+群号：836912740
+
+### 其他
+Z-BlogPHP 官方文档：https://docs.zblogcn.com/php/#/
+
+注意事项速查表：https://docs.zblogcn.com/php/#/books/dev-app-faq  ←← 高优先级
+
+[开发者准入规范讨论贴-网站事务-ZBlogger 技术交流中心](https://bbs.zblogcn.com/thread-103787.html "开发者准入规范讨论贴-网站事务-ZBlogger 技术交流中心")  ←← 优先级较低
+
+</details>
+
 ## 发布标准
 
 > **推荐阅读：[注意事项速查表](books/dev-app-faq?id=%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e9%80%9f%e6%9f%a5%e8%a1%a8 "常见问题")**
