@@ -91,6 +91,9 @@ Z-BlogPHP 官方文档：https://docs.zblogcn.com/php/#/
 
 > **推荐阅读：[注意事项速查表](books/dev-app-faq?id=%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e9%80%9f%e6%9f%a5%e8%a1%a8 "常见问题")**
 
+<details>
+<summary>此节内容需重新组织（点击展开）</summary>
+
 ### A.通用
 1. 开启 debug 模式后不得报错
 2. 不得含有木马等有害代码
@@ -125,6 +128,8 @@ Z-BlogPHP 官方文档：https://docs.zblogcn.com/php/#/
 ### E.禁止条款
 1. 禁止抄袭复制有版权保护的主题模板
 2. 禁止多次提交无意义的应用去刷新排行
+
+</details>
 
 ## 完善简介
 
