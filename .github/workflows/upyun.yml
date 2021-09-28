@@ -36,4 +36,4 @@ jobs:
         run: sudo ./upx rm /php -d
 
       - name: Sync files
-        run: sudo ./upx sync $GITHUB_WORKSPACE/docs /php --delete
+        run: sudo ./upx sync $GITHUB_WORKSPACE/docs /php
