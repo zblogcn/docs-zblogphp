@@ -33,4 +33,4 @@ jobs:
         run: sudo ./upx login docs-zblogcn-all ${{secrets.UPYUN_OPERATOR}} ${{secrets.UPYUN_PASSWORD}}
 
       - name: Sync files
-        run: sudo ./upx sync $GITHUB_WORKSPACE/docs /php
+        run: sudo ./upx sync $GITHUB_WORKSPACE/docs /php --delete
