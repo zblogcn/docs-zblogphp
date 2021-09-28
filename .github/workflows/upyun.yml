@@ -25,12 +25,15 @@ jobs:
 
       - name: Install upx CLI
         run: |
-          wget http://collection.b0.upaiyun.com/softwares/upx/upx_0.3.4_linux_x86_64.tar.gz
-          sudo tar -zxvf upx_0.3.4_linux_x86_64.tar.gz
+          wget https://github.com/upyun/upx/releases/download/v0.3.5/upx_0.3.5_linux_x86_64.tar.gz
+          sudo tar -zxvf upx_0.3.5_linux_x86_64.tar.gz
           sudo cp upx /bin/
 
       - name: Login UPYUN
         run: sudo ./upx login docs-zblogcn-all ${{secrets.UPYUN_OPERATOR}} ${{secrets.UPYUN_PASSWORD}}
+
+      - name: Delete files
+        run: sudo ./upx rm /php -d
 
       - name: Sync files
         run: sudo ./upx sync $GITHUB_WORKSPACE/docs /php
