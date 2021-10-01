@@ -73,7 +73,7 @@ docsify serve docs
 
 ## 格式规范检查
 
-本文档使用 lint-md 检查格式规范，配置文件位于 `/mdlint.json`。您可以安装 VSCode 插件 `mdlint` （可以在插件市场搜索到）实时检查，或者通过 [lint-md/cli](https://github.com/lint-md/cli "lint-md/cli") 进行检查和修复。
+本文档使用 lint-md 检查格式规范，配置文件位于 `/mdlint.json`。您可以安装 VSCode 插件「[mdLint - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=wdssmq.mdlint "mdLint - Visual Studio Marketplace")」实时检查，或者通过 [lint-md/cli](https://github.com/lint-md/cli "lint-md/cli") 进行检查和修复。
 
 您通过 `Pull request` 或者直接提交到本仓库后，会运行 `GitHub Action` 来自动检查格式规范。
 
