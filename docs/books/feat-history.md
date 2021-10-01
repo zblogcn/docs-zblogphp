@@ -6,6 +6,13 @@
 
 # 1.7
 
+- 1.7.1 Tenet
+  - 模板类能更好的支持多套模板
+  - 现在删除用户默认不删除其文章和评论
+  - 对API进行了完善
+  - 继续调整和完善了路由系统
+  - Config类,Metas类,Post类等进行了修复和改进
+
 - 1.7.0 Tenet [详细](https://blog.zblogcn.com/2021/02/08/117/ "1.7.0 Tenet")
   - update. 「链式 SQL」增加更多方法；
   - feat. API；「[API 文档](books/dev-api-design "API文档")」
