@@ -63,6 +63,6 @@ function demoPlugin_Rewrite($original_url, $url)
 }
 ```
 
-## 旧版
+## 新版
 
 待补充
