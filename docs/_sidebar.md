@@ -10,6 +10,7 @@
   - [插件开发](books/dev-app-plugin)
   - [接口列表](books/dev-interfaces)
   - [函数列表](books/dev-functions)
+  - [页面路由](books/dev-route)
   - [SQL 链式查询](books/dev-chainquery.md)
   - [发布应用](books/dev-app-publish)
   - [常见问题](books/dev-app-faq)
