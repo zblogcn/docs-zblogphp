@@ -67,7 +67,7 @@ function demoPlugin_Rewrite($original_url, $url)
 
 ## 1.7 新版
 
-<!-- 需要 1 -->
+<!-- 需求 1 -->
 
 **假定需求 1：**
 
@@ -142,64 +142,78 @@ function demoPlugin_ViewDownload($arg)
   ViewPost($arg);
 }
 ```
-<!-- 需要 1 结束-->
+<!-- 需求 1 结束 -->
 
-2.假定需求 2：
+<!-- 需求 2 -->
+
+**假定需求 2：**
 
 （1）添加多条路由。
 
 （2）给文章页分页。
 
-函数(甚至你都不需要新建函数，建立函数是为了整洁。。)
+**接口挂载同「需求 1」**
+
+**接口函数定义：**
 
 ```php
-function tt_test_rounte(){
-	global $zbp;
-		$route=array(
-		array (
-//路由类型 (rewrite类型使用Route规则进行匹配，从规则中取得参数并传入Call，不匹配将跳出本规则进入下1条)
-'type' => 'rewrite',
-//路由名称(同类型下不可重复，否则会覆盖)
-'name' => 'post_article_single2',
-//路由调用的函数(可以为'函数名'或是'变量名@方法名'或是'变量名::静态方法')
-'call' => 'ViewPost',
-//动态路由和伪静路由的原始规则(必须)
-'urlrule' => '{%host%}post/{%id%}_all.html',
-//从伪静规则匹配到的数组中取值传给call的参数(示例为array('id', 'page') or array('cate@alias', 'page') )
-'args' =>
-  array (
-    0 => 'post@id',
-    1 => 'post@alias',
-    2 => 'post@all',
-  ),
-  ),
-  array (
-//路由类型 (rewrite类型使用Route规则进行匹配，从规则中取得参数并传入Call，不匹配将跳出本规则进入下1条)
-'type' => 'rewrite',
-//路由名称(同类型下不可重复，否则会覆盖)
-'name' => 'post_article_single3',
-//路由调用的函数(可以为'函数名'或是'变量名@方法名'或是'变量名::静态方法')
-'call' => 'ViewPost',
-//动态路由和伪静路由的原始规则(必须)
-'urlrule' => '{%host%}post/{%id%}_{%page%}.html',
-//从伪静规则匹配到的数组中取值传给call的参数(示例为array('id', 'page') or array('cate@alias', 'page') )
-'args' =>
-  array (
-    0 => 'post@id',
-    1 => 'post@alias',
-    2 => 'post@page',
-  ),
-)
+function demoPlugin_RegRoute2()
+{
+  global $zbp;
+  $routes = array(
+    // 全文查看
+    array(
+      'type' => 'rewrite',
+      'name' => 'plugin_demoPlugin_PostAll',
+      'call' => 'demoPlugin_ViewPost',
+      'urlrule' => '{%host%}post/{%id%}_all.html',
+      // 匹配到本条路由时传递一个 all 参数用于区分
+      'args_with' =>
+      array("all" => true),
+    ),
+    // 分页
+    array(
+      'type' => 'rewrite',
+      'name' => 'plugin_demoPlugin_PostPagination',
+      'call' => 'demoPlugin_ViewPost',
+      'urlrule' => '{%host%}post/{%id%}_{%page%}.html',
+    )
 
   );
-			foreach ($route as $key => $value) {
-               $zbp->RegRoute($value);
-            }
-            return true;
-
+  foreach ($routes as $value) {
+    $zbp->RegRoute($value);
+  }
+  return true;
 }
-//添加路由可以配合Filter_Plugin_ViewPost_Template 等接口使用。
+
+function demoPlugin_ViewPost($arg)
+{
+
+  // debug
+  // ob_clean();
+  echo __FILE__ . "丨" . __LINE__ . ":<br>\n";
+  var_dump($arg);
+  echo "<br><br>\n\n";
+  // die();
+  // debug
+
+  // 从数组获取指定下标的值，不存在则返回第三个参数；
+  $isAll = GetValueInArray($arg, "all", false);
+  // 理论上能进入当前函数，则必然存在 $arg["id"]；
+  $id = $arg["id"];
+
+  if ($isAll) {
+    // 全文获取
+    // code
+  } else {
+    $page = $arg["page"];
+    // 将文章内容分页后获取第 $page 页；
+    // code
+  }
+}
 ```
+<!-- 需求 2 结束 -->
+
 3.假定需求 3：
 
 给文章页分页--直接使用一条路由解决问题，万能的正则表达式也能愉快的使用了。
