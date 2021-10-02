@@ -152,6 +152,8 @@ function demoPlugin_ViewDownload($arg)
 
 （2）给文章页分页。
 
+既添加`'{%host%}post/{%id%}_all.html'`和`'{%host%}post/{%id%}_{%page%}.html'`两条路由；
+
 **接口挂载同「需求 1」**
 
 **接口函数定义：**
@@ -214,35 +216,36 @@ function demoPlugin_ViewPost($arg)
 ```
 <!-- 需求 2 结束 -->
 
-3.假定需求 3：
+<!-- 需求 3 -->
 
-给文章页分页--直接使用一条路由解决问题，万能的正则表达式也能愉快的使用了。
+**假定需求 3：**
 
-对于`{%host%}post/{%id%}_{%page%}.html`模式的访问,给文章分页
+仍然是文章内容分页，但是只使用一条规则实现；
+
+将`'{%host%}post/{%id%}_{%page%}.html'`改为`'{%host%}post/{%id%}_{%all%}.html'`，由`{%all}`匹配对应位置的内容；
+
+**接口函数定义：**
 
 ```php
-function tt_test_rounte(){
-	global $zbp;
-		$route=
-		array (
-//路由类型 (rewrite类型使用Route规则进行匹配，从规则中取得参数并传入Call，不匹配将跳出本规则进入下1条)
-'type' => 'rewrite',
-//路由名称(同类型下不可重复，否则会覆盖)
-'name' => 'post_article_single2',
-//路由调用的函数(可以为'函数名'或是'变量名@方法名'或是'变量名::静态方法')
-'call' => 'ViewPost',
-//动态路由和伪静路由的原始规则(必须)
-'urlrule' => '{%host%}post/{%id%}_{%all%}.html',
-//从伪静规则匹配到的数组中取值传给call的参数(示例为array('id', 'page') or array('cate@alias', 'page') )
-'args' =>
-  array (
-    0 => 'post@id',
-    1 => 'post@alias',
-	'all' => 'all|[0-9]+',
-  ),
-  );
-		$zbp->RegRoute($route);
-    return true;
-
+// 和 demoPlugin_RegRoute2() 只需挂载一个
+// demoPlugin_ViewPost() 内的实现会不一样
+function demoPlugin_RegRoute3()
+{
+  global $zbp;
+  $route =
+    array(
+      'type' => 'rewrite',
+      'name' => 'plugin_demoPlugin_PostPagination',
+      'call' => 'demoPlugin_ViewPost',
+      'urlrule' => '{%host%}post/{%id%}_{%all%}.html',
+      'args' =>
+      array(
+        // 0 => 'post@id',
+        'all' => 'all|[0-9]+',
+      ),
+    );
+  $zbp->RegRoute($route);
+  return true;
 }
 ```
+<!-- 需求 3 结束 -->
