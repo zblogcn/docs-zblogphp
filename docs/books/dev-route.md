@@ -2,21 +2,21 @@
 
 本节示例代码基于「[Hello Z-Blog - 插件开发](books/dev-app-plugin?id=hello-z-blog "Hello Z-Blog - 插件开发")」创建的`demoPlugin`插件；
 
-假定需求：
-
-对于`{%host%}post/{%id%}.html`模式的访问，另外定义一条`{%host%}download/{%id%}.html`用于显示下载内容；
-
 有「[旧版 - 页面路由](books/dev-route?id=旧版 "旧版 - 页面路由")」和「[新版 - 页面路由](books/dev-route?id=新版 "新版 - 页面路由")」两种方式；
 
 ## 旧版
 
-向`ActivePlugin_demoPlugin()`函数内添加如下接口挂载；
+**假定需求：**
+
+对于`{%host%}post/{%id%}.html`模式的访问，另外定义一条`{%host%}download/{%id%}.html`用于显示下载内容；
+
+**向`ActivePlugin_demoPlugin()`函数内添加如下接口挂载；**
 
 ```php
 Add_Filter_Plugin('Filter_Plugin_ViewAuto_Begin', 'demoPlugin_Rewrite');
 ```
 
-接口函数：
+**接口函数定义：**
 
 ```php
 function demoPlugin_Rewrite($original_url, $url)
@@ -67,17 +67,19 @@ function demoPlugin_Rewrite($original_url, $url)
 
 ## 1.7 新版
 
-1.假定需求 1：
+<!-- 需要 1 -->
+
+**假定需求 1：**
 
 对于`{%host%}post/{%id%}.html`模式的访问，另外定义一条`{%host%}download/{%id%}.html`用于显示下载内容；
 
-向`ActivePlugin_demoPlugin()`函数内添加如下接口挂载；
+**向`ActivePlugin_demoPlugin()`函数内添加如下接口挂载；**
 
 ```php
 Add_Filter_Plugin('Filter_Plugin_Zbp_PreLoad', 'demoPlugin_RegRoute');
 ```
 
-接口函数：
+**接口函数定义：**
 
 ```php
 function demoPlugin_RegRoute()
@@ -140,8 +142,7 @@ function demoPlugin_ViewDownload($arg)
   ViewPost($arg);
 }
 ```
-
-然后你就可以配合 Filter_Plugin_ViewPost_Template 等接口使用了。。这个简单的路由就结束了。
+<!-- 需要 1 结束-->
 
 2.假定需求 2：
 
