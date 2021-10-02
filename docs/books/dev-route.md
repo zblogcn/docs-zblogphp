@@ -86,6 +86,9 @@ function demoPlugin_RegRoute()
 {
   global $zbp;
   $route = array(
+    // 默认取 0 即 article，建议显示设置，表示当前路由无论是单页还是列表都与该类型相关；
+    // 可按需设置 $GLOBALS['posttype'] 内的其他值，还可以自行添加类型，或者设置为 null 表示不属于任何类型；
+    'posttype' => 0,
     // 路由类型 (rewrite 类型使用 route 规则进行匹配，从规则中取得参数并传入 call，不匹配将跳出本规则进入下一条)
     'type' => 'rewrite',
     // 路由名称，推荐格式：前缀_路由功能
@@ -165,6 +168,7 @@ function demoPlugin_RegRoute2()
   $routes = array(
     // 全文查看
     array(
+      'posttype' => 0,
       'type' => 'rewrite',
       'name' => 'plugin_demoPlugin_PostAll',
       'call' => 'demoPlugin_ViewPost',
@@ -175,6 +179,7 @@ function demoPlugin_RegRoute2()
     ),
     // 分页
     array(
+      'posttype' => 0,
       'type' => 'rewrite',
       'name' => 'plugin_demoPlugin_PostPagination',
       'call' => 'demoPlugin_ViewPost',
@@ -234,6 +239,7 @@ function demoPlugin_RegRoute3()
   global $zbp;
   $route =
     array(
+      'posttype' => 0,
       'type' => 'rewrite',
       'name' => 'plugin_demoPlugin_PostPagination',
       'call' => 'demoPlugin_ViewPost',
