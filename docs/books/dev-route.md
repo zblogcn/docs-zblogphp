@@ -117,7 +117,7 @@ function demoPlugin_RegRoute2()
       'urlrule' => '{%host%}post/{%id%}_all.html',
       // 匹配到本条路由时传递一个 all 参数用于区分
       'args_with' =>
-      array("all" => true),
+      array("all" => true, 'verify_permalink' => false),
     ),
     // 分页
     array(
@@ -191,6 +191,8 @@ function demoPlugin_RegRoute3()
         // 0 => 'post@id',
         'all' => 'all|[0-9]+',
       ),
+      'args_with' =>
+      array('verify_permalink' => false),//不比对当前url与目标url是否相同
     );
   $zbp->RegRoute($route);
   return true;
