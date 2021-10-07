@@ -42,10 +42,7 @@ function demoPlugin_RegRoute()
     array(
       0 => 'post@id',
     ),
-    'args_with' =>
-    array(
-      'verify_permalink' => false, //1.7.1新增参数，可以不比对当前url与目标url是否相同
-    ),
+    'verify_permalink' => false, //1.7.1新增参数，false时不比对当前url与目标url是否相同
   );
   $zbp->RegRoute($route);
 }
@@ -116,8 +113,8 @@ function demoPlugin_RegRoute2()
       'call' => 'demoPlugin_ViewPost',
       'urlrule' => '{%host%}post/{%id%}_all.html',
       // 匹配到本条路由时传递一个 all 参数用于区分
-      'args_with' =>
-      array("all" => true, 'verify_permalink' => false),
+      'args_with' => array("all" => true),
+      'verify_permalink' => false,
     ),
     // 分页
     array(
@@ -191,8 +188,7 @@ function demoPlugin_RegRoute3()
         // 0 => 'post@id',
         'all' => 'all|[0-9]+',
       ),
-      'args_with' =>
-      array('verify_permalink' => false),//不比对当前url与目标url是否相同
+      'verify_permalink' => false,//不比对当前url与目标url是否相同
     );
   $zbp->RegRoute($route);
   return true;
