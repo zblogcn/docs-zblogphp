@@ -2,68 +2,7 @@
 
 本节示例代码基于「[Hello Z-Blog - 插件开发](books/dev-app-plugin?id=hello-z-blog "Hello Z-Blog - 插件开发")」创建的`demoPlugin`插件；
 
-有「[旧版 - 页面路由](books/dev-route?id=旧版 "旧版 - 页面路由")」和「[新版 - 页面路由](books/dev-route?id=_17-新版 "新版 - 页面路由")」两种方式；
-
-## 旧版
-
-**假定需求：**
-
-对于`{%host%}post/{%id%}.html`模式的访问，另外定义一条`{%host%}download/{%id%}.html`用于显示下载内容；
-
-**向`ActivePlugin_demoPlugin()`函数内添加如下接口挂载；**
-
-```php
-Add_Filter_Plugin('Filter_Plugin_ViewAuto_Begin', 'demoPlugin_Rewrite');
-```
-
-**接口函数定义：**
-
-```php
-function demoPlugin_Rewrite($original_url, $url)
-{
-  global $zbp;
-  $r = UrlRule::OutputUrlRegEx("{%host%}download/{%id%}.html", 'article');
-
-  // debug
-  // ob_clean();
-  echo __FILE__ . "丨" . __LINE__ . ":<br>\n";
-  var_dump($r); // string(38) "/(?J)^download\/(?P[0-9]+)\.html$/"
-  echo "<br><br>\n\n";
-  // die();
-  // debug
-
-  $m = array();
-  if (preg_match($r, $url, $m) == 1) {
-
-    // debug
-    // ob_clean();
-    echo __FILE__ . "丨" . __LINE__ . ":<br>\n";
-    var_dump($m);
-    echo "<br><br>\n\n";
-    // die();
-    // debug
-
-    /**
-    * array(3) {
-    *   [0]=>
-    *   string(16) "download/32.html"
-    *   ["id"]=>
-    *   string(2) "32"
-    *   [1]=>
-    *   string(2) "32"
-    * }
-    **/
-
-    // 可以使用 $m['id'] 作为参数进行查询和输出；
-    // 也可以使用 ViewPost($m) 并配合 Filter_Plugin_ViewPost_Template 等接口；
-    unset($m[0]); // 因为新机制的附带影响，目前需要在传值前额外处理；
-    ViewPost($m);
-
-    // 用于跳过同一接口队列中的后续操作
-    $GLOBALS['hooks']['Filter_Plugin_ViewAuto_Begin']['demoPlugin_Rewrite'] = PLUGIN_EXITSIGNAL_RETURN;
-  }
-}
-```
+有「[新版 - 页面路由](books/dev-route?id=_17-新版 "新版 - 页面路由")」和「[旧版 - 页面路由](books/dev-route?id=旧版 "旧版 - 页面路由")」两种方式；
 
 ## 1.7 新版
 
@@ -103,6 +42,10 @@ function demoPlugin_RegRoute()
     array(
       0 => 'post@id',
     ),
+    'args_with' =>
+    array(
+      'verify_permalink' => false, //1.7.1新增参数，可以不比对当前url与目标url是否相同
+    ),
   );
   $zbp->RegRoute($route);
 }
@@ -141,7 +84,6 @@ function demoPlugin_ViewDownload($arg)
 
   // 可以使用 $arg['id'] 作为参数进行查询和输出；
   // 也可以使用 ViewPost($arg) 并配合 Filter_Plugin_ViewPost_Template 等接口；
-  unset($arg[0]); // 因为新机制的附带影响，目前需要在传值前额外处理；
   ViewPost($arg);
 }
 ```
@@ -175,7 +117,7 @@ function demoPlugin_RegRoute2()
       'urlrule' => '{%host%}post/{%id%}_all.html',
       // 匹配到本条路由时传递一个 all 参数用于区分
       'args_with' =>
-      array("all" => true),
+      array("all" => true, 'verify_permalink' => false),
     ),
     // 分页
     array(
@@ -249,9 +191,73 @@ function demoPlugin_RegRoute3()
         // 0 => 'post@id',
         'all' => 'all|[0-9]+',
       ),
+      'args_with' =>
+      array('verify_permalink' => false),//不比对当前url与目标url是否相同
     );
   $zbp->RegRoute($route);
   return true;
 }
 ```
 <!-- 需求 3 结束 -->
+
+
+## 旧版
+
+**假定需求：**
+
+对于`{%host%}post/{%id%}.html`模式的访问，另外定义一条`{%host%}download/{%id%}.html`用于显示下载内容；
+
+**向`ActivePlugin_demoPlugin()`函数内添加如下接口挂载；**
+
+```php
+Add_Filter_Plugin('Filter_Plugin_ViewAuto_Begin', 'demoPlugin_Rewrite');
+```
+
+**接口函数定义：**
+
+```php
+function demoPlugin_Rewrite($original_url, $url)
+{
+  global $zbp;
+  $r = UrlRule::OutputUrlRegEx("{%host%}download/{%id%}.html", 'article');
+
+  // debug
+  // ob_clean();
+  echo __FILE__ . "丨" . __LINE__ . ":<br>\n";
+  var_dump($r); // string(38) "/(?J)^download\/(?P[0-9]+)\.html$/"
+  echo "<br><br>\n\n";
+  // die();
+  // debug
+
+  $m = array();
+  if (preg_match($r, $url, $m) == 1) {
+
+    // debug
+    // ob_clean();
+    echo __FILE__ . "丨" . __LINE__ . ":<br>\n";
+    var_dump($m);
+    echo "<br><br>\n\n";
+    // die();
+    // debug
+
+    /**
+    * array(3) {
+    *   [0]=>
+    *   string(16) "download/32.html"
+    *   ["id"]=>
+    *   string(2) "32"
+    *   [1]=>
+    *   string(2) "32"
+    * }
+    **/
+
+    // 可以使用 $m['id'] 作为参数进行查询和输出；
+    // 也可以使用 ViewPost($m) 并配合 Filter_Plugin_ViewPost_Template 等接口；
+    unset($m[0]); // 因为新机制的附带影响，目前需要在传值前额外处理；
+    ViewPost($m);
+
+    // 用于跳过同一接口队列中的后续操作
+    $GLOBALS['hooks']['Filter_Plugin_ViewAuto_Begin']['demoPlugin_Rewrite'] = PLUGIN_EXITSIGNAL_RETURN;
+  }
+}
+```
