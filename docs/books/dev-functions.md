@@ -102,6 +102,17 @@ $name = GetVars("name", "POST");
 // @return array
 ```
 
+## 访问来源信息
+
+```php
+// IP
+GetGuestIP();
+// HTTP_USER_AGENT
+GetGuestAgent();
+// 访问来源 URL
+GetRequestUri();
+```
+
 ## 获取空间环境信息
 
 ```php
