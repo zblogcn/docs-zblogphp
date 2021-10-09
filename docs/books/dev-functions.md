@@ -2,6 +2,8 @@
 
 Z-BlogPHP 封装了众多辅助函数，文件路径为：「[zb_system/function/c_system_common.php](https://github1s.com/zblogcn/zblogphp/blob/master/zb_system/function/c_system_common.php "zb_system/function/c_system_common.php - GitHub1s") 」←此链接可直接在线查看；
 
+还有一些在`zb_system/function/c_system_function.php`，不过除了前两个外不太需要自行调用；
+
 本章节会介绍一些相对常用的，具体定义可在文件中搜索查看。
 
 ## GetList()
@@ -114,6 +116,8 @@ GetRequestUri();
 ```
 
 ## 获取空间环境信息
+
+此处部分信息会在初始化时赋值给常量，可直接使用，见「`zb_system\function\c_system_base.php`」
 
 ```php
 // 系统信息概览
