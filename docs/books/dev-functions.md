@@ -4,7 +4,7 @@ Z-BlogPHP 封装了众多辅助函数，文件路径为：「[zb_system/function
 
 本章节会介绍一些相对常用的，具体定义可在文件中搜索查看。
 
-## GetList 函数
+## GetList()
 
 通过 GetList 可以获取自定义的文章列表，如指定分类的最新文章、置顶文章等等；
 
@@ -100,4 +100,27 @@ $name = GetVars("name", "POST");
 ```php
 // @param  string $html
 // @return array
+```
+
+## 获取空间环境信息
+
+```php
+// 系统信息概览
+var_dump(GetEnvironment());
+// string(73) "WINNT10.0; IIS10.0; PHP7.4.21x64; mysqli5.7.23; curl7.70.0; OpenSSL1.1.1k"
+
+// 以下是其他相关函数
+
+// 请求协议
+GetScheme($_SERVER)
+
+// web 服务 - Nginx / Apache / IIS
+GetWebServer()
+
+// 操作系统
+GetSystem()
+
+// PHP 版本
+GetPHPVersion()
+
 ```
