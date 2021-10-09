@@ -73,3 +73,20 @@ array(
 $act = GetVars("act", "GET");
 $name = GetVars("name", "POST");
 ```
+
+## GetValueInArray 函数
+
+- 从数组中获取指定键值的元素；
+- 内部封装了所需键值是否存在的判断，不存在时返回第三个参数；
+- 第三个参数可省，默认值为 `null`；
+
+```php
+  $siteInfos = array(
+    "url" => "https://docs.zblogcn.com/php/",
+    "git" => "https://github.com/zblogcn/docs-zblogphp",
+    "engine" => "docsify",
+  );
+  $siteUrl = GetValueInArray($siteInfos, "url", "");
+  echo $siteUrl;
+  // https://docs.zblogcn.com/php/
+```
