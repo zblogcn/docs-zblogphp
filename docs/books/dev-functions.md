@@ -35,7 +35,7 @@ array(
 )
 ```
 
-## GetPost 函数
+## GetPost()
 
 通过 GetPost 可以获取指定的文章或页面或是其它类型的 Post 表的数据；
 
@@ -62,7 +62,7 @@ array(
 )
 ```
 
-## GetVars 函数
+## GetVars()
 
 - 可快速获取 `GET`/`POST` 等传值；
 - 不存在时将默认返回`null`，无需`isset($_GET['act'])`判断；
@@ -74,7 +74,7 @@ $act = GetVars("act", "GET");
 $name = GetVars("name", "POST");
 ```
 
-## GetValueInArray 函数
+## GetValueInArray()
 
 - 从数组中获取指定键值的元素；
 - 内部封装了所需键值是否存在的判断，不存在时返回第三个参数；
@@ -89,4 +89,15 @@ $name = GetVars("name", "POST");
   $siteUrl = GetValueInArray($siteInfos, "url", "");
   echo $siteUrl;
   // https://docs.zblogcn.com/php/
+```
+
+## GetImagesFromHtml()
+
+从 HTML 中获取所有图片；
+
+参数及返回值；
+
+```php
+// @param  string $html
+// @return array
 ```
