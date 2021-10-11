@@ -123,6 +123,7 @@ function demoPlugin_RegRoute2()
       'name' => 'plugin_demoPlugin_PostPagination',
       'call' => 'demoPlugin_ViewPost',
       'urlrule' => '{%host%}post/{%id%}_{%page%}.html',
+      'verify_permalink' => false,
     )
 
   );
