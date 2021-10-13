@@ -10,7 +10,7 @@
 - 自建表命名：`plugin_appID_表名` 或 `theme_appID_表名`，表前缀由系统自动附加；
 - 站内链接或路径须全部使用绝对地址：
   - PHP：`$zbp->host`、`$zbp->path`，也有专门的全局变量；
-  - JS：`zbp.bloghost`；
+  - JS：`bloghost`；
 - 对于服务器端发起的网络请求，请优先使用自带的`Network`；「[Network 参考](https://bbs.zblogcn.com/thread-102975.html#486171 "Network 参考")」
 - 类似`.gitignore`，可以使用`zbignore.txt`对不需要打包进`zba`的文件进行排除；「[zbignore.txt 参考](https://bbs.zblogcn.com/thread-102780.html "zbignore.txt 参考")」
 - **理论上，「你」并没有在应用中自带`jQuery`必要；**
