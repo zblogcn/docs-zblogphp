@@ -17,7 +17,7 @@
 **注：下边列表并不严格对应上边分类；**
 
 <!-- 「管理页面」相关 -->
-[hook-admin](include/hook-admin.md ':include')
+[hook-admin](app-20-interfaces/hook-admin.md ':include')
 
 <!-- 「前台页面」相关 -->
-[hook-view](include/hook-view.md ':include')
+[hook-view](app-20-interfaces/hook-view.md ':include')
