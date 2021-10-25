@@ -1,6 +1,6 @@
 ## 文件结构（主题）
 
-以下基于通过「[创建应用](books/dev-app-start?id=创建应用 "创建应用")」生成的初始文件：
+以下基于通过「[创建应用](books/dev-05-start?id=创建应用 "创建应用")」生成的初始文件：
 
 ```conf
 /path/zb_users/theme/demoTheme
@@ -34,8 +34,8 @@
 ### 示例
 
 - 理论上可以直接使用如下示例作为四个「主模板」文件的基础结构；**「`Your Code`部分除外」**；
-- `{template:header}` `{template:footer}` `{template:sidebar}` 为「Z-BlogPHP 体系内」常用模板，`{template:hero}`则可自由命名，用于拆分相应位置的代码；「[模板书写 - 嵌入调用](books/dev-app-theme?id=嵌入调用 "模板书写 - 嵌入调用")」
-- 关于「模板描述信息」「嵌入调用」「变量输出标签」等部分的详情，参见：「[模板书写](books/dev-app-theme?id=模板书写 "模板书写")」
+- `{template:header}` `{template:footer}` `{template:sidebar}` 为「Z-BlogPHP 体系内」常用模板，`{template:hero}`则可自由命名，用于拆分相应位置的代码；「[模板书写 - 嵌入调用](books/dev-10-theme?id=嵌入调用 "模板书写 - 嵌入调用")」
+- 关于「模板描述信息」「嵌入调用」「变量输出标签」等部分的详情，参见：「[模板书写](books/dev-10-theme?id=模板书写 "模板书写")」
 
 ```html
 {* Template Name: 首页及列表页 * Template Type: index|list *}

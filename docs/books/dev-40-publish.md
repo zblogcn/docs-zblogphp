@@ -25,7 +25,7 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 > **Z-Blog 全新的应用中心，为众多开发者提供一个展示自己作品的平台。**
 
-**注：此贴文本复制于「[成为开发者 - 发布应用 - Z-BlogPHP 文档](https://docs.zblogcn.com/php/#/books/dev-app-publish?id=%e6%88%90%e4%b8%ba%e5%bc%80%e5%8f%91%e8%80%85 "成为开发者 - 发布应用 - Z-BlogPHP 文档")」，不要直接编辑；**
+**注：此贴文本复制于「[成为开发者 - 发布应用 - Z-BlogPHP 文档](https://docs.zblogcn.com/php/#/books/dev-40-publish?id=%e6%88%90%e4%b8%ba%e5%bc%80%e5%8f%91%e8%80%85 "成为开发者 - 发布应用 - Z-BlogPHP 文档")」，不要直接编辑；**
 
 ### 前置要求
 
@@ -44,7 +44,7 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 请在【[开发者中心-ZBlogger 技术交流中心](https://bbs.zblogcn.com/forum-125.html "开发者中心-ZBlogger 技术交流中心")】版块按以下要求发贴申请：
 
-1. 为节省时间，请先参照「[注意事项速查表](books/dev-app-faq?id=注意事项速查表 "注意事项速查表")」进行自查；
+1. 为节省时间，请先参照「[注意事项速查表](books/dev-45-faq?id=注意事项速查表 "注意事项速查表")」进行自查；
 2. 在「**你自己的网站**」内发布主题或插件，附截图、功能介绍等，该网站本身不能只是演示站；
 3. 「**在你的发布页面内**」以附件或网盘或「**Git 地址**」形式提供下载，可额外附带演示地址；「**不在要论坛发附件！！！**」
 4. 网站本身如为 Z-Blog，须保留带链接的 Powerd By 声明；其他程序须在首页添加指向`www.zblogcn.com`的友情链接；
@@ -82,7 +82,7 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 ### 其他
 Z-BlogPHP 官方文档：https://docs.zblogcn.com/php/#/
 
-注意事项速查表：https://docs.zblogcn.com/php/#/books/dev-app-faq  ←← 高优先级
+注意事项速查表：https://docs.zblogcn.com/php/#/books/dev-45-faq  ←← 高优先级
 
 [开发者准入规范讨论贴-网站事务-ZBlogger 技术交流中心](https://bbs.zblogcn.com/thread-103787.html "开发者准入规范讨论贴-网站事务-ZBlogger 技术交流中心")  ←← 优先级较低
 
@@ -90,7 +90,7 @@ Z-BlogPHP 官方文档：https://docs.zblogcn.com/php/#/
 
 ## 发布标准
 
-> **推荐阅读：[注意事项速查表](books/dev-app-faq?id=%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e9%80%9f%e6%9f%a5%e8%a1%a8 "常见问题")**
+> **推荐阅读：[注意事项速查表](books/dev-45-faq?id=%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e9%80%9f%e6%9f%a5%e8%a1%a8 "常见问题")**
 
 <details>
 <summary>此节内容需重新组织（点击展开）</summary>

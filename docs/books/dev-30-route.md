@@ -1,8 +1,8 @@
 # 页面路由
 
-本节示例代码基于「[Hello Z-Blog - 插件开发](books/dev-app-plugin?id=hello-z-blog "Hello Z-Blog - 插件开发")」创建的`demoPlugin`插件；
+本节示例代码基于「[Hello Z-Blog - 插件开发](books/dev-15-plugin?id=hello-z-blog "Hello Z-Blog - 插件开发")」创建的`demoPlugin`插件；
 
-有「[新版 - 页面路由](books/dev-route?id=_17-新版 "新版 - 页面路由")」和「[旧版 - 页面路由](books/dev-route?id=旧版 "旧版 - 页面路由")」两种方式；
+有「[新版 - 页面路由](books/dev-30-route?id=_17-新版 "新版 - 页面路由")」和「[旧版 - 页面路由](books/dev-30-route?id=旧版 "旧版 - 页面路由")」两种方式；
 
 ## 1.7 新版
 

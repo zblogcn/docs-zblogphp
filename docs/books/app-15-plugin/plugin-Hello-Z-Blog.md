@@ -113,7 +113,7 @@ if (!$zbp->CheckRights($action)) {$zbp->ShowError(6);die();}
 
 ## 插件配置数据存取
 
-「[Hello Z-Blog](books/dev-app-plugin?id=hello-z-blog "Hello Z-Blog")」中已有相应用例，以下为逐条讲解；
+「[Hello Z-Blog](books/dev-15-plugin?id=hello-z-blog "Hello Z-Blog")」中已有相应用例，以下为逐条讲解；
 
 「配置项」的「值」可以是`数字`、`字符串`、`数组`；对于`PHP 对象`，理论上需要能够被序列化，实际使用中建议转为`JSON`保存；
 
