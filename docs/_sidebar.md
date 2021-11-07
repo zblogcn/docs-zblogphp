@@ -14,6 +14,7 @@
   - [SQL 链式查询](books/dev-35-chainquery)
   - [发布应用](books/dev-40-publish)
   - [常见问题](books/dev-45-faq)
+  - [自定义数据](books/dev-50-custom-object)
 - API
   - [基本设计](books/api-05-design)
   - [接口文档](books/api-10-mods)
