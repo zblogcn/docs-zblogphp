@@ -18,7 +18,7 @@ $datainfo['Custom'] = array(
   'Content' => array('cu_Content','string',250,''),
   'LogID' => array('cu_Logid','integer','',0)
 );
-#datainfo数组第一项，都必须是'ID'，这是表的唯一自增序列
+#datainfo数组第一项，必须是'ID'，这是表的唯一自增序列
 ```
 
 ***数据表结构$datainfo声明结构如下***
@@ -55,7 +55,7 @@ class Custom extends Base
 
 ## 创建数据库的数据表
 
-**创建数据表，在应用的include.php页的安装函数进行数据库表的存在判断及创建**
+**创建数据表，在应用的include.php页面的安装函数进行数据库表的存在判断及创建**
 ```php
 function InstallPlugin_应用ID()
 {
@@ -103,9 +103,9 @@ function InstallPlugin_应用ID()
 **查询多条数据**
 ```php
   #查询Custom表下符合2个条件的所有记录
-  $w[] = array('=', 'cu_Logid', 123);//查询条件1，LogID为123
-  $w[] = array('=', 'cu_Content', 'abc');//查询条件2，Content值为abc
-  $sql = $zbp->db->sql->Select($zbp->table['Custom'], array('*'), $w);
+  $w[] = array('=', $zbp->d['Custom']['LogID'][0], 123);//查询条件1，LogID值为123
+  $w[] = array('=', $zbp->d['Custom']['Content'][0], 'abc');//查询条件2，Content值为abc
+  $sql = $zbp->db->sql->Select($zbp->t['Custom'], array('*'), $w);
   $list = $zbp->GetListType('Custom', $sql);
   #结果$list为一个包含Custom对象的数组
 ```
@@ -115,13 +115,14 @@ function InstallPlugin_应用ID()
 - GetCustomList($select = null, $where = null, $order = null, $limit = null, $option = null)
 ```php
   #查询Custom表下符合2个条件的所有记录
-  #$select默认可以为null，或'*'
-  $w[] = array('=', 'cu_Logid', 123);//查询条件1，LogID为123
-  $w[] = array('=', 'cu_Content', 'abc');//查询条件2，Content值为abc
-  $o = array('cu_ID' => 'DESC');//排序按ID序号的倒序
-  #limit为取出结果上限，可为10，或是array(50,20)意为第50个结果后的20个结果
-  #option用法请参看zblogphp源码
-  $list = $zbp->GetCustomList('*', $w, $o);
+  //本次使用zbp的链式SQL操作组件
+  $sql = $zbp->db->sql->get()
+                      ->select($zbp->table['Custom'])
+                      ->where(array('=', 'cu_Logid', '123'))//查询条件1，LogID为123
+                      ->where(array('=', 'cu_Content', 'abc'))//查询条件2，Content值为abc
+                      ->orderBy(array('cu_ID' => 'desc'))//排序按ID序号的倒序
+                      ->sql;
+  $list = $zbp->GetCustomList($sql);
   #如果取不到数据$list就返回一个空array()
 ```
 - GetCustomByID($id)
@@ -141,7 +142,7 @@ function InstallPlugin_应用ID()
 介绍GetCustomByArray的一个隐藏的复杂用法
 
 ```php
-  #有一个posts文章数组，有3个post
+  #设有一个posts文章数组，内有3个post实例对象，ID分别为1,2,13
   $posts = array(
     $zbp->GetPostByID(1),
     $zbp->GetPostByID(2),
