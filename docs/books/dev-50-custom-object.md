@@ -5,7 +5,7 @@
 ## 定义数据结构
 
 
-**新增数据结构是对`$table`,`$datainfo`数组的项目添加**
+**新增数据结构是对全局变量`$table`,`$datainfo`数组的项目添加**
 
 ```php
 #表名
@@ -15,33 +15,31 @@ $table['Custom'] = '%pre%plugin_custom';
 #表结构
 $datainfo['Custom'] = array(
   'ID' => array('cu_ID','integer','',0),
-  'Content' => array('cu_Content','string',128,''),
+  'Content' => array('cu_Content','string',250,''),
   'LogID' => array('cu_logid','integer','',0)
 );
 
 #表结构$datainfo声明结构如下
 array('属性名' => array('字段名', '类型', '长度参数（根据类型定义）', '默认值'));
 
-#简单演示常用类型的声明：具体的类型，大家自行补充MySQL的基础知识。
-// int
+#简单演示常用类型的声明：
+// int数字
 array('ID', 'integer', '', 0),
 // tinyint
 array('Type', 'integer', 'tinyint', 0),
-// boolean
+// boolean布尔值
 array('EndTime', 'boolean', '', false),
 // char
 array('Value', 'char', 10, ''),
-// varchar
+// 250长度的字符串
 array('Title', 'string', 250, ''),
-// longtext
+// 长文本
 array('Content', 'string', '', ''),
-
-
 ```
 
 ## 创建数据类
 
-**自定义数据类型是对系统的`Base`类的一个继承**
+**自定义数据类型是创建一个继承自系统的`Base`类的新类**
 ```php
 #定义了一个最基本的Custom类，可以在这个类里扩展自己的方法
 class Custom extends Base
