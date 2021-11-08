@@ -55,7 +55,7 @@ class Custom extends Base
 
 ## 创建数据库的数据表
 
-**创建数据表，在应用的include.php页面的安装函数进行数据库表的存在判断及创建**
+**创建数据表，在应用的`include.php`页面里的`安装函数`进行数据库表的存在判断及创建**
 ```php
 function InstallPlugin_应用ID()
 {
@@ -111,17 +111,17 @@ function InstallPlugin_应用ID()
 ```
 ***主程序1.7.2版新增的查询方法***
 
-主程序1.7.2在定义`Custom类`成功后，自动生成了`ZBlogPHP类`下的3个读取加载`Custom类`的方法，分别是：
+主程序1.7.2在定义`Custom`类成功后，自动生成了`ZBlogPHP`类下的3个读取加载`Custom`类的方法，分别是：
 - `GetCustomList`($select = null, $where = null, $order = null, $limit = null, $option = null)
 ```php
   #查询Custom表下符合2个条件的所有记录
   //本次使用zbp的链式SQL操作组件
   $sql = $zbp->db->sql->get()
-                      ->select($zbp->table['Custom'])
-                      ->where(array('=', 'cu_Logid', '123'))//查询条件1，LogID为123
-                      ->where(array('=', 'cu_Content', 'abc'))//查询条件2，Content值为abc
-                      ->orderBy(array('cu_ID' => 'desc'))//排序按ID序号的倒序
-                      ->sql;
+                    ->select($zbp->table['Custom'])
+                    ->where(array('=', 'cu_Logid', '123'))//查询条件1，LogID为123
+                    ->where(array('=', 'cu_Content', 'abc'))//查询条件2，Content值为abc
+                    ->orderBy(array('cu_ID' => 'desc'))//排序按ID序号的倒序
+                    ->sql;
   $list = $zbp->GetCustomList($sql);
   #如果取不到数据$list就返回一个空array()
 ```
