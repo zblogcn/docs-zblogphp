@@ -43,10 +43,13 @@ function api_newapi_helloworld() {
     //请注意：我们在示例里没有验证权限，只做了简单的返回数据
 }
 ```
-在使用POST方式提交数据到api，请在api访问url上加上参数`&csrf_token=`，否则POST会失败
+在使用POST方式提交数据到api，必须在提交时传入api登录成功后返回的`token`（设Authorization请求头为'Bearer token值'，抑或是在POST表单传入input，name为'token'，value为token值），如果系统在`ApiTokenVerify()`里验证成功，就跳过crsf_token检查！否则POST提交会失败！
 ```php
-#获取csrf_token值
-$csrf_token = $zbp->GetCSRFToken('api');
+function api_newapi_saveinput() {
+    $post = $_POST;
+    $data = 'Save OK';
+	return array('data' => $data);
+}
 ```
 ## 访问API
 
