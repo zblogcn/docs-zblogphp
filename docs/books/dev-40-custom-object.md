@@ -111,8 +111,8 @@ function InstallPlugin_应用ID()
 ```
 ***主程序1.7.2版新增的查询方法***
 
-主程序1.7.2在定义Custom类成功后，自动生成了`ZBlogPHP类`下的3个读取加载Custom类的方法，分别是：
-- GetCustomList($select = null, $where = null, $order = null, $limit = null, $option = null)
+主程序1.7.2在定义`Custom类`成功后，自动生成了`ZBlogPHP类`下的3个读取加载`Custom类`的方法，分别是：
+- `GetCustomList`($select = null, $where = null, $order = null, $limit = null, $option = null)
 ```php
   #查询Custom表下符合2个条件的所有记录
   //本次使用zbp的链式SQL操作组件
@@ -125,13 +125,13 @@ function InstallPlugin_应用ID()
   $list = $zbp->GetCustomList($sql);
   #如果取不到数据$list就返回一个空array()
 ```
-- GetCustomByID($id)
+- `GetCustomByID`($id)
 ```php
   #从数据库中读取单个的Custom实例
   $c = $zbp->GetCustomByID(111);
   #读取成功返回实例，不成功返回null
 ```
-- GetCustomByArray($array, $field_name = 'ID')
+- `GetCustomByArray`($array, $field_name = 'ID')
 ```php
   #从数据库中查询ID值等于给定数组项目的Custom实例队列
   #如果是查询ID值，$field_name参数可以省略
@@ -139,7 +139,7 @@ function InstallPlugin_应用ID()
   #返回队列为一个Custom实例的数组（ID分别为1，3，5，666，如果ID存在的话）
 ```
 
-介绍GetCustomByArray的一个隐藏的复杂用法
+介绍`GetCustomByArray`的一个隐藏的复杂用法
 
 ```php
   #设有一个posts文章数组，内有3个post实例对象，ID分别为1,2,13
