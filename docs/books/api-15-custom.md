@@ -43,7 +43,11 @@ function api_newapi_helloworld() {
     //请注意：我们在示例里没有验证权限，只做了简单的返回数据
 }
 ```
-在使用POST方式提交数据到api，必须在提交时传入api登录成功后返回的`token`（设Authorization请求头为'Bearer token值'，抑或是在POST表单传入input，name为'token'，value为token值），如果系统在`ApiTokenVerify()`里验证成功，就跳过crsf_token检查！否则POST提交会失败！
+在使用POST方式提交数据到api，必须在提交时传入api登录成功后返回的`token`（设Authorization请求头为'Bearer token值'，抑或是在POST表单传入input，name为'token'，value为token值）
+
+如果系统在`ApiTokenVerify()`里验证成功，就跳过crsf_token检查！否则POST提交会失败！
+
+如果上述都不能实现，还可以通过挂Filter_Plugin_API_VerifyCSRF_Skip这个接口，将该mod的api加入跳过CSRF验证的数组中
 ```php
 function api_newapi_saveinput() {
     $post = $_POST;
