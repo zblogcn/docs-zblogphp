@@ -47,12 +47,14 @@ function api_newapi_helloworld() {
 
 如果系统在`ApiTokenVerify()`里验证成功，就跳过crsf_token检查！否则POST提交会失败！
 
-如果上述都不能实现，还可以通过挂Filter_Plugin_API_VerifyCSRF_Skip这个接口，将该mod的api加入跳过CSRF验证的数组中
+如果上述都不能实现，还可以通过挂Filter_Plugin_API_VerifyCSRF_Skip这个接口，将该mod的api加入跳过CSRF验证的数组中，代码如下：
 ```php
-function api_newapi_saveinput() {
-    $post = $_POST;
-    $data = 'Save OK';
-	return array('data' => $data);
+//挂上接口
+Add_Filter_Plugin('Filter_Plugin_API_VerifyCSRF_Skip', 'newapi_IgnoreCSRF');
+
+//将newapi的helloworld加入进跳过验证数组
+function newapi_IgnoreCSRF(&$array) {
+  $array[] = array('mod' => 'newapi', 'act' => 'helloworld');
 }
 ```
 ## 访问API
