@@ -61,7 +61,7 @@ function newapi_IgnoreCSRF(&$array) {
 
 `$mods_allow白名单`请慎用，启用`白名单`后，不在`白名单`的mod都将被拒绝
 
-如果只想关闭某些模块只需要对`黑名单`进行添加
+如果只想关闭某些模块只需要对`$mods_disallow黑名单`进行添加
 
 白名单示范：
 ```php
