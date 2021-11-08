@@ -149,6 +149,6 @@ function InstallPlugin_应用ID()
     $zbp->GetPostByID(13),
   );
   #查询Custom数据表中LogID值等于posts里post实例ID值的Custom实例队列
-  $list = $zbp->GetCustomByArray($posts, array('ID','LogID'));
+  $list = $zbp->GetCustomByArray($posts, array('ID' => 'LogID'));
   #返回队列为一个Custom实例的数组，它们的LogID都是1或2或13
 ```
