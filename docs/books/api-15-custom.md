@@ -43,7 +43,11 @@ function api_newapi_helloworld() {
     //请注意：我们在示例里没有验证权限，只做了简单的返回数据
 }
 ```
-
+在使用POST方式提交数据到api，请在api访问url上加上参数`&csrf_token=`，否则POST会失败
+```php
+#获取csrf_token值
+$csrf_token = $zbp->GetCSRFToken('api');
+```
 ## 访问API
 
 **API访问地址:**
