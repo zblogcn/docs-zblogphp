@@ -18,10 +18,10 @@ function ActivePlugin_newapi() {
 ```
 ## 挂上接口，插入API模块文件
 
-把`myapi.php`这个`api文件模块`插入进系统，一个`api文件模块`内可包含多个`api`
+把`myapi.php`这个`api文件模块`插入进API系统，一个`api文件模块`内可包含多个`api`
 
 ```php
-RegisterPlugin("newapi","ActivePlugin_newapi");
+#include.php里的newapi_RegAPI函数实现
 
 #将插件目录下的myapi.php这个API实现文件以'newapi'为模块名插入进系统API里
 function newapi_RegAPI() {
@@ -33,7 +33,7 @@ function newapi_RegAPI() {
 
 在`myapi.php`这个自定义api模块里定义了一个api叫`helloworld`
 
-`api函数名称`是有规律的，必须是`api_`打头，`注册模块名`居中，`api名称`居末尾组合而成，这样API系统才能路由到此函数
+`api函数名称`是有规律的，必须是`api_`打头，`注册模块名`居中，加一个`_`，再由`api命令名称`居末尾组合而成，这样API系统才能路由到此函数
 
 ```php
 function api_newapi_helloworld() {
@@ -52,6 +52,7 @@ https://`测试网站`/zb_system/api.php?mod=`newapi`&act=`helloworld`
 
 其中，`mod`参数是模块名，`act`参数是api命令名称
 
+下面是返回的数据内容：
 ```json
 {"code":200,"message":"OK","data":"Hello world!","error":null,"runtime":{"time":"31.89","query":4,"memory":-1100}}
 ```
