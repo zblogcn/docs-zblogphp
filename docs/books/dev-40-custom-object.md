@@ -8,6 +8,8 @@
 **新增数据结构是对全局变量`$table`,`$datainfo`数组的项目添加**
 
 ```php
+#本篇里我们创建一个类叫Custom
+
 #表名
 $table['Custom'] = '%pre%plugin_custom';
 #注意表名可自定义，但必须加上%pre%区分同一数据库中的不同的程序所生成的表
@@ -152,3 +154,7 @@ function InstallPlugin_应用ID()
   $list = $zbp->GetCustomByArray($posts, array('ID' => 'LogID'));
   #返回队列为一个Custom实例的数组，它们的LogID都是1或2或13
 ```
+
+「- -」「- -」「- -」「- -」「- -」
+
+***本篇内容所用代码需要由主程序1.7版本及更高版本实现***
