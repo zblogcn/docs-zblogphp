@@ -43,7 +43,7 @@ function api_newapi_helloworld() {
     //请注意：我们在示例里没有验证权限，只做了简单的返回数据
 }
 ```
-在使用POST方式提交数据到api，必须在提交时传入api登录成功后返回的`token`（设Authorization请求头为'Bearer token值'，抑或是在POST表单传入input，name为'token'，value为token值）
+在使用POST方式提交数据到api，必须在提交时传入api登录成功后返回的`token`（设Authorization请求头为'Bearer token值'，抑或是在POST传入input表单，name为'token'，value为token值）
 
 如果系统在`ApiTokenVerify()`里验证成功，就跳过crsf_token检查！否则POST提交会失败！
 
@@ -61,7 +61,7 @@ function newapi_IgnoreCSRF(&$array) {
 
 `$mods_allow白名单`请慎用，启用`白名单`后，不在`白名单`的mod都将被拒绝
 
-如果只想关闭某些模块只需要对`$mods_disallow黑名单`进行添加
+如果只想关闭某些模块，只需要对`$mods_disallow黑名单`进行添加
 
 白名单示范：
 ```php
@@ -73,6 +73,7 @@ function newapi_CheckMods(&$mods_allow, &$mods_disallow) {
     //开启白名单后，除了newapi模块和member模块下的login外，其它的api都不能访问！
 }
 ```
+
 黑名单示范：
 ```php
 Add_Filter_Plugin('Filter_Plugin_API_CheckMods', 'newapi_CheckMods');
@@ -80,7 +81,7 @@ Add_Filter_Plugin('Filter_Plugin_API_CheckMods', 'newapi_CheckMods');
 function newapi_CheckMods(&$mods_allow, &$mods_disallow) {
     $mods_disallow[] = array('newapi' => 'postdata');//禁用newapi模块下的postdata
     $mods_disallow[] = array('system' => '');//禁用system模块下所有的api
-    //开启黑名单后，没有禁用范围里的api都可以被访问！
+    //开启黑名单后，没有在禁用范围里的api都可以被访问！
 }
 ```
 
@@ -98,4 +99,4 @@ https://`测试网站`/zb_system/api.php?mod=`newapi`&act=`helloworld`
 ```
 「- -」「- -」「- -」「- -」「- -」
 
-***本篇内容所用代码需要由主程序1.7.1版本及更高版本实现***
+***本篇内容所用代码需要由主程序1.7.1.2990版本及更高版本实现***

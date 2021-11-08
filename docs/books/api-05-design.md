@@ -90,7 +90,9 @@ Response Body:
 
 1. 设置如下 `authorization` 头：`Authorization: Bearer {YourToken}` ***（推荐）***
 
-2. 附加在 URL 中：`https://example.com/zb_system/api.php?mod=setting&act=get&token={YourToken}`；
+2. POST方式访问api时，可以提交一个input表单，name为token，value为{YourToken}
+
+3. GET方式访问api时，附加在 URL 中：`https://example.com/zb_system/api.php?mod=setting&act=get&token={YourToken}`（这种方式会泄漏token）
 
 **重要：对于第 1 种方法，可能需要额外对 web 空间进行设置，参见「[常见问题](books/dev-api-faq?id=apache-%e8%8e%b7%e5%8f%96%e4%b8%8d%e5%88%b0-authorization-%e5%a4%b4%e4%bf%a1%e6%81%af "常见问题")」；**
 
