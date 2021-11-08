@@ -57,6 +57,33 @@ function newapi_IgnoreCSRF(&$array) {
   $array[] = array('mod' => 'newapi', 'act' => 'helloworld');
 }
 ```
+## API模块的白名单和黑名单
+
+`$mods_allow白名单`请慎用，启用`白名单`后，不在`白名单`的mod都将被拒绝
+
+如果只想关闭某些模块只需要对`黑名单`进行添加
+
+白名单示范：
+```php
+Add_Filter_Plugin('Filter_Plugin_API_CheckMods', 'newapi_CheckMods');
+
+function newapi_CheckMods(&$mods_allow, &$mods_disallow) {
+    $mods_allow[] = array('newapi' => '');//允许newapi模块下的所有api
+    $mods_allow[] = array('member' => 'login');//允许member模块下的login
+    //开启白名单后，除了newapi模块和member模块下的login外，其它的api都不能访问！
+}
+```
+黑名单示范：
+```php
+Add_Filter_Plugin('Filter_Plugin_API_CheckMods', 'newapi_CheckMods');
+
+function newapi_CheckMods(&$mods_allow, &$mods_disallow) {
+    $mods_disallow[] = array('newapi' => 'postdata');//禁用newapi模块下的postdata
+    $mods_disallow[] = array('system' => '');//禁用system模块下所有的api
+    //开启黑名单后，没有禁用范围里的api都可以被访问！
+}
+```
+
 ## 访问API
 
 **API访问地址:**
@@ -69,3 +96,6 @@ https://`测试网站`/zb_system/api.php?mod=`newapi`&act=`helloworld`
 ```json
 {"code":200,"message":"OK","data":"Hello world!","error":null,"runtime":{"time":"31.89","query":4,"memory":-1100}}
 ```
+「- -」「- -」「- -」「- -」「- -」
+
+***本篇内容所用代码需要由主程序1.7.1版本及更高版本实现***
