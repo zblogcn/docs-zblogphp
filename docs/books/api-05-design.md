@@ -64,7 +64,7 @@ HTTP Body:
 ```
 `"savedate": 30`：有效期 30 天；
 
-**注：`password`建议使用 MD5 值；↑↑**
+**注：`password`建议使用 MD5(密码原文) 值；也可以使用密码原文(有被抓包泄漏风险) ↑↑**
 
 Response Body:
 
