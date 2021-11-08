@@ -2,7 +2,7 @@
 
 ## 概要
 
-以 Z-BlogPHP 的 **功能模块（Module）** 为划分依据，可以分为以下十个模块：
+以 Z-BlogPHP 的 **功能模块（Module）** 为划分依据，可以分为以下九个模块：
 
 - 用户模块
 - 文章模块（包括页面）
@@ -12,8 +12,7 @@
 - 评论模块
 - 标签模块
 - 分类模块
-- 系统模块
-- 设置模块
+- 系统及设置模块
 
 **接口行为（Action）** 简单来说就是实现某个模块的数据增删改查操作，比如用户模块的新增用户、用户登录、用户信息的获取与修改等操作。
 
@@ -86,7 +85,7 @@ Response Body:
 
 ### 使用
 
-对于后续需要身份验证的请求，接受两种方式传递「鉴权 Token」：
+对于后续需要身份验证的请求，接受三种方式传递「鉴权 Token」：
 
 1. 设置如下 `authorization` 头：`Authorization: Bearer {YourToken}` ***（推荐）***
 
@@ -94,7 +93,7 @@ Response Body:
 
 3. GET方式访问api时，附加在 URL 中：`https://example.com/zb_system/api.php?mod=setting&act=get&token={YourToken}`（这种方式会泄漏token）
 
-**重要：对于第 1 种方法，可能需要额外对 web 空间进行设置，参见「[常见问题](books/dev-api-faq?id=apache-%e8%8e%b7%e5%8f%96%e4%b8%8d%e5%88%b0-authorization-%e5%a4%b4%e4%bf%a1%e6%81%af "常见问题")」；**
+**重要：对于第 1 种方法，可能需要额外对 web 空间进行设置，参见「[常见问题](books/api-20-faq?id=apache-%e8%8e%b7%e5%8f%96%e4%b8%8d%e5%88%b0-authorization-%e5%a4%b4%e4%bf%a1%e6%81%af "常见问题")」；**
 
 ## 构造请求
 
@@ -217,7 +216,7 @@ Response Body:
 
 示例一，没有权限：
 
-> 原因：未登录或登录用户权限不够；「[登录和鉴权](books/dev-api-design?id=权限认证 "登录和鉴权")」
+> 原因：未登录或登录用户权限不够；「[登录和鉴权](books/api-05-design?id=权限认证 "登录和鉴权")」
 
 ```json
 {
@@ -237,7 +236,7 @@ Response Body:
 
 示例二，非法访问：
 
-> 原因：未正确设置鉴权 Token；「[登录和鉴权](books/dev-api-design?id=权限认证 "登录和鉴权")」
+> 原因：未正确设置鉴权 Token；「[登录和鉴权](books/api-05-design?id=权限认证 "登录和鉴权")」
 
 ```json
 {
@@ -263,9 +262,10 @@ Response Body:
   "message": "OK",
   "data": {
     "member": {
-      "id": 123,
-      "username": "Chris",
-      "email": "123@example.com"
+      "ID": 123,
+      "Name": "Chris",
+      "Email": "123@example.com",
+      "StaticName": "admin"
     }
   },
   "error": null,
