@@ -23,7 +23,7 @@ function ActivePlugin_newapi() {
 ```php
 RegisterPlugin("newapi","ActivePlugin_newapi");
 
-#将插件目录下的myapi.php这个API实现文件以'newapi'的项目名插入进系统API里
+#将插件目录下的myapi.php这个API实现文件以'newapi'为模块名插入进系统API里
 function newapi_RegAPI() {
     return array('newapi' => __DIR__ . '/myapi.php');
 }
@@ -33,7 +33,7 @@ function newapi_RegAPI() {
 
 在`myapi.php`这个自定义api模块里定义了一个api叫`helloworld`
 
-`api函数名称`是有规律的，必须是`api_`打头，`mod名称`居中，`action名称`居末尾组合而成，这样API系统才能路由到此函数
+`api函数名称`是有规律的，必须是`api_`打头，`注册模块名`居中，`api名称`居末尾组合而成，这样API系统才能路由到此函数
 
 ```php
 function api_newapi_helloworld() {
@@ -46,9 +46,11 @@ function api_newapi_helloworld() {
 
 ## 访问API
 
-API访问地址:
+**API访问地址:**
 
 https://`测试网站`/zb_system/api.php?mod=`newapi`&act=`helloworld`
+
+其中，`mod`参数是模块名，`act`参数是api命令名称
 
 ```json
 {"code":200,"message":"OK","data":"Hello world!","error":null,"runtime":{"time":"31.89","query":4,"memory":-1100}}
