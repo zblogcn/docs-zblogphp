@@ -34,6 +34,8 @@ ZBlogger技术交流中心：https://bbs.zblogcn.com/
 
 Z-Blog用户中心：https://uc.zblogcn.com/
 
+Z-Blog更新服务：https://update.zblogcn.com/
+
 ZBlogHost──Z-Blog的官方主机服务：https://zbloghost.cn/
 
 Z5加密──全新的PHP加密方案：https://z5encrypt.com/
