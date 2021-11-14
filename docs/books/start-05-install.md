@@ -2,7 +2,7 @@
 
 ## 环境要求
 
-PHP：`PHP 5.2 - 8.0`
+PHP：`PHP 5.2 - 8.1`
 
 数据库：`MySQL（兼容 MariaDB）` `SQLite` `PostgreSQL`
 
@@ -19,7 +19,19 @@ PHP：`PHP 5.2 - 8.0`
 
 历史版本下载:
 
-- [Z-BlogPHP 1.6 Valyria](https://www.zblogcn.com/program/zblogphp16/ "Z-BlogPHP 1.6 Valyria 正式版")
+
+- Z-BlogPHP_1_7_0_2955_Tenet https://update.zblogcn.com/zip/Z-BlogPHP_1_7_0_2955_Tenet.zip
+- Z-BlogPHP_1_6_8_2210_Valyria https://update.zblogcn.com/zip/Z-BlogPHP_1_6_8_2210_Valyria.zip
+- Z-BlogPHP_1_6_0_2090_Valyria https://update.zblogcn.com/zip/Z-BlogPHP_1_6_0_2090_Valyria.zip
+- Z-BlogPHP_1_5_2_1935_Zero https://update.zblogcn.com/zip/Z-BlogPHP_1_5_2_1935_Zero.zip
+- Z-BlogPHP_1_5_1_1740_Zero https://update.zblogcn.com/zip/Z-BlogPHP_1_5_1_1740_Zero.zip
+- Z-BlogPHP_1_5_0_1626_Zero https://update.zblogcn.com/zip/Z-BlogPHP_1_5_0_1626_Zero.zip
+- Z-BlogPHP_1_4_Deeplue_150101 https://update.zblogcn.com/zip/Z-BlogPHP_1_4_Deeplue_150101.zip
+- Z-BlogPHP_1_3_Wonce_140614 https://update.zblogcn.com/zip/Z-BlogPHP_1_3_Wonce_140614.zip
+- Z-BlogPHP_1_2_Hippo_140220 https://update.zblogcn.com/zip/Z-BlogPHP_1_2_Hippo_140220.zip
+- Z-BlogPHP_1_1_Taichi_131221 https://update.zblogcn.com/zip/Z-BlogPHP_1_1_Taichi_130707.zip
+- Z-BlogPHP_1_0_Beta2_131111 https://update.zblogcn.com/zip/Z-BlogPHP_1_0_Beta2_131111.zip
+- Z-BlogPHP_1_0_Beta_130707 https://update.zblogcn.com/zip/Z-BlogPHP_1_0_Beta_130707.zip
 
 ## 安装
 
