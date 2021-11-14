@@ -4,25 +4,92 @@
 >
 > 相关：[Z-Blog 开发大事记](https://www.zblogcn.com/about/ "Z-Blog开发大事记")
 
-# 1.7
+# 1.7 Tenet
 
-- 1.7.1 Tenet
-  - 模板类能更好的支持多套模板
-  - 现在删除用户默认不删除其文章和评论
-  - 对 API 进行了完善
-  - 继续调整和完善了路由系统
-  - Config 类,Metas 类,Post 类等进行了修复和改进
+- 1.7.1
+  - update. 支持`PHP 8.1`版本
+  - fix. 模板类能更好的支持多套模板
+  - fix. 对 **API** 进行了修复和完善
+  - feat. 继续调整和完善了路由系统和PostType的配置和读取
+  - fix. Base类,Config类,Metas类,Post类等进行了修复和改进
+  - feat. 对报错页面的错误查询进行了修改，改为bing.com查询
+  - fix. 对所有的数据库驱动进行了修复，特别是大修了pgsql驱动
+  - feat. ZBP类增加了manageorder和displayorder属性，进行排序设置
+  - fix. 现在删除用户默认不删除其文章和评论
+  - 接口
+    - feat. 新增接口Filter_Plugin_API_Result_Data
+    - feat. 修改接口名Filter_Plugin_API_ListCheck为Filter_Plugin_API_CheckMods
 
-- 1.7.0 Tenet [详细](https://blog.zblogcn.com/2021/02/08/117/ "1.7.0 Tenet")
-  - update. 「链式 SQL」增加更多方法；
-  - feat. API；「[API 文档](books/dev-api-design "API文档")」
+- 1.7.0 [详细](https://blog.zblogcn.com/2021/02/08/117/ "1.7.0 Tenet")
+  - 重要更新
+  - feat. 增加「链式 SQL」查询功能；「[链式 SQL](books/dev-35-chainquery "API文档")」
+  - feat. 增加API功能；「[API 文档](books/dev-api-design "API文档")」
   - feat. 字体图标；「[Z-Blog icons demo](https://static.zblogcn.com/image/icon/demo.html "Z-Blog icons demo")」
   - feat. 内置缩略图基类；「[zblogcn/zblogphp/search?q=Thumb](https://github.com/zblogcn/zblogphp/search?q=Thumb "Search · Thumb")」
-  - feat. 新的 url 路由机制；
+  - feat. 全新的可配置的 URL 路由机制；
+  - 更新
+  - feat. 增加了view, api, CategoryNew, ArticleNew, PageNew, PostBat等命令 
+  - feat. 增加对PostgreSql数据库的支持
+  - feat. 将Post类和Member类分离成BasePost和BaseMember基类，后续版本会分离更多
+  - feat. Base类增加了Clone, UnsetData, GetOriginal方法,
+  - fix. 修复了ZBP类的总对象缓存
+  - feat. ZBP类增加了isapi, isdebug, islogin, ishttps 等指示属性
+  - feat. ZBP类增加了PreLoad过程在Load过程之前，所属接口一并调整
+  - feat. ZBP类增加了cachedir,logsdir,datadir,systemdir,admindir,userurl,adminur,systemurl属性，并将t引用自table,d引用自datainfo
   - feat. 文章编辑器接口增加`barBtn`；「[zblogcn/zblogphp/search?q=barBtn](https://github.com/zblogcn/zblogphp/search?q=barBtn "Search · barBtn")」
   - feat. 文章编辑器接口增加`ready`；「[zblogcn/zblogphp/search?q=ready](https://github.com/zblogcn/zblogphp/search?q=barBtn "Search · ready")」
+  - 接口
+    - feat. 新增接口Filter_Plugin_Zbp_PreLoad
+    - feat. 新增接口Filter_Plugin_Zbp_PrepareTemplate
+    - feat. 新增接口Filter_Plugin_Zbp_LoadLanguage
+    - feat. 新增接口Filter_Plugin_Admin_Hint
+    - feat. 新增接口Filter_Plugin_Admin_ArticleMng_Core
+    - feat. 新增接口Filter_Plugin_Admin_PageMng_Core
+    - feat. 新增接口Filter_Plugin_Admin_CommentMng_Core
+    - feat. 新增接口Filter_Plugin_Admin_CategoryMng_Core
+    - feat. 新增接口Filter_Plugin_Admin_MemberMng_Core
+    - feat. 新增接口Filter_Plugin_Admin_UploadMng_Core
+    - feat. 新增接口Filter_Plugin_Admin_TagMng_Core
+    - feat. 新增接口Filter_Plugin_VerifyLogin_Failed
+    - feat. 新增接口Filter_Plugin_OutputOptionItemsOfMember_Begin
+    - feat. 新增接口Filter_Plugin_OutputOptionItemsOfPostStatus
+    - feat. 新增接口Filter_Plugin_OutputOptionItemsOfIsTop
+    - feat. 新增接口Filter_Plugin_OutputOptionItemsOfMember
+    - feat. 新增接口Filter_Plugin_OutputOptionItemsOfTemplate
+    - feat. 新增接口Filter_Plugin_OutputOptionItemsOfCommon
+    - feat. 新增接口Filter_Plugin_ViewList_Begin_V2
+    - feat. 新增接口Filter_Plugin_ViewPost_Begin_V2
+    - feat. 新增接口Filter_Plugin_PostUpload_Succeed
+    - feat. 新增接口Filter_Plugin_PostPost_Core
+    - feat. 新增接口Filter_Plugin_DelPost_Core
+    - feat. 新增接口Filter_Plugin_PostPost_Succeed
+    - feat. 新增接口Filter_Plugin_DelPost_Succeed
+    - feat. 新增接口Filter_Plugin_EnablePlugin
+    - feat. 新增接口Filter_Plugin_DisablePlugin
+    - feat. 新增接口Filter_Plugin_BatchPost
+    - feat. 新增接口Filter_Plugin_Post_Thumbs
+    - feat. 新增接口Filter_Plugin_Upload_Del
+    - feat. 新增接口Filter_Plugin_Template_Display
+    - feat. 新增接口Filter_Plugin_API_Response
+    - feat. 新增接口Filter_Plugin_API_Begin
+    - feat. 新增接口Filter_Plugin_API_Dispatch
+    - feat. 新增接口Filter_Plugin_API_Extend_Mods
+    - feat. 新增接口Filter_Plugin_API_ListCheck
+    - feat. 新增接口Filter_Plugin_API_Get_Request_Filter
+    - feat. 新增接口Filter_Plugin_API_Get_Pagination_Info
+    - feat. 新增接口Filter_Plugin_API_Get_Object_Array
+    - feat. 新增接口Filter_Plugin_API_VerifyCSRF_Skip
+  - 数据库
+    - 数据库组件增加事务处理命令和ExistColumn字段存在判断
+    - feat. Config表重大更新，原子化设计，增加了key字段
+    - feat. Post表和Membar表增加了UpdateTime和CreateTime字段
+    - feat. Tag表和Category表增加了Group字段
+  - 删除
+    - remove. 移除固定域名功能至隐藏设置中
 
-# 1.6
+
+# 1.6 Valyria
+
 - 1.6.8
   - update. 支持了 1.7.0 的全新的 Config 类的数据结构
   - fix. 修复了 1.6.7 升级 1.7.0 后再退回 1.6.7 时会出现严重的 config 表数据错误
@@ -101,6 +168,9 @@
   - remove. 废弃ZBPJF的旧有接口（请参照后续迁移说明）
   - remove. 去除HHVM支持
   - remove. ZC_YUN_SITE彻底删除
+
+# 1.5 Zero
+
 - 1.5.2
   - 安全支持
   - feat. 增加“增强安全模式”
@@ -189,6 +259,7 @@
     - update. Filter_Plugin_Post_Next
     - update. Filter_Plugin_LargeData_Article
 - 1.5.0
+  - 更新
   - update. Z-BlogPHP JavaScript Framework
   - update. 重写评论返回功能
   - update. 重写Z-BlogPHP前端函数
@@ -215,15 +286,17 @@
   - update. 主题文件编译目录
   - update. 中文域名支持
   - update. 伪静态地址唯一化
-  - update. #42：调整MySQL建表语句使其支持utf8mb4，加入低版本MySQL兼容
   - update. #75：移动主题编译目录
   - update. #87：安装页面文字描述
+  - 修复
   - update. #10：修复分类名包含半角空格后伪静态出错问题
   - update. #32：修复HHVM下部分行为异常问题
   - update. #82：模板替换误判 ⇒
   - update. 修复文章归档maxli未生效的问题
   - update. 修复amh下无法读取xml的问题（http://amh.sh/bbs/post-7622-1-1.htm）
-  - update. 删除zbp_Counter表
+  - 数据库
+    - update. #42：调整MySQL建表语句使其支持utf8mb4，加入低版本MySQL兼容
+    - update. 删除zbp_Counter表
   - update. 后台JavaScript未加载提示
   - update. 上传过大应用提示
   - update. 环境未安装提示
@@ -234,14 +307,18 @@
   - update. 代码按PSR-2规范格式化
   - update. 允许命令行调用
   - update. 版本号规则修改
-  - update. Filter_Plugin_PostTag_Core
-  - update. Filter_Plugin_PostTag_Succeed
-  - update. Filter_Plugin_Upload_Dir
-  - update. Filter_Plugin_ViewSearch_Core
-  - update. Filter_Plugin_ViewFeed_Core
-  - update. Filter_Plugin_ViewComment_Template
-  - update. Filter_Plugin_Debug_Display
-  - update. 新增调试模式错误堆栈跟踪
+  - 接口
+    - update. Filter_Plugin_PostTag_Core
+    - update. Filter_Plugin_PostTag_Succeed
+    - update. Filter_Plugin_Upload_Dir
+    - update. Filter_Plugin_ViewSearch_Core
+    - update. Filter_Plugin_ViewFeed_Core
+    - update. Filter_Plugin_ViewComment_Template
+    - update. Filter_Plugin_Debug_Display
+    - update. 新增调试模式错误堆栈跟踪
+
+# 1.4 Deeplue
+
 - 1.4
   - 新增
   - update.支持相对大的数据库
@@ -286,6 +363,9 @@
   - update. 对DEBUG机制进行了大量的调整
   - update. Filter_Plugin_Debug_Shutdown_Handler接口改为Filter_Plugin_Debug_Handler
   - update. 新增数个接口
+
+# 1.3 Wonce
+
 - 1.3
   - 更新
   - update. 数据库支持mysqli连接，完善了多个数据库组件；
@@ -308,6 +388,9 @@
   - fix. 修正了$footer替换的问题；
   - fix. 修正了切换主题时出现的Bug；
   - fix. 修正了主题内置的文件式模块和数据库模块的显示与编辑功能。
+
+# 1.2 Hippo
+
 - 1.2
   - 更新
   - update. 主题模板解析支持函数，支持赋值等非输出方式
