@@ -16,6 +16,7 @@
   - fix. 对所有的数据库驱动进行了修复，特别是大修了pgsql驱动
   - feat. ZBP类增加了manageorder和displayorder属性，进行排序设置
   - fix. 现在删除用户默认不删除其文章和评论
+  - fix. 修正了一个千年老虫,在PHP CLI下输出$blogpath不正常的问题
   - 接口
     - feat. 新增接口Filter_Plugin_API_Result_Data
     - feat. 修改接口名Filter_Plugin_API_ListCheck为Filter_Plugin_API_CheckMods
