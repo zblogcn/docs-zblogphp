@@ -8,10 +8,6 @@ Z-BlogPHP 基于 PHP 平台，支持 MySQL(含 MariaDB)、SQLite 和 PostgreSQL 
 
 您可以通过提交 `Pull request` 参与 [zblogcn/zblogphp](https://github.com/zblogcn/zblogphp "zblogcn/zblogphp: Z-BlogPHP博客程序") 主程序或 [当前文档](https://github.com/zblogcn/docs-zblogphp "zblogcn/docs-zblogphp: Z-BlogPHP Documentation") 的更新维护。
 
-## 免责申明
-
-`Z-BlogPHP`的免责申明: https://www.zblogcn.com/disclaimer/
-
 ### 项目地址
 
 `zblogcn/zblogphp`：https://github.com/zblogcn/zblogphp
@@ -20,7 +16,11 @@ Z-BlogPHP 基于 PHP 平台，支持 MySQL(含 MariaDB)、SQLite 和 PostgreSQL 
 
 `docs-zblogphp-tamplate-markup`：https://github.com/wdssmq/docs-zblogphp-tamplate-markup 「[线上地址](https://docs.zblogcn.com/php/markup/ "Z-BlogPHP 模板语法汇总")」
 
-### Z-BLOG网站群
+## 免责申明
+
+`Z-BlogPHP`的免责申明: https://www.zblogcn.com/disclaimer/
+
+## Z-BLOG网站群
 
 Z-Blog唯一官方网站：https://www.zblogcn.com/
 
