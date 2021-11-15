@@ -20,9 +20,9 @@ Z-BlogPHP 基于 PHP 平台，支持 MySQL(含 MariaDB)、SQLite 和 PostgreSQL 
 
 `docs-zblogphp-tamplate-markup`：https://github.com/wdssmq/docs-zblogphp-tamplate-markup 「[线上地址](https://docs.zblogcn.com/php/markup/ "Z-BlogPHP 模板语法汇总")」
 
-### ZBLOG网站群
+### Z-BLOG网站群
 
-Z-Blog唯一官方网站：https://www.zblocn.com/
+Z-Blog唯一官方网站：https://www.zblogcn.com/
 
 Z-Blog的官方文档：https://docs.zblogcn.com/
 
