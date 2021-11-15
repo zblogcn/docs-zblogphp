@@ -103,4 +103,11 @@ $myVar = "变量值";
 {/php}
 <p>输出一个自定义变量：{$myVar}</p>
 <p>当前 Z-BlogPHP 版本是：{$version}</p>
+
+//还可以用<?php ?>符号在{php}{/php}里以实现代码高亮
+{php}<?php
+
+//原生php代码
+
+?>{/php}
 ```

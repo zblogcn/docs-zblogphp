@@ -116,8 +116,7 @@ Response Body:
 | 评论模块                   | comment  |
 | 标签模块                   | tag      |
 | 分类模块                   | category |
-| 系统模块                   | system   |
-| 设置模块                   | setting  |
+| 系统及设置模块             | system   |
 
 
 ### URL 通用格式
