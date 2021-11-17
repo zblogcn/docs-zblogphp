@@ -18,27 +18,27 @@
 
 ## 免责申明
 
-`Z-BlogPHP`的`免责申明`: https://www.zblogcn.com/disclaimer/
+`Z-BlogPHP` 的`免责申明`: https://www.zblogcn.com/disclaimer/
 
-## Z-BLOG网站群
+## Z-BLOG 网站群
 
-Z-Blog唯一官方网站：https://www.zblogcn.com/
+Z-Blog 唯一官方网站：https://www.zblogcn.com/
 
-Z-Blog的官方文档：https://docs.zblogcn.com/
+Z-Blog 的官方文档：https://docs.zblogcn.com/
 
-Z-Blog的应用中心：https://app.zblogcn.com/
+Z-Blog 的应用中心：https://app.zblogcn.com/
 
-Z-Blog的官方博客：https://blog.zblogcn.com/
+Z-Blog 的官方博客：https://blog.zblogcn.com/
 
-ZBlogger技术交流中心：https://bbs.zblogcn.com/
+ZBlogger 技术交流中心：https://bbs.zblogcn.com/
 
-Z-Blog用户中心：https://uc.zblogcn.com/
+Z-Blog 用户中心：https://uc.zblogcn.com/
 
-Z-Blog更新服务：https://update.zblogcn.com/
+Z-Blog 更新服务：https://update.zblogcn.com/
 
-ZBlogHost──Z-Blog的官方主机服务：https://zbloghost.cn/
+ZBlogHost──Z-Blog 的官方主机服务：https://zbloghost.cn/
 
-Z5加密──全新的PHP加密方案：https://z5encrypt.com/
+Z5 加密──全新的 PHP 加密方案：https://z5encrypt.com/
 
 ### Wiki 文档
 
