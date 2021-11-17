@@ -1,6 +1,6 @@
 # Z-BlogPHP
 
-Z-BlogPHP 基于 PHP 平台，支持 MySQL(含 MariaDB)、SQLite 和 PostgreSQL 数据库。期待它能成为您建站、写博的上佳选择。
+`Z-BlogPHP` 基于 `PHP` 平台，支持 `MySQL`(含 MariaDB)、`SQLite` 和 `PostgreSQL` 数据库。期待它能成为您建站、写博的上佳选择。
 
 > 我们一直在努力把 Z-BlogPHP 打造成高可玩性、乐高积木式的网站程序！
 
@@ -18,7 +18,7 @@ Z-BlogPHP 基于 PHP 平台，支持 MySQL(含 MariaDB)、SQLite 和 PostgreSQL 
 
 ## 免责申明
 
-`Z-BlogPHP`的免责申明: https://www.zblogcn.com/disclaimer/
+`Z-BlogPHP`的`免责申明`: https://www.zblogcn.com/disclaimer/
 
 ## Z-BLOG网站群
 
@@ -42,6 +42,6 @@ Z5加密──全新的PHP加密方案：https://z5encrypt.com/
 
 ### Wiki 文档
 
-在我们的 `docs` 文档项目还没有完善的时候，我们会提供之前的 Wiki 地址供大家访问查阅。
+在我们的 `docs` 文档项目还没有完善的时候，我们会提供之前的 `Wiki` 地址供大家访问查阅。
 
 `Z-Blog Wiki`：https://wiki.zblogcn.com/
