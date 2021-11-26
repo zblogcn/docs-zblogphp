@@ -20,6 +20,7 @@
   - 接口
     - feat. 新增接口Filter_Plugin_API_Result_Data
     - feat. 修改接口名Filter_Plugin_API_ListCheck为Filter_Plugin_API_CheckMods
+    - feat. Filter_Plugin_Zbp_Load_Pre 这个接口重新给挪回到 zbp 的 Load 方法里了
 
 - 1.7.0 [详细](https://blog.zblogcn.com/2021/02/08/117/ "1.7.0 Tenet")
   - 重要更新
