@@ -6,9 +6,26 @@
 
 # 1.7 Tenet
 
+- 1.7.2
+  - feat. 后台自适应，增加了后台的手机横版操作支持
+  - feat. ZBP 类增加了魔术方法，新建自定义类时支持 $zbp->GetXXXList,GetXXXByID,GetXXXByArray 读取
+  - feat. 现在 Base 类的 Update 操作不再提交未更改的字段 
+  - feat. Post 类的 Time() 方法的参数顺序改回了 1.6 的顺序
+  - feat. 增加了 zbplangs 类用于 $zbp->langs 的链式表达
+  - feat. 置顶分类的文章可以出现在其上级分类里了
+  - feat. cmd.php 里对跳转流程做了更新
+  - fix. 后台刷新统计操作可以关闭掉可能的耗时操作
+  - fix. ViewPost 里修正了一个文章伪静的 url 检测问题和一个水水发现的 Bug
+  - fix. common.php 下改进了 Logs_Dump、GetVars、GetIDArrayByList 函数;
+  - 接口
+    - feat. 新增接口 Filter_Plugin_Zbp_RegBuildModules
+    - feat. 删除接口 Filter_Plugin_Zbp_LoadLanguage
+    - feat. 新增接口 Filter_Plugin_Zbp_RegBuildModules
+    - feat. 新增接口 Filter_Plugin_Cmd_Redirect 用于接管 cmd 下的 url 跳转
+    - feat. 新增接口 Filter_Plugin_Zbp_ViewPost_ViewNums 用于插入一个自定义的浏览数计数方案
+
 - 1.7.1
   - update. 支持`PHP 8.1`版本
-  - feat. 增加了后台的手机横版操作支持
   - fix. 模板类能更好的支持多套模板
   - fix. 对 **API** 进行了修复和完善
   - feat. 继续调整和完善了路由系统和 PostType 的配置和读取
