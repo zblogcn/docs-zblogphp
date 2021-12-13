@@ -18,12 +18,11 @@
   - fix. ViewPost 里修正了一个文章伪静的 url 检测问题和一个水水发现的 Bug
   - fix. common.php 下改进了 Logs_Dump、GetVars、GetIDArrayByList 函数;
   - 接口
-    - feat. 新增接口 Filter_Plugin_Zbp_RegBuildModules
+    - feat. Filter_Plugin_Zbp_Load_Pre 这个接口重新给挪回到 zbp 的 Load 方法里了
     - feat. 删除接口 Filter_Plugin_Zbp_LoadLanguage
     - feat. 新增接口 Filter_Plugin_Zbp_RegBuildModules
     - feat. 新增接口 Filter_Plugin_Cmd_Redirect 用于接管 cmd 下的 url 跳转
     - feat. 新增接口 Filter_Plugin_Zbp_ViewPost_ViewNums 用于插入一个自定义的浏览数计数方案
-    - feat. Filter_Plugin_Zbp_Load_Pre 这个接口重新给挪回到 zbp 的 Load 方法里了
 
 - 1.7.1
   - update. 支持`PHP 8.1`版本
