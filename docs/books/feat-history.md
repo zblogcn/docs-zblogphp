@@ -10,6 +10,8 @@
   - feat. 后台自适应，增加了后台的手机横版操作支持
   - feat. ZBP 类增加了魔术方法，新建自定义类时支持 $zbp->GetXXXList,GetXXXByID,GetXXXByArray 读取
   - feat. 现在 Base 类的 Update 操作不再提交未更改的字段
+  - feat. ZBP 类的 GetXXXList 之类的方法，在读取对象时会优先从全局缓存数组取得
+  - feat. Base 类及其派生类在 Del 方法执行删除成功后，会从全局缓存数组中删除该对象
   - feat. Post 类的 Time() 方法的参数顺序改回了 1.6 的顺序
   - feat. 增加了 zbplangs 类用于 $zbp->langs 的链式表达
   - feat. 置顶分类的文章可以出现在其上级分类里了
@@ -23,7 +25,7 @@
     - feat. 删除接口 Filter_Plugin_Zbp_LoadLanguage
     - feat. 新增接口 Filter_Plugin_Zbp_RegBuildModules
     - feat. 新增接口 Filter_Plugin_Cmd_Redirect 用于接管 cmd 下的 url 跳转
-    - feat. 新增接口 Filter_Plugin_Zbp_ViewPost_ViewNums 用于插入一个自定义的浏览数计数方案
+    - feat. 新增接口 Filter_Plugin_ViewPost_ViewNums 用于插入一个自定义的浏览数计数方案
 
 - 1.7.1
   - update. 支持`PHP 8.1`版本
