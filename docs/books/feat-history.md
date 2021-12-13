@@ -15,9 +15,11 @@
   - feat. 增加了 zbplangs 类用于 $zbp->langs 的链式表达
   - feat. 置顶分类的文章可以出现在其上级分类里了
   - feat. cmd.php 里对跳转流程做了更新
+  - fix. 修复了 1.6 升级到 1.7 数据库 config 数据出错、程序崩溃的问题
   - fix. 后台刷新统计操作可以打开 ZC_LARGE_DATA 参数 去屏蔽可能的耗时操作
   - fix. ViewPost 里修正了一个文章伪静的 url 检测问题和一个水水发现的 Bug
   - fix. common.php 下改进了 Logs_Dump、GetVars、GetIDArrayByList 函数;
+
   - 接口
     - feat. Filter_Plugin_Zbp_Load_Pre 这个接口重新给挪回到 zbp 的 Load 方法里了
     - feat. 删除接口 Filter_Plugin_Zbp_LoadLanguage
