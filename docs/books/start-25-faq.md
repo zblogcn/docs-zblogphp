@@ -17,7 +17,7 @@ Z-BlogPHP 密码找回工具：
   ```
 - 保存后即可恢复使用；
 
-[path](terms/path.md ':include')
+[path](terms/path.md ":include")
 
 **注：如果是 1.6.0 之前的版本，请覆盖 1.6.0 及之后的程序包（`zb_system`）。**
 
@@ -32,7 +32,7 @@ Z-BlogPHP 密码找回工具：
   'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://www.newdomin.site/",
   ```
 
-[path](terms/path.md ':include')
+[path](terms/path.md ":include")
 
 **注：如果是 1.6.0 之前的版本，请覆盖 1.6.0 及之后的程序包（`zb_system`）。**
 
@@ -64,7 +64,7 @@ Z-BlogPHP 密码找回工具：
 
 > 1. 进入「`phpMyAdmin`」或其他数据库管理工具；
 > 1. 选择相应数据库，（默认为「`结构`」视图）；
-> 2. 点击「`操作`」选项卡，更改「`排序规则`」为`utf8mb4_general_ci`；
-> 3. 点击「`执行`」即可应用到所有表和所有表列字段！
+> 1. 点击「`操作`」选项卡，更改「`排序规则`」为`utf8mb4_general_ci`；
+> 1. 点击「`执行`」即可应用到所有表和所有表列字段！
 
 「- -」「- -」「- -」「- -」「- -」

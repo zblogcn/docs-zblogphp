@@ -10,7 +10,6 @@
 | header.php | 公共头部文件 |
 | footer.php | 公共尾部文件 |
 
-
 ### 首页与列表页相关模板
 
 | 模板文件       | 说明                   |
@@ -27,12 +26,13 @@
 | single.php             | 文章页(单页)主模板文件     |
 | post-single.php        | 日志页文章模板             |
 | post-page.php          | 独立页面模板               |
-| comments.php            | 评论区模板                 |
-| comment.php           | 每条评论内容显示模板       |
+| comments.php           | 评论区模板                 |
+| comment.php            | 每条评论内容显示模板       |
 | commentpost.php        | 评论发送表单模板           |
 | commentpost-verify.php | 评论验证码模板（1.5 新增） |
 
-###  侧栏模块相关模板
+### 侧栏模块相关模板
+
 - 模块展现外框架模板
 
 | 模板文件    | 说明                                                                   |

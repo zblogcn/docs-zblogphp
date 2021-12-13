@@ -1,9 +1,6 @@
-# 自定义数据类型及数据库建表和CURD操作
-
-
+# 自定义数据类型及数据库建表和 CURD 操作
 
 ## 定义数据结构
-
 
 **新增数据结构是对全局变量`$table`,`$datainfo`数组的项目添加**
 
@@ -23,7 +20,8 @@ $datainfo['Custom'] = array(
 #datainfo数组第一项，必须是'ID'，这是表的唯一自增序列
 ```
 
-***数据表结构$datainfo声明结构如下***
+**_数据表结构$datainfo 声明结构如下_**
+
 ```php
 array('属性名' => array('字段名', '类型', '长度参数（根据类型定义）', '默认值'));
 
@@ -43,6 +41,7 @@ array('Content', 'string', '', ''),
 ## 创建数据类型
 
 **自定义数据类型是创建一个继承自系统的`Base`类的新类**
+
 ```php
 #这里定义了一个最基本的Custom类，可以在这个类里扩展自己的方法
 class Custom extends Base
@@ -58,6 +57,7 @@ class Custom extends Base
 ## 创建数据库的数据表
 
 **创建数据表，在应用的`include.php`页面里的`安装函数`进行数据库表的存在判断及创建**
+
 ```php
 function InstallPlugin_应用ID()
 {
@@ -72,16 +72,19 @@ function InstallPlugin_应用ID()
 #PS:应用卸载时可根据自身需求来删除数据表或保留所创建的数据表
 ```
 
-## 自定义类型的CURD操作
+## 自定义类型的 CURD 操作
 
 **新增一条数据**
+
 ```php
   $c = new Custom();
   $c->Content = 'abc';
   $c->LogID = 123;
   $c->Save();
 ```
+
 **更新一条数据**
+
 ```php
   $c = new Custom();
   if ($c->LoadInfoByID(1) == true) {
@@ -89,20 +92,26 @@ function InstallPlugin_应用ID()
     $c->Save();
   }
 ```
+
 **删除一条数据**
+
 ```php
   $c = new Custom();
   if ($c->LoadInfoByID(2) == true) {
     $c->Del();
   }
 ```
+
 **查询单条数据**
+
 ```php
   $c = new Custom();
   $c->LoadInfoByID(123);
   #LoadInfoByID返回值为false即加载不成功
 ```
+
 **查询多条数据**
+
 ```php
   #查询Custom表下符合2个条件的所有记录
   $w[] = array('=', $zbp->d['Custom']['LogID'][0], 123);//查询条件1，LogID值为123
@@ -111,10 +120,13 @@ function InstallPlugin_应用ID()
   $list = $zbp->GetListType('Custom', $sql);
   #结果$list为一个包含Custom对象的数组
 ```
-***主程序1.7.2版新增的查询方法***
 
-主程序1.7.2在定义`Custom`类成功后，自动生成了`ZBlogPHP`类下的3个读取加载`Custom`类的方法，分别是：
+**_主程序 1.7.2 版新增的查询方法_**
+
+主程序 1.7.2 在定义`Custom`类成功后，自动生成了`ZBlogPHP`类下的 3 个读取加载`Custom`类的方法，分别是：
+
 - `GetCustomList`($select = null, $where = null, $order = null, $limit = null, $option = null)
+
 ```php
   #查询Custom表下符合2个条件的所有记录
   //本次使用zbp的链式SQL操作组件
@@ -127,13 +139,17 @@ function InstallPlugin_应用ID()
   $list = $zbp->GetCustomList($sql);
   #如果取不到数据$list就返回一个空array()
 ```
+
 - `GetCustomByID`($id)
+
 ```php
   #从数据库中读取单个的Custom实例
   $c = $zbp->GetCustomByID(111);
   #读取成功返回实例，不成功返回null
 ```
+
 - `GetCustomByArray`($array, $field_name = 'ID')
+
 ```php
   #从数据库中查询ID值等于给定数组项目的Custom实例队列
   #如果是查询ID值，$field_name参数可以省略
@@ -157,4 +173,4 @@ function InstallPlugin_应用ID()
 
 「- -」「- -」「- -」「- -」「- -」
 
-***本篇内容所用代码需要由主程序1.7版本及更高版本实现***
+**_本篇内容所用代码需要由主程序 1.7 版本及更高版本实现_**

@@ -2,8 +2,7 @@
 
 **仅页面内容仅适用于「1.7 及更高版本」！**
 
------------
-
+---
 
 ## 基本概念
 
@@ -45,8 +44,7 @@ $posts = $zbp->GetPostList(
                           );
 ```
 
------------
-
+---
 
 ## SQL SELECT
 
@@ -82,8 +80,7 @@ SQL 语句输出：
 SELECT cate_ID FROM zbp_category
 ```
 
------------
-
+---
 
 ## SQL WHERE 子句
 
@@ -110,8 +107,7 @@ SELECT * FROM zbp_post WHERE log_ID = '1'
 where('​log_Title LIKE \'%' . addslashes('字符串') . '%\'')
 ```
 
---------------------------------
-
+---
 
 ### AND 运算符
 
@@ -255,8 +251,7 @@ $sql = $zbp->db->sql->get()->select("zbp_post")
 SELECT * FROM zbp_post WHERE ((1 = 1) AND ( (log_Title LIKE '_aidu') ) )
 ```
 
------------
-
+---
 
 ## SELECT LIMIT
 
@@ -286,8 +281,7 @@ $sql = $zbp->db->sql->get()->select('zbp_post')
 SELECT * FROM zbp_post LIMIT 10 OFFSET 5
 ```
 
------------
-
+---
 
 ## SELECT DISTINCT
 
@@ -303,8 +297,7 @@ $sql = $zbp->db->sql->get()->select('zbp_post')
 SELECT DISTINCT log_Title AS t,log_ID FROM zbp_post
 ```
 
------------
-
+---
 
 ## SQL ORDER BY
 
@@ -320,8 +313,7 @@ $sql = $zbp->db->sql->get()->select('zbp_post')
 SELECT * FROM zbp_post ORDER BY log_PostTime DESC, log_ID ASC
 ```
 
------------
-
+---
 
 ## SQL GROUP BY 语句
 
@@ -338,8 +330,7 @@ $sql = $zbp->db->sql->get()->select('zbp_post')
 SELECT SUM(log_CommNums) FROM zbp_post GROUP BY log_AuthorID
 ```
 
------------
-
+---
 
 ## SQL HAVING 子句
 
@@ -360,8 +351,7 @@ $sql = $zbp->db->sql->get()->select("zbp_post")
 SELECT log_CateID,SUM(log_CommNums) FROM zbp_post GROUP BY log_CateID HAVING SUM(log_CommNums) > 100
 ```
 
------------
-
+---
 
 ## SQL JOIN 连接(LEFT JOIN RIGHT JOIN,FULL JOIN,INNER JOIN)
 
@@ -385,8 +375,7 @@ SELECT log_ID FROM zbp_post AS p LEFT JOIN zbp_postrelation AS pr ON p.log_ID = 
 ->option(array('straight_join' => true))
 ```
 
------------
-
+---
 
 ## UNION, UNION ALL 操作符
 
@@ -404,8 +393,7 @@ $sql = $zbp->db->sql->get()->union(
 SELECT * FROM zbp_table UNION SELECT * FROM zbp_table2
 ```
 
------------
-
+---
 
 ## SQL 别名
 
@@ -422,8 +410,7 @@ $sql = $zbp->db->sql->get()->select(array('zbp_post'=>'p'))
 SELECT log_ID AS id,log_Type AS type FROM zbp_post AS p
 ```
 
------------
-
+---
 
 ## USEINDEX FORCEINDEX IGNOREINDEX
 
@@ -439,8 +426,7 @@ $sql = $zbp->db->sql->get()->select('zbp_post')
 SELECT * FROM zbp_post USE INDEX ( zbp_log_TPISC ,zbp_log_VTSC )
 ```
 
------------
-
+---
 
 ## SQL INSERT INTO 语句
 
@@ -454,8 +440,7 @@ $sql = $zbp->db->sql->get()->insert('zbp_post')
 INSERT INTO zbp_post (log_Title,log_Type) VALUES ( 'test' , '0' )
 ```
 
------------
-
+---
 
 ## SQL UPDATE 语句
 
@@ -470,8 +455,7 @@ $sql = $zbp->db->sql->get()->update('zbp_post')
 UPDATE zbp_post SET log_Title = 'test', log_Type = '1' WHERE log_ID = '1'
 ```
 
------------
-
+---
 
 ## SQL DELETE 语句
 
@@ -485,8 +469,7 @@ $sql = $zbp->db->sql->get()->delete('zbp_post')
 DELETE FROM zbp_post WHERE log_ID = '1'
 ```
 
------------
-
+---
 
 ## CREATE 数据库，表，索引
 
@@ -548,8 +531,7 @@ $sql = $zbp->db->sql->get()->create('zbp_post')
 CREATE INDEX zbp_post_index_stt ON zbp_post ( log_Status , log_Type , log_Tag )
 ```
 
------------
-
+---
 
 ## DROP 数据库，表，索引
 
@@ -583,8 +565,7 @@ $sql = $zbp->db->sql->get()->drop('zbp_table')->index('zbp_table_id')->sql;
 DROP INDEX zbp_table_id ON zbp_table
 ```
 
------------
-
+---
 
 ## ALTER 修改 添加 字段
 
@@ -634,8 +615,7 @@ $sql = $zbp->db->sql->get()->ALTER("zbp_post")
 ALTER TABLE zbp_post DROP COLUMN log_IsHide ,DROP COLUMN log_CreateTime ,DROP COLUMN log_Note
 ```
 
------------
-
+---
 
 ## SQL 统计函数 AVG,COUNT,MIN,MAX,SUM
 
@@ -654,8 +634,7 @@ $sql = $zbp->db->sql->get()->select('zbp_post')
 SELECT log_AuthorID, COUNT(log_ID) FROM zbp_post WHERE log_Type = '0' GROUP BY log_AuthorID
 ```
 
------------
-
+---
 
 ## SQL 随机取记录
 
@@ -687,8 +666,7 @@ GetList(null,null,null,null,null,null,array('random'=>5));
 GetList(array('random'=>4,'cate'=>1)); // 获取分类1下的随机4篇文章
 ```
 
------------
-
+---
 
 ## SQL 事务处理
 

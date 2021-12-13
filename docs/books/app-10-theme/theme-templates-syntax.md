@@ -42,21 +42,22 @@
 
   ```json
   {
-      "id": "主题ID",
-      "templates": [
-          {
-              "filename": "index",
-              "type": "list",
-              "name": "列表自动模板"
-          },
-          {
-              "filename": "single",
-              "type": "single",
-              "name": "文章/单页自动模板"
-          }
-      ]
+    "id": "主题ID",
+    "templates": [
+      {
+        "filename": "index",
+        "type": "list",
+        "name": "列表自动模板"
+      },
+      {
+        "filename": "single",
+        "type": "single",
+        "name": "文章/单页自动模板"
+      }
+    ]
   }
   ```
+
   </details>
 
 ### 嵌入调用
@@ -76,7 +77,6 @@
 
   **注：除`include`文件夹内的「文件模块」外其他模块其实是存在数据库的，另外不建议使用「文件模块」，主题更新时用户修改的内容会被覆盖。**
 
-
 ### 模板标签
 
 在「[模板文件示例](#%e7%a4%ba%e4%be%8b "模板文件示例")」示例中使用了`{$language}`和`{$type}`两个语法标签，称为「变量输出标签」或「模板标签」，实际会编译为`<?php echo $language;?>`和`<?php echo $type;?>`来输出对应变量的值；
@@ -86,6 +86,7 @@
 **系统内定义的「模板标签列表」请点击右边链接查看：「[Z-BlogPHP 模板标签手册](./../../markup/ "Z-BlogPHP 模板标签手册")」；**
 
 **注：**
+
 1. 部分标签只能在特定的页面类型（`$type`取值）或上下文中才能使用；
 2. `{module:navbar}`可视为`{$modules["navbar"].Content}`的简写语法；
 3. 除系统标签外，可通过「接口机制」或「原生 PHP 语法<sup>①</sup>」自定义或修改作为标签输出的变量；

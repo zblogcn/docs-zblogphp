@@ -4,4 +4,4 @@
 
 修改`.htaccess`文件，添加如下信息：
 
-> RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization},last]
+> RewriteRule .\* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization},last]

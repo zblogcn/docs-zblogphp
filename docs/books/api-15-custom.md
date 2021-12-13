@@ -1,12 +1,12 @@
-# 自定义API
+# 自定义 API
 
-**使用API模块里的接口可以很方便的扩展出自定义的API**
+**使用 API 模块里的接口可以很方便的扩展出自定义的 API**
 
 本篇以`newapi`插件为例，扩展出一个`api模块`并定义一个`api命令`。
 
 ## 创建插件
 
-插件id假定为`newapi`，其`include.php`文件内容如下
+插件 id 假定为`newapi`，其`include.php`文件内容如下
 
 ```php
 RegisterPlugin("newapi","ActivePlugin_newapi");
@@ -16,9 +16,10 @@ function ActivePlugin_newapi() {
     Add_Filter_Plugin('Filter_Plugin_API_Extend_Mods', 'newapi_RegAPI');
 }
 ```
-## 挂上接口，插入API模块文件
 
-把`myapi.php`这个`api文件模块`插入进API系统，一个`api文件模块`内可包含多个`api`
+## 挂上接口，插入 API 模块文件
+
+把`myapi.php`这个`api文件模块`插入进 API 系统，一个`api文件模块`内可包含多个`api`
 
 ```php
 #include.php里的newapi_RegAPI函数实现
@@ -29,11 +30,11 @@ function newapi_RegAPI() {
 }
 ```
 
-## 定义API文件模块
+## 定义 API 文件模块
 
-在`myapi.php`这个自定义api模块里定义了一个api叫`helloworld`
+在`myapi.php`这个自定义 api 模块里定义了一个 api 叫`helloworld`
 
-`api函数名称`是有规律的，必须是`api_`打头，`注册模块名`居中，加一个`_`，再由`api命令名称`居末尾组合而成，这样API系统才能路由到此函数
+`api函数名称`是有规律的，必须是`api_`打头，`注册模块名`居中，加一个`_`，再由`api命令名称`居末尾组合而成，这样 API 系统才能路由到此函数
 
 ```php
 function api_newapi_helloworld() {
@@ -43,11 +44,13 @@ function api_newapi_helloworld() {
     //请注意：我们在示例里没有验证权限，只做了简单的返回数据
 }
 ```
-在使用POST方式提交数据到api，必须在提交时传入api登录成功后返回的`token`（设Authorization请求头为'Bearer token值'，抑或是在POST传入input表单，name为'token'，value为token值）
 
-如果系统在`ApiTokenVerify()`里验证成功，就跳过crsf_token检查！否则POST提交会失败！
+在使用 POST 方式提交数据到 api，必须在提交时传入 api 登录成功后返回的`token`（设 Authorization 请求头为'Bearer token 值'，抑或是在 POST 传入 input 表单，name 为'token'，value 为 token 值）
 
-如果上述都不能实现，还可以通过挂Filter_Plugin_API_VerifyCSRF_Skip这个接口，将该mod的api加入跳过CSRF验证的数组中，代码如下：
+如果系统在`ApiTokenVerify()`里验证成功，就跳过 crsf_token 检查！否则 POST 提交会失败！
+
+如果上述都不能实现，还可以通过挂 Filter_Plugin_API_VerifyCSRF_Skip 这个接口，将该 mod 的 api 加入跳过 CSRF 验证的数组中，代码如下：
+
 ```php
 //挂上接口
 Add_Filter_Plugin('Filter_Plugin_API_VerifyCSRF_Skip', 'newapi_IgnoreCSRF');
@@ -57,13 +60,15 @@ function newapi_IgnoreCSRF(&$array) {
   $array[] = array('mod' => 'newapi', 'act' => 'helloworld');
 }
 ```
-## API模块的白名单和黑名单
 
-`$mods_allow白名单`请慎用，启用`白名单`后，不在`白名单`的mod都将被拒绝
+## API 模块的白名单和黑名单
+
+`$mods_allow白名单`请慎用，启用`白名单`后，不在`白名单`的 mod 都将被拒绝
 
 如果只想关闭某些模块，只需要对`$mods_disallow黑名单`进行添加
 
 白名单示范：
+
 ```php
 Add_Filter_Plugin('Filter_Plugin_API_CheckMods', 'newapi_CheckMods');
 
@@ -75,6 +80,7 @@ function newapi_CheckMods(&$mods_allow, &$mods_disallow) {
 ```
 
 黑名单示范：
+
 ```php
 Add_Filter_Plugin('Filter_Plugin_API_CheckMods', 'newapi_CheckMods');
 
@@ -85,18 +91,26 @@ function newapi_CheckMods(&$mods_allow, &$mods_disallow) {
 }
 ```
 
-## 访问API
+## 访问 API
 
-**API访问地址:**
+**API 访问地址:**
 
 https://`测试网站`/zb_system/api.php?mod=`newapi`&act=`helloworld`
 
-其中，`mod`参数是模块名，`act`参数是api命令名称
+其中，`mod`参数是模块名，`act`参数是 api 命令名称
 
 下面是返回的数据内容：
+
 ```json
-{"code":200,"message":"OK","data":"Hello world!","error":null,"runtime":{"time":"31.89","query":4,"memory":-1100}}
+{
+  "code": 200,
+  "message": "OK",
+  "data": "Hello world!",
+  "error": null,
+  "runtime": { "time": "31.89", "query": 4, "memory": -1100 }
+}
 ```
+
 「- -」「- -」「- -」「- -」「- -」
 
-***本篇内容所用代码需要由主程序1.7.1.2990版本及更高版本实现***
+**_本篇内容所用代码需要由主程序 1.7.1.2990 版本及更高版本实现_**

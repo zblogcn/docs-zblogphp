@@ -7,9 +7,10 @@
 # 1.7 Tenet
 
 - 1.7.2
+
   - feat. 后台自适应，增加了后台的手机横版操作支持
   - feat. ZBP 类增加了魔术方法，新建自定义类时支持 $zbp->GetXXXList,GetXXXByID,GetXXXByArray 读取
-  - feat. 现在 Base 类的 Update 操作不再提交未更改的字段 
+  - feat. 现在 Base 类的 Update 操作不再提交未更改的字段
   - feat. Post 类的 Time() 方法的参数顺序改回了 1.6 的顺序
   - feat. 增加了 zbplangs 类用于 $zbp->langs 的链式表达
   - feat. 置顶分类的文章可以出现在其上级分类里了
@@ -25,6 +26,7 @@
     - feat. 新增接口 Filter_Plugin_Zbp_ViewPost_ViewNums 用于插入一个自定义的浏览数计数方案
 
 - 1.7.1
+
   - update. 支持`PHP 8.1`版本
   - fix. 模板类能更好的支持多套模板
   - fix. 对 **API** 进行了修复和完善
@@ -48,7 +50,7 @@
   - feat. 内置缩略图基类；「[zblogcn/zblogphp/search?q=Thumb](https://github.com/zblogcn/zblogphp/search?q=Thumb "Search · Thumb")」
   - feat. 全新的可配置的 URL 路由机制；
   - 更新
-  - feat. 增加了 view, api, CategoryNew, ArticleNew, PageNew, PostBat 等命令 
+  - feat. 增加了 view, api, CategoryNew, ArticleNew, PageNew, PostBat 等命令
   - feat. 增加对 PostgreSql 数据库的支持
   - feat. 将 Post 类和 Member 类分离成 BasePost 和 BaseMember 基类，后续版本会分离更多
   - feat. Base 类增加了 Clone, UnsetData, GetOriginal 方法,
@@ -107,7 +109,6 @@
   - 删除
     - remove. 移除固定域名功能至隐藏设置中
 
-
 # 1.6 Valyria
 
 - 1.6.8
@@ -160,7 +161,7 @@
   - feat. RemovePHPCode 函数，用于清除字符串里所有可能的 PHP 代码
   - feat. 增加 $zbp→langs 用于替代 lang
   - feat. 应用中心打包时会读取 .zbignore 文件，允许打包时对某些文件进行忽略。
-  - feat. 主题创建模块的 Source 一律要设置为 theme_主题 ID，以前有用 plugin_主题 ID 需要改正
+  - feat. 主题创建模块的 Source 一律要设置为 theme*主题 ID，以前有用 plugin*主题 ID 需要改正
   - feat. 主题 Include 文件夹下的文件型模块的 HtmlID 修正为其 FileName 值
   - feat. sql 类增加对 decimal 的支持
   - feat. $zbp 新增设置互斥和查询互斥函数，最先应用于 Zit 主题和 AdminColor 插件上
@@ -180,7 +181,7 @@
     - update. 对于系统内所有 varchar 字段全部扩大最大长度
     - update. 新增 tag_Type 字段
     - update. 新增 cate_Type 字段
-  - fix. 修复 Network__curl 不处理 GET / POST 以外的 method 的问题
+  - fix. 修复 Network\_\_curl 不处理 GET / POST 以外的 method 的问题
   - fix. #224 修复批量操作评论时 id 为空时的错误
   - fix. #225 修复了文章获取下一篇接口的错误
   - update. 增强了@的错误处理！
@@ -257,7 +258,7 @@
   - update. 修复 IS_KANGLE、IS_CADDY、IS_BUILTIN。
   - update. SQLGlobal 为保证兼容性与多表查询能力，删除所有的反引号。
   - update. SQLGlobal 找回 ARRAY_LIKE。
-  - update. #121: SQLGlobal 增加→new()方法以便子查询等使用。
+  - update. #121: SQLGlobal 增加 →new()方法以便子查询等使用。
   - update. #124: 修复 AddHeaderIcon 失效的问题。
   - 接口
     - update. Filter_Plugin_Admin_ArticleMng_Table

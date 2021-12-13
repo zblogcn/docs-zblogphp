@@ -3,7 +3,7 @@
 | act 方法 | 请求方式   | 参数                                                | 鉴权 |                      |
 | -------- | ---------- | --------------------------------------------------- | ---- | -------------------- |
 | login    | POST       | `username`, `password`；`password`建议使用 MD5 值； |      |
-| post     | POST       | `Member`定义字段；附：**「示例 1」**                     | 必须 |
+| post     | POST       | `Member`定义字段；附：**「示例 1」**                | 必须 |
 | get      | GET / POST | 用户 `id`                                           | 必须 |
 | delete   | GET / POST | 用户 `id`                                           | 必须 |
 | list     | GET / POST | `level`, `status`,                                  | 必须 |
@@ -31,8 +31,5 @@
 `"ID": "0",` 必须显示设置；
 
 `"Level": "4",` 为用户等级；参考「[用户等级划定](books/start-faq?id=用户等级划定 "用户等级划定")」
+
 </details>
-
-
-
-

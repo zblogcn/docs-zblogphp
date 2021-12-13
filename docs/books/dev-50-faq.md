@@ -25,12 +25,11 @@
 - 正则中使用`.*?`很不科学，请使用否定匹配，例如`[^>]*`或`[^"]*`；另外：
   - `'/abc/i'`——`i`修饰符为忽略大小写；
   - `'/中文/u'`——`u`修饰符用于匹配中文等；
-  - 参考「[\[开发者\]正则表达式相关专贴-开发者中心](https://bbs.zblogcn.com/thread-101713.html "\[开发者\]正则表达式相关专贴-开发者中心")」
+  - 参考「[\[开发者\]正则表达式相关专贴-开发者中心](https://bbs.zblogcn.com/thread-101713.html "[开发者]正则表达式相关专贴-开发者中心")」
   - 参考「[PHP: 正则表达式模式中可用的模式修饰符 - php.net](https://www.php.net/manual/zh/reference.pcre.pattern.modifiers.php "PHP: 正则表达式模式中可用的模式修饰符 - php.net")」
 - logo，favicon，二维码等「替代性」文件不要走附件机制，尤其是不要捆绑编辑器上传；另外应利用`zbignore.txt`防止更新时被覆盖；参考「[配置图片上传](https://bbs.zblogcn.com/thread-101310.html#485997 "【开发者】大概算是进阶建议贴-开发者中心")」「[zbignore.txt 参考](https://bbs.zblogcn.com/thread-102780.html "zbignore.txt 参考")」
 - 前台「站内链接」默认当前页打开；
   - 仅限「关于」「后台管理/登录」等少数情形可以例外；
-
 
 ## 程序员的自我修养
 

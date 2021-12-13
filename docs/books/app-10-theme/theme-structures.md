@@ -41,30 +41,33 @@
 {* Template Name: 首页及列表页 * Template Type: index|list *}
 <!-- ↑ 「模板描述信息」，包括适配的「页面类型」，放在模板文件第一行 -->
 <!DOCTYPE html>
-<html lang="{$language}"><!-- {$language} 为「变量输出标签」 -->
+<html lang="{$language}">
+  <!-- {$language} 为「变量输出标签」 -->
 
-<head>
-  {template:header}<!-- 公共头部文件 -->
-</head>
+  <head>
+    {template:header}
+    <!-- 公共头部文件 -->
+  </head>
 
-<body class="{$type}"><!-- 同为「变量输出标签」，对应上方 Template Type -->
-  {template:hero}
-  <!-- ↓Your Code↓ -->
-  <!-- ↓Your Code↓ -->
-  <div id="divNavBar">
-    <!-- 导航「模块」调用 -->
-    <ul>{module:navbar}</ul>
-  </div>
-  <div id="divMiddle">
-    <div id="divMain">列表索引或正文内容</div>
-    <!-- 「侧栏」调用 -->
-    <div id="divSidebar">{template:sidebar}</div>
-  </div>
-  <!-- ↑Your Code↑ -->
-  <!-- ↑Your Code↑ -->
-  {template:footer}<!-- 公共尾部文件 -->
-</body>
-
+  <body class="{$type}">
+    <!-- 同为「变量输出标签」，对应上方 Template Type -->
+    {template:hero}
+    <!-- ↓Your Code↓ -->
+    <!-- ↓Your Code↓ -->
+    <div id="divNavBar">
+      <!-- 导航「模块」调用 -->
+      <ul>
+        {module:navbar}
+      </ul>
+    </div>
+    <div id="divMiddle">
+      <div id="divMain">列表索引或正文内容</div>
+      <!-- 「侧栏」调用 -->
+      <div id="divSidebar">{template:sidebar}</div>
+    </div>
+    <!-- ↑Your Code↑ -->
+    <!-- ↑Your Code↑ -->
+    {template:footer}<!-- 公共尾部文件 -->
+  </body>
 </html>
-
 ```
