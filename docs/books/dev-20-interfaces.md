@@ -12,14 +12,12 @@
 - **「魔术方法」扩展类**：用于扩展系统类中的可用方法
 - **「流程/事件」监听类**：严格来说，全部接口都是「监听」，监听接口本身被触发，然后执行指定的操作，或者对接口传递的数据进行处理。
   - 除「魔术方法」外，前三种是类别其实是以「功能目的」来划分的，也只是较常用的三种。
-  <!-- - 所以这个分类有啥意义.jpg -->
+<!-- - 所以这个分类有啥意义.jpg -->
 
 **注：下边列表并不严格对应上边分类；**
 
 <!-- 「管理页面」相关 -->
-
-[hook-admin](app-20-interfaces/hook-admin.md ":include")
+[hook-admin](app-20-interfaces/hook-admin.md ':include')
 
 <!-- 「前台页面」相关 -->
-
-[hook-view](app-20-interfaces/hook-view.md ":include")
+[hook-view](app-20-interfaces/hook-view.md ':include')

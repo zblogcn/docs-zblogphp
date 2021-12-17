@@ -64,7 +64,6 @@ Z-BlogPHP 系统的插件是采用主动插入方式来通知系统。所以必�
 // 注册插件
 RegisterPlugin("插件ID","ActivePlugin_插件ID");
 ```
-
 然后在`ActivePlugin_插件ID`中完成「**大部分**」接口的挂载；
 
 ```php
@@ -73,8 +72,8 @@ function ActivePlugin_插件ID() {
   Add_Filter_Plugin('API名称','执行代码（函数）');
 }
 ```
-
 **注：可按需在挂载接口前进行判断；也可在接口 A 内部挂载接口 B。**
+
 
 ## 「启用 / 停止 / 更新」插件时执行
 
@@ -104,7 +103,6 @@ if (!$zbp->CheckPlugin('插件ID')) {$zbp->ShowError(48);die();}
 $action='root';
 if (!$zbp->CheckRights($action)) {$zbp->ShowError(6);die();}
 ```
-
 `$zbp->CheckRights()`用于判断「当前用户」（包括游客）是否有权执行传入参数代表的某项操作，可配合「用户等级」对权限进行细化管理；
 
 > 可以通过 `-host-/zb_system/cmd.php?act=misc&type=vrs`查看当前用户拥有的权限；
@@ -152,7 +150,6 @@ $zbp->Config('插件ID')->HasKey('配置名'); //return bool
 ```php
 $zbp->DelConfig('插件ID');
 ```
-
 ## CSRF 相关 「**重要**」
 
 对于需要用户点链接或提交表单触发，进而对数据或文件产生影响的，除必要的用户权限验证外，应另外加入 CSRF Token 验证；

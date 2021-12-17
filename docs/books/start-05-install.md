@@ -6,6 +6,7 @@ PHP：`PHP 5.2 - 8.1`
 
 数据库：`MySQL（兼容 MariaDB）` `SQLite` `PostgreSQL`
 
+
 ## 下载地址
 
 下载入口页：[https://www.zblogcn.com/zblogphp/](https://www.zblogcn.com/zblogphp/ "Z-BlogPHP，小巧而强大的PHP博客程序与建站系统")
@@ -17,6 +18,7 @@ PHP：`PHP 5.2 - 8.1`
 - [宝塔面板一键部署](https://blog.zblogcn.com/2017/08/11/95/ "菠萝阁-使用宝塔面板一键部署Z-BlogPHP")
 
 历史版本下载:
+
 
 - Z-BlogPHP_1_7_0_2955_Tenet https://update.zblogcn.com/zip/Z-BlogPHP_1_7_0_2955_Tenet.zip
 - Z-BlogPHP_1_6_8_2210_Valyria https://update.zblogcn.com/zip/Z-BlogPHP_1_6_8_2210_Valyria.zip
@@ -42,3 +44,6 @@ PHP：`PHP 5.2 - 8.1`
 - 「后台管理」→ `应用中心` → `系统更新与校验` → `升级新版程序`；
   - 当新版本发布时会出现`升级新版程序`按钮；
   - 「后台管理」→ `应用中心` → `设置` → 开启`检查Beta版程序`选项，可以获取到 Beta 版更新推送；
+
+
+

@@ -18,9 +18,11 @@
 
 ZBP API 的整体思想是：服务端根据客户端发送的请求，针对 **模块** 进行相应的 **行为** 操作， 并将执行结果返回给客户端。本质上跟原有的网页版差别不大，就是同一套业务逻辑下的不同输出形式，网页版返回的是 HTML，API 返回的是 JSON。
 
+
 ## 统一入口
 
 规定接口入口为：`http[s]://<域名>/zb_system/api.php`
+
 
 ## 请求方法
 
@@ -32,6 +34,7 @@ POST 表示“新增”、“修改”和“删除”操作，对应数据库中
 
 为保证对大量参数的支持，对于“获取/查询”类型的接口，同时支持 GET 和 POST 两种请求方式；对于“增删改”类型的接口，只支持 POST 请求方式。
 
+
 ## 公共请求消息头
 
 | 消息头（Header） | 是否必需 | 示例值                          | 说明                                                                 |
@@ -41,6 +44,7 @@ POST 表示“新增”、“修改”和“删除”操作，对应数据库中
 | User-Agent       | 可选     | Mozilla/5.0                     | -                                                                    |
 | Referer          | 可选     | `https://example.com/`          | 来源地址                                                             |
 | Accept-Language  | 可选     | zh-cn                           | 客户端接受的语言代码                                                 |
+
 
 ## 权限认证
 
@@ -57,7 +61,6 @@ HTTP Body:
   "savedate": 30
 }
 ```
-
 `"savedate": 30`：有效期 30 天；
 
 **注：`password`建议使用 MD5(密码原文) 值；也可以使用密码原文(有被抓包泄漏风险) ↑↑**
@@ -84,11 +87,11 @@ Response Body:
 
 对于后续需要身份验证的请求，接受三种方式传递「鉴权 Token」：
 
-1. 设置如下 `authorization` 头：`Authorization: Bearer {YourToken}` **_（推荐）_**
+1. 设置如下 `authorization` 头：`Authorization: Bearer {YourToken}` ***（推荐）***
 
-2. POST 方式访问 api 时，可以提交一个 input 表单，name 为 token，value 为{YourToken}
+2. POST方式访问api时，可以提交一个input表单，name为token，value为{YourToken}
 
-3. GET 方式访问 api 时，附加在 URL 中：`https://example.com/zb_system/api.php?mod=setting&act=get&token={YourToken}`（这种方式会泄漏 token）
+3. GET方式访问api时，附加在 URL 中：`https://example.com/zb_system/api.php?mod=setting&act=get&token={YourToken}`（这种方式会泄漏token）
 
 **重要：对于第 1 种方法，可能需要额外对 web 空间进行设置，参见「[常见问题](books/api-20-faq?id=apache-%e8%8e%b7%e5%8f%96%e4%b8%8d%e5%88%b0-authorization-%e5%a4%b4%e4%bf%a1%e6%81%af "常见问题")」；**
 
@@ -99,6 +102,7 @@ Response Body:
 - URI 对大小写不敏感（不区分大小写）。
 
 - POST 的 HTTP Body 中，JSON 内容的属性名一律使用小写。 -->
+
 
 ### 模块命名
 
@@ -114,6 +118,7 @@ Response Body:
 | 分类模块                   | category |
 | 系统及设置模块             | system   |
 
+
 ### URL 通用格式
 
 > `https://example.com/zb_system/api.php?mod=<模块名>[&act=<行为名>][&其他...]`
@@ -123,6 +128,7 @@ Response Body:
 > `http[s]://<域名>/zb_system/api?mod=<模块名>[&act=<行为名>][&其他...]` -->
 
 由于是单一入口，因此不同的模块不能用路径表示，需要用 URL 参数表示。参数排序不分先后。
+
 
 ### URL 参数
 
@@ -144,13 +150,14 @@ Response Body:
 
 - 多语义行为名：
 
-  多语义行为名可以表示针对更为具体的资源对象进行操作，多个语义的行为名词之间用英文下划线“\_”分隔。
+  多语义行为名可以表示针对更为具体的资源对象进行操作，多个语义的行为名词之间用英文下划线“_”分隔。
 
   如：对于侧栏模块（mod=sidebar），存在两种资源对象，一是侧栏本身，二是侧栏当中的“模块”。`mod=sidebar&act=get&id=1` 这一接口表示 “获取 ID 为 1 的侧栏的信息”，若要实现“获取侧栏中的模块的信息”，则需要更为详细的语义 `act=get_module` ，即 `mod=sidebar&act=get_module&id=name`。其他的存在多个资源对象的情况均以此类推。
 
 **其他参数**
 
 - 表示一些附加内容，比如约束条件、授权信息的 Token 这些，或者其他第三方开发者自定义的内容。
+
 
 ### 约束与过滤
 
@@ -188,6 +195,7 @@ Response Body:
 | Content-Encoding | 可选 | gzip                            | 内容压缩方式，根据客户端选择，默认启用 gzip 压缩 |
 | Date             | 可选 | Sun, 23 Feb 2020 07:03:41 GMT   | 服务端响应时间，有些时候可以用来测试延迟         |
 
+
 ## 通用返回格式
 
 服务端响应的 Body 内容为 JSON 字符串，统一为如下格式：
@@ -201,7 +209,7 @@ Response Body:
 
 详细的错误信息和调试信息仅在启用了调试模式的情况下输出。
 
-属性名一律使用小写，如有需要，多个单词之间使用英文下划线”\_“分隔，如”new_data“。
+属性名一律使用小写，如有需要，多个单词之间使用英文下划线”_“分隔，如”new_data“。
 
 ## 响应内容示例及状态码
 
@@ -222,8 +230,8 @@ Response Body:
   }
 }
 ```
+-----
 
----
 
 示例二，非法访问：
 
@@ -243,7 +251,7 @@ Response Body:
 }
 ```
 
----
+-----
 
 示例三，成功请求某个用户的信息：
 
@@ -267,3 +275,4 @@ Response Body:
   }
 }
 ```
+

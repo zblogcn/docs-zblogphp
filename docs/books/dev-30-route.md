@@ -84,7 +84,6 @@ function demoPlugin_ViewDownload($arg)
   ViewPost($arg);
 }
 ```
-
 <!-- 需求 1 结束 -->
 
 <!-- 需求 2 -->
@@ -160,7 +159,6 @@ function demoPlugin_ViewPost($arg)
   }
 }
 ```
-
 <!-- 需求 2 结束 -->
 
 <!-- 需求 3 -->
@@ -197,8 +195,8 @@ function demoPlugin_RegRoute3()
   return true;
 }
 ```
-
 <!-- 需求 3 结束 -->
+
 
 ## 旧版
 

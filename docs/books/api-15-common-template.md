@@ -1,5 +1,4 @@
 # API 通用模板
-
 <!-- 感觉不太需要？？？ -->
 
 ## 请求
@@ -10,19 +9,19 @@ POST `https://example.com/zb_system/api.php`
 
 以下简称“通用请求头”：
 
-| 参数            | 示例值                                | 说明                 |
-| --------------- | ------------------------------------- | -------------------- |
-| Content-Type    | application/json; charset=utf-8       | 客户端发送的内容类型 |
-| Accept-Encoding | gzip, deflate                         | 客户端接受的压缩算法 |
-| User-Agent      | Mozilla/5.0                           | -                    |
-| Accept-Language | zh-cn                                 | 客户端接受的语言代码 |
-| Authorization   | Bearer emhvdXppc2h1LTJjZjMwOWM3ODA... | 鉴权 Token           |
+| 参数            | 示例值                                   | 说明                 |
+| --------------- | -------------------------------------- | -------------------- |
+| Content-Type    | application/json; charset=utf-8        | 客户端发送的内容类型 |
+| Accept-Encoding | gzip, deflate                          | 客户端接受的压缩算法 |
+| User-Agent      | Mozilla/5.0                            | -                 |
+| Accept-Language | zh-cn                                  | 客户端接受的语言代码 |
+| Authorization   | Bearer emhvdXppc2h1LTJjZjMwOWM3ODA...  | 鉴权 Token        |
 
 ### Cookies
 
 以下简称“通用请求 Cookies”：
 
-| 键        | 示例值     | 域          | 路径 | 过期 |
+| 键        | 示例值      | 域           | 路径 | 过期 |
 | --------- | ---------- | ----------- | ---- | ---- |
 | addinfo   | xxxxxxxxxx | example.com | /    | -    |
 | http304ok | 1          | example.com | /    | -    |
@@ -32,13 +31,15 @@ POST `https://example.com/zb_system/api.php`
 
 无
 
+
+
 ## 响应
 
 ### Headers
 
 以下简称“通用响应头”：
 
-| 参数             | 示例值                          | 说明               |
+| 参数              | 示例值                          | 说明               |
 | ---------------- | ------------------------------- | ------------------ |
 | Content-Type     | application/json; charset=utf-8 | 响应内容的类型     |
 | Content-Encoding | gzip                            | 响应使用的压缩算法 |

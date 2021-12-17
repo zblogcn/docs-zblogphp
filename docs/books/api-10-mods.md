@@ -13,6 +13,6 @@ API 地址模式：`https://example.com/zb_system/api.php?mod=<模块名>[&act=<
 
 以下将按「功能模块」进行详细说明。
 
-[api-mod-member](api-10-mods/api-mod-member.md ":include")
+[api-mod-member](api-10-mods/api-mod-member.md ':include')
 
-[api-mod-post](api-10-mods/api-mod-post.md ":include")
+[api-mod-post](api-10-mods/api-mod-post.md ':include')

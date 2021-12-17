@@ -4,7 +4,7 @@
 
 您可以 `pull` 「本文档项目」 到本地，然后安装 `docsify` 预览编辑后的效果：
 
-[repo-docs](terms/repo-docs.md ":include")
+[repo-docs](terms/repo-docs.md ':include')
 
 **重要：请使用支持 `.editorconfig` 的编辑器或安装相应插件，以实现最基本的格式统一。**
 
@@ -42,11 +42,11 @@ docsify serve docs
 将需要重复使用的内容单独写进一个「\*.md 文件」文件，然后可以用如下语法引用：
 
 ```md
-[host](terms/host.md ":include")
+[host](terms/host.md ':include')
 
-[path](terms/path.md ":include")
+[path](terms/path.md ':include')
 
-[repo-docs](terms/repo-docs.md ":include")
+[repo-docs](terms/repo-docs.md ':include')
 
 <!-- 这里会列出 `terms` 内的全部调用，可直接复制或者熟记文件名后使用代码片段快捷书写 -->
 <!-- 触发短语为： `inc_terms` -->
@@ -54,11 +54,11 @@ docsify serve docs
 
 效果如下：
 
-[host](terms/host.md ":include")
+[host](terms/host.md ':include')
 
-[path](terms/path.md ":include")
+[path](terms/path.md ':include')
 
-独立成段使用时效果如上，同段落有其他内容时则作为指向链接，[类似这样](terms/repo-docs.md ":include")
+独立成段使用时效果如上，同段落有其他内容时则作为指向链接，[类似这样](terms/repo-docs.md ':include')
 
 **重要：不要指定 `Prettier` 作为「\*.md 文件」的格式化插件， 嵌套语法的单引号会变成双引号。**
 
@@ -84,5 +84,4 @@ docsify serve docs
 **注：快捷键： `ctrl + space` 。**
 
 <!-- 拆分至 guide-docs/guide-snippets.json -->
-
-[guide-snippets](guide-docs/guide-snippets.json ":include")
+[guide-snippets](guide-docs/guide-snippets.json ':include')

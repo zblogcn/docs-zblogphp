@@ -26,4 +26,4 @@ Z-Blog 应用中心：[https://app.zblogcn.com/](https://app.zblogcn.com/ "Z-Blo
 
 插件：`path/zb_users/plugin/`
 
-[path](terms/path.md ":include")
+[path](terms/path.md ':include')

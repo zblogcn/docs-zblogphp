@@ -1,6 +1,6 @@
 # 函数列表
 
-Z-BlogPHP 封装了众多辅助函数，文件路径为：「[zb_system/function/c_system_common.php](https://github1s.com/zblogcn/zblogphp/blob/master/zb_system/function/c_system_common.php "zb_system/function/c_system_common.php - GitHub1s") 」← 此链接可直接在线查看；
+Z-BlogPHP 封装了众多辅助函数，文件路径为：「[zb_system/function/c_system_common.php](https://github1s.com/zblogcn/zblogphp/blob/master/zb_system/function/c_system_common.php "zb_system/function/c_system_common.php - GitHub1s") 」←此链接可直接在线查看；
 
 还有一些在`zb_system/function/c_system_function.php`，不过除了前两个外不太需要自行调用；
 
@@ -15,7 +15,6 @@ $result = GetList(array('count'=>10)) //返回array(Post类型) 或是 空array(
 ```
 
 array 参数如下
-
 ```php
 array(
   'count' => 10, //（可省略）
@@ -48,7 +47,6 @@ $post = GetPost(array('id'=>10)) //返回object(Post类型)
 ```
 
 array 参数如下
-
 ```php
 array(
   'id' => 10, //指定 ID（可省略）
