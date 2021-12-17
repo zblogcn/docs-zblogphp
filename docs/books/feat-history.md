@@ -8,6 +8,7 @@
 
 - 1.7.2
   - feat. 后台自适应，增加了后台的手机横版操作支持
+  - feat. 支持 Swoole、WorkerMan、WebMan 集成调用 ZBP
   - feat. ZBP 类增加了魔术方法，新建自定义类时支持 $zbp->GetXXXList,GetXXXByID,GetXXXByArray 读取
   - feat. 现在 Base 类的 Update 操作不再提交未更改的字段
   - feat. ZBP 类的 GetXXXList 之类的方法，在读取对象时会优先从全局缓存数组取得
@@ -16,16 +17,23 @@
   - feat. 增加了 zbplangs 类用于 $zbp->langs 的链式表达
   - feat. 置顶分类的文章可以出现在其上级分类里了
   - feat. cmd.php 里对跳转流程做了更新
+  - feat. 大修 ZBlogException 类
+  - feat. API 的流程修改,ApiResponse 函数增加参数,增加 ApiShowError 函数并挂上接口
+  - feat. 修改 ViewFeed 适应路由,增加 ViewList,ViewPost 的权限判断
   - fix. 修复了 1.6 升级到 1.7 数据库 config 数据出错、程序崩溃的问题
   - fix. 后台刷新统计操作可以打开 ZC_LARGE_DATA 参数 去屏蔽可能的耗时操作
   - fix. ViewPost 里修正了一个文章伪静的 url 检测问题和一个水水发现的 Bug
-  - fix. common.php 下改进了 Logs_Dump、GetVars、GetIDArrayByList 函数;
+  - fix. common.php 下改进了 Logs_Dump、GetVars、GetIDArrayByList 函数
+  - fix. 修改了一个管理员信息被编辑的问题
   - 接口
+    - feat. 增加 Clear_Filter_Plugin 函数
+    - feat. 增加 PLUGIN_EXITSIGNAL_GOTO 常量
     - feat. Filter_Plugin_Zbp_Load_Pre 这个接口重新给挪回到 zbp 的 Load 方法里了
     - feat. 删除接口 Filter_Plugin_Zbp_LoadLanguage
     - feat. 新增接口 Filter_Plugin_Zbp_RegBuildModules
     - feat. 新增接口 Filter_Plugin_Cmd_Redirect 用于接管 cmd 下的 url 跳转
     - feat. 新增接口 Filter_Plugin_ViewPost_ViewNums 用于插入一个自定义的浏览数计数方案
+    - feat. 新增接口 Filter_Plugin_Api_Post_List_Core
 
 - 1.7.1
   - update. 支持`PHP 8.1`版本
