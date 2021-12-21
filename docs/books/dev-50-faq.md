@@ -40,8 +40,7 @@
   - 代码格式化：「[Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode "Prettier - Code formatter - Visual Studio Marketplace")」；
   - 字面意思：「[Format HTML in PHP](https://marketplace.visualstudio.com/items?itemName=rifi2k.format-html-in-php "Format HTML in PHP - Visual Studio Marketplace")」；
   - 代码风格规范：「[EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig "EditorConfig for VS Code - Visual Studio Marketplace")」——参考下方「[附注 - EditorConfig](#附注-editorconfig "附注 - EditorConfig")」；
-- 次要：
-  - 将成对的括号使用颜色加以区分：「[Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer "Bracket Pair Colorizer - Visual Studio Marketplace")」；
+  - 将成对的括号使用颜色加以区分：「[Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer "Bracket Pair Colorizer - Visual Studio Marketplace")」 ← **VSCode 已内置此功能**；
   - 快速生成 PHP 注释：「[PHP DocBlocker](https://marketplace.visualstudio.com/items?itemName=neilbrayfield.php-docblocker "PHP DocBlocker - Visual Studio Marketplace")」——「[参考链接](https://bbs.zblogcn.com/thread-101310.html#484269 "参考链接 - PHP DocBlocker")」；
   - 替代默认的文件图标：「[VSCode Great Icons](https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons "VSCode Great Icons - Visual Studio Marketplace")」；
   - 智能提示代码：「[Tabnine AI Code Completion](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode "Tabnine AI Code Completion - Visual Studio Marketplace")」；
