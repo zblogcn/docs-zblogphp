@@ -227,7 +227,13 @@ lwIDAQAB
 	$aesKey = base64_decode($aesInfo[0]);
 	$aesIv = base64_decode($aesInfo[1]);
 	$hash = $aesInfo[2];
-	$data = openssl_decrypt(base64_decode($aesEncrypted), 'aes-256-cbc', $aesKey, OPENSSL_RAW_DATA, $aesIv);
+	$data = openssl_decrypt(
+    base64_decode($aesEncrypted),
+    'aes-256-cbc',
+    $aesKey,
+    OPENSSL_RAW_DATA,
+    $aesIv
+  );
 	if (hash_hmac('sha256', $data, 'zblogverification') === $hash) {
 		return json_decode($data, false);
 	} else {
