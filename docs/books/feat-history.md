@@ -18,12 +18,13 @@
   - feat. 置顶分类的文章可以出现在其上级分类里了
   - feat. cmd.php 里对跳转流程做了更新
   - feat. 大修 ZBlogException 类
+  - feat. route.php 里对路由系统做了调整和优化
   - feat. API 的流程修改,ApiResponse 函数增加参数,增加 ApiShowError 函数并挂上接口
   - feat. 修改 ViewFeed 适应路由,增加 ViewList,ViewPost 的权限判断
   - fix. 修复了 1.6 升级到 1.7 数据库 config 数据出错、程序崩溃的问题
   - fix. 后台刷新统计操作可以打开 ZC_LARGE_DATA 参数 去屏蔽可能的耗时操作
   - fix. ViewPost 里修正了一个文章伪静的 url 检测问题和一个水水发现的 Bug
-  - fix. common.php 下改进了 Logs_Dump、GetVars、GetIDArrayByList 函数
+  - fix. common.php 下增加了 Is_Mobile 函数，改进了 Logs_Dump、GetVars、GetIDArrayByList 函数
   - fix. 修改了一个管理员信息被编辑的问题
   - 接口
     - feat. 增加 Clear_Filter_Plugin 函数
