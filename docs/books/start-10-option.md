@@ -24,6 +24,7 @@ c_option.php 配置文件中设置了 `'ZC_DATABASE_CONFIG' => 'getenv'`，就�
 ```php
 //示例如下
 <?php
+return array (
   'ZC_DATABASE_CONFIG' => 'getenv',
   'ZC_DATABASE_TYPE' => 'mysqli',
   'ZC_MYSQL_SERVER' => 'DB_HOST',
