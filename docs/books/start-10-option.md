@@ -20,7 +20,7 @@
 
 ## 从环境变量中读取数据库配置 (1.7.2 开始支持)
 
-c_option.php 配置文件中设置了 `'ZC_DATABASE_CONFIG' => 'getenv'`，就会用 getevn 函数读取环境变量的值
+c_option.php 配置文件中设置了 `'ZC_DATABASE_CONFIG' => 'getenv'`，就会用 getenv 函数读取环境变量的值
 ```php
 //示例如下
 <?php
@@ -40,4 +40,4 @@ c_option.php 配置文件中设置了 `'ZC_DATABASE_CONFIG' => 'getenv'`，就�
 ```
 那么 ZC_MYSQL_SERVER,ZC_MYSQL_USERNAME,ZC_MYSQL_PASSWORD,ZC_MYSQL_NAME,ZC_MYSQL_PORT 这 5 个参数的值就会从 `getenv('DB_HOST')` 等中获得
 
-如果 `'ZC_DATABASE_CONFIG' => 'evn'` 的话，ZC_MYSQL_SERVER 等参数的值就会从 `$_ENV` 全局数组中获得
+如果 `'ZC_DATABASE_CONFIG' => 'env'` 的话，ZC_MYSQL_SERVER 等参数的值就会从 `$_ENV` 全局数组中获得
