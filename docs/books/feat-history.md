@@ -19,6 +19,7 @@
   - feat. cmd.php 里对跳转流程做了更新
   - feat. 大修 ZBlogException 类
   - feat. route.php 里对路由系统做了调整和优化
+  - feat. 修改 c_option.php 里的 ZC_DATABASE_CONFIG 为 getenv 或 env，可以从 getenv 或 $_ENV 中读取 ZC_MYSQL_NAME 等参数的值;
   - feat. API 的流程修改,ApiResponse 函数增加参数,增加 ApiShowError 函数并挂上接口
   - feat. 修改 ViewFeed 适应路由,增加 ViewList,ViewPost 的权限判断
   - fix. 修复了 1.6 升级到 1.7 数据库 config 数据出错、程序崩溃的问题
