@@ -377,7 +377,11 @@ $sql = $zbp->db->sql->get()->selectany('log_ID')
 ```
 
 ```sql
-SELECT log_ID FROM zbp_post AS p LEFT JOIN zbp_postrelation AS pr ON p.log_ID = pr.pr_PostID WHERE 1 = 1
+SELECT log_ID
+FROM zbp_post AS p
+LEFT JOIN zbp_postrelation AS pr
+    ON p.log_ID = pr.pr_PostID
+WHERE 1 = 1
 ```
 
 ```php
@@ -529,7 +533,7 @@ echo $sql;
 SQL 语句输出：
 
 ```sql
-CREATE TABLE IF NOT EXISTS zbp_table ( a int(11) NOT NULL AUTO_INCREMENT COMMENT '主ID', i tinyint(1) NOT NULL DEFAULT '0', k varchar(250) NOT NULL DEFAULT '', o longtext NOT NULL COMMENT '备注为某字段', r float NOT NULL DEFAULT 0, PRIMARY KEY (a) ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS zbp_table ( a int(11) NOT NULL AUTO_INCREMENT COMMENT '主ID', i tinyint(1) NOT NULL DEFAULT '0', k varchar(250) NOT NULL DEFAULT '', o longtext NOT NULL COMMENT '备注为某字段', r float NOT NULL DEFAULT 0, PRIMARY KEY (a) ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1
 ```
 
 **备注：可以指定表的引擎和字符集，如果不指定则从 option 文件读取系统的配置**
@@ -538,10 +542,10 @@ CREATE TABLE IF NOT EXISTS zbp_table ( a int(11) NOT NULL AUTO_INCREMENT COMMENT
 
 ```php
 $sql = $zbp->db->sql->get()->create('zbp_post')
-                           ->index(
-                                     array('zbp_post_index_stt'=>array('log_Status','log_Type','log_Tag'))
-                                  )
-                           ->sql;
+  ->index(
+    array('zbp_post_index_stt'=>array('log_Status','log_Type','log_Tag'))
+  )
+  ->sql;
 ```
 
 ```sql
@@ -671,10 +675,20 @@ $sql = $zbp->db->sql->get()->select("zbp_post")
 ```
 
 ```sql
---mysql生成的sql
-SELECT * FROM zbp_post WHERE log_Type = '0' AND log_ID >= (SELECT FLOOR( RAND() * ((SELECT MAX(log_ID) FROM `zbp_post`)-(SELECT MIN(log_ID) FROM `zbp_post`)) + (SELECT MIN(log_ID) FROM `zbp_post`))) LIMIT 5
+-- mysql 生成的 sql
+SELECT *
+FROM zbp_post
+WHERE log_Type = '0'
+        AND log_ID >=
+    (SELECT FLOOR( RAND() * (
+        (SELECT MAX(log_ID)
+        FROM `zbp_post`)-
+            (SELECT MIN(log_ID)
+            FROM `zbp_post`)) +
+                (SELECT MIN(log_ID)
+                FROM `zbp_post`))) LIMIT 5
 
---pgsql和sqlite生成的sql
+-- pgsql 和 sqlite 生成的 sql
 SELECT * FROM zbp_post WHERE log_Type = '0' ORDER BY Random() LIMIT 5
 ```
 

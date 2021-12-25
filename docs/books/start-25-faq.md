@@ -13,8 +13,9 @@ Z-BlogPHP 密码找回工具：
 - 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
 - **增加**项目：
   ```php
-  'ZC_PERMANENT_DOMAIN_WHOLE_DISABLE' => true,
+  'ZC_PERMANENT_DOMAIN_FORCED_DISABLE' => true,
   ```
+1.7.2 以下版本的键名为 ZC_PERMANENT_DOMAIN_WHOLE_DISABLE
 - 保存后即可恢复使用；
 
 [path](terms/path.md ':include')
@@ -28,7 +29,6 @@ Z-BlogPHP 密码找回工具：
 - 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
 - 配置项：
   ```php
-  'ZC_PERMANENT_DOMAIN_WHOLE_DISABLE' => false,
   'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://www.newdomin.site/",
   ```
 
