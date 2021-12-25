@@ -33,7 +33,7 @@
     - feat. 新增接口 Filter_Plugin_Zbp_RegBuildModules
     - feat. 新增接口 Filter_Plugin_Cmd_Redirect 用于接管 cmd 下的 url 跳转
     - feat. 新增接口 Filter_Plugin_ViewPost_ViewNums 用于插入一个自定义的浏览数计数方案
-    - feat. 新增接口 Filter_Plugin_Api_Post_List_Core
+    - feat. 新增接口 Filter_Plugin_API_Post_List_Core
 
 - 1.7.1
   - update. 支持`PHP 8.1`版本
