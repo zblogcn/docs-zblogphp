@@ -50,7 +50,8 @@ function UninstallPlugin_demoPlugin()
 {
   // 存在相应开关选项并且状态为开启时，删除当前插件配置
   // $zbp->Config('插件ID')->HasKey('配置名'); //return bool
-  if ($zbp->Config('demoPlugin')->HasKey('DelConfig') && $zbp->Config('demoPlugin')->DelConfig == 1) {
+  if ($zbp->Config('demoPlugin')->HasKey('DelConfig') && 
+       $zbp->Config('demoPlugin')->DelConfig == 1) {
     $zbp->DelConfig('demoPlugin');
   }
 }

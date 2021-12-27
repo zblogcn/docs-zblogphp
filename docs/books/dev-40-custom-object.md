@@ -1,4 +1,4 @@
-# 自定义数据类型及数据库建表和CURD操作
+# 自定义数据类型及数据库建表和 CURD 操作
 
 
 
@@ -8,33 +8,34 @@
 **新增数据结构是对全局变量`$table`,`$datainfo`数组的项目添加**
 
 ```php
-#本篇里我们创建一个类叫Custom
+#本篇里我们创建一个类叫 Custom
 
-#表名
+# 表名
 $table['Custom'] = '%pre%plugin_custom';
-#注意表名可自定义，但必须加上%pre%区分同一数据库中的不同的程序所生成的表
+# 注意表名可自定义，但必须加上%pre%区分同一数据库中的不同的程序所生成的表
 
-#表结构
+# 表结构
 $datainfo['Custom'] = array(
   'ID' => array('cu_ID','integer','',0),
   'Content' => array('cu_Content','string',250,''),
   'LogID' => array('cu_Logid','integer','',0)
 );
-#datainfo数组第一项，必须是'ID'，这是表的唯一自增序列
+# datainfo 数组第一项，必须是'ID'，这是表的唯一自增序列
 ```
 
-***数据表结构$datainfo声明结构如下***
+***数据表结构 $datainfo 声明结构如下***
+
 ```php
 array('属性名' => array('字段名', '类型', '长度参数（根据类型定义）', '默认值'));
 
-#简单演示常用类型的声明：
-// int数字
+# 简单演示常用类型的声明：
+// int 数字
 array('ID', 'integer', '', 0),
-// boolean布尔值
+// boolean 布尔值
 array('Check', 'boolean', '', false),
 // char
 array('Value', 'char', 10, ''),
-// 最长250长度的字符串
+// 最长 250 长度的字符串
 array('Title', 'string', 250, ''),
 // 不限长的文本字符串
 array('Content', 'string', '', ''),
@@ -62,17 +63,17 @@ class Custom extends Base
 function InstallPlugin_应用ID()
 {
   global $zbp;
-  #判断是否已创建，否则新建数据表
+  # 判断是否已创建，否则新建数据表
   if(!$zbp->db->ExistTable($zbp->table['Custom']))
   {
     $s = $zbp->db->sql->CreateTable($zbp->table['Custom'], $zbp->datainfo['Custom']);
     $zbp->db->QueryMulit($s);
   }
 }
-#PS:应用卸载时可根据自身需求来删除数据表或保留所创建的数据表
+# PS:应用卸载时可根据自身需求来删除数据表或保留所创建的数据表
 ```
 
-## 自定义类型的CURD操作
+## 自定义类型的 CURD 操作
 
 **新增一条数据**
 ```php
@@ -111,9 +112,9 @@ function InstallPlugin_应用ID()
   $list = $zbp->GetListType('Custom', $sql);
   #结果$list为一个包含Custom对象的数组
 ```
-***主程序1.7.2版新增的查询方法***
+***主程序 1.7.2 版新增的查询方法***
 
-主程序1.7.2在定义`Custom`类成功后，自动生成了`ZBlogPHP`类下的3个读取加载`Custom`类的方法，分别是：
+主程序 1.7.2 在定义`Custom`类成功后，自动生成了`ZBlogPHP`类下的 3 个读取加载`Custom`类的方法，分别是：
 - `GetCustomList`($select = null, $where = null, $order = null, $limit = null, $option = null)
 ```php
   #查询Custom表下符合2个条件的所有记录
@@ -157,4 +158,4 @@ function InstallPlugin_应用ID()
 
 「- -」「- -」「- -」「- -」「- -」
 
-***本篇内容所用代码需要由主程序1.7版本及更高版本实现***
+***本篇内容所用代码需要由主程序 1.7 版本及更高版本实现***
