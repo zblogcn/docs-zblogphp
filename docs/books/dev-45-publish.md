@@ -44,7 +44,7 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 请在【[开发者中心-ZBlogger 技术交流中心](https://bbs.zblogcn.com/forum-125.html "开发者中心-ZBlogger 技术交流中心")】版块按以下要求发贴申请：
 
-1. 为节省时间，请先参照「[注意事项速查表](books/dev-45-faq?id=注意事项速查表 "注意事项速查表")」进行自查；
+1. 为节省时间，请先参照「[注意事项速查表](books/dev-50-faq?id=注意事项速查表 "注意事项速查表")」进行自查；
 2. 在「**你自己的网站**」内发布主题或插件，附截图、功能介绍等；
 3. 「**在你的发布页面内**」以附件或网盘或「**Git 地址**」形式提供下载；「**不在要论坛发附件！！！**」
 4. 网站本身如为 Z-Blog，须保留带链接的 Powerd By 声明；其他程序须在首页添加指向`www.zblogcn.com`的友情链接；
@@ -91,7 +91,7 @@ Z-BlogPHP 官方文档：https://docs.zblogcn.com/php/#/
 
 ## 发布标准
 
-> **推荐阅读：[注意事项速查表](books/dev-45-faq?id=%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e9%80%9f%e6%9f%a5%e8%a1%a8 "常见问题")**
+> **推荐阅读：[注意事项速查表](books/dev-50-faq?id=%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e9%80%9f%e6%9f%a5%e8%a1%a8 "常见问题")**
 
 <details>
 <summary>此节内容需重新组织（点击展开）</summary>
