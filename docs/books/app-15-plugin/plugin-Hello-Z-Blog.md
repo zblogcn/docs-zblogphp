@@ -48,6 +48,7 @@ function InstallPlugin_demoPlugin()
 // 插件关闭时调用
 function UninstallPlugin_demoPlugin()
 {
+  global $zbp;
   // 存在相应开关选项并且状态为开启时，删除当前插件配置
   // $zbp->Config('插件ID')->HasKey('配置名'); //return bool
   if ($zbp->Config('demoPlugin')->HasKey('DelConfig') && 
