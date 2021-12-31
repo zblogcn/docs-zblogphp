@@ -13,8 +13,9 @@
   - [页面路由](books/dev-30-route)
   - [SQL 链式查询](books/dev-35-chainquery)
   - [自定义数据](books/dev-40-custom-object)
-  - [发布应用](books/dev-45-publish)
-  - [常见问题](books/dev-50-faq)
+  - [网络组件](books/dev-45-network)
+  - [发布应用](books/dev-50-publish)
+  - [常见问题](books/dev-55-faq)
 - API
   - [基本设计](books/api-05-design)
   - [接口文档](books/api-10-mods)
