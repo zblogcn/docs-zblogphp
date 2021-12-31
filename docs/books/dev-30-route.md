@@ -6,9 +6,45 @@
 
 ## 1.7 新版
 
+
 <!-- 需求 1 -->
 
 **假定需求 1：**
+
+实现搜索功能的伪静态化
+
+```php
+//将注入路由的函数挂上接口
+Add_Filter_Plugin('Filter_Plugin_Zbp_PreLoad', 'demoPlugin_RegRoute');
+
+//注册一条属于文章页的下载页面，并挂在 Filter_Plugin_Zbp_PreLoad 接口
+function demoPlugin_RegRoute()
+  global $zbp;
+  $route = array (
+    'posttype' => 0,//文章类型
+    'type' => 'rewrite',
+    'name' => 'post_article_search', //名称
+    'call' => 'ViewSearch', //呼叫的函数
+    'urlrule' => '{%host%}search/{%q%}_{%page%}.html',
+    'args' => 
+    array (
+      'q' => '[^\\/_]+',//q是搜索的关键字，支持正则匹配
+      'page',//page是页码
+    ),
+    'only_match_page' => false,//为假表示可以匹配没有{%page%}参数的url
+  );
+  $zbp->RegRoute($route);
+}
+
+//ViewSearch函数系统已经写好了，所以只需要注入路由就可以实现搜索功能的伪静态化！
+
+```
+
+<!-- 需求 1 结束 -->
+
+<!-- 需求 2 -->
+
+**假定需求 2：**
 
 对于`{%host%}post/{%id%}.html`模式的访问，另外定义一条`{%host%}download/{%id%}.html`用于显示下载内容；
 
@@ -21,19 +57,19 @@ Add_Filter_Plugin('Filter_Plugin_Zbp_PreLoad', 'demoPlugin_RegRoute');
 **接口函数定义：**
 
 ```php
+//注册一条属于文章页的下载页面，并挂在 Filter_Plugin_Zbp_PreLoad 接口
 function demoPlugin_RegRoute()
 {
   global $zbp;
   $route = array(
     // 默认取 0 即 article，建议显示设置，表示当前路由无论是单页还是列表都与该类型相关；
     // 可按需设置 $GLOBALS['posttype'] 内的其他值，还可以自行添加类型，或者设置为 null 表示不属于任何类型；
-    'posttype' => 0,
+    'posttype' => 0, //0是文章
     // 路由类型 (rewrite 类型使用 route 规则进行匹配，从规则中取得参数并传入 call，不匹配将跳出本规则进入下一条)
     'type' => 'rewrite',
     // 路由名称，推荐格式：前缀_路由功能
     'name' => 'plugin_demoPlugin_download',
-    // 路由调用的函数 (可以为'函数名'或是'变量名@方法名'或是'变量名::静态方法')
-    // 'call' => 'ViewPost', // 在本示例中并不能直接调用 ViewPost()
+    // 路由调用的函数
     'call' => 'demoPlugin_ViewDownload',
     // 动态路由和伪静路由的原始规则 (必须)
     'urlrule' => '{%host%}download/{%id%}.html',
@@ -50,113 +86,14 @@ function demoPlugin_RegRoute()
 function demoPlugin_ViewDownload($arg)
 {
 
-  // debug
-  // ob_clean();
-  echo __FILE__ . "丨" . __LINE__ . ":<br>\n";
+  // $arg就是路由系统传入的数组参数，包含匹配到的参数和其它信息;
   var_dump($arg);
-  echo "<br><br>\n\n";
-  // die();
-  // debug
 
-  /**
-  * array(5) {
-  *   [0]=>
-  *   string(16) "download/32.html"
-  *   ["id"]=>
-  *   string(2) "32"
-  *   [1]=>
-  *   string(2) "32"
-  *   ["post"]=>
-  *   string(2) "32"
-  *   ["route"]=>
-  *   array(7) {
-  *     // ……
-  *     ["original_url"]=>
-  *     string(17) "/download/32.html"
-  *     ["url"]=>
-  *     string(16) "download/32.html"
-  *   }
-  * }
-  **/
+  $id = $arg["post"]; //获取文章的ID
 
-  // 可以使用 $arg['id'] 作为参数进行查询和输出；
-  // 也可以使用 ViewPost($arg) 并配合 Filter_Plugin_ViewPost_Template 等接口；
-  ViewPost($arg);
-}
-```
-<!-- 需求 1 结束 -->
+  //显示下载页面
+  //业务代码自行实现
 
-<!-- 需求 2 -->
-
-**假定需求 2：**
-
-（1）添加多条路由。
-
-（2）给文章页分页。
-
-既添加`'{%host%}post/{%id%}_all.html'`和`'{%host%}post/{%id%}_{%page%}.html'`两条路由；
-
-**接口挂载同「需求 1」**
-
-**接口函数定义：**
-
-```php
-function demoPlugin_RegRoute2()
-{
-  global $zbp;
-  $routes = array(
-    // 全文查看
-    array(
-      'posttype' => 0,
-      'type' => 'rewrite',
-      'name' => 'plugin_demoPlugin_PostAll',
-      'call' => 'demoPlugin_ViewPost',
-      'urlrule' => '{%host%}post/{%id%}_all.html',
-      // 匹配到本条路由时传递一个 all 参数用于区分
-      'args_with' => array("all" => true),
-      'verify_permalink' => false,
-    ),
-    // 分页
-    array(
-      'posttype' => 0,
-      'type' => 'rewrite',
-      'name' => 'plugin_demoPlugin_PostPagination',
-      'call' => 'demoPlugin_ViewPost',
-      'urlrule' => '{%host%}post/{%id%}_{%page%}.html',
-      'verify_permalink' => false,
-    )
-
-  );
-  foreach ($routes as $value) {
-    $zbp->RegRoute($value);
-  }
-  return true;
-}
-
-function demoPlugin_ViewPost($arg)
-{
-
-  // debug
-  // ob_clean();
-  echo __FILE__ . "丨" . __LINE__ . ":<br>\n";
-  var_dump($arg);
-  echo "<br><br>\n\n";
-  // die();
-  // debug
-
-  // 从数组获取指定下标的值，不存在则返回第三个参数；
-  $isAll = GetValueInArray($arg, "all", false);
-  // 理论上能进入当前函数，则必然存在 $arg["id"]；
-  $id = $arg["id"];
-
-  if ($isAll) {
-    // 全文获取
-    // code
-  } else {
-    $page = $arg["page"];
-    // 将文章内容分页后获取第 $page 页；
-    // code
-  }
 }
 ```
 <!-- 需求 2 结束 -->
@@ -165,15 +102,13 @@ function demoPlugin_ViewPost($arg)
 
 **假定需求 3：**
 
-仍然是文章内容分页，但是只使用一条规则实现；
+对文章内容分页，使用一条规则实现；
 
 将`'{%host%}post/{%id%}_{%page%}.html'`改为`'{%host%}post/{%id%}_{%all%}.html'`，由`{%all}`匹配对应位置的内容；
 
 **接口函数定义：**
 
 ```php
-// 和 demoPlugin_RegRoute2() 只需挂载一个
-// demoPlugin_ViewPost() 内的实现会不一样
 function demoPlugin_RegRoute3()
 {
   global $zbp;
@@ -186,13 +121,32 @@ function demoPlugin_RegRoute3()
       'urlrule' => '{%host%}post/{%id%}_{%all%}.html',
       'args' =>
       array(
-        // 0 => 'post@id',
+        'post@id',
         'all' => 'all|[0-9]+',
       ),
       'verify_permalink' => false,//不比对当前url与目标url是否相同
     );
   $zbp->RegRoute($route);
   return true;
+}
+
+function demoPlugin_ViewPost($arg)
+{
+  // $arg就是路由系统传入的数组参数，包含匹配到的参数和其它信息;
+  var_dump($arg);
+
+  // 从数组获取指定下标的值
+  $id = $arg["post"]; //获取文章的ID
+  $isAll = $arg["all"];
+
+  if ($isAll == 'all') {
+    // 全文获取
+    // code
+  } else {
+    $page = $isAll;
+    // 将文章内容分页后获取第 $page 页；
+    // code
+  }
 }
 ```
 <!-- 需求 3 结束 -->
@@ -254,7 +208,8 @@ function demoPlugin_Rewrite($original_url, $url)
     ViewPost($m);
 
     // 用于跳过同一接口队列中的后续操作
-    $GLOBALS['hooks']['Filter_Plugin_ViewAuto_Begin']['demoPlugin_Rewrite'] = PLUGIN_EXITSIGNAL_RETURN;
+    $GLOBALS['hooks']['Filter_Plugin_ViewAuto_Begin']['demoPlugin_Rewrite'] = 
+    PLUGIN_EXITSIGNAL_RETURN;
   }
 }
 ```
