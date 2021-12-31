@@ -21,7 +21,7 @@
 //将注入路由的函数挂上接口
 Add_Filter_Plugin('Filter_Plugin_Zbp_PreLoad', 'demoPlugin_RegRoute');
 
-//注册一条属于文章页的下载页面，并挂在 Filter_Plugin_Zbp_PreLoad 接口
+//创建搜索伪静化的规则，并挂在 Filter_Plugin_Zbp_PreLoad 接口
 function demoPlugin_RegRoute()
   global $zbp;
   $route = array (
@@ -29,7 +29,7 @@ function demoPlugin_RegRoute()
     'type' => 'rewrite',
     'name' => 'post_article_search', //名称
     'call' => 'ViewSearch', //呼叫的函数
-    'urlrule' => '{%host%}search/{%q%}_{%page%}.html',
+    'urlrule' => '{%host%}search/{%q%}_{%page%}.html',//规则主体
     'args' => 
     array (
       'q' => '[^\\/_]+',//q是搜索的关键字，支持正则匹配
