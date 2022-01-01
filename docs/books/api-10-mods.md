@@ -16,3 +16,17 @@ API 地址模式：`https://example.com/zb_system/api.php?mod=<模块名>[&act=<
 [api-mod-member](api-10-mods/api-mod-member.md ':include')
 
 [api-mod-post](api-10-mods/api-mod-post.md ':include')
+
+[api-mod-app](api-10-mods/api-mod-app.md ':include')
+
+[api-mod-category](api-10-mods/api-mod-category.md ':include')
+
+[api-mod-comment](api-10-mods/api-mod-comment.md ':include')
+
+[api-mod-module](api-10-mods/api-mod-module.md ':include')
+
+[api-mod-system](api-10-mods/api-mod-system.md ':include')
+
+[api-mod-tag](api-10-mods/api-mod-tag.md ':include')
+
+[api-mod-upload](api-10-mods/api-mod-upload.md ':include')

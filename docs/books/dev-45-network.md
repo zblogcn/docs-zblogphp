@@ -89,7 +89,7 @@ echo $txt;
 
 $u = 'ZBlogPHP/173000';//user-agent
 $c = ' name=' . urlencode('nobody');//cookies name 为nobody
-$c .= ' password=' . urlencode('123456');//cookies password 为123456
+$c .= ' ;password=' . urlencode('123456');//cookies password 为123456
 
 //在send之前，设置setRequestHeader
 $http->setRequestHeader('User-Agent', $u);
