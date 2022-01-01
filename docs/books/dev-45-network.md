@@ -24,7 +24,7 @@ NetWork 组件由 `Network 工厂类`和 3 个业务组件：`Network__curl`、`
 
 `addText($name, $entity)` 添加发送参数
 
-`setTimeOuts($resolveTimeout, $connectTimeout)` 设置超时
+`setTimeOuts($resolveTimeout, $connectTimeout, $sendTimeout, $receiveTimeout)` 设置超时
 
 `getAllResponseHeaders()` 获取所有的响应头
 
