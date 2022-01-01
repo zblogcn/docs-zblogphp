@@ -10,6 +10,18 @@ NetWork 组件由 `Network 工厂类`和 3 个业务组件：`Network__curl`、`
 
 ## 组件方法简介
 
+***工厂类的方法***
+
+`Network::Create()` 按默认顺序创建并返回一个新的网络操作组件
+
+`Network::Create('curl')` 创建并返回一个新的 Network__curl 网络操作组件
+
+`Network::Create('fsockopen')` 创建并返回一个新的 Network__fsockopen 网络操作组件
+
+`Network::Create('filegetcontents')` 创建并返回一个新的 Network__filegetcontents 网络操作组件
+
+***业务组件的方法***
+
 `open($Method, $Url)` 打开 network 组件
 
 `send($varBody = '')` network 组件发送连接
@@ -127,7 +139,7 @@ $http->addBinary('file', 'D:/www/web.config');//指定某个文件
 $http->send();
 
 echo $http->responseText;
-//备注一下，1.7.2以下版本的filegetcontents和fsockopen，提交到自签证书的https有故障，1.7.2已修复了。
+//备注一下，1.7.2以下版本的filegetcontents和fsockopen，提交到自签证书的https网站有故障，1.7.2已修复了。
 ```
 
 **示例代码 6：Network__curl 的特别用法**
