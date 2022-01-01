@@ -1,23 +1,28 @@
 ## member 会员注册登录及管理 API
 
-| act 方法 | 请求方式   | 参数                                                | 鉴权 |                      |
-| -------- | ---------- | --------------------------------------------------- | ---- | -------------------- |
+| act 方法 | 请求方式   | 参数                                                | 鉴权 |
+| -------- | ---------- | --------------------------------------------------- | ---- |
 | `login`  | POST       |`用户登录并返回 token`                                 |      |
 |          |            |$_POST['username'] 用户名称(非别名)
 |          |            |$_POST['password']`password`建议使用 MD5(明文密码) 值
 |          |            |$_POST['savedate'] `token`过期时间，最长 365 天
 |          |            |返回值：附：**「示例 1」**
+|
 | `post`   | POST       | `编辑用户或新建用户`                                    | 必须 |
 |          |            | `Member`定义字段；附：**「示例 2」**
+|
 | `get`    | GET / POST | `获取一个用户信息`                                         | 必须 |
-|          |            | $_REQUEST['id'] 用户 `id`  
+|          |            | $_REQUEST['id'] 用户 `id`
+|
 | `delete` | GET / POST | `删除一个用户`                                           | 必须 |
 |          |            | $_REQUEST['id'] 用户 `id`
+|
 | `list`   | GET / POST | `获取用户管理列表`                                       | 必须 |
 |          |            | `act=list`方法共通参数见：[约束与过滤](books/dev-api-design?id=约束与过滤 "约束与过滤")
 |          |            | $_REQUEST['status'] 指定状态`status`
 |          |            | $_REQUEST['level'] 指定用户`level`
 |          |            | $_REQUEST['page'] 第几页'page'
+|
 |`get_auth`| GET / POST | `查看当前用户权限列表`                                                    | 必须 |
 
 
@@ -54,7 +59,7 @@
 **示例 2**：
 
 <details>
-<summary>创建一个用户：（点击展开）</summary>
+<summary>post 创建一个用户：（点击展开）</summary>
 
 ```json
 {

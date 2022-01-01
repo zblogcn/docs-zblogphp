@@ -4,6 +4,7 @@
 | -------- | ---------- | ------------------------------------------------------- | ----------------- |
 | `get`    | GET / POST | `获取文章`                                                | 非公开文章需鉴权   |
 |          |            |$_REQUEST['id'] 文章 `id`
+|
 | `post`   | POST       | `新建或编辑文章`                                            |必须               |
 |          |            |`Post`字段定义如下
 |          |            |$_POST['ID'] 为 0 是新建
@@ -17,11 +18,13 @@
 |          |            |$_POST['Tag']
 |          |            |$_POST['PostTime']
 |          |            |$_POST['Status']
+|
 | `delete` | GET / POST | `删除文章`                                                  | 必须               |
 |          |            |$_REQUEST['id'] 文章 `id`
-| `list`   | GET / POST | `获取文章列表` | 未鉴权请求数量受限为每页面展示数量 |
+|
+| `list`   | GET / POST | `获取文章列表` | 未鉴权请求数量受限为<br/>每页面展示数量 |
 |          |            |$_REQUEST 参数定义如下
-|          |            | `cate_id`, `tag_id`, `auth_id`, `type`, `date`, `manage` |已鉴权有后台管理权限为后台每页面展示数量 |
+|          |            | `cate_id`, `tag_id`, `auth_id`, `type`, `date`, `manage` |已鉴权有后台管理权限为<br/>后台每页面展示数量 |
 |          |            |                                                          
 |          |            |`act=list`方法共通参数见：[约束与过滤](books/dev-api-design?id=约束与过滤 "约束与过滤")
 
