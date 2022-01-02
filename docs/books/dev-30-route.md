@@ -6,7 +6,7 @@
 
 ## 1.7 新版
 
-1.7 版本新增加了`路由系统`，一般来说，我们只要向系统注入一条`路由规则`，再实现该条路由 Call 的函数，就可以实现路由功能了。
+1.7 版本新增加了`路由系统`，一般来说，我们只要向系统注入一条`路由规则`，再实现该条路由 call 的函数，就可以实现路由功能了。
 
 增加路由条目的关键是在配置`路由规则`的数组，如果对`路由系统`不熟悉，请在应用中心下载 `Z-Blog PHP Development Kit` 插件，仔细研究系统自带的`路由规则`。
 
@@ -28,7 +28,7 @@ function demoPlugin_RegRoute()
     'posttype' => 0,//文章类型
     'type' => 'rewrite',
     'name' => 'post_article_search', //名称
-    'call' => 'ViewSearch', //呼叫的函数
+    'call' => 'ViewSearch', //呼叫的函数，匹配成功后call之，并传入一个数组
     'urlrule' => '{%host%}search/{%q%}_{%page%}.html',//规则主体
     'args' => 
     array (
@@ -42,6 +42,25 @@ function demoPlugin_RegRoute()
 
 //ViewSearch函数系统已经写好了，所以只需要注入路由就可以实现搜索功能的伪静态化！
 
+```
+
+路由系统在匹配到规则后，向 call 所指定的函数 传入一个 array 数组，其格式如下
+
+```php
+function ViewSearch() {
+    //获取路由系统传入参数
+    $args = func_get_arg[0];
+
+    $q = $args['q']; //获取查询字符串
+
+    $page = $args['q']; //获取页面，如果有的话
+
+    //得到该Route规则
+    $route = $args['_route'];
+
+    //可以打印出$args查看详情
+    var_dupm($args);
+}
 ```
 
 <!-- 需求 1 结束 -->
