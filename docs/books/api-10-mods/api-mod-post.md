@@ -18,6 +18,7 @@
 |          |            |$_POST['Tag']
 |          |            |$_POST['PostTime']
 |          |            |$_POST['Status']
+|          |            |注：对于发布文章，额外提供一个`CateName`字段可用来代替`CateID`指定分类，<br/>前提是存在以该字段值命名的分类；也可以使用`category`模块内的接口实现自动创建分类等操作；
 |
 | `delete` | GET / POST | `删除文章`                                                  | 必须               |
 |          |            |$_REQUEST['id'] 文章 `id`
@@ -28,4 +29,3 @@
 |          |            |                                                          
 |          |            |`act=list`方法共通参数见：[约束与过滤](books/dev-api-design?id=约束与过滤 "约束与过滤")
 
-**注：对于 API 发布文章，额外提供一个`CateName`字段用以代替`CateID`指定分类，前提是存在以该字段值命名的分类；也可以使用`api.php`内的接口实现自动创建分类等操作；**

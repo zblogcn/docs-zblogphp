@@ -18,13 +18,16 @@
 |          |            | $_REQUEST['id'] 用户 `id`
 |
 | `list`   | GET / POST | `获取用户管理列表`                                       | 必须 |
-|          |            | `act=list`方法共通参数见：[约束与过滤](books/dev-api-design?id=约束与过滤 "约束与过滤")
+|          |            | `act=list`方法共通参数见：[约束与过滤](books/api-05-design?id=约束与过滤 "约束与过滤")
 |          |            | $_REQUEST['status'] 指定状态`status`
 |          |            | $_REQUEST['level'] 指定用户`level`
 |          |            | $_REQUEST['page'] 第几页'page'
 |
-|`get_auth`| GET / POST | `查看当前用户权限列表`                                                    | 必须 |
-
+|`get_auth`| GET / POST | `查看当前用户权限列表`                                  | 必须 |
+|
+|`logout`| GET / POST | `退出登录`                                                | 必须 |
+|          |            | PS:然后客户端自行删除 token 即可
+|
 
 
 
