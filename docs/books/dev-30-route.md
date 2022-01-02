@@ -60,7 +60,9 @@ function ViewSearch() {
 
     //可以打印出$args查看详情
     var_dupm($args);
+
 /*
+//该数组由posttype和匹配的各种参数和原始规则组成
 array(4) {
   ["q"]=>
   string(7) "xxxxxxx"
