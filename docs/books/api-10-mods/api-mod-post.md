@@ -6,19 +6,7 @@
 |          |            |$_REQUEST['id'] 文章 `id`
 |
 | `post`   | POST       | `新建或编辑文章`                                            |必须               |
-|          |            |`Post`字段定义如下
-|          |            |$_POST['ID'] 为 0 是新建
-|          |            |$_POST['Title']
-|          |            |$_POST['Alias']
-|          |            |$_POST['Type'] 为 0 是文章，1 是 page 页面
-|          |            |$_POST['AuthorID']
-|          |            |$_POST['CateID'] 如果没有提供 CateID,可提供 CateName
-|          |            |$_POST['Intro']
-|          |            |$_POST['Content'] 
-|          |            |$_POST['Tag']
-|          |            |$_POST['PostTime']
-|          |            |$_POST['Status']
-|          |            |注：对于发布文章，额外提供一个`CateName`字段可用来代替`CateID`指定分类，<br/>前提是存在以该字段值命名的分类；也可以使用`category`模块内的接口实现自动创建分类等操作；
+|          |            |`Post`字段定义 附：**「示例 1」**
 |
 | `delete` | GET / POST | `删除文章`                                                  | 必须               |
 |          |            |$_REQUEST['id'] 文章 `id`
@@ -28,4 +16,26 @@
 |          |            | `cate_id`, `tag_id`, `auth_id`, `type`, `date`, `manage` |已鉴权有后台管理权限为<br/>后台每页面展示数量 |
 |          |            |                                                          
 |          |            |`act=list`方法共通参数见：[约束与过滤](books/dev-api-design?id=约束与过滤 "约束与过滤")
+|
 
+
+**示例 1**：
+
+<details>
+<summary>post 新建或发布文章的$_POST参数示范：（点击展开）</summary>
+
+```php
+$_POST['ID'] 为 0 是新建
+$_POST['Title']
+$_POST['Alias']
+$_POST['Type'] 为 0 是文章，1 是 page 页面
+$_POST['AuthorID']
+$_POST['CateID'] 如果没有提供 CateID,可提供 CateName
+$_POST['Intro']
+$_POST['Content'] 
+$_POST['Tag']
+$_POST['PostTime']
+$_POST['Status'] 状态
+```
+注：对于发布文章，额外提供一个`CateName`字段可用来代替`CateID`指定分类，前提是存在以该字段值命名的分类；也可以使用`category`模块内的接口实现自动创建分类等操作；
+</details>
