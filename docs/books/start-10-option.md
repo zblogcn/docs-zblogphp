@@ -44,17 +44,16 @@ return array (
 
 # c_option.php 从环境变量中读取数据库配置 (1.7.2 开始支持)
 
-c_option.php 配置文件中设置了 `'ZC_DATABASE_CONFIG' => 'getenv'`，就会用 getenv 函数读取环境变量的值
+c_option.php 配置文件中参数的值为`getevn:环境变量名`，就会用 getenv 函数读取环境变量的值
 ```php
 //c_option.php示例如下
 <?php
 return array (
-  'ZC_DATABASE_CONFIG' => 'getenv',
   'ZC_DATABASE_TYPE' => 'mysqli',
-  'ZC_MYSQL_SERVER' => 'DB_HOST',//环境变量名
-  'ZC_MYSQL_USERNAME' => 'DB_USER',//环境变量名
-  'ZC_MYSQL_PASSWORD' => 'DB_PASSWORD',//环境变量名
-  'ZC_MYSQL_NAME' => 'DB_DATABASE',//环境变量名
+  'ZC_MYSQL_SERVER' => 'getenv:DB_HOST',//环境变量名
+  'ZC_MYSQL_USERNAME' => 'getenv:DB_USER',//环境变量名
+  'ZC_MYSQL_PASSWORD' => 'getenv:DB_PASSWORD',//环境变量名
+  'ZC_MYSQL_NAME' => 'getenv:DB_DATABASE',//环境变量名
   'ZC_MYSQL_PORT' => '3306',
   'ZC_MYSQL_CHARSET' => 'utf8mb4',
   'ZC_MYSQL_COLLATE' => 'utf8mb4_general_ci',
@@ -65,4 +64,4 @@ return array (
 ```
 那么 ZC_MYSQL_SERVER,ZC_MYSQL_USERNAME,ZC_MYSQL_PASSWORD,ZC_MYSQL_NAME,ZC_MYSQL_PORT 这 5 个参数的值就会从 `getenv('DB_HOST')` 等中获取
 
-如果 `'ZC_DATABASE_CONFIG' => 'env'` 的话，ZC_MYSQL_SERVER 等参数的值就会从 `$_ENV['DB_HOST']` 全局数组中获取
+如果 `'ZC_MYSQL_SERVER' => 'env:DB_HOST'` 的话，ZC_MYSQL_SERVER 等参数的值就会从 `$_ENV['DB_HOST']` 全局数组中获取
