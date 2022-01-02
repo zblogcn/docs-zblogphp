@@ -48,7 +48,7 @@ function demoPlugin_RegRoute()
 
 ```php
 function ViewSearch() {
-    //获取路由系统传入参数
+    //获取路由系统传入参数，路由系统传入一个且只传一个数组参数
     $args = func_get_arg[0];
 
     $q = $args['q']; //获取查询字符串
@@ -60,6 +60,21 @@ function ViewSearch() {
 
     //可以打印出$args查看详情
     var_dupm($args);
+/*
+array(4) {
+  ["q"]=>
+  string(7) "xxxxxxx"
+  ["page"]=>
+  int(1)
+  ["posttype"]=>
+  int(0)
+  ["_route"]=>
+  array(10) {
+      //路由规则。。。
+      //该段省略
+  }
+  }
+*/
 }
 ```
 
