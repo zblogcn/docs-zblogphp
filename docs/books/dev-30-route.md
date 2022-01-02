@@ -28,7 +28,7 @@ function demoPlugin_RegRoute()
     'posttype' => 0,//文章类型
     'type' => 'rewrite',
     'name' => 'post_article_search', //名称
-    'call' => 'ViewSearch', //呼叫的函数，匹配成功后call之，并传入一个数组
+    'call' => 'ViewSearch', //呼叫的函数，匹配成功后call之，并传入一个含有各种匹配参数的数组
     'urlrule' => '{%host%}search/{%q%}_{%page%}.html',//规则主体
     'args' => 
     array (
@@ -48,7 +48,7 @@ function demoPlugin_RegRoute()
 
 ```php
 function ViewSearch() {
-    //获取路由系统传入参数，路由系统传入一个且只传一个数组参数
+    //获取路由系统传入参数，路由系统传入一个且只传一个含有各种匹配参数的数组
     $args = func_get_arg[0];
 
     $q = $args['q']; //获取查询字符串
