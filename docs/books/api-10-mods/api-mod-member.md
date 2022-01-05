@@ -36,6 +36,13 @@
 <details>
 <summary>login 登录成功后返回值：（点击展开）</summary>
 
+```php
+//发送的POST字段如下
+username = '用户名'
+password = md5('密码明文')
+savedate = '保存天数'
+```
+
 ```json
 {
     "code": 200,
@@ -46,10 +53,10 @@
             "Level": "1",
             "Status": "0",
             "Name": "admin",
-            "StaticName": "admin"
+            "StaticName": "admin",//等等members相关信息
         },
         "token": "Token信息",
-        "expire_time": 1672560322
+        "expire_time": 1672560322//过期时间
     },
     "error": null,
     "runtime": {
