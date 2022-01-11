@@ -40,7 +40,7 @@ NetWork 组件由 `Network 工厂类`和 3 个业务组件：`Network__curl`、`
 
 `getAllResponseHeaders()` 获取所有的响应头
 
-`getResponseHeader($bstrHeader)` 获取指定响应头
+`getResponseHeader($name)` 获取指定响应头
 
 ***以下是 1.7.2 新加入的方法***
 
@@ -55,6 +55,8 @@ NetWork 组件由 `Network 工厂类`和 3 个业务组件：`Network__curl`、`
 `getHeaders` 获取响应头数组
 
 `getHeader($name)` 获取指定响应头
+
+`hasHeader($name)` 判断指定响应头存在
 
 ## 简易使用方法
 
