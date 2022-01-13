@@ -17,9 +17,9 @@ PHP：`PHP 5.2 - 8.1`
 
 - [宝塔面板一键部署](https://blog.zblogcn.com/2017/08/11/95/ "菠萝阁-使用宝塔面板一键部署Z-BlogPHP")
 
-历史版本下载:
+## 历史版本下载
 
-
+- Z-BlogPHP_1_7_1_2995_Tenet https://update.zblogcn.com/zip/Z-BlogPHP_1_7_1_2995_Tenet.zip
 - Z-BlogPHP_1_7_0_2955_Tenet https://update.zblogcn.com/zip/Z-BlogPHP_1_7_0_2955_Tenet.zip
 - Z-BlogPHP_1_6_8_2210_Valyria https://update.zblogcn.com/zip/Z-BlogPHP_1_6_8_2210_Valyria.zip
 - Z-BlogPHP_1_6_0_2090_Valyria https://update.zblogcn.com/zip/Z-BlogPHP_1_6_0_2090_Valyria.zip

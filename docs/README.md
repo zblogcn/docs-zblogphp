@@ -34,7 +34,7 @@ ZBlogger 技术交流中心：https://bbs.zblogcn.com/
 
 Z-Blog 用户中心：https://uc.zblogcn.com/
 
-Z-Blog 更新服务：https://update.zblogcn.com/
+Z-Blog 更新及下载服务：https://update.zblogcn.com/
 
 Z5 加密──全新的 PHP 加密方案：https://z5encrypt.com/
 
