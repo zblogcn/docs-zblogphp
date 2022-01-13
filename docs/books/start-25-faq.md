@@ -63,8 +63,25 @@ Z-BlogPHP 密码找回工具：
 对于现有数据库，可按如下操作进行修改：
 
 > 1. 进入「`phpMyAdmin`」或其他数据库管理工具；
-> 1. 选择相应数据库，（默认为「`结构`」视图）；
-> 2. 点击「`操作`」选项卡，更改「`排序规则`」为`utf8mb4_general_ci`；
-> 3. 点击「`执行`」即可应用到所有表和所有表列字段！
+> 2. 选择相应数据库，（默认为「`结构`」视图）；
+> 3. 点击「`操作`」选项卡，更改「`排序规则`」为`utf8mb4_general_ci`；
+> 4. 点击「`执行`」即可应用到所有表和所有表列字段！
 
 「- -」「- -」「- -」「- -」「- -」
+
+## 禁用 root 管理员用户
+root 级管理员拥有系统最高权限，可以安装，导出，删除应用，root 级管理员不能禁用，但可以让 root 级管理员的 root 权限被取消
+
+在 「Z-BlogPHP 1.7.2」起，可以使用如下三种方法实现：
+
+> 1. 修改 c_system_base.php，在其中加入代码
+
+`define('ZBP_PRESET_DISABLE_ROOT', 1);`
+
+> 2. 修改 nginx 的配置文件，在 `location ~ \.php$ {}` 加入代码，并重启 nginx
+
+`fastcgi_param  ZBP_PRESET_DISABLE_ROOT        1;`
+
+> 3. 修改 php-fpm 的配置文件 conf，加入代码，并重启 php-fpm
+
+`env[ZBP_PRESET_DISABLE_ROOT]=1`
