@@ -72,20 +72,20 @@ Z-BlogPHP 密码找回工具：
 ## 禁用 root 管理员用户
 root 级管理员拥有系统最高权限，可以上传应用，导出应用，删除应用，root 级管理员不能禁用，但可以让 root 级管理员的 root 权限被取消
 
-在 「Z-BlogPHP 1.7.2」起，可以使用如下三种方法实现：
+> 0. 启用`应用中心客户端`的安全模式
 
-> 0. 最简单和快捷的方式就是启用`应用中心客户端`的安全模式
+禁止上传安装新应用及导出应用和系统更新，这是最简单和快捷的方式
 
-禁止上传安装新应用及导出应用
+在 「Z-BlogPHP 1.7.2」起，可以使用以下三种方法实现：
 
 > 1. 修改 c_system_base.php，在其中加入代码
 
 `define('ZBP_PRESET_DISABLE_ROOT', 1);`
 
-> 2. 修改 nginx 的配置文件，在 `location ~ \.php$ {}` 加入代码，并重启 nginx
-
-`fastcgi_param  ZBP_PRESET_DISABLE_ROOT        1;`
-
-> 3. 修改 php-fpm 的配置文件 conf，加入代码，并重启 php-fpm
+> 2. 修改 php-fpm 的配置文件 conf，加入代码，并重启 php-fpm
 
 `env[ZBP_PRESET_DISABLE_ROOT]=1`
+
+> 3. 修改 nginx 的配置文件，在 `location ~ \.php$ {}` 加入代码，并重启 nginx
+
+`fastcgi_param  ZBP_PRESET_DISABLE_ROOT  1;`
