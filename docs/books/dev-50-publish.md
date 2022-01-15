@@ -33,12 +33,12 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 1. 绑定手机号，以完成实名认证要求：https://uc.zblogcn.com/user/security/phone
 2. 绑定微信号，以及时获取审核消息：https://uc.zblogcn.com/user/open/wechat_mp
-3. 「可选」开启“两步验证”，https://uc.zblogcn.com/user/security/tfa/google
+3. 提交您的身份证号，完成实名认证：https://uc.zblogcn.com/user/identity
+4. 「可选」开启“两步验证”，https://uc.zblogcn.com/user/security/tfa/google
 
 如果您需要销售收费应用，您必须向我们提供：
 
-1. 提交您的身份证号，完成实名认证：https://uc.zblogcn.com/user/identity
-2. 绑定您的支付宝，以获取收款：https://uc.zblogcn.com/user/open/alipay
+1. 绑定您的支付宝，以获取收款：https://uc.zblogcn.com/user/open/alipay
 
 ### 申请流程
 
