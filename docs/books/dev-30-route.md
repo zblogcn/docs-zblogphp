@@ -192,6 +192,30 @@ function demoPlugin_ViewPost($arg)
 <!-- 需求 3 结束 -->
 
 
+<!-- 需求 4 -->
+
+**假定需求 4：**
+
+利用路由规则实现 301,302 跳转；
+
+```php
+//路由规则如下，请用$zbp->RegRoute()注入路由系统就可以实现了
+
+  $route = array(
+    'posttype' => 0,
+    'type' => 'rewrite',
+    'name' => 'plugin_redierct_to_baidu',
+    'urlrule' => '{%host%}baidu.html',
+    // redirect_to是http302跳转,如果需要301跳转，键名要写为redirect301_to
+    'redirect_to' => 'https://www.baidu.com/', 
+  );
+
+
+//访问https://网站/baidu.html 就会跳转到 https://www.baidu.com/
+```
+
+<!-- 需求 4 结束 -->
+
 ## 旧版
 
 **假定需求：**
