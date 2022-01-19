@@ -200,6 +200,7 @@ function demoPlugin_ViewPost($arg)
 
 ```php
 //路由规则如下，请用$zbp->RegRoute()注入路由系统就可以实现了
+//注意，此路由规则是伪静规则，需要开启伪静态模式下才会生效！
 
   $route = array(
     'posttype' => 0,
