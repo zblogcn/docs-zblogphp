@@ -20,6 +20,16 @@ NetWork 组件由 `Network 工厂类`和 3 个业务组件：`Network__curl`、`
 
 `Network::Create('filegetcontents')` 创建并返回一个新的 Network__filegetcontents 网络操作组件
 
+***业务组件的属性***
+
+`responseText` 返回的数据
+
+`responseHeader` 返回的 Http Header
+
+`status` 返回的状态码
+
+`statusText` 返回的状态码文本
+
 ***业务组件的方法***
 
 `open($Method, $Url)` 打开 network 组件

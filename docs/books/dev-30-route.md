@@ -200,7 +200,7 @@ function demoPlugin_ViewPost($arg)
 
 <!-- 需求 4 -->
 
-### 例子 4(路由规则实现跳转)
+### 例子 4(路由规则内实现跳转)
 
 **假定需求 4：**
 
@@ -210,14 +210,14 @@ function demoPlugin_ViewPost($arg)
 //路由规则如下，请用$zbp->RegRoute()注入路由系统就可以实现了
 //此路由规则type是默认规则‘default’，伪静模式或动态模式，都可以生效！
 
-  $route = array(
-    'posttype' => 0,
-    'type' => 'default',
-    'name' => 'plugin_redierct_to_baidu',
-    'urlrule' => '{%host%}baidu.html',
-    // redirect_to是http302跳转,如果需要301跳转，键名要写为redirect301_to
-    'redirect_to' => 'https://www.baidu.com/', 
-  );
+$route = array(
+  'posttype' => 0,
+  'type' => 'default',
+  'name' => 'plugin_redierct_to_baidu',
+  'urlrule' => '{%host%}baidu.html',
+  // redirect_to是http302跳转,如果需要301跳转，键名要写为redirect301_to
+  'redirect_to' => 'https://www.baidu.com/', 
+);
 
 $zbp->RegRoute($route, true);//这里需要加上第2个参数ture表示追加路由到最前
 
@@ -225,6 +225,48 @@ $zbp->RegRoute($route, true);//这里需要加上第2个参数ture表示追加�
 ```
 
 <!-- 需求 4 结束 -->
+
+
+<!-- 需求 5 -->
+
+### 例子 5(实现网站改版 301 跳转)
+
+**假定需求 5：**
+
+1.7.2 版本及以上支持
+
+在网站改版之前，文章的固定链接格式为 https://网站/post/{%id%}.html
+
+改版之后，文章的新 URL 格式为 https://网站/article/{%alias%}.html
+
+```php
+//定义301重写规则并注入系统
+
+$route = array(
+  'posttype' => 0,
+  'type' => 'rewrite',
+  'name' => 'plugin_post_article_redierct301',
+  'urlrule' => '{%host%}post/{%id%}.html',
+  'call' => 'post_article_redierct301',
+  'args' => array('id'),
+);
+
+$zbp->RegRoute($route);
+
+//定义Call 函数并实现Http 301跳转
+function post_article_redierct301($arg){
+  global $zbp;
+  $id = $arg["id"]; //获取文章的ID
+
+  $post = $zbp->GetPostByID($id);
+  //拼装新的链接URL
+  $url = $zbp->host . 'article/' . rawurlencode($post->Alias) . '.html';
+  //返回301跳转数据
+  return array('StatusCode' => 301, 'Location' => $url);
+}
+```
+
+<!-- 需求 5 结束 -->
 
 ## 1.6 及旧版
 

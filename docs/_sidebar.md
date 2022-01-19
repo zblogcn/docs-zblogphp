@@ -12,7 +12,7 @@
   - [函数列表](books/dev-25-functions)
   - [页面路由](books/dev-30-route)
   - [SQL 链式查询](books/dev-35-chainquery)
-  - [自定义数据](books/dev-40-custom-object)
+  - [自定义数据类型](books/dev-40-custom-object)
   - [网络组件](books/dev-45-network)
   - [发布应用](books/dev-50-publish)
   - [常见问题](books/dev-55-faq)
