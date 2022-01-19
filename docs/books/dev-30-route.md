@@ -28,16 +28,16 @@ function demoPlugin_RegRoute()
   global $zbp;
   $route = array (
     'posttype' => 0,//文章类型
-    'type' => 'rewrite',
+    'type' => 'rewrite',//路由的类型，可以是active,rewrite,default
     'name' => 'post_article_search', //名称
     'call' => 'ViewSearch', //呼叫的函数，匹配成功后call之，并传入一个含有各种匹配参数的数组
     'urlrule' => '{%host%}search/{%q%}_{%page%}.html',//规则主体
-    'args' => 
+    'args' => //伪静类型路由的参数(出现在urlrule里的)
     array (
       'q' => '[^\\/_]+',//q是搜索的关键字，支持正则匹配
       'page',//page是页码
     ),
-    'only_match_page' => false,//为假表示可以匹配没有{%page%}参数的url
+    'only_match_page' => false,//为假表示可以匹配没有{%page%}参数的url，默认如此可以不加这一行配置
   );
   $zbp->RegRoute($route);
 }
