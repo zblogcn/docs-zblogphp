@@ -219,6 +219,7 @@ function demoPlugin_ViewPost($arg)
     'redirect_to' => 'https://www.baidu.com/', 
   );
 
+$zbp->RegRoute($route, true);//这里需要加上第2个参数ture表示追加路由到最前
 
 //访问https://网站/baidu.html 就会跳转到 https://www.baidu.com/
 ```
