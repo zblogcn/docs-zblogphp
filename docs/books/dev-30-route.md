@@ -4,7 +4,7 @@
 
 有「[新版 - 页面路由](books/dev-30-route?id=_17-新版 "新版 - 页面路由")」和「[旧版 - 页面路由](books/dev-30-route?id=旧版 "旧版 - 页面路由")」两种方式；
 
-## 1.7 新版
+## 1.7 新版路由
 
 1.7 版本新增加了`路由系统`，一般来说，我们只要向系统注入一条`路由规则`，再实现该条路由 call 的函数，匹配成功后向该函数传入一个数组参数，就实现路由功能了。
 
@@ -12,6 +12,8 @@
 
 
 <!-- 需求 1 -->
+
+### 例子 1
 
 **假定需求 1：**
 
@@ -84,6 +86,8 @@ array(4) {
 
 <!-- 需求 2 -->
 
+### 例子 2
+
 **假定需求 2：**
 
 对于`{%host%}post/{%id%}.html`模式的访问，另外定义一条`{%host%}download/{%id%}.html`用于显示下载内容；
@@ -140,6 +144,8 @@ function demoPlugin_ViewDownload($arg)
 
 <!-- 需求 3 -->
 
+### 例子 3
+
 **假定需求 3：**
 
 对文章内容分页，使用一条规则实现；
@@ -194,17 +200,19 @@ function demoPlugin_ViewPost($arg)
 
 <!-- 需求 4 -->
 
+### 例子 4
+
 **假定需求 4：**
 
 利用路由规则实现 301,302 跳转；
 
 ```php
 //路由规则如下，请用$zbp->RegRoute()注入路由系统就可以实现了
-//注意，此路由规则是伪静规则，需要开启伪静态模式下才会生效！
+//此路由规则type是默认规则‘default’，伪静模式或动态模式，都可以生效！
 
   $route = array(
     'posttype' => 0,
-    'type' => 'rewrite',
+    'type' => 'default',
     'name' => 'plugin_redierct_to_baidu',
     'urlrule' => '{%host%}baidu.html',
     // redirect_to是http302跳转,如果需要301跳转，键名要写为redirect301_to
@@ -217,7 +225,7 @@ function demoPlugin_ViewPost($arg)
 
 <!-- 需求 4 结束 -->
 
-## 旧版
+## 1.6 及旧版
 
 **假定需求：**
 
