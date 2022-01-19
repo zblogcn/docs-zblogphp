@@ -7,7 +7,6 @@
 如何输出自定义字段内容？例如输出 errno,msg 字段:
 
 ```php
-
 //在api输出函数内这样定义返回数组
 
 $array['errno'] = 0;
@@ -22,7 +21,6 @@ return array('json' => $array);
 系统 API 默认输出都是 JSON 格式，如何输出其它格式的数据:
 
 ```php
-
 //在api输出函数内这样定义返回数组$array
 
 $array['original'] = '<xml><errno>0</errno><msg>ok</msg><data>xml info</data></xml>';
