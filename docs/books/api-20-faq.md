@@ -23,8 +23,8 @@ return array('json' => $array);
 ```php
 //在api输出函数内这样定义返回数组$array
 
-$array['original'] = '<xml><errno>0</errno><msg>ok</msg><data>xml info</data></xml>';
-$array['original-type'] = 'text/xml';
+$array['raw'] = '<xml><errno>0</errno><msg>ok</msg><data>xml info</data></xml>';
+$array['raw-type'] = 'text/xml';
 
 return $array;
 ```

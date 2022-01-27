@@ -28,6 +28,7 @@
   - fix. ViewPost 里修正了一个文章伪静的 url 检测问题和一个水水发现的 Bug
   - fix. common.php 下增加了 Is_Mobile 函数，改进了 Logs_Dump、GetVars、GetIDArrayByList 函数
   - fix. 修改了一个管理员信息被编辑的问题
+  - fix. RSS 输出增加了一个参数设置，并默认排序为 PostTime
   - 接口
     - feat. 增加 Clear_Filter_Plugin 函数
     - feat. 增加 PLUGIN_EXITSIGNAL_GOTO 常量
@@ -37,6 +38,7 @@
     - feat. 新增接口 Filter_Plugin_Cmd_Redirect 用于接管 cmd 下的 url 跳转
     - feat. 新增接口 Filter_Plugin_ViewPost_ViewNums 用于插入一个自定义的浏览数计数方案
     - feat. 新增接口 Filter_Plugin_API_Post_List_Core
+    - feat. 新增接口 Filter_Plugin_API_Pre_Response_Raw
 
 - 1.7.1
   - update. 支持`PHP 8.1`版本
