@@ -160,9 +160,9 @@ zbp_decrypt($data, $password, $additional = null, $type = null)
 # $data 待解密的string
 
 # 注意：
-# chacha20poly1305 需要sodium扩展实现
-# aes256gcm 需要openssl扩展实现
-# aes256ofb 需要mcrypt扩展实现 (从php7.1已废弃)
+# chacha20poly1305 需要sodium扩展实现 (PHP >= 7.2.0)
+# aes256gcm 需要openssl扩展实现 (PHP >= 5.3.0)
+# aes256ofb 需要mcrypt扩展实现 (mcrypt从php7.1已废弃)
 
 # 推荐使用 chacha20poly1305 和 aes256gcm
 # 如果不指定$type则会自动判断，依次尝试使用chacha20poly1305>aes256gcm>aes256ofb
@@ -179,21 +179,21 @@ var_dump($dedata);// string(15) "原文字符串"
 
 ### RSA 非对称加密函数
 ```php
-// 非对称RSA公钥加密函数
+// RSA非对称公钥加密函数
 zbp_rsa_public_encrypt($data, $public_key_pem, $key_length = 2048)
 # $data 原文string
 # $public_key_pem 公钥pem字符串
 # $key_length 密钥长度默认2048
 
-// 非对称RSA公钥解密函数
+// RSA非对称公钥解密函数
 zbp_rsa_public_decrypt($data, $public_key_pem, $key_length = 2048)
 # $data 待解密的string
 
-// 非对称RSA私钥加密函数
+// RSA非对称私钥加密函数
 zbp_rsa_private_encrypt($data, $private_key_pem, $key_length = 2048)
 # $private_key_pem 私钥pem字符串
 
-// 非对称RSA私钥解密函数
+// RSA非对称私钥解密函数
 zbp_rsa_private_decrypt($data, $private_key_pem, $key_length = 2048)
 ```
 
