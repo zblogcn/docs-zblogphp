@@ -66,7 +66,7 @@ array(
 
 ## GetVars()
 
-- 可快速获取 `GET`/`POST` 等传值；
+- 可快速获取 `GET`/`POST`/`COOKIE` 等传值；
 - 不存在时将默认返回`null`，无需`isset($_GET['act'])`判断；
 - 可通过第三个可选参数决定默认返回值；
 - 其实第二个参数大小写不敏感，但是不知道为什么习惯上还是大写；
@@ -74,6 +74,7 @@ array(
 ```php
 $act = GetVars("act", "GET");
 $name = GetVars("name", "POST");
+$password = GetVars("password", "COOKIE", "12345678");
 ```
 
 ## GetValueInArray()
@@ -137,5 +138,87 @@ GetSystem()
 
 // PHP 版本
 GetPHPVersion()
+
+```
+
+## 加密函数
+
+**1.7.3 开始支持**
+
+### AES 对称加密函数
+
+```php
+// 加密函数
+zbp_encrypt($data, $password, $additional = null, $type = null)
+# $data 原文string
+# $password 密码
+# $additional 附加信息(可设为null)
+# $type 可以指定类型为 chacha20poly1305, aes256gcm, aes256ofb
+
+// 解密函数
+zbp_decrypt($data, $password, $additional = null, $type = null)
+# $data 待解密的string
+
+# 注意：
+# chacha20poly1305 需要sodium扩展实现
+# aes256gcm 需要openssl扩展实现
+# aes256ofb 需要mcrypt扩展实现 (从php7.1已废弃)
+
+# 推荐使用 chacha20poly1305 和 aes256gcm
+# 如果不指定$type从判断优先使用chacha20poly1305>aes256gcm>aes256ofb
+
+//aes加解密函数使用示范
+
+$endata = zbp_encrypt('原文字符串', '12345', 'abc', 'aes256gcm');
+
+$dedata = zbp_decrypt($endata, '12345', 'abc', 'aes256gcm');
+
+var_dump($dedata);// string(15) "原文字符串"
+```
+
+### RSA 非对称加密函数
+```php
+// 非对称RSA公钥加密函数
+zbp_rsa_public_encrypt($data, $public_key_pem, $key_length = 2048)
+# $data 原文string
+# $public_key_pem 公钥pem字符串
+# $key_length 密钥长度默认2048
+
+// 非对称RSA公钥解密函数
+zbp_rsa_public_decrypt($data, $public_key_pem, $key_length = 2048)
+# $data 待解密的string
+
+// 非对称RSA私钥加密函数
+zbp_rsa_private_encrypt($data, $private_key_pem, $key_length = 2048)
+# $private_key_pem 私钥pem字符串
+
+// 非对称RSA私钥解密函数
+zbp_rsa_private_decrypt($data, $private_key_pem, $key_length = 2048)
+
+//rsa函数使用示范
+
+$rsa_config = array(
+     'digest_alg' => 'sha512',
+     'private_key_bits' => 2048,
+     'private_key_type' => OPENSSL_KEYTYPE_RSA,
+);
+//创建公私钥
+$res = openssl_pkey_new($rsa_config);
+//获取私钥
+openssl_pkey_export($res, $private_key);
+//获取公钥
+$public_key = openssl_pkey_get_details($res)['key'];
+
+//使用私钥加密
+$endata = zbp_rsa_private_encrypt('原文字符串', $private_key);
+//使用公钥解密
+$dedata = zbp_rsa_public_decrypt($endata, $public_key);
+var_dump($dedata);// string(15) "原文字符串"
+
+//使用公钥加密
+$endata = zbp_rsa_public_encrypt('原文字符串', $public_key);
+//使用私钥解密
+$dedata = zbp_rsa_private_decrypt($endata, $private_key);
+var_dump($dedata);// string(15) "原文字符串"
 
 ```
