@@ -165,10 +165,11 @@ zbp_decrypt($data, $password, $additional = null, $type = null)
 # aes256ofb 需要mcrypt扩展实现 (从php7.1已废弃)
 
 # 推荐使用 chacha20poly1305 和 aes256gcm
-# 如果不指定$type从判断优先使用chacha20poly1305>aes256gcm>aes256ofb
+# 如果不指定$type则会自动判断，依次尝试使用chacha20poly1305>aes256gcm>aes256ofb
+```
 
+```php
 //aes加解密函数使用示范
-
 $endata = zbp_encrypt('原文字符串', '12345', 'abc', 'aes256gcm');
 
 $dedata = zbp_decrypt($endata, '12345', 'abc', 'aes256gcm');
@@ -194,9 +195,10 @@ zbp_rsa_private_encrypt($data, $private_key_pem, $key_length = 2048)
 
 // 非对称RSA私钥解密函数
 zbp_rsa_private_decrypt($data, $private_key_pem, $key_length = 2048)
+```
 
+```php
 //rsa函数使用示范
-
 $rsa_config = array(
      'digest_alg' => 'sha512',
      'private_key_bits' => 2048,
