@@ -268,6 +268,79 @@ function post_article_redierct301($arg){
 
 <!-- 需求 5 结束 -->
 
+
+
+<!-- 需求 6 -->
+
+### 例子 6(API 实现伪静 URL 访问)
+
+**假定需求 6：**
+
+1.7.2 版本及以上支持
+
+默认的 API 访问为 https://网站/zb_system/api.php?mod=post&act=get&id=1
+
+伪静态下可以实现 https://网站/api/post/get/?id=1
+
+```php
+//定义API重写规则并注入系统
+
+$zbp->RegRoute(
+    array (
+        'posttype' => null,
+        'type' => 'rewrite',
+        'name' => 'rewrite_api',
+        'call' => 'Rewrite_API',
+        'urlrule' => '{%host%}api/{%mod%}/{%act%}/',
+        'args' => 
+        array (
+          'mod' => '[_a-zA-Z0-9]+',
+          'act' => '[_a-zA-Z0-9]+',
+        ),
+    )
+);
+
+//定义Call 函数
+function ViewIndex_Api(){
+    global $zbp;
+    // 标记为 API 运行模式
+    defined('ZBP_IN_API') || define('ZBP_IN_API', true);
+
+    ApiCheckEnable();
+
+    HookFilterPlugin('Filter_Plugin_API_Begin');
+
+    ApiCheckAuth(false, 'api');
+
+    ApiCheckLimit();
+
+    $GLOBALS['mods'] = array();
+    $GLOBALS['mods_allow'] = array();
+    $GLOBALS['mods_disallow'] = array();
+
+    $fpargs = func_get_arg(0);
+    $GLOBALS['mod'] = strtolower($fpargs['mod']);
+    $GLOBALS['act'] = strtolower($fpargs['act']);
+
+    // 载入系统和应用的 mod
+    ApiLoadMods($GLOBALS['mods']);
+
+    //进行Api白名单和黑名单的检查
+    ApiCheckMods($GLOBALS['mods_allow'], $GLOBALS['mods_disallow']);
+
+    ApiLoadPostData();
+
+    ApiVerifyCSRF();
+
+    // 派发 API
+    ApiDispatch($GLOBALS['mods'], $GLOBALS['mod'], $GLOBALS['act']);
+}
+```
+
+<!-- 需求 6 结束 -->
+
+
+
 ## 1.6 及旧版
 
 **假定需求：**
