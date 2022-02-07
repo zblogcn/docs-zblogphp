@@ -307,11 +307,8 @@ function ViewIndex_Api(){
     defined('ZBP_IN_API') || define('ZBP_IN_API', true);
 
     ApiCheckEnable();
-
     HookFilterPlugin('Filter_Plugin_API_Begin');
-
     ApiCheckAuth(false, 'api');
-
     ApiCheckLimit();
 
     $GLOBALS['mods'] = array();
@@ -327,9 +324,7 @@ function ViewIndex_Api(){
 
     //进行Api白名单和黑名单的检查
     ApiCheckMods($GLOBALS['mods_allow'], $GLOBALS['mods_disallow']);
-
     ApiLoadPostData();
-
     ApiVerifyCSRF();
 
     // 派发 API
