@@ -143,7 +143,7 @@ GetPHPVersion()
 
 ## 加密函数
 
-**1.7.3 开始支持**
+**`1.7.3 开始支持`**
 
 ### AES 对称加密函数
 
@@ -153,19 +153,19 @@ zbp_encrypt($data, $password, $additional = null, $type = null)
 # $data 原文string
 # $password 密码
 # $additional 附加信息(可设为null)
-# $type 可以指定类型为 chacha20poly1305, aes256gcm, aes256ofb
+# $type 可以指定类型为 aes256gcm, chacha20poly1305, aes256ofb
 
 // 解密函数
 zbp_decrypt($data, $password, $additional = null, $type = null)
 # $data 待解密的string
 
 # 注意：
-# chacha20poly1305 需要sodium扩展实现 (PHP >= 7.2.0)
 # aes256gcm 需要openssl扩展实现 (PHP >= 5.3.0)
+# chacha20poly1305 需要sodium扩展实现 (PHP >= 7.2.0)
 # aes256ofb 需要mcrypt扩展实现 (mcrypt从php7.1已废弃)
 
-# 推荐使用 chacha20poly1305 和 aes256gcm
-# 如果不指定$type则会自动判断，依次尝试使用chacha20poly1305>aes256gcm>aes256ofb
+# 推荐使用 aes256gcm 和 chacha20poly1305
+# 如果不指定$type则会自动判断，依次尝试使用aes256gcm>chacha20poly1305>aes256ofb
 ```
 
 ```php
