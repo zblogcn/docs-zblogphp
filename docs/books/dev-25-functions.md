@@ -152,7 +152,7 @@ GetPHPVersion()
 zbp_encrypt($data, $password, $additional = null, $type = null)
 # $data 原文string
 # $password 密码
-# $additional 附加信息(可设为null)
+# $additional 附加认证数据(可设为null)
 # $type 可以指定类型为 aes256gcm, chacha20poly1305, aes256ofb
 
 // 解密函数
