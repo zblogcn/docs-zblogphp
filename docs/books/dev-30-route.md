@@ -301,13 +301,15 @@ $zbp->RegRoute(
 );
 
 //定义Call 函数
-function ViewIndex_Api(){
+function Rewrite_API(){
     global $zbp;
     // 标记为 API 运行模式
     defined('ZBP_IN_API') || define('ZBP_IN_API', true);
 
     ApiCheckEnable();
-    HookFilterPlugin('Filter_Plugin_API_Begin');
+    foreach ($GLOBALS['hooks']['Filter_Plugin_API_Begin'] as $fpname => &$fpsignal) {
+        $fpname();
+    }
     ApiCheckAuth(false, 'api');
     ApiCheckLimit();
 
