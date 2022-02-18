@@ -307,6 +307,47 @@ CheckIsMobile()
 GetHttpContent($url)
 
 ### 文件及目录处理函数
+
+#### 自动加载类文件
+AutoloadClass($className)
+
+#### 管理自动加载类文件的目录
+AddAutoloadClassDir($dir, $prepend = false)
+
+#### 通过文件获取应用 URL 地址
+plugin_dir_url($file)
+
+#### 通过文件获取应用目录路径
+plugin_dir_path($file)
+
+#### 获取目录下文件夹列表(递归)
+GetDirsInDir_Recursive($dir)
+
+#### 获取目录下指定类型文件列表(递归)
+GetFilesInDir_Recursive($dir, $type)
+
+#### 获取当前目录下文件夹列表
+GetDirsInDir($dir)
+
+#### 获取当前目录下指定类型文件列
+GetFilesInDir($dir, $type)
+
+#### 获取文件后缀名
+GetFileExt($f)
+
+#### 获取文件权限
+GetFilePermsOct($f)
+
+#### 获取文件权限（字符表达格式）
+GetFilePerms
+
+#### 删除文件 BOM 头
+RemoveBOM($s)
+
+#### 检查重复加载的
+CheckIncludedFiles($file)
+
+
 ### 数组处理类函数
 ### 字符串处理类函数
 ### HTML 文本处理转换类函数
