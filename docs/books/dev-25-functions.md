@@ -232,124 +232,203 @@ var_dump($dedata);// string(15) "原文字符串"
 ### HTTP 服务器及系统检测函数
 
 #### 获取 Scheme
-GetScheme($array)
+`GetScheme`($array)
 
-获取服务器
-GetWebServer() 
+#### 获取服务器
+`GetWebServer`() 
 
-获取操作系统
-GetSystem()
+#### 获取操作系统
+`GetSystem`()
 
-获取 PHP 解析引擎
-GetPHPEngine()
+#### 获取 PHP 解析引擎
+`GetPHPEngine`()
 
-PHP Version.
-GetPHPVersion()
+#### PHP Version
+`GetPHPVersion`()
 
-获取当前网站地址
-GetCurrentHost($blogpath, &$cookiesPath)
+#### 获取当前网站地址
+`GetCurrentHost`($blogpath, &$cookiesPath)
 
-设置 http 状态头
-SetHttpStatusCode($number, $force = false)
+#### 设置 http 状态头
+`SetHttpStatusCode`($number, $force = false)
 
-用 script 标签进行跳转
-RedirectByScript($url)
+#### 用 script 标签进行跳转
+`RedirectByScript`($url)
 
-302 跳转
-Redirect302($url)
+#### 302 跳转
+`Redirect302`($url)
 
-http 302 跳转
-Redirect($url)
+#### http 302 跳转
+`Redirect`($url)
 
-301 跳转
-Redirect301($url)
+#### 301 跳转
+`Redirect301`($url)
 
-输出 Http404
-Http404()
+#### 输出 Http404
+`Http404`()
 
-输出 Http500
-Http500()
+#### 输出 Http500
+`Http500`()
 
-输出 Http503
-Http503()
+#### 输出 Http503
+`Http503`()
 
-设置 304 缓存头.
-Http304($filename, $time)
+#### 设置 304 缓存头
+`Http304`($filename, $time)
 
-获取客户端 IP
-GetGuestIP()
+#### 获取客户端 IP
+`GetGuestIP`()
 
-获取客户端 Agent
-GetGuestAgent()
+#### 获取客户端 Agent
+`GetGuestAgent`()
 
-获取请求来源 URL
-GetRequestUri()
+#### 获取请求来源 URL
+`GetRequestUri`()
 
-获取请求 Script Name
-GetRequestScript()
+#### 获取请求 Script Name
+`GetRequestScript`()
 
-获取指定时区名
-GetTimeZoneByGMT($z)
+#### 获取指定时区名
+`GetTimeZoneByGMT`($z)
 
-获得系统信息
-GetEnvironment($more = false)
+#### 获得系统信息
+`GetEnvironment`($more = false)
 
-拿到后台的 CSP Heaeder
-GetBackendCSPHeader()
+#### 拿到后台的 CSP Heaeder
+`GetBackendCSPHeader`()
 
-检查移动端
-zbp_is_mobile()
+#### 检查移动端
+`zbp_is_mobile`()
 
-检查移动端
-CheckIsMobile()
+#### 检查移动端
+`CheckIsMobile`()
 
-通过 URL 获取远程页面内容
-GetHttpContent($url)
+#### 通过 URL 获取远程页面内容
+`GetHttpContent`($url)
 
 ### 文件及目录处理函数
 
 #### 自动加载类文件
-AutoloadClass($className)
+`AutoloadClass`($className)
 
 #### 管理自动加载类文件的目录
-AddAutoloadClassDir($dir, $prepend = false)
+`AddAutoloadClassDir`($dir, $prepend = false)
 
 #### 通过文件获取应用 URL 地址
-plugin_dir_url($file)
+`plugin_dir_url`($file)
 
 #### 通过文件获取应用目录路径
-plugin_dir_path($file)
+`plugin_dir_path`($file)
 
 #### 获取目录下文件夹列表(递归)
-GetDirsInDir_Recursive($dir)
+`GetDirsInDir_Recursive`($dir)
 
 #### 获取目录下指定类型文件列表(递归)
-GetFilesInDir_Recursive($dir, $type)
+`GetFilesInDir_Recursive`($dir, $type)
 
 #### 获取当前目录下文件夹列表
-GetDirsInDir($dir)
+`GetDirsInDir`($dir)
 
 #### 获取当前目录下指定类型文件列
-GetFilesInDir($dir, $type)
+`GetFilesInDir`($dir, $type)
 
 #### 获取文件后缀名
-GetFileExt($f)
+`GetFileExt`($f)
 
 #### 获取文件权限
-GetFilePermsOct($f)
+`GetFilePermsOct`($f)
 
 #### 获取文件权限（字符表达格式）
-GetFilePerms
+`GetFilePerms`($f)
 
 #### 删除文件 BOM 头
-RemoveBOM($s)
+`RemoveBOM`($s)
 
 #### 检查重复加载的
-CheckIncludedFiles($file)
-
+`CheckIncludedFiles`($file)
 
 ### 数组处理类函数
+
+#### 获取$_GET, $_POST 等数组的参数值
+`GetVars`($name, $type = 'REQUEST', $default = null)
+
+#### 从一系列指定的环境变量获得参数值
+`GetVarsFromEnv`($name, $source = '', $default = '')
+
+#### 解析 env:设置项目读取环境变量获得参数值
+`GetOptionVarsFromEnv`($value)
+
+#### 拿到 ID 数组 by List 列表
+`GetIDArrayByList`($array, $keyname = null)
+
+#### 判断数组是否已经有$key，如果没有就 set 一次$default
+`Array_Isset`(&$array, $key, $default)
+
+#### 数组 转 对象
+`array_to_object`($arr)
+
+#### 对象 转 数组
+`object_to_array`($obj)
+
 ### 字符串处理类函数
+
+#### 分割 string 并取某项数据
+`SplitAndGet`($string, $delimiter, $n = 0)
+
+#### 删除连续空格
+`RemoveMoreSpaces`($s)
+
+#### 向字符串型的参数表加入一个新参数
+`AddNameInString`($s, $name)
+
+#### 从字符串型的参数表中删除一个参数
+`DelNameInString`($s, $name)
+
+#### 在字符串参数值查找参数
+`HasNameInString`($s, $name)
+
+#### 验证字符串是否符合正则表达式
+`CheckRegExp`($source, $para)
+
+#### 获取 UTF8 格式的字符串的子串
+`SubStrUTF8_Start`($sourcestr, $start)
+
+#### 获取 UTF8 格式的字符串的子串
+`SubStrUTF8`($sourcestr, $cutlength)
+
+#### ZBP 版获取 UTF8 格式的字符串的子串
+`Zbp_SubStr`($sourcestr, $start)
+
+#### ZBP 版 StrLen
+`Zbp_StrLen`($string)
+
+#### ZBP 版 Strpos
+`Zbp_Strpos`($haystack, $needle, $offset = 0)
+
+#### ZBP 版 Stripos
+`Zbp_Stripos`($haystack, $needle, $offset = 0)
+
+#### 截取 HTML 格式的 UTF8 格式的字符串的子串
+`SubStrUTF8_Html`($source, $length)
+
+#### 获得一个只含数字字母和-线的 string
+`FilterCorrectName`($s)
+
+#### 确认一个对象是否可被转换为 string
+`CheckCanBeString`($obj)
+
+#### 实现 utf84mb4 的过滤
+`utf84mb_filter`(&$sql)
+
+#### 清除一串代码内所有的 PHP 代码
+`RemovePHPCode`($code)
+
+#### 中文与特殊字符友好的 JSON 编码
+`JsonEncode`($arr)
+
+#### UCS-2BE 转 UTF-8，解决 JSON 中文转码问题
+`Ucs2Utf8`($matchs)
+ 
 ### HTML 文本处理转换类函数
 ### URL 判断处理类函数
 ### SWoole 及 Workerman 相关函数
