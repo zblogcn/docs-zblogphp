@@ -73,6 +73,21 @@ function InstallPlugin_应用ID()
 # PS:应用卸载时可根据自身需求来删除数据表或保留所创建的数据表
 ```
 
+## 删除数据库的数据表
+
+**删表的方法 具体什么时候删，自行决定**
+```php
+function 插件ID_delTable()
+{
+    global $zbp;
+    if ($zbp->db->ExistTable($zbp->table['Custom'])) {
+        $s = $zbp->db->sql->DelTable($zbp->table['Custom']);
+        $zbp->db->QueryMulit($s);
+    }
+}
+# PS:应用卸载时可根据自身需求来删除数据表或保留所创建的数据表
+```
+
 ## 自定义类型的 CURD 操作
 
 **新增一条数据**
