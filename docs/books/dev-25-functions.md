@@ -79,7 +79,7 @@ $password = GetVars("password", "COOKIE", "12345678");
 
 ## GetValueInArray()
 
-- 从数组中获取指定键值的元素；
+- 从数组中获取指定键值的元素；(可以省去了 isset 判断)
 - 内部封装了所需键值是否存在的判断，不存在时返回第三个参数；
 - 第三个参数可省，默认值为 `null`；
 
@@ -90,6 +90,8 @@ $password = GetVars("password", "COOKIE", "12345678");
     "engine" => "docsify",
   );
   $siteUrl = GetValueInArray($siteInfos, "url", "");
+  //或是
+  $siteUrl = GetValueInArray($siteInfos, 'url');
   echo $siteUrl;
   // https://docs.zblogcn.com/php/
 ```
@@ -224,3 +226,93 @@ $dedata = zbp_rsa_private_decrypt($endata, $private_key);
 var_dump($dedata);// string(15) "原文字符串"
 
 ```
+
+## common.php 函数简介
+
+### HTTP 服务器及系统检测函数
+
+#### 获取 Scheme
+GetScheme($array)
+
+获取服务器
+GetWebServer() 
+
+获取操作系统
+GetSystem()
+
+获取 PHP 解析引擎
+GetPHPEngine()
+
+PHP Version.
+GetPHPVersion()
+
+获取当前网站地址
+GetCurrentHost($blogpath, &$cookiesPath)
+
+设置 http 状态头
+SetHttpStatusCode($number, $force = false)
+
+用 script 标签进行跳转
+RedirectByScript($url)
+
+302 跳转
+Redirect302($url)
+
+http 302 跳转
+Redirect($url)
+
+301 跳转
+Redirect301($url)
+
+输出 Http404
+Http404()
+
+输出 Http500
+Http500()
+
+输出 Http503
+Http503()
+
+设置 304 缓存头.
+Http304($filename, $time)
+
+获取客户端 IP
+GetGuestIP()
+
+获取客户端 Agent
+GetGuestAgent()
+
+获取请求来源 URL
+GetRequestUri()
+
+获取请求 Script Name
+GetRequestScript()
+
+获取指定时区名
+GetTimeZoneByGMT($z)
+
+获得系统信息
+GetEnvironment($more = false)
+
+拿到后台的 CSP Heaeder
+GetBackendCSPHeader()
+
+检查移动端
+zbp_is_mobile()
+
+检查移动端
+CheckIsMobile()
+
+通过 URL 获取远程页面内容
+GetHttpContent($url)
+
+### 文件及目录处理函数
+### 数组处理类函数
+### 字符串处理类函数
+### HTML 文本处理转换类函数
+### URL 判断处理类函数
+### SWoole 及 Workerman 相关函数
+### zbp 加密解密函数
+### 错误输出及记录函数
+### 系统其它类函数
+### 安全检测判断类函数
