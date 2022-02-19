@@ -493,7 +493,7 @@ $endata = ZbpEncrypt::aes256gcm_encrypt('原文字符串', '12345');
 
 $dedata = ZbpEncrypt::aes256gcm_decrypt($endata, '12345');
 
-//aes256(支持cbc,cfb,ctr,ecb,ofb模式)
+//aes256加解密函数(支持cbc,cfb,ctr,ecb,ofb模式)
 $endata = ZbpEncrypt::aes256_encrypt('原文字符串', '12345', '', 'ofb');
 
 $dedata = ZbpEncrypt::aes256_decrypt($endata, '12345', '', 'ofb');
