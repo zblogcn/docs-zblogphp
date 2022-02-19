@@ -143,90 +143,6 @@ GetPHPVersion()
 
 ```
 
-## 加密函数
-
-**`1.7.3 开始支持`**
-
-### AES 对称加密函数
-
-```php
-// 加密函数
-zbp_encrypt($data, $password, $additional = null, $type = null)
-# $data 原文string
-# $password 密码
-# $additional 附加认证数据(可设为null)
-# $type 可以指定类型为 aes256gcm, aes256cbc, sm4
-
-// 解密函数
-zbp_decrypt($data, $password, $additional = null, $type = null)
-# $data 待解密的string
-
-# 注意：
-# aes256gcm 需要openssl扩展实现 (PHP >= 7.1.0)
-# aes256cbc 需要mcrypt或openssl扩展实现
-# sm4 需要openssl扩展实现 (PHP >= 7.2.0)
-
-# 推荐使用 aes256gcm
-# 如果不指定$type则会自动判断，依次尝试使用aes256gcm>aes256cbc
-```
-
-```php
-//aes加解密函数使用示范
-$endata = zbp_encrypt('原文字符串', '12345', 'abc', 'aes256gcm');
-
-$dedata = zbp_decrypt($endata, '12345', 'abc', 'aes256gcm');
-
-var_dump($dedata);// string(15) "原文字符串"
-```
-
-### RSA 非对称加密函数
-```php
-// RSA非对称公钥加密函数
-zbp_rsa_public_encrypt($data, $public_key_pem, $key_length = 2048)
-# $data 原文string
-# $public_key_pem 公钥pem字符串
-# $key_length 密钥长度默认2048
-
-// RSA非对称公钥解密函数
-zbp_rsa_public_decrypt($data, $public_key_pem, $key_length = 2048)
-# $data 待解密的string
-
-// RSA非对称私钥加密函数
-zbp_rsa_private_encrypt($data, $private_key_pem, $key_length = 2048)
-# $private_key_pem 私钥pem字符串
-
-// RSA非对称私钥解密函数
-zbp_rsa_private_decrypt($data, $private_key_pem, $key_length = 2048)
-```
-
-```php
-//rsa函数使用示范
-$rsa_config = array(
-     'digest_alg' => 'sha512',
-     'private_key_bits' => 2048,
-     'private_key_type' => OPENSSL_KEYTYPE_RSA,
-);
-//创建公私钥
-$res = openssl_pkey_new($rsa_config);
-//获取私钥
-openssl_pkey_export($res, $private_key);
-//获取公钥
-$public_key = openssl_pkey_get_details($res)['key'];
-
-//使用私钥加密
-$endata = zbp_rsa_private_encrypt('原文字符串', $private_key);
-//使用公钥解密
-$dedata = zbp_rsa_public_decrypt($endata, $public_key);
-var_dump($dedata);// string(15) "原文字符串"
-
-//使用公钥加密
-$endata = zbp_rsa_public_encrypt('原文字符串', $public_key);
-//使用私钥解密
-$dedata = zbp_rsa_private_decrypt($endata, $private_key);
-var_dump($dedata);// string(15) "原文字符串"
-
-```
-
 ## common.php 函数简介
 
 ### HTTP 服务器及系统检测函数
@@ -430,9 +346,215 @@ var_dump($dedata);// string(15) "原文字符串"
 `Ucs2Utf8`($matchs)
  
 ### HTML 文本处理转换类函数
+
+#### 格式化字符串
+`FormatString`($source, $para)
+
+#### 同上
+`TransferHTML`($source, $para)
+
+#### 封装 HTML 标签
+`CloseTags`($html)
+
+#### 对数组内的字符串进行 htmlspecialchars
+`htmlspecialchars_array`($array)
+
+#### 递归转义 HTML 实体
+`RecHtmlSpecialChars`(&$arr)
+
+#### 从 HTML 中获取所有图片
+`GetImagesFromHtml`($html)
+
 ### URL 判断处理类函数
+
+#### 构造带 Token 的安全 URL
+`BuildSafeURL`($url, $appId = '')
+
+#### 构造 cmd.php 的访问链接
+`BuildSafeCmdURL`($paramters)
+
+#### 把 Url 前的 https:// 和 http:// 替换成 //
+`RemoveProtocolFromUrl`($url)
+
+#### 判断 URL 是否为本地
+`CheckUrlIsLocal`($url)
+
+#### 把 URL 中的 Host 转换为本地路径
+`UrlHostToPath`($url)
+
+#### rawurlencode 转义但不转义/
+`rawurlencode_without_backslash`($s)
+
 ### SWoole 及 Workerman 相关函数
-### zbp 加密解密函数
+
+#### 将 swoole 和 workerman 下的$request 数组转换为$GLOBALS 全局数组
+`http_request_convert_to_global`($request)
+
+#### 获取 swoole 或 workerman 或标准 php 环境下的原始 post data
+`get_http_raw_post_data`(&$request = null)
+
 ### 错误输出及记录函数
+
+#### 以 JSON 形式输出错误信息（用于 ShowError 接口）
+`JsonError4ShowErrorHook`($errorCode, $errorString, $file, $line)
+
+#### 以 JSON 形式输出错误信息.(err code 为(int)0 认为是没有错误，所以把 0 转为 1)
+`JsonError`($errorCode, $errorString, $data)
+
+#### 当代码正常运行时，以 JSON 形式输出信息
+`JsonReturn`($data)
+
+#### XML-RPC 应答错误页面
+`RespondError`($errorCode, $errorString = '', $file = '', $line = '')
+
+#### Script 脚本错误页面
+`ScriptError`($errorCode, $errorText = '', $file = '', $line = '')
+
+#### 记录日志
+`Logs`($logString, $level = 'INFO', $source = 'system')
+
+#### Logs 指定的变量的值
+`Logs_Dump`()
+
 ### 系统其它类函数
+
+#### 初始化统计信息
+`RunTime_Begin`()
+
+#### 输出页面运行时长
+`RunTime`($isOutput = true)
+
+#### 获取 Guid
+`GetGuid`()
+
+#### 获取随机的 sqlite 数据库名
+`GetDbName`()
+
 ### 安全检测判断类函数
+
+#### 简易版本的字符串加扰函数
+`zbp_string_auth_code`($data, $operation, $password, $additional = null)
+
+#### 验证 Web Token 是否合法
+`VerifyWebToken`($webTokenString, $webTokenId, $key = '')
+
+#### 创建 Web Token
+`CreateWebToken`($webTokenId, $time, $key = '')
+
+#### 检测来源是否合法，这包括 CSRF 检测，在开启增强安全模式时加入来源检测
+`CheckIsRefererValid`()
+
+#### 验证 CSRF Token 是否合法
+`CheckCSRFTokenValid`($fieldName = 'csrfToken', $methods = array('get', 'post'))
+
+#### 检测 HTTP Referer 是否合法
+`CheckHTTPRefererValid`()
+
+#### zbp 限流函数 (依赖 zbp_cache 插件)
+`zbp_throttle`($name = 'default', $max_reqs = 60, $period = 60)
+
+## 加解密类的函数
+
+**`1.7.3 开始系统集成了 ZbpEncrypt 加密类`**
+
+### AES 对称加密函数
+
+```php
+// 加密函数
+ZbpEncrypt::encrypt($data, $password, $additional = null, $type = null)
+# $data 原文string
+# $password 密码
+# $additional 附加认证数据(可设为null)
+# $type 可以指定类型为 aes256gcm, aes256cbc, sm4
+
+// 解密函数
+ZbpEncrypt::decrypt($data, $password, $additional = null, $type = null)
+# $data 待解密的string
+
+# 注意：
+# aes256gcm 需要openssl或sodium扩展实现 (PHP >= 7.1.0)
+# aes256cbc 需要mcrypt或openssl扩展实现
+# sm4 需要openssl扩展实现 (PHP >= 7.2.0)
+
+# 推荐使用 aes256gcm
+# 如果不指定$type则会自动判断，依次尝试使用aes256gcm>aes256cbc
+```
+
+```php
+//aes256gcm加解密函数使用示范
+$endata = ZbpEncrypt::encrypt('原文字符串', '12345', 'add', 'aes256gcm');
+
+$dedata = ZbpEncrypt::decrypt($endata, '12345', 'add', 'aes256gcm');
+
+var_dump($dedata);// string(15) "原文字符串"
+
+//或是
+$endata = ZbpEncrypt::aes256gcm_encrypt('原文字符串', '12345');
+
+$dedata = ZbpEncrypt::aes256gcm_decrypt($endata, '12345');
+
+//aes256(支持cbc,cfb,ctr,ecb,ofb模式)
+$endata = ZbpEncrypt::aes256_encrypt('原文字符串', '12345', '', 'ofb');
+
+$dedata = ZbpEncrypt::aes256_decrypt($endata, '12345', '', 'ofb');
+
+//sm4加解密函数使用示范 (支持cbc,cfb,ctr,ecb,ofb模式)
+$endata = ZbpEncrypt::sm4_encrypt('原文字符串', '12345', '', 'cbc');
+
+$dedata = ZbpEncrypt::sm4_decrypt($endata, '12345', '', 'cbc');
+
+//用于和其它系统对接的，原汁原味版的aes256gcm加解密
+ZbpEncrypt::original_aes256gcm_encrypt($data, $password, $additional, $nonce)
+ZbpEncrypt::original_aes256gcm_decrypt($data, $password, $additional, $nonce)
+//需要输入三种参数 $password, $additional, $nonce
+//$password 为 32字节长度 $nonce 为 12字节长度
+
+```
+
+### RSA 非对称加密函数
+```php
+// RSA非对称公钥加密函数
+ZbpEncrypt::rsa_public_encrypt($data, $public_key_pem, $key_length = 2048)
+# $data 原文string
+# $public_key_pem 公钥pem字符串
+# $key_length 密钥长度默认2048
+
+// RSA非对称公钥解密函数
+ZbpEncrypt::rsa_public_decrypt($data, $public_key_pem, $key_length = 2048)
+# $data 待解密的string
+
+// RSA非对称私钥加密函数
+ZbpEncrypt::rsa_private_encrypt($data, $private_key_pem, $key_length = 2048)
+# $private_key_pem 私钥pem字符串
+
+// RSA非对称私钥解密函数
+ZbpEncrypt::rsa_private_decrypt($data, $private_key_pem, $key_length = 2048)
+```
+
+```php
+//rsa函数使用示范
+$rsa_config = array(
+     'digest_alg' => 'sha512',
+     'private_key_bits' => 2048,
+     'private_key_type' => OPENSSL_KEYTYPE_RSA,
+);
+//创建公私钥
+$res = openssl_pkey_new($rsa_config);
+//获取私钥
+openssl_pkey_export($res, $private_key);
+//获取公钥
+$public_key = openssl_pkey_get_details($res)['key'];
+
+//使用私钥加密
+$endata = ZbpEncrypt::rsa_private_encrypt('原文字符串', $private_key);
+//使用公钥解密
+$dedata = ZbpEncrypt::rsa_public_decrypt($endata, $public_key);
+var_dump($dedata);// string(15) "原文字符串"
+
+//使用公钥加密
+$endata = ZbpEncrypt::rsa_public_encrypt('原文字符串', $public_key);
+//使用私钥解密
+$dedata = ZbpEncrypt::rsa_private_decrypt($endata, $private_key);
+var_dump($dedata);// string(15) "原文字符串"
+
+```
