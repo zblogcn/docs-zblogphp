@@ -25,7 +25,7 @@ print_r($array);
 ```php
 // 链式读法中直接返回查询结果
 $array = $zbp->db->sql->get()
-                      ->select('zbp_comment')
+                      ->select($zbp->table['Comment'])
                       ->count(array('comm_ID'=>'num'))
                       ->query;
 print_r($array);
@@ -54,7 +54,7 @@ $posts = $zbp->GetPostList(
 
 ```php
 // 取category表所有的数据
-$sql = $zbp->db->sql->get()->select('zbp_category')->sql;
+$sql = $zbp->db->sql->get()->select($zbp->table['Category'])->sql;
 $array = $zbp->GetListType('Category', $sql);
 // 遍历数据输出等
 foreach ($array as $a) {
@@ -72,7 +72,7 @@ SELECT * FROM zbp_category
 
 ```php
 //取category表的ID字段数组
-$sql = $zbp->db->sql->get()->selectany('cate_ID')->from('zbp_category')->sql;
+$sql = $zbp->db->sql->get()->selectany('cate_ID')->from($zbp->table['Category'])->sql;
 $array = $zbp->db->query($sql);
 ```
 
@@ -90,7 +90,7 @@ SELECT cate_ID FROM zbp_category
 取 ID 为 1 的文章
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->where(array('=', 'log_ID', "1"))
                            ->sql;
 $articles = GetListType('Post', $sql);
@@ -118,7 +118,7 @@ where('​log_Title LIKE \'%' . addslashes('字符串') . '%\'')
 连续调用`where()`方法即可实现`AND`查询：
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->where(array('=', 'log_Status', "1"))
                            ->where(array('=', 'log_Type', "0"))
                            ->sql;
@@ -142,7 +142,7 @@ $w[] = array('=', 'log_CateID' ,'2');
 ### OR 运算符
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->where(
                                array('or',
                                    array(
@@ -163,7 +163,7 @@ SELECT * FROM zbp_post WHERE ((1 = 1) AND ( log_ID = '1' OR log_Title = '2' ) )
 
 ```php
 // 缺省操作符为 = ，也可使用其他操作符
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->where(
                                array('or',
                                    array(
@@ -184,7 +184,7 @@ SELECT * FROM zbp_post WHERE ((1 = 1) AND ( log_ID <> '1' OR log_Title LIKE '2' 
 一般用于搜索中，`search`和`like`的区别就是`search`会自动在字符两边加上`%`
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->where(array('search', 'log_Title', "Test"))
                            ->sql;
 ```
@@ -196,7 +196,7 @@ SELECT * FROM zbp_post WHERE ((1 = 1) AND ( (log_Title LIKE '%Test%') ) )
 ### IN 操作符
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->where(array('IN', 'log_ID', array(1, 2, 3, 4)))
                            ->sql
 ```
@@ -206,7 +206,7 @@ SELECT * FROM zbp_post WHERE ((1 = 1) AND (log_ID IN ( '1' , '2' , '3' , '4' ) )
 ```
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->where(array('NOT IN', 'log_ID', '(1, 2, 3)'))
                            ->sql
 ```
@@ -218,7 +218,7 @@ SELECT * FROM zbp_post WHERE (log_ID NOT IN (1, 2, 3))
 ### BETWEEN 操作符
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->where(array('between', 'log_ID', "1", "3"))
                            ->sql
 ```
@@ -230,7 +230,7 @@ SELECT * FROM zbp_post WHERE (log_ID BETWEEN '1' AND '3')
 ### EXISTS 和 NOT EXISTS 操作符
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                 ->where(array('exists', 'SELECT 1'))
                 ->sql;
 ```
@@ -246,7 +246,7 @@ SELECT * FROM zbp_post WHERE EXISTS ( SELECT 1 )
 <!-- 后边的是正则么？ -->
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->where(array('like', 'log_Title', "_aidu"))
                            ->sql;
 ```
@@ -348,7 +348,7 @@ SELECT SUM(log_CommNums) FROM zbp_post GROUP BY log_AuthorID
 以下示例为取出分类下文章评论总数大于 100 的所有的分类：
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->column('log_CateID')
                            ->column('SUM(log_CommNums)')
                            ->groupby('log_CateID')
@@ -668,7 +668,7 @@ SELECT log_AuthorID, COUNT(log_ID) FROM zbp_post WHERE log_Type = '0' GROUP BY l
 这里举例随机取 5 篇文章：
 
 ```php
-$sql = $zbp->db->sql->get()->select("zbp_post")
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'],)
                            ->where('=','log_Type',0)
                            ->random(5)
                            ->sql;
