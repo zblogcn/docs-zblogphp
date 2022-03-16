@@ -34,33 +34,33 @@ function demoAPP_Admin_TopMenu(&$topmenus)
 
 </details>
 
-### 特定页 SubMenu
+### 特定页 菜单管理 SubMenu
 
 | 接口                                    | 参数 | 说明 |
 | --------------------------------------- | ---- | ---- |
-| Filter_Plugin_Admin_SiteInfo_SubMenu    |
-| Filter_Plugin_Admin_ArticleMng_SubMenu  |
-| Filter_Plugin_Admin_PageMng_SubMenu     |
-| Filter_Plugin_Admin_CategoryMng_SubMenu |
-| Filter_Plugin_Admin_CommentMng_SubMenu  |
-| Filter_Plugin_Admin_MemberMng_SubMenu   |
-| Filter_Plugin_Admin_UploadMng_SubMenu   |
-| Filter_Plugin_Admin_TagMng_SubMenu      |
-| Filter_Plugin_Admin_PluginMng_SubMenu   |
-| Filter_Plugin_Admin_ThemeMng_SubMenu    |
-| Filter_Plugin_Admin_ModuleMng_SubMenu   |
-| Filter_Plugin_Admin_SettingMng_SubMenu  |
-| Filter_Plugin_Edit_SubMenu              |
-| Filter_Plugin_Tag_Edit_SubMenu          |
-| Filter_Plugin_Module_Edit_SubMenu       |
-| Filter_Plugin_Member_Edit_SubMenu       |
-| Filter_Plugin_Category_Edit_SubMenu     |
+| Filter_Plugin_Admin_SiteInfo_SubMenu    |      | 后台首页页面子菜单   |
+| Filter_Plugin_Admin_ArticleMng_SubMenu  |      | 文章管理页面子菜单   |
+| Filter_Plugin_Admin_PageMng_SubMenu     |      | 页面管理页面子菜单   |
+| Filter_Plugin_Admin_CategoryMng_SubMenu |      | 分类管理页面子菜单   |
+| Filter_Plugin_Admin_CommentMng_SubMenu  |      | 评论管理页面子菜单   |
+| Filter_Plugin_Admin_MemberMng_SubMenu   |      | 用户管理页面子菜单   |
+| Filter_Plugin_Admin_UploadMng_SubMenu   |      | 附件管理页面子菜单   |
+| Filter_Plugin_Admin_TagMng_SubMenu      |      | 标签管理页面子菜单   |
+| Filter_Plugin_Admin_PluginMng_SubMenu   |      | 插件管理页面子菜单   |
+| Filter_Plugin_Admin_ThemeMng_SubMenu    |      | 主题管理页面子菜单   |
+| Filter_Plugin_Admin_ModuleMng_SubMenu   |      | 模块管理页面子菜单   |
+| Filter_Plugin_Admin_SettingMng_SubMenu  |      | 设置管理页面子菜单   |
+| Filter_Plugin_Edit_SubMenu              |      | 编辑页菜单          |
+| Filter_Plugin_Tag_Edit_SubMenu          |      | 标签编辑页菜单       |
+| Filter_Plugin_Module_Edit_SubMenu       |      | 模块编辑页菜单       |
+| Filter_Plugin_Member_Edit_SubMenu       |      | 用户编辑页菜单       |
+| Filter_Plugin_Category_Edit_SubMenu     |      | 分类编辑页菜单       |
 
 ### 特定页表格过滤
 
 | 接口                                  | 参数 | 说明 |
 | ------------------------------------- | ---- | ---- |
-| Filter_Plugin_Admin_ArticleMng_Table  |
+| Filter_Plugin_Admin_ArticleMng_Table  | `arr $article arr $tabletds arr $tableths` | 文章管理页表处理
 | Filter_Plugin_Admin_PageMng_Table     |
 | Filter_Plugin_Admin_CategoryMng_Table |
 | Filter_Plugin_Admin_CommentMng_Table  |
