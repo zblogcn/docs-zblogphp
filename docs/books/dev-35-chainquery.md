@@ -12,7 +12,7 @@
 ```php
 // 使用链式语法生成 SQL 语句
 $sql = $zbp->db->sql->get()
-                    ->select('zbp_post')
+                    ->select($zbp->table['Post'])
                     ->where(array('=', 'log_ID', "1"))
                     ->sql;
 // 执行 SQL 语句并返回结果
@@ -41,7 +41,7 @@ print_r($array);
 ```php
 #先定义一个sql链对象，再获取结果
 $posts = $zbp->GetPostList(
-             $zbp->db->sql->get()->select('zbp_post')->where('=','log_CateID',1)
+             $zbp->db->sql->get()->select($zbp->table['Post'])->where('=','log_CateID',1)
                           );
 ```
 
@@ -263,7 +263,7 @@ SELECT * FROM zbp_post WHERE ((1 = 1) AND ( (log_Title LIKE '_aidu') ) )
 如果只给定一个参数，它表示返回最大的记录行数目，LIMIT n 等价于 LIMIT 0,n。
 
 ```php
-$sql = $zbp->db->sql->get()->select('zbp_post')
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'])
                            ->limit(5)
                            ->sql;
 ```
@@ -277,7 +277,7 @@ SELECT * FROM zbp_post LIMIT 5 OFFSET 0
 检索记录行从第 6 行开始，返回最多 10 行
 
 ```php
-$sql = $zbp->db->sql->get()->select('zbp_post')
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'])
                            ->limit(5, 10)
                            ->sql;
 ```
@@ -294,7 +294,7 @@ SELECT * FROM zbp_post LIMIT 10 OFFSET 5
 关键词 DISTINCT 用于返回唯一不同的值。
 
 ```php
-$sql = $zbp->db->sql->get()->select('zbp_post')
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'])
                            ->distinct(array('log_Title'=>'t'), 'log_ID')
                            ->sql;
 ```
@@ -311,7 +311,7 @@ SELECT DISTINCT log_Title AS t,log_ID FROM zbp_post
 ORDER BY 语句用于根据指定的列对结果集进行排序。ORDER BY 语句默认按照升序对记录进行排序：
 
 ```php
-$sql = $zbp->db->sql->get()->select('zbp_post')
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'])
                            ->orderBy(array('log_PostTime' => 'desc'), array('log_ID' => 'asc'))
                            ->sql;
 ```
@@ -328,7 +328,7 @@ SELECT * FROM zbp_post ORDER BY log_PostTime DESC, log_ID ASC
 取出每一个作者的所有文章的总评论数：
 
 ```php
-$sql = $zbp->db->sql->get()->select('zbp_post')
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'])
                            ->sum('log_CommNums')
                            ->groupBy('log_AuthorID')
                            ->sql;
@@ -367,7 +367,7 @@ SELECT log_CateID,SUM(log_CommNums) FROM zbp_post GROUP BY log_CateID HAVING SUM
 
 ```php
 $sql = $zbp->db->sql->get()->selectany('log_ID')
-                           ->from(array('zbp_post'=>'p'))
+                           ->from(array($zbp->table['Post']=>'p'))
                            ->leftjoin(array('zbp_postrelation'=>'pr'))
                            ->on('p.log_ID = pr.pr_PostID')
                            ->where('1 = 1')
@@ -416,7 +416,7 @@ SELECT * FROM zbp_table UNION SELECT * FROM zbp_table2
 这是一个使用表别名和字段别名的例子：
 
 ```php
-$sql = $zbp->db->sql->get()->select(array('zbp_post'=>'p'))
+$sql = $zbp->db->sql->get()->select(array($zbp->table['Post']=>'p'))
                            ->column(array('log_ID'=>'id'))
                            ->column('log_Type AS type')
                            ->sql;
@@ -434,7 +434,7 @@ SELECT log_ID AS id,log_Type AS type FROM zbp_post AS p
 **注：本指令是 mysql 专用的，分别是使用索引，强制使用索引，跳过索引**
 
 ```php
-$sql = $zbp->db->sql->get()->select('zbp_post')
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'])
                            ->useindex('zbp_log_TPISC', 'zbp_log_VTSC')
                            ->sql;
 ```
@@ -449,7 +449,7 @@ SELECT * FROM zbp_post USE INDEX ( zbp_log_TPISC ,zbp_log_VTSC )
 ## SQL INSERT INTO 语句
 
 ```php
-$sql = $zbp->db->sql->get()->insert('zbp_post')
+$sql = $zbp->db->sql->get()->insert($zbp->table['Post'])
                            ->data(array('log_Title' => 'test','log_Type' => '0'))
                            ->sql;
 ```
@@ -464,7 +464,7 @@ INSERT INTO zbp_post (log_Title,log_Type) VALUES ( 'test' , '0' )
 ## SQL UPDATE 语句
 
 ```php
-$sql = $zbp->db->sql->get()->update('zbp_post')
+$sql = $zbp->db->sql->get()->update($zbp->table['Post'])
                            ->where('=', 'log_ID', 1)
                            ->data(array('log_Title' => 'test','log_Type' => '1'))
                            ->sql;
@@ -480,7 +480,7 @@ UPDATE zbp_post SET log_Title = 'test', log_Type = '1' WHERE log_ID = '1'
 ## SQL DELETE 语句
 
 ```php
-$sql = $zbp->db->sql->get()->delete('zbp_post')
+$sql = $zbp->db->sql->get()->delete($zbp->table['Post'])
                            ->where('=', 'log_ID', 1)
                            ->sql;
 ```
@@ -541,7 +541,7 @@ CREATE TABLE IF NOT EXISTS zbp_table ( a int(11) NOT NULL AUTO_INCREMENT COMMENT
 ### CREATE INDEX
 
 ```php
-$sql = $zbp->db->sql->get()->create('zbp_post')
+$sql = $zbp->db->sql->get()->create($zbp->table['Post'])
   ->index(
     array('zbp_post_index_stt'=>array('log_Status','log_Type','log_Tag'))
   )
@@ -646,7 +646,7 @@ ALTER TABLE zbp_post DROP COLUMN log_IsHide ,DROP COLUMN log_CreateTime ,DROP CO
 在这里我们仅以 COUNT 做为例子，取出每一个作者的文章总数并分组显示：
 
 ```php
-$sql = $zbp->db->sql->get()->select('zbp_post')
+$sql = $zbp->db->sql->get()->select($zbp->table['Post'])
                            ->column('log_AuthorID')
                            ->count('log_ID')
                            ->where(array('=', 'log_Type' ,'0'))
