@@ -80,13 +80,15 @@
 
     // 拼接为字符串
     titleMap.strTitle = titleMap.r3 + " - " + titleMap.r2 + " - " + titleMap.r1;
-    titleMap.strTitle = titleMap.strTitle.replace(/^\s-\s/g, " ");
+    titleMap.strTitle = titleMap.strTitle.replace(/^\s+-\s+/g, " ");
     return titleMap;
   }
 
   function updateTitle() {
     const oNewTitle = getTitleDef();
-    document.title = oNewTitle.strTitle;
+    if (oNewTitle.strTitle !== ' - ') {
+      document.title = oNewTitle.strTitle;
+    }
   }
 
   // Docsify plugin functions
