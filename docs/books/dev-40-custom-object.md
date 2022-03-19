@@ -96,6 +96,8 @@ function 插件ID_delTable()
   $c->Content = 'abc';
   $c->LogID = 123;
   $c->Save();
+
+  echo $c->ID; //输出 新插入的对象的ID值
 ```
 **更新一条数据**
 ```php
