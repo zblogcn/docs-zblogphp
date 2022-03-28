@@ -29,6 +29,19 @@ $array['raw-type'] = 'text/xml';
 return $array;
 ```
 
+## 匿名访问(POST 方式提交) API 时跳过 csrf_token 验证
+如果定义了一个 `newapi/submit` api 给非登录用户 POST 使用，需要在 api 的 url 后，附带上 `csrf_token` ，如果不使用 csrf_token
+
+则需要 使用接口设置略过 csrf_token 校验
+```php
+Add_Filter_Plugin('Filter_Plugin_API_VerifyCSRF_Skip', 'newapi_IgnoreCSRF');
+
+function newapi_IgnoreCSRF(&$array)
+{
+  $array[] = array('mod' => 'newapi', 'act' => 'submit');
+}
+```
+
 ## Apache 获取不到 Authorization 头信息
 
 修改`.htaccess`文件，添加如下信息：
