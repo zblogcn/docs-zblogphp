@@ -3,11 +3,12 @@
 | act 方法 | 请求方式   | 参数                                                     | 鉴权               |
 | -------- | ---------- | ------------------------------------------------------- | ----------------- |
 | `get`    | GET / POST | `获取文章`                                                | 非公开文章需鉴权   |
-|          |            |$_REQUEST['id'] 文章 `id`
-|          |            |1.7.2 新增 &viewnums 可以刷新浏览计数
+|          |            |url 参数 id:文章 ID
+|          |            |url 参数 with_relations:追加的关联对象  | 例：mod=post&act=get&id=2&with_relations=Author 同时输出 Author 对象
+|          |            |1.7.2 新增 viewnums:同时刷新浏览计数 | 例：mod=post&act=get&id=2&viewnums=1
 |
 | `post`   | POST       | `新建或编辑文章`                                            |必须               |
-|          |            |`Post`字段定义 附：**「示例 1」**
+|          |            |`Post`表单字段定义 附：**「示例 1」**
 |
 | `delete` | GET / POST | `删除文章`                                                  | 必须               |
 |          |            |$_REQUEST['id'] 文章 `id`
@@ -16,9 +17,10 @@
 |          |            |$_REQUEST 参数定义如下
 |          |            | `cate_id`, `tag_id`, `auth_id`, `type`, `date`, `manage` |已鉴权有后台管理权限为<br/>后台每页面展示数量 |
 |          |            |                                                          
-|          |            |`act=list`方法共通参数见：[约束与过滤](books/dev-api-design?id=约束与过滤 "约束与过滤")
+|          |            |`act=list`方法共通参数见：[约束与过滤](books/api-05-design?id=约束与过滤 "约束与过滤")
+|          |            |url 参数 with_relations:追加的关联对象  | 例：mod=post&act=get&id=2&with_relations=Author 同时输出 Author 对象
+|          |            |1.7.2增加 with_subcate 参数可以在分类列表输出子分类的文章 | 例：mod=post&act=list&cate_id=2&with_subcate=1
 |
-
 
 **示例 1**：
 
