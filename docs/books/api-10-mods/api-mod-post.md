@@ -19,7 +19,7 @@
 |          |            |                                                          
 |          |            |`act=list`方法共通参数见：[约束与过滤](books/api-05-design?id=约束与过滤 "约束与过滤")
 |          |            |参数 with_relations:追加的关联对象  | 例：mod=post&act=get&id=2&with_relations=Author 同时输出 Author 对象
-|          |            |1.7.2增加 参数 with_subcate:可以在分类列表输出子分类的文章 | 例：mod=post&act=list&cate_id=2&with_subcate=1
+|          |            |1.7.2.3045增加 参数 with_subcate:可以在分类列表输出子分类的文章 | 例：mod=post&act=list&cate_id=2&with_subcate=1
 |
 
 **示例 1**：
