@@ -150,7 +150,7 @@ function demoPlugin_ViewDownload($arg)
 
 对文章内容分页，使用一条规则实现；
 
-将`'{%host%}post/{%id%}_{%page%}.html'`改为`'{%host%}post/{%id%}_{%all%}.html'`，由`{%all}`匹配对应位置的内容；
+将`'{%host%}post/{%id%}_{%page%}.html'`改为`'{%host%}post/{%id%}_{%all%}.html'`，由`{%all%}`匹配对应位置的内容；
 
 **接口函数定义：**
 
