@@ -19,7 +19,18 @@
 客户端或小程序 POST 提交上传文件到 mod=upload&act=post
 
 提交成功后 json($upload) 对象
-
+例如：
+```json
+{"code":200,"message":"操作成功","data":
+{"upload":{"ID":118,"AuthorID":"1","Size":100676,
+"Name":"tmp_14af3ac3791ceeb34e0755ccc3586ce2.jpg",
+"SourceName":"tmp_14af3ac3791ceeb34e0755ccc3586ce2.jpg",
+"MimeType":"image/jpeg","PostTime":1648973749,
+"DownNums":0,"LogID":0,"Intro":"","Url":"xxxxxxxxxxxxxxx"}
+},"error":null,
+"runtime":{"time":"54.25","query":14,"memory":4035,"debug":0,"loggedin":1,"error":0}
+}
+```
 提交失败后返回 false
 
 </details>
