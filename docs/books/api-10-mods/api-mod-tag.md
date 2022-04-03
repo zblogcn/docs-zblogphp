@@ -5,7 +5,7 @@
 | `get`     | GET / POST | `获取指定 id 的标签`                             | 无需鉴权   |
 |           |            |参数 `id`: 为附件的 id 值
 | `post`    | POST       | `编辑或发布标签`                                 | 需鉴权   |
-| `post`    | POST       |POST 参数：附：**「示例 1」**
+|           |            |POST 参数：附：**「示例 1」**
 | `delete`  | GET / POST | `删除标签`                                      | 需鉴权   |
 |           |            |参数 `id`: 为附件的 id 值
 | `list`    | GET / POST | `列出标签`                                      | 管理模式需鉴权   |
