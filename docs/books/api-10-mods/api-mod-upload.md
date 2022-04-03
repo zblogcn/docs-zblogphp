@@ -14,6 +14,8 @@
 |           |            |参数 post_id:列出 post_id 文章下的附件
 
 **示例 1**：
+
+<details>
 <summary>post 提交新的附件：（点击展开）</summary>
 
 客户端或小程序 POST 提交上传文件到 mod=upload&act=post
