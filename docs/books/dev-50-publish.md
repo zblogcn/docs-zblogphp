@@ -31,6 +31,8 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 **注：此贴文本复制于「[成为开发者 - 发布应用 - Z-BlogPHP 文档](https://docs.zblogcn.com/php/#/books/dev-45-publish?id=%e6%88%90%e4%b8%ba%e5%bc%80%e5%8f%91%e8%80%85 "成为开发者 - 发布应用 - Z-BlogPHP 文档")」，不要直接编辑；**
 
+![alt 开发者申请流程图](https://bbs.zblogcn.com/upload/attach/202201/982_29RG725PNFXGCTR.png)
+
 ### 前置要求
 
 依据《中华人民共和国网络安全法》的要求，及为尽快通知到您，您必须：
