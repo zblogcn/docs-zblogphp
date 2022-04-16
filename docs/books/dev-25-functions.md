@@ -29,7 +29,7 @@ array(
   'only_ontop' => false, //指定全是置顶 （可省略）
   'only_not_ontop' => false, //指定全不是置顶 （可省略）
   'has_subcate' => false, //指定包含子孙目录 （可省略）
-  'is_related' => false, //指定查询相关文章 （可省略）
+  'is_related' => '文章id', //指定查询相关文章 （可省略）
   'order_by_metas' => false, //指定按 Metas 值排序输出结果 （可省略）
   'random' => 5, //指定抽取 5 篇 Post 表的记录 （可省略）
   'where_custom' => array(array('=', 'log_Template', '')), //自定义 where
