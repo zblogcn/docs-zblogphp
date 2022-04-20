@@ -17,6 +17,8 @@ PHP：`PHP 5.2 - 8.1`
 
 - [宝塔面板一键部署](https://blog.zblogcn.com/2017/08/11/95/ "菠萝阁-使用宝塔面板一键部署Z-BlogPHP")
 
+- [阿里云一键部署（基于Serverless架构）](https://fcnext.console.aliyun.com/applications/create?template=start-zblog)
+
 ## 历史版本下载
 
 - Z-BlogPHP_1_7_1_2995_Tenet https://update.zblogcn.com/zip/Z-BlogPHP_1_7_1_2995_Tenet.zip
