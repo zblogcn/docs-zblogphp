@@ -75,15 +75,18 @@ Z-BlogPHP 密码找回工具：
 
 如果网站程序出错，不能进入后台进行设置，那么在 1.7.2 及更高版本可以在这样设置：
 
-修改 c_system_base.php，将第 22 行的//注释删除掉，再保存即可。
+修改`zb_system\function\c_system_base.php`，取消第 22 行代码的注释状态后保存；
 
 ```php
+// defined('ZBP_DEBUGMODE') || define('ZBP_DEBUGMODE', true);
+// 修改为 ↓↓
 defined('ZBP_DEBUGMODE') || define('ZBP_DEBUGMODE', true);
 ```
 
 「- -」「- -」「- -」「- -」「- -」
 
 ## 禁用 root 管理员用户
+
 root 级管理员拥有系统最高权限，可以上传应用，导出应用，删除应用，root 级管理员不能禁用，但可以让 root 级管理员的 root 权限被取消
 
 > 0. 启用`应用中心客户端`的安全模式
