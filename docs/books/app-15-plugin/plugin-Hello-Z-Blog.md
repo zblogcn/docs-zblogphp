@@ -145,7 +145,13 @@ $zbp->HasConfig('插件ID'); //return bool
 $zbp->Config('插件ID')->HasKey('配置名'); //return bool
 ```
 
-5、删除配置
+5、删除某一配置
+
+```php
+$zbp->Config('插件ID')->DelKey('配置名');
+$zbp->SaveConfig('插件ID');
+```
+6、删除配置
 
 停用插件时可以选择删除配置项，通常我们建议保留配置以备下次重新启用，或者提供专门的开关选项由用户确认删除；
 
