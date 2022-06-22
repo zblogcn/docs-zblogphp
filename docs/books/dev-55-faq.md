@@ -16,6 +16,9 @@
 9. 类似`.gitignore`，可以使用`zbignore.txt`对不需要打包进`zba`的文件进行排除；「[zbignore.txt 参考](https://bbs.zblogcn.com/thread-102780.html "zbignore.txt 参考")」
 10. **理论上，「你」并没有在应用中自带`jQuery`必要；**
 11. 编辑器相关的插件要考虑通用性；
+    - [Neditor 编辑器](https://app.zblogcn.com/?id=1379 "Neditor 编辑器")
+    - [Editor.md 编辑器](https://app.zblogcn.com/?id=1408 "Editor.md 编辑器")
+    - [iceEditor-前后端编辑器](https://app.zblogcn.com/?id=8400 "iceEditor-前后端编辑器")
 12. 1.7 起，要求主题模板内的`HTML`「应当在当前文件内闭合」；「[不要跨文件闭合 HTML 标签](https://bbs.zblogcn.com/thread-101310.html#484040 "不要跨文件闭合 HTML 标签")」
 13. 在「公共头部」「公共尾部」模板内应各自放置`{$header}`或`{$footer}`标签；「[示例 - 主入口模板 - 主题开发](books/dev-10-theme?id=%e7%a4%ba%e4%be%8b "示例 - 主入口模板 - 主题开发")」
 14. 尽量「定制」字体图标而不是引入一整套；
