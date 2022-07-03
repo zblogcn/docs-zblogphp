@@ -10,6 +10,8 @@ Z-BlogPHP 封装了众多辅助函数，文件路径为：「[zb_system/function
 
 通过 GetList 可以获取自定义的文章列表，如指定分类的最新文章、置顶文章等等；
 
+**注：该函数是 `$zbp->GetPostList()` 的上层封装，主要供内部路由调用，建议直接使用 `$zbp->GetPostList()` 或自行按需封装；**
+
 ```php
 $result = GetList(array('count'=>10)) //返回array(Post类型) 或是 空array()
 ```
@@ -151,7 +153,7 @@ GetPHPVersion()
 `GetScheme`($array)
 
 #### 获取服务器
-`GetWebServer`() 
+`GetWebServer`()
 
 #### 获取操作系统
 `GetSystem`()
@@ -344,7 +346,7 @@ GetPHPVersion()
 
 #### UCS-2BE 转 UTF-8，解决 JSON 中文转码问题
 `Ucs2Utf8`($matchs)
- 
+
 ### HTML 文本处理转换类函数
 
 #### 格式化字符串
