@@ -51,7 +51,7 @@ function demoPlugin_RegRoute()
 ```php
 function ViewSearch() {
     //获取路由系统传入参数，路由系统传入一个且只传一个含有各种匹配参数的数组
-    $args = func_get_arg[0];
+    $args = func_get_arg(0);
 
     $q = $args['q']; //获取查询字符串
 
