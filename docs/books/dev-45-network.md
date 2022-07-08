@@ -131,6 +131,7 @@ $url = 'https://test/http302.php';
 $http = Network::Create();
 $http->open('GET', $url);
 //设定重定向次数是5次，说明最多可以重定向5次，可避免死循环。
+//启用防跨站时，该功能将不会生效，例如宝塔的.user.ini文件
 $http->setMaxRedirs(5);
 
 $http->send();
