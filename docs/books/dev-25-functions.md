@@ -19,22 +19,22 @@ $result = GetList(array('count'=>10)) //返回array(Post类型) 或是 空array(
 array 参数如下
 ```php
 array(
-  'count' => 10, //（可省略）
-  'cate' => 1, //（可省略）
-  'auth' => 2, //（可省略）
+  'count' => 10, //（文章数量，可省略）
+  'cate' => 1, //（分类ID，可省略）
+  'auth' => 2, //（作者ID，可省略）
   'date' => '2020-1', //（可省略）
-  'tags' => 'abc', //（可省略）
-  'search' => 's', //（可省略）
+  'tags' => 'abc', //（标签名，可省略）
+  'search' => 's', //（搜索词，可省略）
   //以下是原$option 参数的 key 键
-  'post_type' => null, //指定查询 Post 表的类型 （可省略）
-  'post_status' => null, //指定查询 Post 表的状态 （可省略）
+  'post_type' => null, //指定查询 Post 表的类型 （0文章，1单页 可省略）
+  'post_status' => null, //指定查询 Post 表的状态 （0公开 1草稿 2审核 可省略）
   'only_ontop' => false, //指定全是置顶 （可省略）
   'only_not_ontop' => false, //指定全不是置顶 （可省略）
   'has_subcate' => false, //指定包含子孙目录 （可省略）
   'is_related' => '文章id', //指定查询相关文章 （可省略）
   'order_by_metas' => false, //指定按 Metas 值排序输出结果 （可省略）
   'random' => 5, //指定抽取 5 篇 Post 表的记录 （可省略）
-  'where_custom' => array(array('=', 'log_Template', '')), //自定义 where
+  'where_custom' => array(array('>', 'log_PostTime', '1657884349')), //自定义 where
   'order_custom' => array('log_ViewNums' => 'DESC', 'log_CommNums' => 'ASC'), //自定义 order
 )
 ```
