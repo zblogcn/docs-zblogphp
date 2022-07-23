@@ -648,14 +648,14 @@ ALTER TABLE zbp_post DROP COLUMN log_IsHide ,DROP COLUMN log_CreateTime ,DROP CO
 ```php
 $sql = $zbp->db->sql->get()->select($zbp->table['Post'])
                            ->column('log_AuthorID')
-                           ->count('log_ID')
+                           ->count(array('log_ID'=>'num'))
                            ->where(array('=', 'log_Type' ,'0'))
                            ->groupBy('log_AuthorID')
                            ->sql;
 ```
 
 ```sql
-SELECT log_AuthorID, COUNT(log_ID) FROM zbp_post WHERE log_Type = '0' GROUP BY log_AuthorID
+SELECT log_AuthorID, COUNT(log_ID) AS num FROM zbp_post WHERE log_Type = '0' GROUP BY log_AuthorID
 ```
 
 -----------
