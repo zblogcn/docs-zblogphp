@@ -69,7 +69,7 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 标题格式：
 
-> `申请开发者「appID」「plugin | theme」`
+> `申请开发者「appID」「plugin丨theme」`
 
 ↑ 方引号比较好看，当然`[]`或`【】`也可以；
 
