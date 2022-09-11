@@ -174,7 +174,7 @@
   - feat. Z-BlogPHP JavaScript Framework 增强
   - feat. RemovePHPCode 函数，用于清除字符串里所有可能的 PHP 代码
   - feat. 增加 $zbp→langs 用于替代 lang
-  - feat. 应用中心打包时会读取 .zbignore 文件，允许打包时对某些文件进行忽略。
+  - feat. 应用中心打包时会读取 zbignore.txt 文件，允许打包时对某些文件进行忽略。
   - feat. 主题创建模块的 Source 一律要设置为 theme*主题 ID，以前有用 plugin*主题 ID 需要改正
   - feat. 主题 Include 文件夹下的文件型模块的 HtmlID 修正为其 FileName 值
   - feat. sql 类增加对 decimal 的支持
