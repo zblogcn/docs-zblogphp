@@ -25,6 +25,7 @@ Add_Filter_Plugin('Filter_Plugin_Zbp_PreLoad', 'demoPlugin_RegRoute');
 
 //创建搜索伪静化的规则，并挂在 Filter_Plugin_Zbp_PreLoad 接口
 function demoPlugin_RegRoute()
+{
   global $zbp;
   $route = array (
     'posttype' => 0,//文章类型
