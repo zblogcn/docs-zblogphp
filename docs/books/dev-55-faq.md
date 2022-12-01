@@ -34,7 +34,7 @@
 20. logo，favicon，二维码等「替代性」文件不要走附件机制，尤其是不要捆绑编辑器上传；另外应利用`zbignore.txt`防止更新时被覆盖；参考「[配置图片上传](https://bbs.zblogcn.com/thread-101310.html#485997 "【开发者】大概算是进阶建议贴-开发者中心")」「[zbignore.txt 参考](https://bbs.zblogcn.com/thread-102780.html "zbignore.txt 参考")」
 21. 前台「站内链接」默认当前页打开；
      - 仅限「关于」「后台管理/登录」等少数情形可以例外；
-
+22. 在保存配置执行后，强烈建议用`$zbp->SetHint('good'); Redirect('./main.php');`而不是`$zbp->ShowHint('good');`；
 
 ## 程序员的自我修养
 
