@@ -722,3 +722,5 @@ $zbp->db->sql->get()->transaction('commit')->query;
 BEGIN;
 COMMIT;
 ```
+
+注意：MySQL 只有 InnoDB 引擎支持事务，MyISAM 引擎不支持事务，所以安装时就要选择数据库引擎为 InnoDB，如果安装好后可以在 phpmyadmin 里对全部的表进行引擎切换。
