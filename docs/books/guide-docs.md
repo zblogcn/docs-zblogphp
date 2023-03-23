@@ -142,7 +142,9 @@ git switch main
 # 创建新分支，同一分支下仅修改互相关联的内容，可多次提交
 git switch -c feat-2023-03-23 && git branch -a -vv
 
-# 推送
-git push
+# 推送，记得更换远程仓库名和分支名
+git push -u wdssmq feat-2023-03-23
+
+# 注：对于同一个分支，首次带 `-u` 参数提交后大概后续可以直接用 `git push` 提交
 
 ```
