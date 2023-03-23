@@ -89,6 +89,8 @@ docsify serve docs
 
 ## Git 使用
 
+> 可视化工具可以使用「[TortoiseGit](https://tortoisegit.org/download/ "TortoiseGit")」或「[GitKraken](https://www.gitkraken.com/download "GitKraken")」；
+
 1、Fork 项目仓库到自己的账号下；「[zblogcn/docs-zblogphp: Z-BlogPHP Documentation](https://github.com/zblogcn/docs-zblogphp "zblogcn/docs-zblogphp: Z-BlogPHP Documentation")」
 
 2、克隆自己的仓库到本地，并按如下命令操作；
@@ -146,5 +148,24 @@ git switch -c feat-2023-03-23 && git branch -a -vv
 git push -u wdssmq feat-2023-03-23
 
 # 注：对于同一个分支，首次带 `-u` 参数提交后大概后续可以直接用 `git push` 提交
+
+```
+
+4、在 GitHub 上提交 Pull request，等待审核合并；
+
+- **同一分支下可以继续提交内容，但仅限同一内容主旨**；
+- 新的内容请按第 3 步创建新分支，如果期间官方有更新先按操作 5 同步 main 分支；
+
+5、同步更新官方仓库；
+
+```bash
+# 切换到 main 分支
+git switch main
+
+# 拉取官方仓库
+git pull zbp main
+
+# 推送到自己的仓库
+git push wdssmq main
 
 ```
