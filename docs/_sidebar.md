@@ -24,6 +24,7 @@
 
   - [基本设计](books/api-05-design)
   - [接口文档](books/api-10-mods)
+    - [用户管理](books/api-10-mods/member)
   <!-- - [通用模板](books/api-15-common-template) -->
   - [自定义 API](books/api-15-custom)
   - [常见问题](books/api-20-faq)
