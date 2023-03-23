@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "npm run serve",
-    "serve": "docsify serve docs"
+    "serve": "docsify serve docs",
+    "lint": "lint-md ./docs --config mdlint.json"
   },
   "repository": {
     "type": "git",
