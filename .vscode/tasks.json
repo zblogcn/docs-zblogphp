@@ -17,10 +17,6 @@
       "label": "lint-md cli",
       "type": "shell",
       "command": "lint-md ./docs --config mdlint.json",
-      "group": {
-        "kind": "test",
-        "isDefault": true
-      }
     }
   ]
 }
