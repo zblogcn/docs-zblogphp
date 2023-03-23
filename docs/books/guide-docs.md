@@ -85,3 +85,87 @@ docsify serve docs
 
 <!-- 拆分至 guide-docs/guide-snippets.json -->
 [guide-snippets](guide-docs/guide-snippets.json ':include')
+
+
+## Git 使用
+
+> 可视化工具可以使用「[TortoiseGit](https://tortoisegit.org/download/ "TortoiseGit")」或「[GitKraken](https://www.gitkraken.com/download "GitKraken")」；
+
+1、Fork 项目仓库到自己的账号下；「[zblogcn/docs-zblogphp: Z-BlogPHP Documentation](https://github.com/zblogcn/docs-zblogphp "zblogcn/docs-zblogphp: Z-BlogPHP Documentation")」
+
+2、克隆自己的仓库到本地，并按如下命令操作；
+
+`wdssmq`替换为自己的用户名；
+
+```bash
+# 初始
+YOUR_NAME=wdssmq
+YOUR_REPO_URL=git@github.com:wdssmq/docs-zblogphp.git
+ZBP_REPO_URL=git@github.com:zblogcn/docs-zblogphp.git
+
+# 克隆
+git clone $YOUR_REPO_URL
+
+# 进入目录，后续操作都在该目录下进行
+cd docs-zblogphp
+
+# 重命名
+git remote rename origin $YOUR_NAME
+
+# 设置 remote.pushdefault
+git config remote.pushdefault $YOUR_NAME
+
+# 添加官方仓库，用于同步更新
+git remote add zbp $ZBP_REPO_URL
+
+# ↑ 以上操作只需执行一次……
+
+# 查看
+git remote -v
+
+# wdssmq  git@github.com:wdssmq/docs-zblogphp.git (fetch)
+# wdssmq  git@github.com:wdssmq/docs-zblogphp.git (push)
+# zbp     git@github.com:zblogcn/docs-zblogphp.git (fetch)
+# zbp     git@github.com:zblogcn/docs-zblogphp.git (push)
+
+```
+
+3、基于 main 创建新分支，修改内容后提交；
+
+
+```bash
+
+# ↓ 用于查看分支信息，会经常用到
+git branch -a -vv
+
+# 确保当前分支为 main
+git switch main
+
+# 创建新分支，同一分支下仅修改互相关联的内容，可多次提交
+git switch -c feat-2023-03-23 && git branch -a -vv
+
+# 推送，记得更换远程仓库名和分支名
+git push -u wdssmq feat-2023-03-23
+
+# 注：对于同一个分支，首次带 `-u` 参数提交后大概后续可以直接用 `git push` 提交
+
+```
+
+4、在 GitHub 上提交 Pull request，等待审核合并；
+
+- **同一分支下可以继续提交内容，但仅限同一内容主旨**；
+- 新的内容请按第 3 步创建新分支，如果期间官方有更新先按操作 5 同步 main 分支；
+
+5、同步更新官方仓库；
+
+```bash
+# 切换到 main 分支
+git switch main
+
+# 拉取官方仓库
+git pull zbp main
+
+# 推送到自己的仓库
+git push wdssmq main
+
+```
