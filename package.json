@@ -1,0 +1,33 @@
+{
+  "name": "docs-zblogphp",
+  "version": "1.0.0",
+  "description": "Z-BlogPHP Documentation",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "npm run serve",
+    "serve": "docsify serve docs",
+    "lint": "lint-md ./docs --config mdlint.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zblogcn/docs-zblogphp.git"
+  },
+  "keywords": [
+    "Z-BlogPHP",
+    "docs",
+    "Blog",
+    "PHP"
+  ],
+  "author": "zblogcn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zblogcn/docs-zblogphp/issues"
+  },
+  "homepage": "https://github.com/zblogcn/docs-zblogphp#readme",
+  "devDependencies": {
+    "@lint-md/cli": "^0.1.8",
+    "docsify-cli": "^4.4.4"
+  }
+}

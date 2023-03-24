@@ -6,36 +6,70 @@
 
 [repo-docs](terms/repo-docs.md ':include')
 
+推荐按照「[Git 使用](#git-使用)」一节的方法进行操作；
+
 **重要：请使用支持 `.editorconfig` 的编辑器或安装相应插件，以实现最基本的格式统一。**
 
-## 关于 docsify
 
-docsify 文档：[https://docsify.js.org/#/zh-cn/](https://docsify.js.org/#/zh-cn/ "docsify")
+## 本地预览配置
 
-**注：这是一个 `npm` 项目，需要提前安装好 `Node.js` 。**
+**重要：需要安装 `Node.js`；「[Node.js](https://nodejs.org/zh-cn "Node.js")」**
 
-基本的命令备忘：
+本文档基于 `docsify` 搭建，主要文档内容存于 `docs/books` 文件夹内；
+
+您可以通过安装相应的`cli`工具用以预览编辑后的效果；
+
+可以选择全局安装或者在项目文件夹内安装：
 
 ```bash
-# cnpm i docsify-cli -g
-npm i docsify-cli -g
-# 全局安装`docsify`
+# 推荐使用 cnpm
+npm install -g cnpm --registry=https://registry.npmmirror.com
 
-# cd "/d/web/#Git/docs-zblogphp"
-# docsify init ./docs
-# 用于创建新的文档项目，「本文档」已经创建过了
+# ----------------------------
 
-# cd "/d/web/#Git/docs-zblogphp"
+# 全局安装
+cnpm i docsify-cli @lint-md/cli -g
+
+# 进入项目文件夹
+# cd docs-zblogphp
+
+# 开启服务
 docsify serve docs
-# Listening at
-# http://localhost:3000
+# Listening at http://localhost:3000
+
+# 命令行执行文本检查
+lint-md ./docs --config mdlint.json
+
+# ----------------------------
+
+# 项目内安装及使用
+
+# 进入项目文件夹
+# cd docs-zblogphp
+
+# 安装依赖
+cnpm i
+
+# 开启服务
+npm run dev
+# Listening at http://localhost:3000
+
+# 命令行执行文本检查
+npm run lint
+
 ```
 
-**注：虽然不推荐，但是也可以不安装 `docsify` ，仅使用适合的 「代码编辑器」 或 「Markdown 编辑器」 对文件进行编辑后提交。**
+**注：**
 
-**注：对于 VSCode 编辑器，可以使用快捷键 `ctrl + shift + b` 自动执行 `docsify serve docs` 命令。**
+1. 虽然不推荐，但是也可以不安装 `docsify` ，仅使用适合的 「代码编辑器」 或 「Markdown 编辑器」 对文件进行编辑后提交；
+2. `@lind-md/cli`用来对文本排版进行规范，见「[格式规范检查](#格式规范检查)」；
+3. 对于 VSCode 编辑器，在全局安装依赖后：
+   1. 可以使用快捷键 `ctrl + shift + b` 自动执行 `docsify serve docs` 命令；
+   2. 「菜单栏」→「终端」→「运行任务」→「`lint-md cli`」调用语法检查；
 
 ## docsify 使用技巧
+
+> docsify 文档：[https://docsify.js.org/#/zh-cn/](https://docsify.js.org/#/zh-cn/ "docsify")
 
 ### 嵌套调用重复内容
 
@@ -58,7 +92,7 @@ docsify serve docs
 
 [path](terms/path.md ':include')
 
-独立成段使用时效果如上，同段落有其他内容时则作为指向链接，[类似这样](terms/repo-docs.md ':include')
+独立成段使用时效果如上，同段落有其他内容时则作为指向链接，[类似这样](books/terms/repo-docs.md ':include')
 
 **重要：不要指定 `Prettier` 作为「\*.md 文件」的格式化插件， 嵌套语法的单引号会变成双引号。**
 
