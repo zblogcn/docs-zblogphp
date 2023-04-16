@@ -15,7 +15,7 @@
 |
 | `list`   | GET / POST | `获取文章列表` | 未鉴权请求数量受限为<br/>每页面展示数量 |
 |          |            |$_REQUEST 参数定义如下
-|          |            | `cate_id`, `tag_id`, `auth_id`, `type`, `date`, `manage` |已鉴权有后台管理权限为<br/>后台每页面展示数量 |
+|          |            | `cate_id`, `tag_id`, `auth_id`, `type`, `date`, `manage`, `search` |已鉴权有后台管理权限为<br/>后台每页面展示数量 |
 |          |            |                                                          
 |          |            |`act=list`方法共通参数见：[约束与过滤](books/api-05-design?id=约束与过滤 "约束与过滤")
 |          |            |参数 with_relations:追加的关联对象  | 例：mod=post&act=get&id=2&with_relations=Author 同时输出 Author 对象
