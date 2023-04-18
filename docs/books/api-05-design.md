@@ -185,7 +185,7 @@ Response Body:
 | tag      | ID, Order, Count                                                         |
 | upload   | ID, PostTime, DownNums                                                   |
 
-不同「API 模块」专有的查询参数见：「[接口列表](books/dev-api-mods "接口列表")」；
+不同「API 模块」专有的查询参数见：「[接口列表](books/api-10-mods "接口列表")」；
 
 ## 公共消息响应头
 

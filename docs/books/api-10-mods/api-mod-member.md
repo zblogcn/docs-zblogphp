@@ -53,17 +53,17 @@ savedate = '保存天数'
             "Level": "1",
             "Status": "0",
             "Name": "admin",
-            "StaticName": "admin",//等等members相关信息
+            "StaticName": "admin" // 等等 members 相关信息
         },
-        "token": "Token信息",
-        "expire_time": 1672560322//过期时间
+        "token": "Token 信息",
+        "expire_time": 1672560322 // 过期时间
     },
     "error": null,
     "runtime": {
     }
 }
 ```
-此处`login`操作返回的「鉴权 Token」将用于后续需要「鉴权」的请求，见「[权限认证](books/dev-api-design?id=权限认证 "权限认证")」；
+此处`login`操作返回的「鉴权 Token」将用于后续需要「鉴权」的请求，见「[权限认证](books/api-05-design?id=权限认证 "权限认证")」；
 </details>
 
 **示例 2**：
@@ -83,7 +83,7 @@ savedate = '保存天数'
 
 `"ID": "0",` 必须显示设置；
 
-`"Level": "4",` 为用户等级；参考「[用户等级划定](books/start-faq?id=用户等级划定 "用户等级划定")」
+`"Level": "4",` 为用户等级；参考「[用户等级划定](books/start-25-faq?id=用户等级划定 "用户等级划定")」
 </details>
 
 
