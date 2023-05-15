@@ -134,7 +134,7 @@ npm run lint
 ```bash
 # 初始
 YOUR_NAME=wdssmq
-YOUR_REPO_URL=git@github.com:wdssmq/docs-zblogphp.git
+YOUR_REPO_URL=git@github.com:$YOUR_NAME/docs-zblogphp.git
 ZBP_REPO_URL=git@github.com:zblogcn/docs-zblogphp.git
 
 # 克隆
@@ -164,6 +164,12 @@ git remote -v
 
 ```
 
+> Win 系统下建议用 VSCode + Git Bash，然后通过`code ~/.bashrc`设置自己的 Git 用户名；
+> ```ini
+> export GIT_USR=wdssmq
+> export GIT_USER=wdssmq
+> ```
+
 3、基于 main 创建新分支，修改内容后提交；
 
 
@@ -172,34 +178,27 @@ git remote -v
 # ↓ 用于查看分支信息，会经常用到
 git branch -a -vv
 
-# 确保当前分支为 main
+# 确保当前分支为 main，并且同步官方内容
 git switch main
+git pull zbp main
 
-# 创建新分支，同一分支下仅修改互相关联的内容，可多次提交
-git switch -c feat-2023-03-23 && git branch -a -vv
+# 创建新分支，同一分支下仅修改互相关联的内容，可多次提交，此处示例加了日期，实际可按需命名
+git switch -c feat-$(date +"%Y-%m-%d") && git branch -a -vv
+# git switch -c feat-2023-03-23 && git branch -a -vv
 
-# 推送，记得更换远程仓库名和分支名
-git push -u wdssmq feat-2023-03-23
+# 推送，记得更换远程仓库名和分支名，$GIT_USR 需要在 .bashrc 内设置
+git push -u $GIT_USR feat-$(date +"%Y-%m-%d")
+# git push -u wdssmq feat-2023-03-23
 
 # 注：对于同一个分支，首次带 `-u` 参数提交后大概后续可以直接用 `git push` 提交
+
+# 下边命令用于将 main 分支推送到自己仓库
+git push $GIT_USR main
 
 ```
 
 4、在 GitHub 上提交 Pull request，等待审核合并；
 
 - **同一分支下可以继续提交内容，但仅限同一内容主旨**；
-- 新的内容请按第 3 步创建新分支，如果期间官方有更新先按操作 5 同步 main 分支；
-
-5、同步更新官方仓库；
-
-```bash
-# 切换到 main 分支
-git switch main
-
-# 拉取官方仓库
-git pull zbp main
-
-# 推送到自己的仓库
-git push wdssmq main
-
-```
+- 新的内容请按第 3 步创建新分支；
+- 代码被合并后相应的分支可以按需删除；
