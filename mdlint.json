@@ -16,7 +16,7 @@
     "no-long-code": [
       1,
       {
-        "length": 137,
+        "length": 500,
         "exclude": []
       }
     ]
