@@ -21,7 +21,7 @@ function ActivePlugin_newapi() {
 把`myapi.php`这个`api文件模块`插入进 API 系统，一个`api文件模块`内可包含多个`api`(`act`)
 
 
-### 新版（1.7.3以后）写法
+### 新版（1.7.3 以后）写法
 ```php
 # 直接在注册插件时操作
 function ActivePlugin_newapi() {
@@ -78,7 +78,7 @@ function newapi_IgnoreCSRF(&$array) {
 
 如果只想关闭某些模块，只需要对`$mods_disallow 黑名单`进行添加
 
-白名单示范（新版）：
+白名单示范（新版 1.7.3 以后）：
 
 ```php
 # 直接在注册插件时操作
@@ -103,7 +103,7 @@ function newapi_CheckMods(&$mods_allow, &$mods_disallow) {
 ```
 
 
-黑名单示范（新版）：
+黑名单示范（新版 1.7.3 以后）：
 
 ```php
 # 直接在注册插件时操作
