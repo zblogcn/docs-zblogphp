@@ -87,6 +87,8 @@ function ActivePlugin_newapi() {
     ApiAddAllowMod('newapi');//允许newapi模块下的所有api
     ApiAddAllowMod('member', 'login');//允许member模块下的login
     //开启白名单后，除了newapi模块和member模块下的login外，其它的api都不能访问！
+
+    ApiAddAllowMod('member', 'login');//取消允许member模块下的
 }
 ```
 
@@ -109,9 +111,11 @@ function newapi_CheckMods(&$mods_allow, &$mods_disallow) {
 # 直接在注册插件时操作
 function ActivePlugin_newapi() {
     // ...
-    ApiAddAllowMod('newapi', 'postdata');//禁用newapi模块下的postdata
-    ApiAddAllowMod('system');//禁用system模块下所有的api
+    ApiAddDisallowMod('newapi', 'postdata');//禁用newapi模块下的postdata
+    ApiAddDisallowMod('system');//禁用system模块下所有的api
     //开启黑名单后，没有在禁用范围里的api都可以被访问！
+
+    ApiRemoveDisallowMod('newapi', 'postdata');//取消禁用newapi模块下的postdata
 }
 ```
 
