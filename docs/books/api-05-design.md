@@ -276,3 +276,29 @@ Response Body:
 }
 ```
 
+## 内部调用
+
+为了便于系统本身（包括主题、插件）调用网站的 API，我们提供了内部调用的方法。
+
+### 调用
+
+`ApiExecute`($mod, $act, $get = array(), $post = array())
+
+示例
+
+```php
+var_dump(ApiExecute('post', 'get', array('id' => '1')));
+```
+
+### 增加/删除 Private API
+
+> **说明**  
+> 在 API 系统中，Private API 为只能被自身调用，即只能通过 `ApiExecute` 方法调用的 API.
+
+```php
+ApiAddPrivateMod('newapi', __DIR__ . '/myapi.php'); // 实现文件以 'newapi' 为模块名插入进系统 Private API 里
+ApiRemovePrivateMod($modname); // 删除以'newapi'为模块名的 Private API里
+```
+
+***本篇内容所用代码需要由主程序 1.7.3.3230 版本及更高版本实现***
+

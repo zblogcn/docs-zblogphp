@@ -21,16 +21,16 @@ function ActivePlugin_newapi() {
 把`myapi.php`这个`api文件模块`插入进 API 系统，一个`api文件模块`内可包含多个`api`(`act`)
 
 
-### 新版（1.7.3 以后）写法
+新版（1.7.3 以后）写法
 ```php
 # 直接在注册插件时操作
 function ActivePlugin_newapi() {
     // ...
-    ApiAddMod('newapi', __DIR__ . '/myapi.php');
+    ApiAddMod('newapi', __DIR__ . '/myapi.php'); // 实现文件以'newapi'为模块名插入进系统API里
 }
 ```
 
-### 老版写法
+老版写法
 ```php
 #include.php里的newapi_RegAPI函数实现
 
