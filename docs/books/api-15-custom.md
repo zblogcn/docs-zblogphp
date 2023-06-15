@@ -13,15 +13,30 @@ RegisterPlugin("newapi","ActivePlugin_newapi");
 
 #newapi_RegAPI函数挂在Filter_Plugin_API_Extend_Mods接口上
 function ActivePlugin_newapi() {
-    Add_Filter_Plugin('Filter_Plugin_API_Extend_Mods', 'newapi_RegAPI');
+    // ...
 }
 ```
 ## 挂上接口，插入 API 模块文件
 
-把`myapi.php`这个`api文件模块`插入进 API 系统，一个`api文件模块`内可包含多个`api`
+把`myapi.php`这个`api文件模块`插入进 API 系统，一个`api文件模块`内可包含多个`api`(`act`)
 
+
+### 新版（1.7.3以后）写法
+```php
+# 直接在注册插件时操作
+function ActivePlugin_newapi() {
+    // ...
+    ApiAddMod('newapi', __DIR__ . '/myapi.php');
+}
+```
+
+### 老版写法
 ```php
 #include.php里的newapi_RegAPI函数实现
+
+function ActivePlugin_newapi() {
+    Add_Filter_Plugin('Filter_Plugin_API_Extend_Mods', 'newapi_RegAPI');
+}
 
 #将插件目录下的myapi.php这个API实现文件以'newapi'为模块名插入进系统API里
 function newapi_RegAPI() {
@@ -63,7 +78,20 @@ function newapi_IgnoreCSRF(&$array) {
 
 如果只想关闭某些模块，只需要对`$mods_disallow 黑名单`进行添加
 
-白名单示范：
+白名单示范（新版）：
+
+```php
+# 直接在注册插件时操作
+function ActivePlugin_newapi() {
+    // ...
+    ApiAddAllowMod('newapi');//允许newapi模块下的所有api
+    ApiAddAllowMod('member', 'login');//允许member模块下的login
+    //开启白名单后，除了newapi模块和member模块下的login外，其它的api都不能访问！
+}
+```
+
+白名单示范（老版）：
+
 ```php
 Add_Filter_Plugin('Filter_Plugin_API_CheckMods', 'newapi_CheckMods');
 
@@ -74,7 +102,21 @@ function newapi_CheckMods(&$mods_allow, &$mods_disallow) {
 }
 ```
 
-黑名单示范：
+
+黑名单示范（新版）：
+
+```php
+# 直接在注册插件时操作
+function ActivePlugin_newapi() {
+    // ...
+    ApiAddAllowMod('newapi', 'postdata');//禁用newapi模块下的postdata
+    ApiAddAllowMod('system');//禁用system模块下所有的api
+    //开启黑名单后，没有在禁用范围里的api都可以被访问！
+}
+```
+
+黑名单示范（老版）：
+
 ```php
 Add_Filter_Plugin('Filter_Plugin_API_CheckMods', 'newapi_CheckMods');
 
