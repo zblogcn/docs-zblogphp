@@ -18,6 +18,13 @@
 **重要：`网站设置→全局设置→开发模式` ←在网站出现错误提示时可以启用该选项来排查；**
 
 
+## Composer 安装 PHP 包
+
+自 Z-BlogPHP 1.7.2 版本起，系统可以自动加载 vendor 目录里的包
+
+所以只需要安装 composer 包到 verndor，不需要引入 vendor 下的 autoload.php 文件
+
+
 ## 先创建 c_option.php 后执行安装过程 (1.7.2 开始支持)
 
 一般是在安装程序完成后会自动生成 c_option.php 配置文件在 `zb_users` 目录下
