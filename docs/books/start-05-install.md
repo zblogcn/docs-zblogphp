@@ -19,7 +19,7 @@ PHP：`PHP 5.2 - 8.2`
 
 ## 历史版本下载
 
-- Z-BlogPHP_1_7_2_2995_Tenet https://update.zblogcn.com/zip/Z-BlogPHP_1_7_2_3060_Tenet.zip
+- Z-BlogPHP_1_7_2_3060_Tenet https://update.zblogcn.com/zip/Z-BlogPHP_1_7_2_3060_Tenet.zip
 - Z-BlogPHP_1_7_1_2995_Tenet https://update.zblogcn.com/zip/Z-BlogPHP_1_7_1_2995_Tenet.zip
 - Z-BlogPHP_1_7_0_2955_Tenet https://update.zblogcn.com/zip/Z-BlogPHP_1_7_0_2955_Tenet.zip
 - Z-BlogPHP_1_6_8_2210_Valyria https://update.zblogcn.com/zip/Z-BlogPHP_1_6_8_2210_Valyria.zip
