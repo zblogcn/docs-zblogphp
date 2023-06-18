@@ -9,8 +9,8 @@
 /**
  * API 执行.
  *
- * @param string      $mod
- * @param string      $act
+ * @param string      $mod (模块名)
+ * @param string      $act (方法名)
  * @param array       $get (模拟$_GET参数)
  * @param array       $post (模拟$_POST参数)
  */
@@ -35,17 +35,19 @@ var_dump($post);
 
 
 ## 加载和移除私有模块
+
+一次添加指定目录下的私有模块， $modsdir 为私有模块所在目录
 ```php
 ApiLoadPrivateMods($modsdir)
 ```
-一次添加指定目录下的私有模块， $modsdir 为私有模块所在目录
 
+单个添加私有模块
 ```php
 ApiAddMod($modname, $filename)
 ```
-单个添加私有模块
 
+单个删除私有模块
 ```php
 ApiRemovePrivateMod($modname)
 ```
-单个删除私有模块
+
