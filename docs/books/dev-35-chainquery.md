@@ -595,9 +595,10 @@ DROP INDEX zbp_table_id ON zbp_table
 ### 添加字段
 
 ```php
-$sql = $zbp->db->sql->get()->ALTER("zbp_post")
+$sql = $zbp->db->sql->get()->ALTER($zbp->table['Post'])
 ->ADDCOLUMN('log_IsHide integer NOT NULL DEFAULT \'0\'')
 ->ADDCOLUMN('log_CreateTime', 'integer NOT NULL DEFAULT \'0\'')
+->ADDCOLUMN('log_Tel', 'varchar(250)')
 ->ADDCOLUMN('log_Note', 'text', 'NOT NULL')
 ->sql;
 // ADDCOLUMN 内的参数可以写成一个，也可以写成多个
