@@ -8,33 +8,42 @@ Z-BlogPHP 密码找回工具：
 
 「- -」「- -」「- -」「- -」「- -」
 
-## 固定域名出错不能登入
-
-- 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
-- **增加**项目：
-  ```php
-  'ZC_PERMANENT_DOMAIN_FORCED_DISABLE' => true,
-  ```
-1.7.2 以下版本的键名为 ZC_PERMANENT_DOMAIN_WHOLE_DISABLE
-- 保存后即可恢复使用；
-
-[path](terms/path.md ':include')
-
-**注：如果是 1.6.0 之前的版本，请先升级到 1.6.0**
-
-「- -」「- -」「- -」「- -」「- -」
-
 ## 明确需要指定域名使用
 
 - 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
 - 配置项：
   ```php
   'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://www.newdomin.site/",
+  #
   ```
 
 [path](terms/path.md ':include')
 
 **注：如果是 1.6.0 之前的版本，请覆盖 1.6.0 及之后的程序包（`zb_system`）。**
+**注2：ZC_PERMANENT_DOMAIN_ENABLE => true是开启了固定域名，然后可以在后台设置更改固定域名**
+**注3：ZC_PERMANENT_DOMAIN_FORCED_URL 的意义为 直接开启固定域名功能并直接指定指定域名**
+
+「- -」「- -」「- -」「- -」「- -」
+
+## 固定域名出错不能登入
+
+- 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
+- **删除**项目或是更改为正确的域名：
+  ```php
+  'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://出错不能登录的域名/",
+  #ZC_PERMANENT_DOMAIN_FORCED_URL 的意义为 开启固定域名功能并直接指定固定域名
+  #如果你直接指定了固定域名，那就需要删除这个设置，或是更改为正确的域名
+  ```
+  或是**删除**项目：
+  ```php
+  'ZC_PERMANENT_DOMAIN_ENABLE' => true,
+  #ZC_PERMANENT_DOMAIN_ENABLE 的意义为 开启固定域名功能，然后可以在后台设置固定域名
+  #删除这个项目后，ZBP系统就会自动识别判断域名
+  ```
+
+[path](terms/path.md ':include')
+
+**注：如果是 1.6.0 之前的版本，请先升级到 1.6.0**
 
 「- -」「- -」「- -」「- -」「- -」
 
