@@ -14,13 +14,14 @@ Z-BlogPHP 密码找回工具：
 - 配置项：
   ```php
   'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://www.newdomin.site/",
-  #
   ```
 
 [path](terms/path.md ':include')
 
 **注：如果是 1.6.0 之前的版本，请覆盖 1.6.0 及之后的程序包（`zb_system`）。**
+
 **注2：ZC_PERMANENT_DOMAIN_ENABLE => true是开启了固定域名，然后可以在后台设置更改固定域名**
+
 **注3：ZC_PERMANENT_DOMAIN_FORCED_URL 的意义为 直接开启固定域名功能并直接指定指定域名**
 
 「- -」「- -」「- -」「- -」「- -」
