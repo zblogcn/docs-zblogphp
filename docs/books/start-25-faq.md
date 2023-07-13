@@ -6,6 +6,8 @@ Z-BlogPHP 密码找回工具：
 
 [https://bbs.zblogcn.com/thread-83419.html](https://bbs.zblogcn.com/thread-83419.html "Z-BlogPHP密码找回工具-程序发布-ZBlogger技术交流中心")
 
+**注：nologin.php非常的危险，使用后请立即删除。**
+
 「- -」「- -」「- -」「- -」「- -」
 
 ## 开启固定域名功能
