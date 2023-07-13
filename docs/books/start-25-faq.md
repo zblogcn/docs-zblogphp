@@ -8,7 +8,7 @@ Z-BlogPHP 密码找回工具：
 
 「- -」「- -」「- -」「- -」「- -」
 
-## 明确需要指定域名使用
+## 开启固定域名功能
 
 - 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
 - 配置项：
@@ -20,9 +20,7 @@ Z-BlogPHP 密码找回工具：
 
 **注：如果是 1.6.0 之前的版本，请覆盖 1.6.0 及之后的程序包（`zb_system`）。**
 
-**注2：ZC_PERMANENT_DOMAIN_ENABLE => true是开启了固定域名，然后可以在后台设置更改固定域名**
-
-**注3：ZC_PERMANENT_DOMAIN_FORCED_URL 的意义为 直接开启固定域名功能并直接指定指定域名**
+**注2：ZC_PERMANENT_DOMAIN_FORCED_URL 的意义为 直接开启固定域名功能并直接指定域名为固定域名**
 
 「- -」「- -」「- -」「- -」「- -」
 
@@ -30,20 +28,20 @@ Z-BlogPHP 密码找回工具：
 
 - 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
 
-  如果你是在后台开启固定域名后出错的，请在c_option.php**增加**项目：
+  在c_option.php**修改**或是**增加**项目为正确的域名：
+  ```php
+  'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://www.newdomin.site/",
+  #ZC_PERMANENT_DOMAIN_FORCED_URL 的意义为 开启固定域名功能并直接指定域名为固定域名
+  #如果你之前设置的固定域名不能访问，那就更改为正确的域名
+  ```
+
+  如果你是在后台开启固定域名(参数ZC_PERMANENT_DOMAIN_ENABLE)后出错的，请在c_option.php**增加**项目：
   ```php
   'ZC_PERMANENT_DOMAIN_FORCED_DISABLE' => true, //1.7.3版本使用
   //或是
   'ZC_PERMANENT_DOMAIN_WHOLE_DISABLE' => true, //1.7.2及以下版本使用
   ```
-  这样就会强制跳过固定域名功能
-
-  或在c_option.php**增加**项目为正确的域名：
-  ```php
-  'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://正确的域名/",
-  #ZC_PERMANENT_DOMAIN_FORCED_URL 的意义为 开启固定域名功能并直接指定固定域名
-  #如果你之前设置的固定域名，那就更改为正确的域名
-  ```
+  这样就会强制跳过固定域名功能，然后访问正确的域名进后台，关掉固定域名(参数ZC_PERMANENT_DOMAIN_ENABLE)
 
 [path](terms/path.md ':include')
 
