@@ -20,15 +20,17 @@ Z-BlogPHP 密码找回工具：
 - 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
 - 配置项：
   ```php
-  //关闭CSRF保护功能
+  //关闭CSRF保护功能（出现非法访问请关闭）
   'ZC_LOGIN_CSRFCHECK_ENABLE' => false,
-  //关闭验证码功能
+  //关闭验证码功能（出现验证码出错请关闭）
   'ZC_LOGIN_VERIFY_ENABLE'    => false,
   ```
 
 [path](terms/path.md ':include')
 
 **注：不建议长期关掉这2个功能，因为这2个功能可有效的防御被扫描破解账号的黑客事件，如果主题插件的兼容性问题已修复请恢复这2个功能**
+
+**注2：如果因为在后台开启安全增强功能导致进不了后台，可以按此方法进后台后关闭安全增强功能再删除这两项设置**
 
 「- -」「- -」「- -」「- -」「- -」
 
@@ -54,20 +56,24 @@ Z-BlogPHP 密码找回工具：
 
 - 使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
 
-  在c_option.php**修改**或是**增加**项目为正确的域名：
+  如果是固定域名出错，需要关闭固定域名功能，请在c_option.php**增加**项目：
   ```php
-  'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://www.newdomin.site/",
-  #ZC_PERMANENT_DOMAIN_FORCED_URL 的意义为 开启固定域名功能并直接指定域名为固定域名
-  #如果你之前设置的固定域名不能访问，那就更改为正确的域名
-  ```
+  'ZC_PERMANENT_DOMAIN_ENABLE' => false, //1.7.3版本及以后版本使用
 
-  如果你是在后台开启固定域名(参数ZC_PERMANENT_DOMAIN_ENABLE)后出错的，请在c_option.php**增加**项目：
-  ```php
-  'ZC_PERMANENT_DOMAIN_FORCED_DISABLE' => true, //1.7.3版本使用
   //或是
   'ZC_PERMANENT_DOMAIN_WHOLE_DISABLE' => true, //1.7.2及以下版本使用
   ```
-  这样就会强制跳过固定域名功能，然后访问正确的域名进后台，关掉固定域名(参数ZC_PERMANENT_DOMAIN_ENABLE)
+  如果是设置了 ZC_PERMANENT_DOMAIN_FORCED_URL 这个项目的开启固定域名功能的，请删除 ZC_PERMANENT_DOMAIN_FORCED_URL 这一行配置
+
+  这样就会强制跳过固定域名功能，然后访问正确的域名进网站
+
+  如果你之前配置的固定域名不能访问，需要更改为正确的域名
+  ```php
+  #
+  'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://www.newdomin.site/",
+  #ZC_PERMANENT_DOMAIN_FORCED_URL 的意义为 开启固定域名功能并直接指定域名为固定域名
+  #如果你不希望再用固定域名，那就在option.php里删除这一行
+  ```
 
 [path](terms/path.md ':include')
 
