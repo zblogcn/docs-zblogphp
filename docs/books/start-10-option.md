@@ -53,19 +53,19 @@ return array (
 ```
 
 
-## 从环境变量中读取数据库配置 (1.7.2 开始支持)
+## 从环境变量中读取数据库配置
 
-c_option.php 配置文件中参数的值为`evn:环境变量名`，就会用 Zbp_GetEnv 函数读取环境变量的值
+c_option.php 配置文件中参数的值为`Zbp_GetEnv('环境变量名')`，就会用 Zbp_GetEnv 函数读取环境变量的值 (1.7.3 开始支持)
 
 ```php
 // c_option.php 示例如下
 <?php
 return array (
   'ZC_DATABASE_TYPE' => 'mysqli',
-  'ZC_MYSQL_SERVER' => 'env:DB_HOST',// 环境变量名
-  'ZC_MYSQL_USERNAME' => 'env:DB_USER',// 环境变量名
-  'ZC_MYSQL_PASSWORD' => 'env:DB_PASSWORD',// 环境变量名
-  'ZC_MYSQL_NAME' => 'env:DB_DATABASE',// 环境变量名
+  'ZC_MYSQL_SERVER' => Zbp_GetEnv('DB_HOST'),// 环境变量名
+  'ZC_MYSQL_USERNAME' => Zbp_GetEnv('DB_USER'),// 环境变量名
+  'ZC_MYSQL_PASSWORD' => Zbp_GetEnv('DB_PASSWORD'),// 环境变量名
+  'ZC_MYSQL_NAME' => Zbp_GetEnv('DB_DATABASE'),// 环境变量名
   'ZC_MYSQL_PORT' => '3306',
   'ZC_MYSQL_CHARSET' => 'utf8mb4',
   'ZC_MYSQL_COLLATE' => 'utf8mb4_general_ci',
@@ -74,10 +74,16 @@ return array (
   'ZC_MYSQL_PERSISTENT' => false,
 );
 ```
-那么 `ZC_MYSQL_SERVER`, `ZC_MYSQL_USERNAME`, `ZC_MYSQL_PASSWORD`, `ZC_MYSQL_NAME`, `ZC_MYSQL_PORT` 这 5 个参数的值就会从 `Zbp_GetEnv('DB_HOST')` 等中获取
+那么 `ZC_MYSQL_SERVER`, `ZC_MYSQL_USERNAME`, `ZC_MYSQL_PASSWORD`, `ZC_MYSQL_NAME` 这 4 个参数的值就会从 `Zbp_GetEnv('DB_HOST')` 等中获取
 
 **注：**
 
 Zbp_GetEnv 函数是 1.7.3 加入的，Zbp_GetEnv 调用的是 ZbpEnv 类的 Get 方法，Get 方法会按 $_ENV，getenv顺序获取环境变量
 
-ZbpEnv类在初始化时会自动加载 .evn 文件，会将 .evn 文件里的配置的项和值加入环境变量中，如果您在系统根目录放置和使用 .evn 文件，请一定要注意保护好该文件不被 web 端下载造成意外风险
+ZbpEnv类在初始化时会自动加载 .evn 文件（如果存在的话），会将 .evn 文件里的配置的项和值加入环境变量中，如果您在系统根目录放置和使用 .evn 文件，请一定要注意保护好该文件不被 web 端下载造成意外风险
+
+**注2：**
+
+1.7.2 及以上版本也可以填入 `env:DB_HOST`，`env:DB_USER`，`env:PASSWORD`，`env:DB_DATABASE` 以获取环境变量的值
+
+其它版本也可以通过 getenv 函数获取环境变量的值
