@@ -63,15 +63,14 @@ Z-BlogPHP 密码找回工具：
   //或是
   'ZC_PERMANENT_DOMAIN_WHOLE_DISABLE' => true, //1.7.2及以下版本使用
   ```
-  如果是设置了 ZC_PERMANENT_DOMAIN_FORCED_URL 项目强制开启固定域名功能的，请删除 ZC_PERMANENT_DOMAIN_FORCED_URL 这一行配置
+  如果是设置了 ZC_PERMANENT_DOMAIN_FORCED_URL 项目强制开启固定域名功能的，请删除   ~~ZC_PERMANENT_DOMAIN_FORCED_URL => 'domain',~~ 这一行配置
 
-  这样就会强制跳过固定域名功能，然后访问正确的域名进网站
+  这样就会跳过固定域名功能，然后访问正确的域名进网站
 
-- 如果你之前配置的固定域名不能访问，需要更改为正确的域名
+- 如果之前配置的固定域名不能访问，需要更改为正确的域名
   ```php
   #
-  'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://www.newdomin.site/",
-  #ZC_PERMANENT_DOMAIN_FORCED_URL 的意义为 开启固定域名功能并直接指定域名为固定域名
+  'ZC_PERMANENT_DOMAIN_FORCED_URL' => "https://更正的域名/",
   #如果你不希望再用固定域名，那就在option.php里删除这一行
   ```
 
