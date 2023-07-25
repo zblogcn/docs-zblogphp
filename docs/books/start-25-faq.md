@@ -7,6 +7,8 @@ Z-BlogPHP 密码找回工具：
 [https://bbs.zblogcn.com/thread-83419.html](https://bbs.zblogcn.com/thread-83419.html "Z-BlogPHP密码找回工具-程序发布-ZBlogger技术交流中心")
 
 **注：nologin.php非常的危险，使用后请立即删除。**
+**注2：nologin.php非常的危险，使用后请立即删除。**
+**注3：nologin.php非常的危险，使用后请立即删除。**
 
 「- -」「- -」「- -」「- -」「- -」
 
@@ -81,6 +83,28 @@ Z-BlogPHP 密码找回工具：
 「- -」「- -」「- -」「- -」「- -」
 
 
+## 强制开启 Debug 调试模式
+
+常规开启调试模式是在后台设置中进行，在后台设置的全局设置里打开“调试模式”并保存即可。
+
+如果网站程序出错，不能进入后台进行设置，那么在 1.7.3 及更高版本可以在这样设置：
+
+使用空间面板的文件管理或者 FTP 修改文件：`path/zb_users/c_option.php`；
+
+```php
+ 'ZC_DEBUG_MODE' => true, //开启Debug，如果调试完毕请删除这一行
+```
+
+1.7.2版本可以修改`zb_system\function\c_system_base.php`，取消第 22 行代码的注释状态后保存；
+
+```php
+// defined('ZBP_DEBUGMODE') || define('ZBP_DEBUGMODE', true);
+// 修改为 ↓↓
+defined('ZBP_DEBUGMODE') || define('ZBP_DEBUGMODE', true);
+```
+
+「- -」「- -」「- -」「- -」「- -」
+
 
 ## 用户等级划定
 
@@ -110,22 +134,6 @@ Z-BlogPHP 密码找回工具：
 > 2. 选择相应数据库，（默认为「`结构`」视图）；
 > 3. 点击「`操作`」选项卡，更改「`排序规则`」为`utf8mb4_general_ci`；
 > 4. 点击「`执行`」即可应用到所有表和所有表列字段！
-
-「- -」「- -」「- -」「- -」「- -」
-
-## 强制开启 Debug 调试模式
-
-常规开启调试模式是在后台设置中进行，在后台设置的全局设置里打开“调试模式”并保存即可。
-
-如果网站程序出错，不能进入后台进行设置，那么在 1.7.2 及更高版本可以在这样设置：
-
-修改`zb_system\function\c_system_base.php`，取消第 22 行代码的注释状态后保存；
-
-```php
-// defined('ZBP_DEBUGMODE') || define('ZBP_DEBUGMODE', true);
-// 修改为 ↓↓
-defined('ZBP_DEBUGMODE') || define('ZBP_DEBUGMODE', true);
-```
 
 「- -」「- -」「- -」「- -」「- -」
 
