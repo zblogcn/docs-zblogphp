@@ -85,5 +85,12 @@ ZbpEnv类在初始化时会自动加载 .evn 文件（如果存在的话），�
 **注2：**
 
 1.7.2 及以上版本也可以填入 `env:DB_HOST`，`env:DB_USER`，`env:PASSWORD`，`env:DB_DATABASE` 以获取环境变量的值
+```php
+  //示例如下：
+  'ZC_MYSQL_SERVER' => 'env:DB_HOST',// 环境变量名:DB_HOST
+  'ZC_MYSQL_USERNAME' => 'env:DB_USER',// 环境变量名:DB_USER
+  'ZC_MYSQL_PASSWORD' => 'env:DB_PASSWORD',// 环境变量名:DB_PASSWORD
+  'ZC_MYSQL_NAME' => 'env:DB_DATABASE',// 环境变量名:DB_DATABASE
+```
 
 其它版本也可以通过 getenv 函数获取环境变量的值
