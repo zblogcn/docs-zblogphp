@@ -78,11 +78,11 @@ return array (
 
 **注：**
 
-Zbp_GetEnv 函数是 1.7.3 加入的，Zbp_GetEnv 调用的是 ZbpEnv 类的 Get 方法，Get 方法会按 $_ENV，getenv顺序获取环境变量
+Zbp_GetEnv 函数是 1.7.3 加入的，Zbp_GetEnv 调用的是 ZbpEnv 类的 Get 方法，Get 方法会按 $_ENV，getenv 顺序获取环境变量
 
-ZbpEnv类在初始化时会自动加载 .env 文件（如果存在的话），会将 .env 文件里的配置的项和值加入环境变量中，如果您在系统根目录放置和使用 .env 文件，请一定要注意保护好该文件不被 web 端下载造成意外风险
+ZbpEnv 类在初始化时会自动加载 .env 文件（如果存在的话），会将 .env 文件里的配置的项和值加入环境变量中，如果您在系统根目录放置和使用 .env 文件，请一定要注意保护好该文件不被 web 端下载造成意外风险
 
-**注2：**
+**注 2：**
 
 1.7.2 及以上版本也可以填入 `env:DB_HOST`，`env:DB_USER`，`env:PASSWORD`，`env:DB_DATABASE` 以获取环境变量的值
 ```php
