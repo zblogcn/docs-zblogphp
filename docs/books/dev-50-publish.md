@@ -4,17 +4,17 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 任何希望为 Z-Blog 做贡献的开发者都可以免费加入到应用中心并发布自己的因为给所有用户使用。为了保持应用中心应用质量，我们制定了一些应用上架的基本要求，在您的应用符合相应标准后即可发布到应用中心，
 
-## 申请流程图
+<!-- ## 申请流程图
 
-![alt 开发者申请流程图](https://bbs.zblogcn.com/upload/attach/202201/982_29RG725PNFXGCTR.png)
+![alt 开发者申请流程图](https://bbs.zblogcn.com/upload/attach/202201/982_29RG725PNFXGCTR.png) -->
 
 ## 成为开发者
 
-当您想首次发布您的应用时，请提供您开发的应用，并参照如下网址内容发贴或联系我们：
+请登录我们全新打造的「Z-Blog 开发者入驻平台」完成入驻操作：
 
-> 欢迎加入 Z-Blog 应用开发者中心-网站事务-Z-Blogger 技术交流中心：
+> 成为开发者 - Z-Blog 开发者入驻平台：
 >
-> [https://bbs.zblogcn.com/thread-77001.html](https://bbs.zblogcn.com/thread-77001.html "欢迎加入Z-Blog应用开发者中心-网站事务-Z-Blogger 技术交流中心")
+> [https://join.zdevo.com/](https://join.zdevo.com/ "成为开发者 - Z-Blog 开发者入驻平台")
 >
 > \-----
 >
@@ -33,36 +33,30 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 **注：此贴文本复制于「[成为开发者 - 发布应用 - Z-BlogPHP 文档](https://docs.zblogcn.com/php/#/books/dev-45-publish?id=%e6%88%90%e4%b8%ba%e5%bc%80%e5%8f%91%e8%80%85 "成为开发者 - 发布应用 - Z-BlogPHP 文档")」，不要直接编辑；**
 
-![alt 开发者申请流程图](https://bbs.zblogcn.com/upload/attach/202201/982_29RG725PNFXGCTR.png)
-
 ### 前置要求
 
 依据《中华人民共和国网络安全法》的要求，及为尽快通知到您，您必须：
 
-1. 绑定手机号，以完成实名认证要求：https://uc.zblogcn.com/user/security/phone
-2. 绑定微信号，以及时获取审核消息：https://uc.zblogcn.com/user/open/wechat_mp
-3. 提交您的身份证号，完成实名认证：https://uc.zblogcn.com/user/identity
-4. 「可选」开启“两步验证”，https://uc.zblogcn.com/user/security/tfa/google
+1. 绑定手机号，以完成实名认证要求：https://user.zblogcn.com/user/security/phone
+2. 绑定微信号，以及时获取审核消息：https://user.zblogcn.com/user/open/wechat_mp
+3. 提交您的身份证号，完成实名认证：https://user.zblogcn.com/user/identity
+4. 「可选」开启“两步验证”，https://user.zblogcn.com/user/security/tfa/google
 
 如果您需要销售收费应用，则需要：
 
-1. 绑定您的支付宝，以获取收款：https://uc.zblogcn.com/user/open/alipay
+1. 绑定您的支付宝，以获取收款：https://user.zblogcn.com/user/open/alipay
 
 ### 申请流程
 
-请在【[开发者中心-ZBlogger 技术交流中心](https://bbs.zblogcn.com/forum-125.html "开发者中心-ZBlogger 技术交流中心")】版块按以下要求发贴申请：
+请登录 [Z-Blog 开发者入驻平台](https://join.zdevo.com/ "成为开发者 - Z-Blog 开发者入驻平台") ，按照步骤进行入驻。
 
 1. 为节省时间，请先参照「[注意事项速查表](books/dev-55-faq?id=注意事项速查表 "注意事项速查表")」进行自查；
-2. 请使用「**git**」管理组织你的代码，一个 git 仓库对应一个应用；「**不在要论坛发附件！！！**」
-3. 「可选」基本的 `README.md` 说明，如需附图可放在 `docs/` 目录内或者使用外链；<sup>①</sup>
-4. 作为**博客用户**，附带一篇博客文章，介绍你的应用；
+2. 「可选」基本的 `README.md` 说明，如需附图可放在 `docs/` 目录内或者使用外链；<sup>①</sup>
+3. 作为**博客用户**，附带一篇博客文章，介绍你的应用；
     - 附带的文章地址及对应网站将作为额外的评估依据；<sup>②</sup>
     - 网站本身如为 Z-Blog，须保留带链接的 Powerd By 声明；其他程序请在首页添加指向`www.zblogcn.com`的友情链接
-5. 在论坛发申请贴，格式见下方示意；「**不在要论坛发附件！！！**」<sup>③</sup>
-6. 不得重复发申请贴，不得擅自更换待审应用；
-7. 按审核意见逐条修改并提交至版本库，告一段落后汇总 Changelog 至回复贴内；「**会写更新记录很重要**」
-8. 如果你没看过「[站内发文规范（申请开发者也先看这里）-网站事务-ZBlogger 技术交流中心](https://bbs.zblogcn.com/thread-102989.html "站内发文规范（申请开发者也先看这里）-网站事务-ZBlogger 技术交流中心")」也请先看一遍；
-9. 加 QQ 群，积极询问进度；**「群号： 836912740 」**
+4. 按审核意见逐条修改并上传至入驻平台，告一段落后汇总 Changelog 至发布者意见内；「**会写更新记录很重要**」
+5. 加 QQ 群，积极询问进度；**「群号： 836912740 」**
 
 注：
 
@@ -70,37 +64,14 @@ Z-Blog 官方搭建的[`Z-Blog 应用中心`](https://app.zblogcn.com/) 是广�
 
 ②：个人还是希望多一些会写代码的**博客用户**，而不是单纯会写代码；此外提交的应用也应该符合「人/写/博客」的理念；
 
-③：「应用发布」版块是独立于开发者申请的，可以发，也可以传附件，但是不能用于申请开发者；
-
-### 发贴格式示意
-
-标题格式：
-
-> `申请开发者「appID」「plugin丨theme」`
-
-↑ 方引号比较好看，当然`[]`或`【】`也可以，目的是为了让「GM_脚本」能够匹配识别；
-
-正文示例：
-
-> 应用名称：XXXX
->
-> 发布地址：`https://blog.zblogcn.com/?id=1022`
->
-> 代码仓库：`https://github.com/wdssmq/HelloZBlog`
->
-> 应用简介：功能描述什么的，尽量简短，更详细的放在你的发布页内；
->
-> \<!-- 不需要配图，不然回贴给意见会很麻烦 --\>
-
 ### 审议 QQ 群
 
 群号：836912740
 
 ### 审核流程
 
-1. 申请贴发出后，审核人员进行初步审核，初审通过后，引导申请者注册自建 git 站点，镜像代码以便于后续审核；
-    - 自建仓库并不靠谱，不要作为主用 - -；
-2. 后续审核主要在 git 仓库内进行，相关 issue 或直接对代码注解的分支链接再汇总至回帖内；
+1. 在「开发者入驻平台」提交应用后，会有审核员进行审核，并及时反馈审核意见；
+2. 可以添加审议 QQ 群（群号：836912740）及时沟通。
 
 ### 其他
 Z-BlogPHP 官方文档：https://docs.zblogcn.com/php/#/
