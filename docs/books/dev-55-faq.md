@@ -56,6 +56,7 @@
   - 快速生成 PHP 注释：「[PHP DocBlocker](https://marketplace.visualstudio.com/items?itemName=neilbrayfield.php-docblocker "PHP DocBlocker - Visual Studio Marketplace")」；
   - 替代默认的文件图标：「[VSCode Great Icons](https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons "VSCode Great Icons - Visual Studio Marketplace")」；
 - 有个名词叫「代码片段」——「[参考链接](https://bbs.zblogcn.com/thread-101310.html#484331 "参考链接 - 代码片段")」；
+- 单行注释的双斜线后请加一个空格—— `// (╯﹏╰）`；
 - 给开发人员的 字体：「[JetBrains Mono](https://www.jetbrains.com/zh-cn/lp/mono/ "JetBrains Mono: A free and open source typeface for developers | JetBrains: Developer Tools for Professionals and Teams")」；
 
 ### 附注 - EditorConfig
