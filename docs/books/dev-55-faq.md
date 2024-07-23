@@ -41,6 +41,7 @@
 22.  前台「站内链接」默认当前页打开；
      - 仅限「关于」「后台管理/登录」等少数情形可以例外；
 23.  在保存配置执行后，强烈建议用`$zbp->SetHint('good'); Redirect('./main.php');`而不是`$zbp->ShowHint('good');`；
+24.  有限度的使用 PHP 的 `Herdoc` 语法拼接 HTML；「参考：[PHP: String 字符串 - Manual](https://www.php.net/manual/zh/language.types.string.php#language.types.string.syntax.heredoc "PHP: String 字符串 - Manual")」
 
 ## 程序员的自我修养
 
