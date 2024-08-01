@@ -26,34 +26,37 @@
 16. 除版权标识及注释外，不要在模板内写死各种和你有强关联的东西；
 17. 主题内「Z-Blog 版权标识」最速调用：`Powered By {$zblogphphtml}`；
 18. `CSS`和`JavaScript`应尽可能采取外部引用而不是写在`HTML`内，`style=""`属性同理；
-19. 正则中使用`.*?`很不科学，请使用否定匹配，例如`[^>]*`或`[^"]*`；另外：
+19. 按新规范写代码：
+     - 比如放弃 `var` 关键字，使用 `let` 或 `const`；
+     - `link:css`、`script:js` 弃用非必要属性；
+     - `<link rel="stylesheet" href="style.css">`；
+     - `<script src="script.js"></script>`；
+     - VSCode 直接红色波浪线提示的过时写法；
+20.  正则中使用`.*?`很不科学，请使用否定匹配，例如`[^>]*`或`[^"]*`；另外：
      - `'/abc/i'`——`i`修饰符为忽略大小写；
      - `'/中文/u'`——`u`修饰符用于匹配中文等；
      - 参考「[\[开发者\]正则表达式相关专贴-开发者中心](https://bbs.zblogcn.com/thread-101713.html "\[开发者\]正则表达式相关专贴-开发者中心")」
      - 参考「[PHP: 正则表达式模式中可用的模式修饰符 - php.net](https://www.php.net/manual/zh/reference.pcre.pattern.modifiers.php "PHP: 正则表达式模式中可用的模式修饰符 - php.net")」
-20. logo，favicon，二维码等「替代性」文件不要走附件机制，尤其是不要捆绑编辑器上传；另外应利用`zbignore.txt`防止更新时被覆盖；参考「[配置图片上传](https://bbs.zblogcn.com/thread-101310.html#485997 "【开发者】大概算是进阶建议贴-开发者中心")」「[zbignore.txt 参考](https://bbs.zblogcn.com/thread-102780.html "zbignore.txt 参考")」
-21. 前台「站内链接」默认当前页打开；
+21.  logo，favicon，二维码等「替代性」文件不要走附件机制，尤其是不要捆绑编辑器上传；另外应利用`zbignore.txt`防止更新时被覆盖；参考「[配置图片上传](https://bbs.zblogcn.com/thread-101310.html#485997 "【开发者】大概算是进阶建议贴-开发者中心")」「[zbignore.txt 参考](https://bbs.zblogcn.com/thread-102780.html "zbignore.txt 参考")」
+22.  前台「站内链接」默认当前页打开；
      - 仅限「关于」「后台管理/登录」等少数情形可以例外；
-22. 在保存配置执行后，强烈建议用`$zbp->SetHint('good'); Redirect('./main.php');`而不是`$zbp->ShowHint('good');`；
+23.  在保存配置执行后，强烈建议用`$zbp->SetHint('good'); Redirect('./main.php');`而不是`$zbp->ShowHint('good');`；
+24.  有限度的使用 PHP 的 `Herdoc` 语法拼接 HTML；「参考：[PHP: String 字符串 - Manual](https://www.php.net/manual/zh/language.types.string.php#language.types.string.syntax.heredoc "PHP: String 字符串 - Manual")」
 
 ## 程序员的自我修养
 
 - 编辑器推荐「[Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code - Code Editing. Redefined")」「[简体中文语言包](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans "Chinese (Simplified) Language Pack for Visual Studio Code - Visual Studio Marketplace")」，其他编辑请确保有相应功能或插件；
 - 重点推荐的插件及功能：
   - PHP 代码补全及检查：「[PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client "PHP Intelephense - Visual Studio Marketplace")」；
-  - 代码格式化：「[Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode "Prettier - Code formatter - Visual Studio Marketplace")」；
   - 字面意思：「[Format HTML in PHP](https://marketplace.visualstudio.com/items?itemName=rifi2k.format-html-in-php "Format HTML in PHP - Visual Studio Marketplace")」；
   - 代码风格规范：「[EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig "EditorConfig for VS Code - Visual Studio Marketplace")」——参考下方「[附注 - EditorConfig](#附注-editorconfig "附注 - EditorConfig")」；
   - 英文单词拼写检查：「[Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker "Code Spell Checker - Visual Studio Marketplace")」；
-
-
 - 次要：
-  - 将成对的括号使用颜色加以区分：「[Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer "Bracket Pair Colorizer - Visual Studio Marketplace")」 ← **VSCode 已内置此功能**；
-  - 快速生成 PHP 注释：「[PHP DocBlocker](https://marketplace.visualstudio.com/items?itemName=neilbrayfield.php-docblocker "PHP DocBlocker - Visual Studio Marketplace")」——「[参考链接](https://bbs.zblogcn.com/thread-101310.html#484269 "参考链接 - PHP DocBlocker")」；
+  - 代码格式化：「[Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode "Prettier - Code formatter - Visual Studio Marketplace")」；
+  - 快速生成 PHP 注释：「[PHP DocBlocker](https://marketplace.visualstudio.com/items?itemName=neilbrayfield.php-docblocker "PHP DocBlocker - Visual Studio Marketplace")」；
   - 替代默认的文件图标：「[VSCode Great Icons](https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons "VSCode Great Icons - Visual Studio Marketplace")」；
-  - 智能代码补全：「[Tabnine AI Code Completion](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode "Tabnine AI Code Completion - Visual Studio Marketplace")」——**专业版收费**；
-  - GitHub 出品的代码补全：「[https://copilot.github.com/](https://copilot.github.com/ "GitHub Copilot · Your AI pair programmer")」——**需要申请资格**；
 - 有个名词叫「代码片段」——「[参考链接](https://bbs.zblogcn.com/thread-101310.html#484331 "参考链接 - 代码片段")」；
+- 单行注释的双斜线后请加一个空格—— `// (╯﹏╰）`；
 - 给开发人员的 字体：「[JetBrains Mono](https://www.jetbrains.com/zh-cn/lp/mono/ "JetBrains Mono: A free and open source typeface for developers | JetBrains: Developer Tools for Professionals and Teams")」；
 
 ### 附注 - EditorConfig
