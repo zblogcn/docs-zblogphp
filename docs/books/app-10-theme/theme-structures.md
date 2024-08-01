@@ -4,7 +4,7 @@
 
 ```conf
 /path/zb_users/theme/demoTheme
-│  screenshot.png [必需]缩略图 320*200像素, 横向；
+│  screenshot.png [必需]缩略图 320*240像素, 横向；
 │  theme.xml      [必需]自述文件；
 │  main.php       [可选]应用内置管理页，在创建主题时填写才会生成；
 │  include.php    [可选]应用嵌入页，在创建主题时填写才会生成；
