@@ -10,7 +10,7 @@
 
   - [开始](books/dev-05-start)
   - [主题开发](books/dev-10-theme)
-  - [主题开发（唐朝版）](books/dev-10-theme-tc)
+  - [主题开发（唐朝版）](books/dev-11-theme)
   - [插件开发](books/dev-15-plugin)
   - [接口列表](books/dev-20-interfaces)
   - [函数列表](books/dev-25-functions)
