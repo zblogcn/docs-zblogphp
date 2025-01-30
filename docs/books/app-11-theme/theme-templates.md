@@ -62,6 +62,26 @@
 
 此时，我们进入网站首页就可以看到我们写的主题了,至此我们的快速入门就讲完了。
 
+## 列表页
+首页、分类页、用户页、日期页和标签页都是用的index.php模板页面，如想个性化设置每个页面的模板，可以这样判断
+{if $type=='index'&&$page=='1'}
+<!--/*判断首页*/ c_list_index.php -->
+{elseif $type=='category'}
+<!--/*判断分类页*/ c_list_cate.php -->
+{elseif $type=='author'}
+<!--/*判断首页*/ c_list_author.php -->
+/*判断用户页*/
+{elseif $type=='date'}
+<!--/*判断首页*/ c_list_date.php -->
+/*判断日期页*/
+{elseif $type=='tag'}
+<!--/*判断首页*/ c_list_tag.php -->
+/*判断标签页*/
+{else}
+<!--/*判断首页*/ c_list.php -->
+/*其他自定义列表页面*/
+{/if}
+然后新建相应的模板文件，c_list这里的命名随意，只要和模板文件名一致即可。文档这样设置是为了方便管理。
 
 ## 导航标签制作
 
