@@ -61,3 +61,29 @@
 - 5.打开前台首页
 
 此时，我们进入网站首页就可以看到我们写的主题了,至此我们的快速入门就讲完了。
+
+
+## 导航标签制作
+
+导航标签用于生成前台导航,标签`{module:navbar}`
+zblog的导航默认只支持到二级导航，自定义样式可参考以下步骤。
+- 1.开启《链接模块管理》插件
+- 2.找到当前主题的模板目录，进入template文件夹
+- 3.在template文件夹下创建`lm-module-navbar.php`文件，文件内容如下:
+```html
+<li class="{if count($item.subs)}dropdown{/if}">{if count($item.subs)}<i class="arr"></i>{/if}
+    <a href="{$item.href}" target="_self" target="{$item.target}" title="{$item.title}">{$item.text}</a>
+    {if count($item.subs)}
+    <div class="dropdown-box">
+        {foreach $item.subs as $itemSub}
+        <p><a href="{$itemSub.href}" target="{$itemSub.target}" title="{$itemSub.title}">{$itemSub.text}</a></p>
+        {/foreach}
+    </div>
+    {/if}
+</li>
+```
+- 4.在需要显示导航的模板文件中添加以下代码:
+```html
+{module:navbar}
+```
+- 5.这个时候就可以在后台-》模块管理-》导航栏，编辑里面配置导航了。
