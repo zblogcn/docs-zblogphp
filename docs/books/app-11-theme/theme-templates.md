@@ -23,7 +23,7 @@
 
 - 3.创建模板文件
 
-在`zb_users\theme\default\template`文件夹下创建模板文件`index.php`和`single.php`。
+在`zb_users\theme\主题ID\template`文件夹下创建模板文件`index.php`和`single.php`。
 `index.php`，文件内容如下:
 ```html
 <!DOCTYPE html>
@@ -61,6 +61,91 @@
 - 5.打开前台首页
 
 此时，我们进入网站首页就可以看到我们写的主题了,至此我们的快速入门就讲完了。
+
+## template模板布局
+一个网站很多页面都有相同的部分，比如公共的css和js 文件，导航，底部，如何把这些公共部分有效的组织起来呢。
+- 拆分首页
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <!--公共头部，负责加载公共 css，和其它资源，放在 header.php-->
+    <!--本页面自定义的样式，或其它资源-->
+</head>
+<body>
+<!--导航，放在c_nav.php-->
+<!--主要内容-->
+<!--公共底部，js文件，放在 footer.php-->
+<!--本页面自定义的js-->
+</body>
+</html>
+```
+- 制作公共头部文件
+在`zb_users\theme\主题ID\template`目录下添加`header.php`,内容如下：
+```html
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<meta name="generator" content="{$zblogphp}" />
+<meta name="renderer" content="webkit">
+<title>{$name}-{$title}</title>
+<!--加载主题主css样式-->
+<link rel="stylesheet" rev="stylesheet" href="{$host}zb_users/theme/{$theme}/style/{$style}.css?{$themeinfo['modified']}" type="text/css" media="all" />
+<!--加载zblog必要的js-->
+<script src="{$host}zb_system/script/jquery-latest.min.js?v={$version}"></script>
+<script src="{$host}zb_system/script/zblogphp.js?v={$version}"></script>
+<script src="{$host}zb_system/script/c_html_js_add.php?{if isset($html_js_hash)}hash={$html_js_hash}&{/if}v={$version}"></script>
+<!--激活插件-->
+{$header}
+<!--XML-->
+{if $type=='index'&&$page=='1'&&$option['ZC_XMLRPC_ENABLE']}
+<link rel="alternate" type="application/rss+xml" href="{$feedurl}" title="{$name}" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="{$host}zb_system/xml-rpc/?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{$host}zb_system/xml-rpc/wlwmanifest.xml" />
+{/if}
+```
+- 制作导航文件
+在`zb_users\theme\主题ID\template`目录下添加`c_nav.php`,内容如下：
+```html
+<div id="divTop">
+    <h1 id="BlogTitle"><a href="{$host}">{$name}</a></h1>
+    <h2 id="BlogSubTitle">{$subname}</h2>
+</div>
+<div id="divNavBar">
+    <ul>
+        {module:navbar}
+    </ul>
+</div>
+```
+- 制作公共底部文件
+在`zb_users\theme\主题ID\template`目录下添加`header.php`,内容如下：
+```html
+{* Template Name:公共底部 *}
+<!--版权说明-->
+{$copyright}
+<!--激活插件-->
+{$footer}
+```
+- 拼装首页
+在这一步我们就使用`template`标签来加载公共文件，更改后台首页模板内容如下：
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <!--加载公共头部文件-->
+    {template:header}
+    <!--本页面自定义的样式，或其它资源-->
+</head>
+<body>
+<!--加载导航文件-->
+{template:c_nav}
+<div class="container">
+    <!--主要内容-->
+</div>
+{template:footer}
+<!--本页面自定义的js-->
+</body>
+</html>
+```
 
 ## 列表页
 首页、分类页、用户页、日期页和标签页都是用的index.php模板页面，如想个性化设置每个页面的模板，可以这样判断
