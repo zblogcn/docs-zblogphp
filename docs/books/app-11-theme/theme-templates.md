@@ -196,3 +196,72 @@ zblog的导航默认只支持到二级导航，自定义样式可参考以下步
 {module:navbar}
 ```
 - 5.这个时候就可以在后台-》模块管理-》导航栏，编辑里面配置导航了。
+
+## 文章列表制作
+```html
+array(
+  'count' => 10, //（可省略）
+  'cate' => 1, //（可省略）
+  'auth' => 2, //（可省略）
+  'date' => '2020-1', //（可省略）
+  'tags' => 'abc', //（可省略）
+  'search' => 's', //（可省略）
+  //以下是原$option 参数的 key 键
+  'post_type' => null, //指定查询 Post 表的类型 （可省略）
+  'post_status' => null, //指定查询 Post 表的状态 （可省略）
+  'only_ontop' => false, //指定全是置顶 （可省略）
+  'only_not_ontop' => false, //指定全不是置顶 （可省略）
+  'has_subcate' => false, //指定包含子孙目录 （可省略）
+  'is_related' => '文章id', //指定查询相关文章 （可省略）
+  'order_by_metas' => false, //指定按 Metas 值排序输出结果 （可省略）
+  'random' => 5, //指定抽取 5 篇 Post 表的记录 （可省略）
+  'where_custom' => array(array('=', 'log_Template', '')), //自定义 where
+  'order_custom' => array('log_ViewNums' => 'DESC', 'log_CommNums' => 'ASC'), //自定义 order
+)
+```
+#### 调用同分类文章
+```html
+{php}
+$cid=$article->Category->RootID?$article->Category->RootID:$article->Category->ID; //获取当前大分类ID
+$posttime=$article->PostTime;
+$weektime=$posttime-604800;
+$w=array();
+$w['random']=9;  //随机9篇文章
+$w['count']=9;   //读取9篇文章
+$w['cate']=$cid;    //当前分类或当前大分类
+$w['has_subcate']=1; //指定包含子孙目录
+$w['where_custom']=array(array('<>', 'log_ID', $article->ID),array('>', 'log_PostTime', $weektime),array('<', 'log_PostTime', $posttime)); //当前文章发布时间一周内的文章
+$array=GetList($w);
+{/php}
+{foreach $array as $key=>$related}
+<li><a href="{$related.Url}" target="_blank"><i>{$key+1}</i> {$related.Title} </a></li>
+{/foreach}
+```
+#### 调用最热门文章
+```html
+{php}
+$w=array();
+$w['count']=5;
+$w['order_custom']=array('log_ViewNums' => 'DESC'); //热门文章
+$w['where_custom']=array(array('>', 'log_PostTime', time()-31536000)); //仅显示一年内的文章
+$w['cate']=(int)$zbp->Config('ytecn')->proid;  //分类ID
+$w['has_subcate']=1;    //包含子孙目录分类
+$w['offset']=5;         //偏移值
+$array=GetList($w);
+{/php}
+{foreach $array as $key=>$related}
+{$key+1}-{$related.Time()}--<a href="{$related.Url}" title="{$related.Title}">{$related.Title}</a></li>
+{/foreach}
+```
+#### 过滤某个分类
+```html
+$w=array();
+$w['count']=10;    //显示数量
+//分类id为1的文章不显示
+$w['where_custom']=array();
+$w['where_custom'][]=array('<>', 'log_CateID', '1');
+$result = GetList($w);
+foreach ($result as $related) {
+    echo '<a href="'.$related->Url.'">'.$related->Title.'</a>';
+}
+```
