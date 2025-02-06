@@ -117,7 +117,7 @@
 </div>
 ```
 - 制作公共底部文件
-在`zb_users\theme\主题ID\template`目录下添加`header.php`,内容如下：
+在`zb_users\theme\主题ID\template`目录下添加`footer.php`,内容如下：
 ```html
 {* Template Name:公共底部 *}
 <!--版权说明-->
