@@ -1,6 +1,6 @@
 ## 5分钟快速入门
 
-- 1.开启开发者模式
+#### 1.开启开发者模式
 
 在`后台首页`->`应用中心`->`配置`页面开启`启用开发者模式`
 
@@ -8,7 +8,7 @@
 
 可选辅助插件`KOD文件管理`、`Adminer数据库管理`、`debug`
 
-- 2.创建主题并配置主题描述
+#### 2.创建主题并配置主题描述
 
 在`后台首页`->`应用中心`->`新建主题`页面开始主题的创建。
 
@@ -21,9 +21,10 @@
 | 作者名称 | 在主题管理页面显示 |
 | 作者网站 | 点击作者名称的时候会跳转到作者网站 |
 
-- 3.创建模板文件
+#### 3.创建模板文件
 
 在`zb_users\theme\主题ID\template`文件夹下创建模板文件`index.php`和`single.php`。
+
 `index.php`，文件内容如下:
 ```html
 <!DOCTYPE html>
@@ -55,16 +56,16 @@
 </body>
 </html>
 ```
-- 4.启用模板
+#### 4.启用模板
 
 在`后台首页`->`主题管理`页面选择自己的主题，点击`启用`，`启用`后主题会显示到第一个位置，并显示蓝色选中状态。
-- 5.打开前台首页
+#### 5.打开前台首页
 
 此时，我们进入网站首页就可以看到我们写的主题了,至此我们的快速入门就讲完了。
 
 ## template模板布局
 一个网站很多页面都有相同的部分，比如公共的css和js 文件，导航，底部，如何把这些公共部分有效的组织起来呢。
-- 拆分首页
+#### 拆分首页
 ```html
 <!DOCTYPE html>
 <html>
@@ -80,7 +81,7 @@
 </body>
 </html>
 ```
-- 制作公共头部文件
+#### 制作公共头部文件
 在`zb_users\theme\主题ID\template`目录下添加`header.php`,内容如下：
 ```html
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -103,7 +104,7 @@
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{$host}zb_system/xml-rpc/wlwmanifest.xml" />
 {/if}
 ```
-- 制作导航文件
+#### 制作导航文件
 在`zb_users\theme\主题ID\template`目录下添加`c_nav.php`,内容如下：
 ```html
 <div id="divTop">
@@ -119,13 +120,12 @@
 - 制作公共底部文件
 在`zb_users\theme\主题ID\template`目录下添加`footer.php`,内容如下：
 ```html
-{* Template Name:公共底部 *}
 <!--版权说明-->
 {$copyright}
 <!--激活插件-->
 {$footer}
 ```
-- 拼装首页
+#### 拼装首页
 在这一步我们就使用`template`标签来加载公共文件，更改后台首页模板内容如下：
 ```html
 <!DOCTYPE html>
