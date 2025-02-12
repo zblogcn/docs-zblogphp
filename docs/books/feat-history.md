@@ -1,10 +1,19 @@
 # 版本历史
 
-> 创建本页时，我们正在尝试用 `docsify` 重写文档，当前正式版本号为 `1.7.1`；
+> 当前正式版本号为 `1.7.3`；
 >
 > 相关：[Z-Blog 开发大事记](https://www.zblogcn.com/about/ "Z-Blog开发大事记")
 
 # 1.7 Tenet
+- 1.7.3
+  - feat. 添加API
+  - feat. 支持PHP 8.2
+  - feat. 更新jQuery及相关库
+  - feat. 增加完善加密类函数
+  - fix. 完善错误处理机制
+  - fix. 完善API（如ApiExecute调用API等）
+  - fix. 完善调整插件体系
+  - fix. 修复数据库驱动问题
 
 - 1.7.2
   - feat. 后台自适应，增加了后台的手机横版操作支持
