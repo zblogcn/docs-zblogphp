@@ -1,10 +1,41 @@
 # 版本历史
 
-> 当前正式版本号为 `1.7.3`；
+> 当前正式版本号为 `1.7.4`；
 >
 > 相关：[Z-Blog 开发大事记](https://www.zblogcn.com/about/ "Z-Blog开发大事记")
 
 # 1.7 Tenet
+
+- 1.7.4
+  - feat. 支持PHP 8.4
+  - feat. API错误响应中加入moreinfo字段。
+  - feat. 增加登录验证码和csrfToken校验，调整验证码有效期为5分钟，并修改crsf有效时间。
+  - feat. 引入ZC_VERIFYCODE_LENGTH, ZC_VERIFYCODE_MAXANGLE, 和 ZC_VERIFYCODE_MAXOFFSET配置项以增强验证码的安全性。
+  - feat. 删除misc模块并移除链接，减少不必要的资源加载。
+  - feat. 缩略图支持webp和avif格式，提高图片加载速度。
+  - feat. 添加Null2Empty函数用于处理空值情况。
+  - feat. 终结固定域名设置逻辑，优化后台样式。
+  - feat. 网络组件增加addQuery方法及更直观的addFormParam命名。
+  - feat. 支持两种形式的UPDATE语句增量操作。
+  - feat. ShowError函数增加参数，以便于找不到API时提供更多信息。
+  - feat. API错误响应中加入moreinfo字段。
+  - feat. NetWork组件支持PUT上传文件。
+  - feat. 引入ZC_COMMENT_ORDERBY_TIME配置项，默认关闭，影响评论排序。
+  - feat. 引入ZC_LOGS_MORE_INFO设置，控制日志详细程度。
+  - feat. 用户编辑资料时不再强制要求填写邮箱。
+  - fix. 解决模块重复拖动至同一侧栏的问题。
+  - fix. 修正缩略图中文显示问题。
+  - fix. 处理PHP版本低于8时API错误的情况。
+  - fix. 解决php8中trim类函数不支持null的问题。
+  - fix. 修正login.php提交密码原文的问题。
+  - fix. 兼容Module的FileName大小写问题。
+  - fix. 修复固化域名显示script的问题。
+  - fix. 补全VerifyLogin中的缺失代码。
+  - fix. 改进ApiCheckMods报错提示。
+  - fix. 加强外链跳转的安全措施。
+  - fix. 在发表评论时添加对post ID存在的检查。
+  - fix. 修正GetGuestIP逻辑，默认读取remote_addr。
+    
 - 1.7.3
   - feat. 添加API
   - feat. 支持PHP 8.2
