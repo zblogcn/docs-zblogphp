@@ -26,7 +26,7 @@ jobs:
       # Create/update llms-full.txt with contents of all .md files in docs/books
       - name: Generate llms-full.txt
         run: |
-          find docs/books -name "*.md" -print0 | xargs -0 cat | awk '{print} END {print "\n\n"}' > docs/llms-full.txt
+          find docs/books -name "*.md" -print0 | xargs -0 cat | iconv -f ASCII -t UTF-8//IGNORE | awk '{print} END {print "\n\n"}' > docs/llms-full.txt || echo "Failed to generate llms-full.txt"
 
       - name: Install upx CLI
         run: |
