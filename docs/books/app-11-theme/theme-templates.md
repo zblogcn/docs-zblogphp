@@ -1,3 +1,11 @@
+## 本地环境搭建
+将下载后的程序代码解压到你的网站根目录，如`/home/wwwroot/example.com/`，运行你的网站，会自动跳转到安装页面：`http://example.com/zb_install/index.php`。
+
+在安装页面输入您的数据库信息、博客名称、用户名、密码等信息后程序将会自动安装。
+
+本地环境mysql默认账户密码均是root，数据库名为字母或字母加数字
+- [视频教程](https://www.bilibili.com/video/BV1wyZnY2EYq/?share_source=copy_web&vd_source=8a82759c2c3c36bf8a6dcde3d4b74658) 
+
 ## 5分钟快速入门
 
 #### 1.开启开发者模式
@@ -261,7 +269,31 @@ $w['count']=10;    //显示数量
 $w['where_custom']=array();
 $w['where_custom'][]=array('<>', 'log_CateID', '1');
 $result = GetList($w);
-foreach ($result as $related) {
-    echo '<a href="'.$related->Url.'">'.$related->Title.'</a>';
+{foreach $array as $key=>$related}
+{$key+1}-{$related.Time()}--<a href="{$related.Url}" title="{$related.Title}">{$related.Title}</a></li>
+{/foreach}
+```
+## 分类列表
+### 调用全部分类
+```html
+{foreach $categoriesbyorder as $categorynav}
+<li><a href='{$categorynav.Url}'>{$categorynav.Name}</a></li>
+{/foreach}
+```
+### 调用当前子分类的同级分类
+```html
+{php}
+$cid=0;
+if($type=='category'){
+  $cid=$category->RootID?$category->RootID:$category->ID;
+}elseif($type=='article'){
+  $cid=$article->Category->RootID?$article->Category->RootID:$article->Category->ID;
 }
+{/php}
+{if $cid}
+{$zbp->GetCategoryByID($cid)->Name}
+{foreach $categorys[$cid].SubCategorys as $categorynav}
+<li><a href='{$categorynav.Url}'>{$categorynav.Name}</a></li>
+{/foreach}
+{/if}
 ```
