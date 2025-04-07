@@ -240,6 +240,18 @@ array(
   'order_custom' => array('log_ViewNums' => 'DESC', 'log_CommNums' => 'ASC'), //自定义 order
 )
 ```
+#### 调用某个分类下的文章
+```html
+{php}
+$w=array();
+$w['count']=9;   //显示9篇文章
+$w['cate']=1;    //分类ID
+$array=GetList($w);
+{/php}
+{foreach $array as $key=>$related}
+<li><a href="{$related.Url}"><i>{$key+1}</i> {$related.Title} </a></li>
+{/foreach}
+```
 #### 调用同分类文章
 ```html
 {php}
@@ -287,13 +299,13 @@ $result = GetList($w);
 {/foreach}
 ```
 ## 分类列表
-### 调用全部分类
+#### 调用全部分类
 ```html
 {foreach $categoriesbyorder as $categorynav}
 <li><a href='{$categorynav.Url}'>{$categorynav.Name}</a></li>
 {/foreach}
 ```
-### 调用当前子分类的同级分类
+#### 调用当前子分类的同级分类
 ```html
 {php}
 $cid=0;
