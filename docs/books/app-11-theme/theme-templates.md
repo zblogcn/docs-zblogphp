@@ -40,12 +40,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>{$name}-{$title}</title>
+    <link rel="stylesheet" rev="stylesheet" href="{$host}zb_users/theme/{$theme}/style/{$style}.css" type="text/css" media="all"/>
+	  <script src="{$host}zb_system/script/jquery-latest.min.js?v={$version}"></script>
+	  <script src="{$host}zb_system/script/zblogphp.js?v={$version}"></script>
+	  <script src="{$host}zb_system/script/c_html_js_add.php?hash={$html_js_hash}&v={$version}"></script>
+{$header}
 </head>
 <body>
     {foreach $articles as $article}
     <a href="{$article.Url}">{$article.Title}</a>
     {/foreach}
+{$footer}
 </body>
 </html>
 ```
@@ -56,11 +62,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>{$name}-{$title}</title>
+    <link rel="stylesheet" rev="stylesheet" href="{$host}zb_users/theme/{$theme}/style/{$style}.css" type="text/css" media="all"/>
+	  <script src="{$host}zb_system/script/jquery-latest.min.js?v={$version}"></script>
+	  <script src="{$host}zb_system/script/zblogphp.js?v={$version}"></script>
+	  <script src="{$host}zb_system/script/c_html_js_add.php?hash={$html_js_hash}&v={$version}"></script>
+{$header}
 </head>
 <body>
     <h2>{$article.Title}</h2>
-	<div>{$article.Content}</div>
+	  <div>{$article.Content}</div>
+{$footer}
 </body>
 </html>
 ```
@@ -133,6 +145,7 @@
 <!--激活插件-->
 {$footer}
 ```
+- [视频教程](https://www.bilibili.com/video/BV1xpRUY9EKB/)
 #### 拼装首页
 在这一步我们就使用`template`标签来加载公共文件，更改后台首页模板内容如下：
 ```html
