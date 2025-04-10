@@ -83,6 +83,8 @@
 
 此时，我们进入网站首页就可以看到我们写的主题了,至此我们的快速入门就讲完了。
 
+- [视频教程](https://www.bilibili.com/video/BV1xpRUY9EKB/)
+  
 ## template模板布局
 一个网站很多页面都有相同的部分，比如公共的css和js 文件，导航，底部，如何把这些公共部分有效的组织起来呢。
 #### 拆分首页
@@ -145,7 +147,6 @@
 <!--激活插件-->
 {$footer}
 ```
-- [视频教程](https://www.bilibili.com/video/BV1xpRUY9EKB/)
 #### 拼装首页
 在这一步我们就使用`template`标签来加载公共文件，更改后台首页模板内容如下：
 ```html
@@ -167,6 +168,8 @@
 </body>
 </html>
 ```
+
+- [视频教程](https://www.bilibili.com/video/BV1Y1duYbEBm/)
 
 ## 列表页
 首页、分类页、用户页、日期页和标签页都是用的index.php模板页面，如想个性化设置每个页面的模板，可以这样判断
