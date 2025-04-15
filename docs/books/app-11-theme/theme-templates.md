@@ -171,7 +171,8 @@
 
 - [视频教程](https://www.bilibili.com/video/BV1Y1duYbEBm/)
 
-## 列表页
+## 页面判断
+#### 列表页
 首页、分类页、用户页、日期页和标签页都是用的index.php模板页面，如想个性化设置每个页面的模板，可以这样判断
 ```html
 {if $type=='index'&&$page=='1'}
@@ -195,6 +196,35 @@
 {/if}
 ```
 然后新建相应的模板文件，c_list这里的命名随意，只要和模板文件名一致即可。文档这样起名是为了方便管理。
+
+#### 列表页
+{if $article.Type==ZC_POST_TYPE_ARTICLE}
+<!--/*判断文章页*/-->
+{template:post-single}
+{else}
+<!--/*判断单页*/-->
+{template:post-page}
+{/if}
+
+#### 页面说明
+在网站 \zb_users\theme\主题ID\ 文件夹下创建 template.json
+```json
+  {
+      "id": "主题ID",
+      "templates": [
+          {
+              "filename": "index",
+              "type": "list",
+              "name": "列表自动模板"
+          },
+          {
+              "filename": "single",
+              "type": "single",
+              "name": "文章/单页自动模板"
+          }
+      ]
+  }
+```
 
 ## 导航标签制作
 
