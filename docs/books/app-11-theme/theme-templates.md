@@ -198,6 +198,7 @@
 然后新建相应的模板文件，c_list这里的命名随意，只要和模板文件名一致即可。文档这样起名是为了方便管理。
 
 #### 内页
+```html
 {if $article.Type==ZC_POST_TYPE_ARTICLE}
 <!--/*判断文章内页*/-->
 {template:post-single}
@@ -205,6 +206,7 @@
 <!--/*判断单页*/-->
 {template:post-page}
 {/if}
+```
 
 #### 页面说明
 在网站 \zb_users\theme\主题ID\ 文件夹下创建 template.json
