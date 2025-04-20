@@ -209,6 +209,7 @@
 ```
 
 #### 页面说明
+对主题模板文件添加描述信息
 在网站 \zb_users\theme\主题ID\ 文件夹下创建 template.json
 ```json
   {
@@ -226,6 +227,21 @@
           }
       ]
   }
+```
+
+type类型
+```json
+- index           首页
+- list            列表页
+  - author        作者页
+  - category      分类页
+  - date          时间页
+  - tag           标签页
+- single          单页面（含文章与页面）
+  - article       文章页
+  - page          单页页面页
+- search          搜索
+- 404             404
 ```
 
 ## 导航标签制作
