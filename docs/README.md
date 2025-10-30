@@ -32,7 +32,7 @@ Z-Blog 的官方博客：https://blog.zblogcn.com/
 
 ZBlogger 技术交流中心：https://bbs.zblogcn.com/
 
-Z-Blog 用户中心：https://uc.zblogcn.com/
+Z-Blog 用户中心：https://user.zblogcn.com/
 
 Z-Blog 更新及下载服务：https://update.zblogcn.com/
 
