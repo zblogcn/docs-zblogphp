@@ -14,7 +14,7 @@
 
 `zblogcn/docs-zblogphp`：https://github.com/zblogcn/docs-zblogphp 「[线上地址](https://docs.zblogcn.com/php/#/ "Z-BlogPHP 官方文档")」 「[文档规范](books/guide-docs "docs-zblogphp 文档规范")」
 
-`docs-zblogphp-tamplate-markup`：https://github.com/wdssmq/docs-zblogphp-tamplate-markup 「[线上地址](https://docs.zblogcn.com/php/markup/ "Z-BlogPHP 模板语法汇总")」
+`docs-zblogphp-tamplate-markup`：https://github.com/wdssmq/docs-zblogphp-tamplate-markup 「[线上地址](https://docs.zblogcn.com/php/markup/index.html "Z-BlogPHP 模板语法汇总")」
 
 ## 免责申明
 
