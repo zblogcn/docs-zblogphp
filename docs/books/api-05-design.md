@@ -37,13 +37,11 @@ POST 表示“新增”、“修改”和“删除”操作，对应数据库中
 
 ## 公共请求消息头
 
-| 消息头（Header） | 是否必需 | 示例值                          | 说明                                                                 |
-| ---------------- | -------- | ------------------------------- | -------------------------------------------------------------------- |
-| Content-Type     | 可选     | application/json; charset=utf-8 | POST方法提交需要设置为application/x-www-form-urlencoded;charset=utf-8<br />使用 PostMan 调用 upload/post 接口提交附件时需要设置为 form-data<br />服务端始终返回 JSON 格式内容。 |
-| Accept-Encoding  | 可选     | gzip, deflate, br               | 客户端接受的压缩算法                                                 |
-| User-Agent       | 可选     | Mozilla/5.0                     | -                                                                    |
-| Referer          | 可选     | `https://example.com/`          | 来源地址                                                             |
-| Accept-Language  | 可选     | zh-cn                           | 客户端接受的语言代码                                                 |
+POST方法提交需要设置 Content-Type 为 application/x-www-form-urlencoded;charset=utf-8
+
+使用 PostMan 等调用 upload/post 接口提交附件时需要设置为 form-data
+
+服务端始终返回 JSON 格式内容。 |
 
 
 ## 权限认证
