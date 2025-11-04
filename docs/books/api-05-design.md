@@ -37,11 +37,9 @@ POST 表示“新增”、“修改”和“删除”操作，对应数据库中
 
 ## 公共请求消息头
 
-POST方法提交需要设置 Content-Type 为 application/x-www-form-urlencoded;charset=utf-8
-
 使用 PostMan 等调用 upload/post 接口提交附件时需要设置为 form-data
 
-服务端始终返回 JSON 格式内容。 |
+服务端始终返回 JSON 格式内容。
 
 
 ## 权限认证
