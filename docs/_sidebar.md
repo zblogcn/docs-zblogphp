@@ -5,6 +5,7 @@
   - [插件和主题](books/start-15-apps)
   - [文件结构](books/start-20-structures)
   - [常见问题](books/start-25-faq)
+  - [伪静态配置](books/start-30-rewrite)
 
 - 应用开发
 
