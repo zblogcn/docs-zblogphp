@@ -83,7 +83,7 @@
 
 在 Z-BlogPHP 模板中，可通过`{$var}`、`{$obj.a}`来输出「文本或数字类型」的「变量或对象属性」，其中后者会编译为`<?php echo $obj->a;?>`；
 
-**系统内定义的「模板标签列表」请点击右边链接查看：「[Z-BlogPHP 模板标签手册](./../../markup/ "Z-BlogPHP 模板标签手册")」；**
+**系统内定义的「模板标签列表」请点击右边链接查看：「[Z-BlogPHP 模板标签手册](https://docs.zblogcn.com/php/markup/index.html "Z-BlogPHP 模板标签手册")」；**
 
 **注：**
 1. 部分标签只能在特定的页面类型（`$type`取值）或上下文中才能使用；
