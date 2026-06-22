@@ -129,15 +129,15 @@
 #### 制作导航文件
 在`zb_users\theme\主题ID\template`目录下添加`c_nav.php`,内容如下：
 ```html
-<div id="divTop">
+<header id="divTop">
     <h1 id="BlogTitle"><a href="{$host}">{$name}</a></h1>
     <h2 id="BlogSubTitle">{$subname}</h2>
-</div>
-<div id="divNavBar">
+</header>
+<nav id="divNavBar">
     <ul>
         {module:navbar}
     </ul>
-</div>
+</nav>
 ```
 - 制作公共底部文件
 在`zb_users\theme\主题ID\template`目录下添加`footer.php`,内容如下：
@@ -160,9 +160,9 @@
 <body>
 <!--加载导航文件-->
 {template:c_nav}
-<div class="container">
+<main class="container">
     <!--主要内容-->
-</div>
+</main>
 {template:footer}
 <!--本页面自定义的js-->
 </body>
@@ -208,7 +208,7 @@
 {/if}
 ```
 
-#### 页面说明
+### 页面说明（template.json）
 对主题模板文件添加描述信息
 在网站 \zb_users\theme\主题ID\ 文件夹下创建 template.json
 ```json
