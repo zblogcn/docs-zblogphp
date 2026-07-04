@@ -142,10 +142,12 @@
 - 制作公共底部文件
 在`zb_users\theme\主题ID\template`目录下添加`footer.php`,内容如下：
 ```html
-<!--版权说明-->
-{$copyright}
-<!--激活插件-->
-{$footer}
+<footer>
+    <!--版权说明-->
+    {$copyright}
+    <!--激活插件-->
+    {$footer}
+</footer>
 ```
 #### 拼装首页
 在这一步我们就使用`template`标签来加载公共文件，更改后台首页模板内容如下：
