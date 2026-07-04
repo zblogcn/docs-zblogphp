@@ -84,7 +84,7 @@
 此时，我们进入网站首页就可以看到我们写的主题了,至此我们的快速入门就讲完了。
 
 - [视频教程](https://www.bilibili.com/video/BV1xpRUY9EKB/)
-  
+
 ## template模板布局
 一个网站很多页面都有相同的部分，比如公共的css和js 文件，导航，底部，如何把这些公共部分有效的组织起来呢。
 #### 拆分首页
@@ -199,6 +199,8 @@
 ```
 然后新建相应的模板文件，c_list这里的命名随意，只要和模板文件名一致即可。文档这样起名是为了方便管理。
 
+- [视频教程](https://www.bilibili.com/video/BV1nrdfYLEc9/)
+
 #### 内页
 ```html
 {if $article.Type==ZC_POST_TYPE_ARTICLE}
@@ -210,7 +212,7 @@
 {/if}
 ```
 
-### 页面说明（template.json）
+#### 页面说明（template.json）
 对主题模板文件添加描述信息
 在网站 \zb_users\theme\主题ID\ 文件夹下创建 template.json
 ```json
@@ -246,6 +248,9 @@ type类型
 - 404             404
 ```
 
+- [视频教程](https://www.bilibili.com/video/BV1sy5fztEJa/)
+
+
 ## 导航标签制作
 
 导航标签用于生成前台导航,标签`{module:navbar}`
@@ -270,6 +275,8 @@ zblog的导航默认只支持到二级导航，自定义样式可参考以下步
 {module:navbar}
 ```
 - 5.这个时候就可以在后台-》模块管理-》导航栏，编辑里面配置导航了。
+
+- [视频教程](https://www.bilibili.com/video/BV1hyoVYzELk/)
 
 ## 自定义区域调用文章列表
 ```html
