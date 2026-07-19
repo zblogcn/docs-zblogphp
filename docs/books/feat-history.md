@@ -2,47 +2,47 @@
 
 > 当前正式版本号为 `1.7.4`；
 >
-> 相关：[Z-Blog 开发大事记](https://www.zblogcn.com/about/ "Z-Blog开发大事记")
+> 相关：[Z-Blog 开发大事记](https://www.zblogcn.com/about/ "Z-Blog 开发大事记")
 
 # 1.7 Tenet
 
 - 1.7.4
-  - feat. 支持PHP 8.4
-  - feat. API错误响应中加入moreinfo字段。
-  - feat. 增加登录验证码和csrfToken校验，调整验证码有效期为5分钟，并修改crsf有效时间。
-  - feat. 引入ZC_VERIFYCODE_LENGTH, ZC_VERIFYCODE_MAXANGLE, 和 ZC_VERIFYCODE_MAXOFFSET配置项以增强验证码的安全性。
-  - feat. 删除misc模块并移除链接，减少不必要的资源加载。
-  - feat. 缩略图支持webp和avif格式，提高图片加载速度。
-  - feat. 添加Null2Empty函数用于处理空值情况。
+  - feat. 支持 PHP 8.4
+  - feat. API 错误响应中加入 moreinfo 字段。
+  - feat. 增加登录验证码和 csrfToken 校验，调整验证码有效期为 5 分钟，并修改 crsf 有效时间。
+  - feat. 引入 ZC_VERIFYCODE_LENGTH, ZC_VERIFYCODE_MAXANGLE, 和 ZC_VERIFYCODE_MAXOFFSET 配置项以增强验证码的安全性。
+  - feat. 删除 misc 模块并移除链接，减少不必要的资源加载。
+  - feat. 缩略图支持 webp 和 avif 格式，提高图片加载速度。
+  - feat. 添加 Null2Empty 函数用于处理空值情况。
   - feat. 终结固定域名设置逻辑，优化后台样式。
-  - feat. 网络组件增加addQuery方法及更直观的addFormParam命名。
-  - feat. 支持两种形式的UPDATE语句增量操作。
-  - feat. ShowError函数增加参数，以便于找不到API时提供更多信息。
-  - feat. API错误响应中加入moreinfo字段。
-  - feat. NetWork组件支持PUT上传文件。
-  - feat. 引入ZC_COMMENT_ORDERBY_TIME配置项，默认关闭，影响评论排序。
-  - feat. 引入ZC_LOGS_MORE_INFO设置，控制日志详细程度。
+  - feat. 网络组件增加 addQuery 方法及更直观的 addFormParam 命名。
+  - feat. 支持两种形式的 UPDATE 语句增量操作。
+  - feat. ShowError 函数增加参数，以便于找不到 API 时提供更多信息。
+  - feat. API 错误响应中加入 moreinfo 字段。
+  - feat. NetWork 组件支持 PUT 上传文件。
+  - feat. 引入 ZC_COMMENT_ORDERBY_TIME 配置项，默认关闭，影响评论排序。
+  - feat. 引入 ZC_LOGS_MORE_INFO 设置，控制日志详细程度。
   - feat. 用户编辑资料时不再强制要求填写邮箱。
   - fix. 解决模块重复拖动至同一侧栏的问题。
   - fix. 修正缩略图中文显示问题。
-  - fix. 处理PHP版本低于8时API错误的情况。
-  - fix. 解决php8中trim类函数不支持null的问题。
-  - fix. 修正login.php提交密码原文的问题。
-  - fix. 兼容Module的FileName大小写问题。
-  - fix. 修复固化域名显示script的问题。
-  - fix. 补全VerifyLogin中的缺失代码。
-  - fix. 改进ApiCheckMods报错提示。
+  - fix. 处理 PHP 版本低于 8 时 API 错误的情况。
+  - fix. 解决 php8 中 trim 类函数不支持 null 的问题。
+  - fix. 修正 login.php 提交密码原文的问题。
+  - fix. 兼容 Module 的 FileName 大小写问题。
+  - fix. 修复固化域名显示 script 的问题。
+  - fix. 补全 VerifyLogin 中的缺失代码。
+  - fix. 改进 ApiCheckMods 报错提示。
   - fix. 加强外链跳转的安全措施。
-  - fix. 在发表评论时添加对post ID存在的检查。
-  - fix. 修正GetGuestIP逻辑，默认读取remote_addr。
+  - fix. 在发表评论时添加对 post ID 存在的检查。
+  - fix. 修正 GetGuestIP 逻辑，默认读取 remote_addr。
     
 - 1.7.3
-  - feat. 添加API
-  - feat. 支持PHP 8.2
-  - feat. 更新jQuery及相关库
+  - feat. 添加 API
+  - feat. 支持 PHP 8.2
+  - feat. 更新 jQuery 及相关库
   - feat. 增加完善加密类函数
   - fix. 完善错误处理机制
-  - fix. 完善API（如ApiExecute调用API等）
+  - fix. 完善 API（如 ApiExecute 调用 API 等）
   - fix. 完善调整插件体系
   - fix. 修复数据库驱动问题
 
@@ -98,8 +98,8 @@
 
 - 1.7.0 [详细](https://blog.zblogcn.com/2021/02/08/117/ "1.7.0 Tenet")
   - 重要更新
-  - feat. 增加「链式 SQL」查询功能；「[链式 SQL](books/dev-35-chainquery "API文档")」
-  - feat. 增加 API 功能；「[API 文档](books/dev-api-design "API文档")」
+  - feat. 增加「链式 SQL」查询功能；「[链式 SQL](books/dev-35-chainquery "API 文档")」
+  - feat. 增加 API 功能；「[API 文档](books/dev-api-design "API 文档")」
   - feat. 字体图标；「[Z-Blog icons demo](https://static.zblogcn.com/image/icon/demo.html "Z-Blog icons demo")」
   - feat. 内置缩略图基类；「[zblogcn/zblogphp/search?q=Thumb](https://github.com/zblogcn/zblogphp/search?q=Thumb "Search · Thumb")」
   - feat. 全新的可配置的 URL 路由机制；
