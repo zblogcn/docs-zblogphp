@@ -1,14 +1,10 @@
-name: Deploy documentation to EdgeOne Makers
+name: Deploy aggregated documentation to EdgeOne Makers
 
 on:
   push:
     branches: [main]
-    paths:
-      - 'docs/**'
-      - '.github/workflows/edgeone-makers.yml'
   workflow_dispatch:
 
-# Avoid two deployments racing when several commits are pushed in quick succession.
 concurrency:
   group: edgeone-makers-docs-home-production
   cancel-in-progress: true
@@ -18,26 +14,57 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-
     steps:
-      - name: Check out repository
+      - name: Check out triggering repository
         uses: actions/checkout@v4
-
-      # EdgeOne Makers is deployed through its Node.js CLI. The Docsify site is
-      # already static, so no site build is needed.
+        with:
+          path: source/current
+          persist-credentials: false
+      - name: Check out documentation home
+        uses: actions/checkout@v4
+        with:
+          repository: zblogcn/docs-home
+          ref: main
+          path: source/docs-home
+          persist-credentials: false
+      - name: Check out PHP documentation
+        uses: actions/checkout@v4
+        with:
+          repository: zblogcn/docs-zblogphp
+          ref: main
+          path: source/docs-zblogphp
+          persist-credentials: false
+      - name: Check out ASP documentation
+        uses: actions/checkout@v4
+        with:
+          repository: zblogcn/docs-zblogasp
+          ref: main
+          path: source/docs-zblogasp
+          persist-credentials: false
+      - name: Use the triggering revision
+        shell: bash
+        run: |
+          case "$GITHUB_REPOSITORY" in
+            zblogcn/docs-home) target=docs-home ;;
+            zblogcn/docs-zblogphp) target=docs-zblogphp ;;
+            zblogcn/docs-zblogasp) target=docs-zblogasp ;;
+            *) echo "Unsupported repository: $GITHUB_REPOSITORY" >&2; exit 1 ;;
+          esac
+          rm -rf "source/$target"
+          mv source/current "source/$target"
+      - name: Assemble deployment files
+        shell: bash
+        run: |
+          rm -rf edgeone-deploy
+          mkdir -p edgeone-deploy/php edgeone-deploy/asp
+          rsync -a --exclude='.git' --exclude='.github' --exclude='README.md' source/docs-home/ edgeone-deploy/
+          rsync -a --exclude='.git' source/docs-zblogphp/docs/ edgeone-deploy/php/
+          rsync -a --exclude='.git' source/docs-zblogasp/docs/ edgeone-deploy/asp/
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22.11.0'
-
-      # Makers deploys a whole directory rather than synchronizing to a remote
-      # subdirectory. Create the desired /php path in the deployable directory.
-      - name: Prepare php deployment directory
-        run: |
-          mkdir -p edgeone-deploy/php
-          cp -a docs/. edgeone-deploy/php/
-
-      - name: Deploy docs to EdgeOne Makers
+      - name: Deploy to EdgeOne Makers
         env:
           EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
         run: npx --yes edgeone makers deploy ./edgeone-deploy -n docs-home -t "$EDGEONE_API_TOKEN" -e production
