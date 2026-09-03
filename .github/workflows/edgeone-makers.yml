@@ -60,6 +60,8 @@ jobs:
           rsync -a --exclude='.git' --exclude='.github' --exclude='README.md' source/docs-home/ edgeone-deploy/
           rsync -a --exclude='.git' source/docs-zblogphp/docs/ edgeone-deploy/php/
           rsync -a --exclude='.git' source/docs-zblogasp/docs/ edgeone-deploy/asp/
+          cp edgeone-deploy/php/_sidebar.md edgeone-deploy/php/books/_sidebar.md
+          cp edgeone-deploy/php/_navbar.md edgeone-deploy/php/books/_navbar.md
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
